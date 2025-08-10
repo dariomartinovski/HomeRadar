@@ -1,12 +1,113 @@
-# Node & Angular
-frontend/node_modules/
-frontend/dist/
+# ========================================
+# FRONTEND (Angular)
+# ========================================
 
-# Kotlin/Gradle
-backend/build/
-backend/.gradle/
+# Compiled output
+home-radar-frontend/dist
+home-radar-frontend/tmp
+home-radar-frontend/out-tsc
+home-radar-frontend/bazel-out
 
-# OS / IDE
+# Node
+home-radar-frontend/node_modules
+home-radar-frontend/npm-debug.log
+home-radar-frontend/yarn-error.log
+
+# IDEs and editors
+home-radar-frontend/.idea/
+home-radar-frontend/.project
+home-radar-frontend/.classpath
+home-radar-frontend/.c9/
+home-radar-frontend/*.launch
+home-radar-frontend/.settings/
+home-radar-frontend/*.sublime-workspace
+
+# Visual Studio Code
+home-radar-frontend/.vscode/*
+!home-radar-frontend/.vscode/settings.json
+!home-radar-frontend/.vscode/tasks.json
+!home-radar-frontend/.vscode/launch.json
+!home-radar-frontend/.vscode/extensions.json
+home-radar-frontend/.history/*
+
+# Miscellaneous
+home-radar-frontend/.angular/cache
+home-radar-frontend/.sass-cache/
+home-radar-frontend/connect.lock
+home-radar-frontend/coverage
+home-radar-frontend/libpeerconnection.log
+home-radar-frontend/testem.log
+home-radar-frontend/typings
+
+# System files
+home-radar-frontend/.DS_Store
+home-radar-frontend/Thumbs.db
+
+
+# ========================================
+# BACKEND (Kotlin / Gradle)
+# ========================================
+
+# Gradle
+home-radar-backend/.gradle
+home-radar-backend/build/
+!home-radar-backend/gradle/wrapper/gradle-wrapper.jar
+!home-radar-backend/**/src/main/**/build/
+!home-radar-backend/**/src/test/**/build/
+
+# IntelliJ IDEA
+home-radar-backend/.idea/modules.xml
+home-radar-backend/.idea/jarRepositories.xml
+home-radar-backend/.idea/compiler.xml
+home-radar-backend/.idea/libraries/
+home-radar-backend/*.iws
+home-radar-backend/*.iml
+home-radar-backend/*.ipr
+home-radar-backend/out/
+!home-radar-backend/**/src/main/**/out/
+!home-radar-backend/**/src/test/**/out/
+
+# Kotlin
+home-radar-backend/.kotlin
+
+# Eclipse
+home-radar-backend/.apt_generated
+home-radar-backend/.classpath
+home-radar-backend/.factorypath
+home-radar-backend/.project
+home-radar-backend/.settings
+home-radar-backend/.springBeans
+home-radar-backend/.sts4-cache
+home-radar-backend/bin/
+!home-radar-backend/**/src/main/**/bin/
+!home-radar-backend/**/src/test/**/bin/
+
+# NetBeans
+home-radar-backend/nbproject/private/
+home-radar-backend/nbbuild/
+home-radar-backend/dist/
+home-radar-backend/nbdist/
+home-radar-backend/.nb-gradle/
+
+# VS Code
+home-radar-backend/.vscode/
+
+# Mac OS
+home-radar-backend/.DS_Store
+
+
+# ========================================
+# GLOBAL IGNORES (All folders)
+# ========================================
+
+# Logs
 *.log
+
+# OS-specific
 .DS_Store
+Thumbs.db
+
+# IDEs
 .idea/
+.vscode/
+*.iml
