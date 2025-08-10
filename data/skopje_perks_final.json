@@ -1,0 +1,4496 @@
+[
+  {
+    "title": "Рамстор",
+    "lat": 41.9919017,
+    "lon": 21.4266878,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 08:00-22:00; Su 10:00-20:00"
+  },
+  {
+    "title": "Пелистер",
+    "lat": 41.9953401,
+    "lon": 21.4314898,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Th 07:00-00:00; Fr-Sa 07:00-01:00; Su 10:30-00:00"
+  },
+  {
+    "title": "SP Planet",
+    "lat": 42.0068279,
+    "lon": 21.3649348,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Маркет Виврест",
+    "lat": 41.9943861,
+    "lon": 21.4118736,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Маркет Авела",
+    "lat": 41.9941366,
+    "lon": 21.411684,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_1",
+    "lat": 41.9943247,
+    "lon": 21.4119774,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Бифе Челик",
+    "lat": 41.9936863,
+    "lon": 21.4116647,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Sa 08:00-21:30"
+  },
+  {
+    "title": "Тинекс Ѓорче Петров",
+    "lat": 42.0070862,
+    "lon": 21.3634616,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 08:00-22:00; Su 08:00-20:00"
+  },
+  {
+    "title": "Интермецо",
+    "lat": 41.9947432,
+    "lon": 21.4140669,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Benneton",
+    "lat": 41.9948867,
+    "lon": 21.4232268,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "AMG",
+    "lat": 41.9948604,
+    "lon": 21.4230113,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Strip",
+    "lat": 41.9955693,
+    "lon": 21.4253358,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_2",
+    "lat": 41.9993948,
+    "lon": 21.4394478,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Журнал",
+    "lat": 41.9768256,
+    "lon": 21.4438183,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Fresh Kantina",
+    "lat": 42.0051951,
+    "lon": 21.4081572,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Hedi's Market 657",
+    "lat": 41.9947806,
+    "lon": 21.5045452,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Su 07:30-21:00"
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_3",
+    "lat": 41.9982073,
+    "lon": 21.5009052,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Hunter’s Lodge “Kamnik”",
+    "lat": 42.0072516,
+    "lon": 21.4871217,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "нола Бар",
+    "lat": 41.9947703,
+    "lon": 21.4138028,
+    "type": "BAR",
+    "opening_hours": "Mo-Fr 09:00-24:00; Sa,Su 00:00-01:00,09:00-24:00"
+  },
+  {
+    "title": "Веро",
+    "lat": 41.9845218,
+    "lon": 21.4688286,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 08:00-22:00"
+  },
+  {
+    "title": "Под Кале",
+    "lat": 42.0047876,
+    "lon": 21.4307036,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_BAR_1",
+    "lat": 41.9951932,
+    "lon": 21.4345539,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Кај Џино",
+    "lat": 41.9943261,
+    "lon": 21.4342799,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo 08:00-24:00, Tu,We,Fr,Sa 09:00-24:00, Th 09:00-23:00, Su 09:00-01:00"
+  },
+  {
+    "title": "Плаза де Торос",
+    "lat": 41.9952456,
+    "lon": 21.4350117,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Веро 7",
+    "lat": 41.9947502,
+    "lon": 21.4345769,
+    "type": "GROCERY_STORE",
+    "opening_hours": "08:00-22:00"
+  },
+  {
+    "title": "Caffe Skopje",
+    "lat": 41.9952588,
+    "lon": 21.4309529,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Su 08:00-23:00"
+  },
+  {
+    "title": "9",
+    "lat": 41.9934306,
+    "lon": 21.4162239,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_BAR_2",
+    "lat": 41.9931627,
+    "lon": 21.4158549,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Bistro Opera Pub",
+    "lat": 41.9984414,
+    "lon": 21.4373453,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "24/7"
+  },
+  {
+    "title": "Мартини",
+    "lat": 42.0031973,
+    "lon": 21.400023,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Бугати",
+    "lat": 42.0047028,
+    "lon": 21.4159604,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Tinex",
+    "lat": 41.9925332,
+    "lon": 21.4370214,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Fr 08:00-21:30; Sa 08:00-22:00; Su,PH off"
+  },
+  {
+    "title": "Tinex",
+    "lat": 41.9903083,
+    "lon": 21.411176,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Енрико",
+    "lat": 42.0031464,
+    "lon": 21.3995191,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_KINDERGARDEN_1",
+    "lat": 42.0387406,
+    "lon": 21.4242968,
+    "type": "KINDERGARDEN",
+    "opening_hours": null
+  },
+  {
+    "title": "ООУ „Свети Климент Охридски“ - Бутел",
+    "lat": 42.0401876,
+    "lon": 21.445394,
+    "type": "MIDDLE_SCHOOL",
+    "opening_hours": null
+  },
+  {
+    "title": "Музичко-балетско училиште „Илија Николовски - Луј“",
+    "lat": 41.9983639,
+    "lon": 21.4355617,
+    "type": "MIDDLE_SCHOOL",
+    "opening_hours": null
+  },
+  {
+    "title": "Prince",
+    "lat": 42.0197651,
+    "lon": 21.4350123,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Prince",
+    "lat": 42.0198926,
+    "lon": 21.4349372,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Две капки",
+    "lat": 42.0028178,
+    "lon": 21.3925931,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "иВ",
+    "lat": 41.9869006,
+    "lon": 21.4368796,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Партенија Зографски",
+    "lat": 41.982566,
+    "lon": 21.4363017,
+    "type": "MIDDLE_SCHOOL",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_BAR_3",
+    "lat": 41.9932121,
+    "lon": 21.441755,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Клуб Капан Ан",
+    "lat": 42.0001669,
+    "lon": 21.4369808,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Туpиcт",
+    "lat": 42.0003099,
+    "lon": 21.4367576,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Жито Маркети",
+    "lat": 41.9864614,
+    "lon": 21.4676134,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 07:30-21:00"
+  },
+  {
+    "title": "UNKOWN_RESTAURANT_1",
+    "lat": 42.0064872,
+    "lon": 21.3510028,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Жито Маркет",
+    "lat": 42.0046326,
+    "lon": 21.5033827,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Кафе Змија",
+    "lat": 42.0009888,
+    "lon": 21.417262,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Кафе Филипос",
+    "lat": 42.0007963,
+    "lon": 21.4175044,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Градинка Мирче Ацев",
+    "lat": 42.0183708,
+    "lon": 21.3558666,
+    "type": "KINDERGARDEN",
+    "opening_hours": null
+  },
+  {
+    "title": "Топаз",
+    "lat": 41.9979155,
+    "lon": 21.4122694,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Веки",
+    "lat": 42.000855,
+    "lon": 21.3989291,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Чешма",
+    "lat": 41.9841333,
+    "lon": 21.4390455,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_RESTAURANT_2",
+    "lat": 41.983244,
+    "lon": 21.4391421,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Ресторан Трпеза",
+    "lat": 41.9710708,
+    "lon": 21.4455687,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Ресторан Кум",
+    "lat": 41.9772623,
+    "lon": 21.4379912,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Игротека Робин Худ",
+    "lat": 41.9824944,
+    "lon": 21.4357786,
+    "type": "KINDERGARDEN",
+    "opening_hours": null
+  },
+  {
+    "title": "Рустикана",
+    "lat": 41.9997295,
+    "lon": 21.4078483,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Su 10:00-00:00"
+  },
+  {
+    "title": "Долап",
+    "lat": 41.9985008,
+    "lon": 21.415982,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Рептил",
+    "lat": 41.9813069,
+    "lon": 21.4383256,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Дом за слепи",
+    "lat": 41.9757689,
+    "lon": 21.4411963,
+    "type": "MIDDLE_SCHOOL",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_4",
+    "lat": 42.0442939,
+    "lon": 21.3535383,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Meraklii",
+    "lat": 42.0299906,
+    "lon": 21.3508185,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_RESTAURANT_3",
+    "lat": 42.0069568,
+    "lon": 21.3651275,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Gigo",
+    "lat": 42.0063093,
+    "lon": 21.3655868,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Asura Market",
+    "lat": 42.0078582,
+    "lon": 21.3688239,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_5",
+    "lat": 42.0079476,
+    "lon": 21.3666436,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_6",
+    "lat": 42.0071003,
+    "lon": 21.3681193,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_7",
+    "lat": 42.019061,
+    "lon": 21.3539491,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_8",
+    "lat": 42.0159623,
+    "lon": 21.3579938,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Ресторан Рагуза 919",
+    "lat": 41.9782792,
+    "lon": 21.4820381,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Hürrem Shisha Lounge",
+    "lat": 41.9993401,
+    "lon": 21.4358564,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Старо Буре",
+    "lat": 42.0035286,
+    "lon": 21.3975417,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_9",
+    "lat": 42.0061557,
+    "lon": 21.376509,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "62",
+    "lat": 42.0065185,
+    "lon": 21.3741187,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "КАМ Маркет",
+    "lat": 41.9801294,
+    "lon": 21.4753067,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 08:00-21:30"
+  },
+  {
+    "title": "Рамстор",
+    "lat": 41.9794894,
+    "lon": 21.4764231,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Revija",
+    "lat": 42.0034224,
+    "lon": 21.398346,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "КОСМО Тинекс",
+    "lat": 42.0034268,
+    "lon": 21.3989021,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Ресторан Одисеја",
+    "lat": 41.9843967,
+    "lon": 21.4871492,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Su 09:10-24:00"
+  },
+  {
+    "title": "UNKOWN_RESTAURANT_4",
+    "lat": 42.0067805,
+    "lon": 21.3651314,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Gradinka Mirce Acev",
+    "lat": 42.006901,
+    "lon": 21.3508793,
+    "type": "KINDERGARDEN",
+    "opening_hours": null
+  },
+  {
+    "title": "Крчма",
+    "lat": 41.9946274,
+    "lon": 21.4151525,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_10",
+    "lat": 41.9820625,
+    "lon": 21.4331563,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Marana",
+    "lat": 41.9904847,
+    "lon": 21.4204907,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_11",
+    "lat": 41.990702,
+    "lon": 21.4208877,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Pastel Wine & Dine",
+    "lat": 41.9947645,
+    "lon": 21.4245254,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Fr 06:30-21:00; Sa 06:30-17:00; Su 06:30-16:00"
+  },
+  {
+    "title": "511",
+    "lat": 41.9922398,
+    "lon": 21.4163482,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Ли",
+    "lat": 41.997291,
+    "lon": 21.4091295,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Акорд",
+    "lat": 41.9972291,
+    "lon": 21.4086601,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "ИТ Академија Александрија",
+    "lat": 41.9967522,
+    "lon": 21.4073092,
+    "type": "MIDDLE_SCHOOL",
+    "opening_hours": null
+  },
+  {
+    "title": "Пицерија Либертас",
+    "lat": 41.9987097,
+    "lon": 21.4207447,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Кам Маркет",
+    "lat": 41.9810056,
+    "lon": 21.4323628,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Ексклузив",
+    "lat": 41.9775109,
+    "lon": 21.4456487,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Република",
+    "lat": 41.9915282,
+    "lon": 21.4504664,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Su-Th 08:00-24:00, Fr,Sa 08:00-01:00"
+  },
+  {
+    "title": "Кам Маркет",
+    "lat": 41.988882,
+    "lon": 21.4282537,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Тица - Елени",
+    "lat": 42.0019716,
+    "lon": 21.4647397,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "LA MER - Coffe & Wine bar",
+    "lat": 41.9976137,
+    "lon": 21.4295202,
+    "type": "BAR",
+    "opening_hours": "Su-Th 08:00-24:00; Fr-Sa 09:00-01:00"
+  },
+  {
+    "title": "КАМ Маркет",
+    "lat": 42.0026311,
+    "lon": 21.4623331,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Веро 9",
+    "lat": 41.9930392,
+    "lon": 21.4414652,
+    "type": "GROCERY_STORE",
+    "opening_hours": "09:00-22:00"
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_12",
+    "lat": 42.0026491,
+    "lon": 21.4646934,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Аристократ кафе",
+    "lat": 42.0026334,
+    "lon": 21.4644018,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Агровита МК",
+    "lat": 41.9993974,
+    "lon": 21.426528,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Тренд",
+    "lat": 41.9957062,
+    "lon": 21.4304595,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Факултет за музичка уметност",
+    "lat": 41.9973091,
+    "lon": 21.4351329,
+    "type": "FACULTY",
+    "opening_hours": null
+  },
+  {
+    "title": "Дестан",
+    "lat": 41.9987513,
+    "lon": 21.4204158,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Su 09:00-23:00"
+  },
+  {
+    "title": "Ана Кристи",
+    "lat": 42.0034064,
+    "lon": 21.3995909,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Фотка",
+    "lat": 42.0017742,
+    "lon": 21.3992299,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Top Foxx",
+    "lat": 41.9896704,
+    "lon": 21.4768437,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Su-Fr 11:00-24:00, Sa 11:00-01:00"
+  },
+  {
+    "title": "Кафе Мамбо",
+    "lat": 41.9894549,
+    "lon": 21.4758795,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Fr 09:00-21:00; Sa,Su 09:00-24:00"
+  },
+  {
+    "title": "Balila",
+    "lat": 41.9922245,
+    "lon": 21.416522,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Бифиња - Рамстор",
+    "lat": 41.9913688,
+    "lon": 21.4280088,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Ramstore",
+    "lat": 42.0048803,
+    "lon": 21.3922837,
+    "type": "GROCERY_STORE",
+    "opening_hours": "08:00-22:00"
+  },
+  {
+    "title": "Up Cafe",
+    "lat": 41.9950653,
+    "lon": 21.4324491,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Sa 08:00-18:00"
+  },
+  {
+    "title": "Бруклински",
+    "lat": 42.0001581,
+    "lon": 21.4252581,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Бела виста",
+    "lat": 41.9953199,
+    "lon": 21.4347685,
+    "type": "RESTAURANT",
+    "opening_hours": "10:00-24:00, Fr-Sa 10:00-01:00"
+  },
+  {
+    "title": "Електрометал",
+    "lat": 41.9973587,
+    "lon": 21.483821,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 08:00-20:00"
+  },
+  {
+    "title": "UNKOWN_COFFEE_SHOP_1",
+    "lat": 41.995913,
+    "lon": 21.4093297,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Два Елена",
+    "lat": 41.993167,
+    "lon": 21.4080594,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Tinex",
+    "lat": 42.0022482,
+    "lon": 21.3761957,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 08:00-21:30"
+  },
+  {
+    "title": "Badu",
+    "lat": 42.0071574,
+    "lon": 21.3722969,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Арабеска",
+    "lat": 41.9953042,
+    "lon": 21.430269,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Mena",
+    "lat": 42.0027574,
+    "lon": 21.4053391,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Stokomak",
+    "lat": 42.0027484,
+    "lon": 21.4054411,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 07:30-19:00; Su 08:00-16:00"
+  },
+  {
+    "title": "Детска градинка Детелинка - Триангла",
+    "lat": 41.9996873,
+    "lon": 21.4940443,
+    "type": "KINDERGARDEN",
+    "opening_hours": null
+  },
+  {
+    "title": "ТПД Керол",
+    "lat": 41.9978855,
+    "lon": 21.4940611,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_13",
+    "lat": 41.996356,
+    "lon": 21.4996115,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_14",
+    "lat": 41.9968145,
+    "lon": 21.4999166,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_15",
+    "lat": 41.9989135,
+    "lon": 21.4926325,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Hazel",
+    "lat": 41.994595,
+    "lon": 21.4119198,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Market Kiki",
+    "lat": 42.0197432,
+    "lon": 21.356581,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Фиш",
+    "lat": 42.0131608,
+    "lon": 21.4117168,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Quatro Caffe",
+    "lat": 41.9734649,
+    "lon": 21.446234,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Bass Cafe",
+    "lat": 41.9732771,
+    "lon": 21.4456656,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Градина",
+    "lat": 41.9650429,
+    "lon": 21.4727082,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Bocata",
+    "lat": 41.9955962,
+    "lon": 21.4307786,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Su 08:00-23:00"
+  },
+  {
+    "title": "Маркет Рамстор",
+    "lat": 41.9844445,
+    "lon": 21.4838698,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 08:00-22:00"
+  },
+  {
+    "title": "Игротека Смајли",
+    "lat": 41.9754573,
+    "lon": 21.4440848,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_16",
+    "lat": 41.9761138,
+    "lon": 21.4326551,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Палма",
+    "lat": 41.9885984,
+    "lon": 21.4531326,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Ресторан Bien",
+    "lat": 41.9915731,
+    "lon": 21.4524114,
+    "type": "RESTAURANT",
+    "opening_hours": "Su-We 09:00-24:00, Th-Sa 09:00-01:00"
+  },
+  {
+    "title": "ЗУР Маркет",
+    "lat": 41.9720378,
+    "lon": 21.4722684,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Mon Frere",
+    "lat": 42.0017629,
+    "lon": 21.4370632,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Su 08:00-23:00"
+  },
+  {
+    "title": "Old Town",
+    "lat": 41.999241,
+    "lon": 21.4368849,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Su 10:00-22:00"
+  },
+  {
+    "title": "Nargile Cafe",
+    "lat": 42.0000003,
+    "lon": 21.4358699,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Su 10:00-22:00"
+  },
+  {
+    "title": "Rakija Bar",
+    "lat": 41.9998288,
+    "lon": 21.4358296,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Пивница АН",
+    "lat": 42.0000179,
+    "lon": 21.4366005,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Sa 09:00-24:00; Su 12:00-24:00"
+  },
+  {
+    "title": "Telekom Trend Lounge Bar",
+    "lat": 41.9958677,
+    "lon": 21.4330712,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Su 08:00-24:00"
+  },
+  {
+    "title": "Кафетерија Бистро",
+    "lat": 41.9951617,
+    "lon": 21.4308998,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Th 08:00-24:00; Fr,Sa 08:00-01:00"
+  },
+  {
+    "title": "Gnezdo",
+    "lat": 41.9938562,
+    "lon": 21.430365,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Su 08:00-22:00"
+  },
+  {
+    "title": "Joy cafe & bakery",
+    "lat": 41.9929591,
+    "lon": 21.4302551,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Corsso",
+    "lat": 41.9923772,
+    "lon": 21.4293734,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Th 08:00-00:00; Fr-Sa 08:00-01:00"
+  },
+  {
+    "title": "DM",
+    "lat": 41.993327,
+    "lon": 21.441556,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Dal Fufo - Galija",
+    "lat": 41.9917018,
+    "lon": 21.4231542,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Destan",
+    "lat": 41.9947506,
+    "lon": 21.4319604,
+    "type": "RESTAURANT",
+    "opening_hours": "08:00-23:00"
+  },
+  {
+    "title": "Ла Тераца",
+    "lat": 41.9950911,
+    "lon": 21.4317257,
+    "type": "RESTAURANT",
+    "opening_hours": "08:00-24:00, Fr-Sa 08:00-01:00"
+  },
+  {
+    "title": "Brooklyn Lounge Bar",
+    "lat": 42.0045421,
+    "lon": 21.3910004,
+    "type": "RESTAURANT",
+    "opening_hours": "08:00-00:00; Fr-Sa 08:00-01:00"
+  },
+  {
+    "title": "Кам маркет Козле",
+    "lat": 41.9938437,
+    "lon": 21.401116,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 08:00-22:00"
+  },
+  {
+    "title": "Trend Food Bar",
+    "lat": 42.0043701,
+    "lon": 21.3906574,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "08:00-00:00; Fr-Sa 08:00-01:00"
+  },
+  {
+    "title": "Носталгија",
+    "lat": 41.9953743,
+    "lon": 21.4099065,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "TED",
+    "lat": 41.9993115,
+    "lon": 21.3946356,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Фреш маркет Бојди",
+    "lat": 42.0050579,
+    "lon": 21.3831193,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Кам маркет Тафталиџе",
+    "lat": 42.0017143,
+    "lon": 21.3914204,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 07:30-21:30; Su 07:30-16:00"
+  },
+  {
+    "title": "Томи",
+    "lat": 41.9754208,
+    "lon": 21.4382827,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Тобако Томи",
+    "lat": 41.9758834,
+    "lon": 21.4385402,
+    "type": "GROCERY_STORE",
+    "opening_hours": "24/7"
+  },
+  {
+    "title": "Жито Маркет",
+    "lat": 41.9761625,
+    "lon": 21.4384115,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Grigos Market",
+    "lat": 41.9777179,
+    "lon": 21.4394414,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Брик бар",
+    "lat": 42.0064562,
+    "lon": 21.4270993,
+    "type": "BAR",
+    "opening_hours": "09:00-01:00"
+  },
+  {
+    "title": "Барбакан",
+    "lat": 42.006249,
+    "lon": 21.4063046,
+    "type": "RESTAURANT",
+    "opening_hours": "08:00-01:00"
+  },
+  {
+    "title": "The Gallery",
+    "lat": 42.0038265,
+    "lon": 21.415006,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Th 07:30-24:00, Fr 07:30-01:00, Sa 08:00-01:00, Su 08:00-24:00"
+  },
+  {
+    "title": "MonAmi",
+    "lat": 42.0039722,
+    "lon": 21.4151255,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Рептил маркет",
+    "lat": 42.0035081,
+    "lon": 21.4152599,
+    "type": "GROCERY_STORE",
+    "opening_hours": "07:00 - 21:30"
+  },
+  {
+    "title": "Жапон Кафе Бар",
+    "lat": 42.0040547,
+    "lon": 21.415173,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "07:30 - 23:30"
+  },
+  {
+    "title": "Cafe Bela",
+    "lat": 42.0042809,
+    "lon": 21.4146731,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "09:00 - 00:00"
+  },
+  {
+    "title": "Play Cafe",
+    "lat": 42.0038662,
+    "lon": 21.3921091,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Концепт37",
+    "lat": 41.999411,
+    "lon": 21.4127725,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Веро",
+    "lat": 41.9823773,
+    "lon": 21.4403011,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_17",
+    "lat": 41.9644601,
+    "lon": 21.4602135,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Pizza Amica",
+    "lat": 41.9824716,
+    "lon": 21.4725098,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_COFFEE_SHOP_2",
+    "lat": 41.9898526,
+    "lon": 21.4197114,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Кај Злате",
+    "lat": 41.9921952,
+    "lon": 21.442238,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Медицински Факултет",
+    "lat": 41.9898623,
+    "lon": 21.4246243,
+    "type": "FACULTY",
+    "opening_hours": null
+  },
+  {
+    "title": "бед бунар",
+    "lat": 42.0084895,
+    "lon": 21.4010837,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Кам Маркет",
+    "lat": 42.0248127,
+    "lon": 21.4416628,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "бимекс",
+    "lat": 41.9748528,
+    "lon": 21.4093282,
+    "type": "RESTAURANT",
+    "opening_hours": "9:00-24:00"
+  },
+  {
+    "title": "Пекинг Гарден",
+    "lat": 41.9957324,
+    "lon": 21.4301301,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Sa 11:00-24:00; Su 12:00-23:00"
+  },
+  {
+    "title": "Златна Ружа Капитол Мол",
+    "lat": 41.9859376,
+    "lon": 21.4661426,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Su 08:00-24:00"
+  },
+  {
+    "title": "Авантура",
+    "lat": 41.993734,
+    "lon": 21.4170905,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Makedonska sofra",
+    "lat": 41.9871974,
+    "lon": 21.4365756,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Sa 08:00-01:00"
+  },
+  {
+    "title": "Sky ресторанот",
+    "lat": 41.9973163,
+    "lon": 21.434577,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Amigos Мексиканска Кантина",
+    "lat": 41.9932587,
+    "lon": 21.4300957,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Th 08:00-24:00, Fr,Sa 08:00-01:00, Su 10:00-24:00"
+  },
+  {
+    "title": "Веро 5",
+    "lat": 41.9948735,
+    "lon": 21.4207815,
+    "type": "GROCERY_STORE",
+    "opening_hours": "08:00-22:00; May 01 off"
+  },
+  {
+    "title": "Елиса",
+    "lat": 41.9751785,
+    "lon": 21.4861998,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Su 06:00-21:00"
+  },
+  {
+    "title": "Соул кичен",
+    "lat": 41.9955972,
+    "lon": 21.4338587,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Th 08:00-24:00, Fr,Sa 08:00-01:00, Su 10:00-24:00"
+  },
+  {
+    "title": "Tonnis Bakeri",
+    "lat": 42.0151641,
+    "lon": 21.3990452,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Coffeeshop Company lounge",
+    "lat": 42.0137478,
+    "lon": 21.404147,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Кочо Рацин",
+    "lat": 41.9916779,
+    "lon": 21.4189621,
+    "type": "KINDERGARDEN",
+    "opening_hours": null
+  },
+  {
+    "title": "Belier",
+    "lat": 41.9984995,
+    "lon": 21.4168806,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Ефтинија",
+    "lat": 42.0424608,
+    "lon": 21.3923668,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Beta",
+    "lat": 42.0229923,
+    "lon": 21.4307185,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Juicy and Co",
+    "lat": 42.0048738,
+    "lon": 21.3910392,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Лавче",
+    "lat": 41.9969599,
+    "lon": 21.4160063,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Бабе",
+    "lat": 42.0030463,
+    "lon": 21.4002154,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Clique Bar",
+    "lat": 41.9994346,
+    "lon": 21.4367789,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "24/7"
+  },
+  {
+    "title": "Златна вилушка",
+    "lat": 41.9915295,
+    "lon": 21.4656274,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Sa 12:00-24:00"
+  },
+  {
+    "title": "Kapael Tobacco",
+    "lat": 41.9983625,
+    "lon": 21.4233757,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Su 08:00-01:00"
+  },
+  {
+    "title": "Prikazna",
+    "lat": 42.0033204,
+    "lon": 21.3981384,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "ЗУР Маркет",
+    "lat": 41.980756,
+    "lon": 21.4718709,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 07:00-22:00"
+  },
+  {
+    "title": "Јовче",
+    "lat": 41.9772578,
+    "lon": 21.4835479,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Su 07:00-22:00"
+  },
+  {
+    "title": "Бина",
+    "lat": 41.9781331,
+    "lon": 21.4851324,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Ресторан Златник",
+    "lat": 41.9788507,
+    "lon": 21.4826634,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Cafe Jabolko",
+    "lat": 41.9911127,
+    "lon": 21.4454673,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Su 06:00-22:00"
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_18",
+    "lat": 41.9910604,
+    "lon": 21.4455208,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "КАМИН КАМА",
+    "lat": 42.0110921,
+    "lon": 21.3602983,
+    "type": "BAR",
+    "opening_hours": "Mo-Su 10:00-00:00"
+  },
+  {
+    "title": "Гет Кафе",
+    "lat": 41.9728434,
+    "lon": 21.4448074,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Su 10:00-00:00"
+  },
+  {
+    "title": "tavce gravce",
+    "lat": 41.9996587,
+    "lon": 21.4363148,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "beer cafe",
+    "lat": 41.9999897,
+    "lon": 21.4367578,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Вила Веранда",
+    "lat": 41.9953546,
+    "lon": 21.3679919,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "еквестријан",
+    "lat": 41.9883207,
+    "lon": 21.4520843,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "ASM",
+    "lat": 42.0069157,
+    "lon": 21.3831825,
+    "type": "MIDDLE_SCHOOL",
+    "opening_hours": null
+  },
+  {
+    "title": "Kaj Serdarot",
+    "lat": 41.9996618,
+    "lon": 21.4362461,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Destan",
+    "lat": 41.9996701,
+    "lon": 21.436081,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Австриска палта",
+    "lat": 41.9994953,
+    "lon": 21.4355402,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Кам Маркет",
+    "lat": 41.9855082,
+    "lon": 21.4672208,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 08:00-21:00"
+  },
+  {
+    "title": "Four",
+    "lat": 42.0061147,
+    "lon": 21.4271057,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Дион",
+    "lat": 41.995703,
+    "lon": 21.4335119,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Зур Маркет",
+    "lat": 41.9760296,
+    "lon": 21.444501,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Su 08:00-22:00"
+  },
+  {
+    "title": "Ресторан Буре Срна",
+    "lat": 42.0045887,
+    "lon": 21.3936186,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Su 08:00-00:00"
+  },
+  {
+    "title": "Гет ланч бар",
+    "lat": 41.9919726,
+    "lon": 21.4496023,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Th 08:00-24:00, Fr,Sa 08:00-01:00, Su 11:00-24:00"
+  },
+  {
+    "title": "Кај Тоше на Ќоше",
+    "lat": 42.0030521,
+    "lon": 21.4648097,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_19",
+    "lat": 42.0026541,
+    "lon": 21.3955411,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Рептил",
+    "lat": 41.9972875,
+    "lon": 21.4085105,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Гостилница Софра",
+    "lat": 41.9932328,
+    "lon": 21.5078989,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Su 09:00-24:00"
+  },
+  {
+    "title": "Пицерија Кремисимо",
+    "lat": 41.9951884,
+    "lon": 21.5099084,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "ОУ Кирил и Медодиј",
+    "lat": 42.0279527,
+    "lon": 21.5133898,
+    "type": "MIDDLE_SCHOOL",
+    "opening_hours": null
+  },
+  {
+    "title": "Лав Фонтана",
+    "lat": 42.027601,
+    "lon": 21.5137772,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Helen Doron Kapistec",
+    "lat": 41.9914476,
+    "lon": 21.4174048,
+    "type": "MIDDLE_SCHOOL",
+    "opening_hours": null
+  },
+  {
+    "title": "TINEX",
+    "lat": 41.9896032,
+    "lon": 21.4323528,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Рептил",
+    "lat": 42.0005257,
+    "lon": 21.4121462,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Тинекс",
+    "lat": 41.9929149,
+    "lon": 21.4199718,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Su 08:00-22:00"
+  },
+  {
+    "title": "Speakeasy",
+    "lat": 42.00231,
+    "lon": 21.4235498,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Крин",
+    "lat": 41.9954521,
+    "lon": 21.4271773,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Minus Eden",
+    "lat": 42.0062605,
+    "lon": 21.4061819,
+    "type": "BAR",
+    "opening_hours": "Tu-Sa 00:00-04:00"
+  },
+  {
+    "title": "Market Polo",
+    "lat": 41.9867626,
+    "lon": 21.4306724,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Рамстор Express Дебар Маало",
+    "lat": 42.001234,
+    "lon": 21.4168689,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 09:00-22:00"
+  },
+  {
+    "title": "UNKOWN_RESTAURANT_5",
+    "lat": 42.0123976,
+    "lon": 21.4451457,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Mini Market Non-Stop",
+    "lat": 41.9895094,
+    "lon": 21.4190732,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Т'га за југ",
+    "lat": 41.9913259,
+    "lon": 21.4640869,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Su 10:00-24:00"
+  },
+  {
+    "title": "BistRaw",
+    "lat": 41.9988648,
+    "lon": 21.4238693,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Fr 12:00-20:00"
+  },
+  {
+    "title": "Happy",
+    "lat": 41.9884249,
+    "lon": 21.4527193,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Бизнис",
+    "lat": 42.0195979,
+    "lon": 21.4412533,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Три Трговца",
+    "lat": 42.0169931,
+    "lon": 21.443321,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Во светот на децата",
+    "lat": 41.9715732,
+    "lon": 21.4563516,
+    "type": "KINDERGARDEN",
+    "opening_hours": null
+  },
+  {
+    "title": "Дали-Пом",
+    "lat": 42.0042293,
+    "lon": 21.5046552,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "КАМ",
+    "lat": 42.0007316,
+    "lon": 21.4175012,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 07:30-22:00; Su 07:30-18:00"
+  },
+  {
+    "title": "Парк",
+    "lat": 42.0039853,
+    "lon": 21.4280925,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Стокомак",
+    "lat": 42.0036376,
+    "lon": 21.5043707,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Кантина",
+    "lat": 42.0006129,
+    "lon": 21.4191718,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Sa 09:00-24:00"
+  },
+  {
+    "title": "Mak-Ultra",
+    "lat": 42.0007151,
+    "lon": 21.4365241,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Te Flladi",
+    "lat": 42.0131776,
+    "lon": 21.4378942,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Su 06:00-02:00"
+  },
+  {
+    "title": "Аликас",
+    "lat": 42.0353232,
+    "lon": 21.404415,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Stokomak Magacin",
+    "lat": 41.9984456,
+    "lon": 21.4757273,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Тинекс центар 2",
+    "lat": 41.9964763,
+    "lon": 21.4276669,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 08:00-21:30"
+  },
+  {
+    "title": "Shisha",
+    "lat": 42.0011325,
+    "lon": 21.4375923,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Su 10:00-22:00"
+  },
+  {
+    "title": "Syri",
+    "lat": 42.001291,
+    "lon": 21.4378235,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Papillon",
+    "lat": 42.0004422,
+    "lon": 21.4211669,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Деликатесен Тинекс",
+    "lat": 41.9934245,
+    "lon": 21.4286854,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Su 08:00-22:00"
+  },
+  {
+    "title": "7 Скара Ресторан",
+    "lat": 41.9948346,
+    "lon": 21.4277128,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Th 08:00-24:00; Sa 08:00-01:00"
+  },
+  {
+    "title": "Кипер Маркет",
+    "lat": 42.0236333,
+    "lon": 21.4371996,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Стоко Мак",
+    "lat": 42.0239903,
+    "lon": 21.4371972,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Мезе Бар",
+    "lat": 41.9898112,
+    "lon": 21.449305,
+    "type": "RESTAURANT",
+    "opening_hours": "Fr-Su 08:00-01:00; Su 08:00-17:00; Mo-Th 08:00-00:00"
+  },
+  {
+    "title": "Изи",
+    "lat": 41.9927714,
+    "lon": 21.4192046,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Ubac",
+    "lat": 42.0084679,
+    "lon": 21.3678533,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Gostilnica Gurman",
+    "lat": 41.9916485,
+    "lon": 21.4223088,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Su 07:00-22:00"
+  },
+  {
+    "title": "Stokomak",
+    "lat": 41.9949944,
+    "lon": 21.3945748,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Mak Reform Market",
+    "lat": 41.9945528,
+    "lon": 21.388728,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Баба Цана",
+    "lat": 41.9868025,
+    "lon": 21.4193986,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_20",
+    "lat": 41.9910769,
+    "lon": 21.4439465,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "ДИЕМ-ГП",
+    "lat": 42.0031701,
+    "lon": 21.4074367,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 08:30-20:30; PH,Su 09:00-15:00"
+  },
+  {
+    "title": "Pizza Jakomo",
+    "lat": 42.0044372,
+    "lon": 21.3931934,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Laika",
+    "lat": 42.0013652,
+    "lon": 21.4216953,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Kaldrma",
+    "lat": 42.0021654,
+    "lon": 21.4216722,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Van Gogh",
+    "lat": 42.0022762,
+    "lon": 21.4217791,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Zur Market",
+    "lat": 42.0056203,
+    "lon": 21.4111987,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 08:00-22:00; PH,Su off"
+  },
+  {
+    "title": "Ралекс Маркет",
+    "lat": 42.0058308,
+    "lon": 21.3818221,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Star Ocean",
+    "lat": 41.9913338,
+    "lon": 21.4276864,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Koki",
+    "lat": 42.0038171,
+    "lon": 21.4155593,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "63",
+    "lat": 41.9768128,
+    "lon": 21.4444199,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Fitness house",
+    "lat": 42.0005187,
+    "lon": 21.4149006,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Ramstore",
+    "lat": 41.9879358,
+    "lon": 21.4558769,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 08:00-22:00"
+  },
+  {
+    "title": "Gyro House",
+    "lat": 42.0029936,
+    "lon": 21.4000959,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Hazard Club",
+    "lat": 42.0078535,
+    "lon": 21.3688665,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Гранап",
+    "lat": 42.0079128,
+    "lon": 21.3842555,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Tesla Bar",
+    "lat": 42.0052868,
+    "lon": 21.4107086,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Giovani",
+    "lat": 42.0034483,
+    "lon": 21.3991821,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Кам",
+    "lat": 42.0245187,
+    "lon": 21.350659,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Centar Bar",
+    "lat": 41.9947622,
+    "lon": 21.4290413,
+    "type": "BAR",
+    "opening_hours": "Mo-Su 09:00-23:00"
+  },
+  {
+    "title": "DIEM-GP",
+    "lat": 42.0071667,
+    "lon": 21.3719748,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Алберто",
+    "lat": 42.0071939,
+    "lon": 21.371862,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Reptil",
+    "lat": 42.0075655,
+    "lon": 21.3704929,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Кала",
+    "lat": 42.0235026,
+    "lon": 21.3537042,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Kam market",
+    "lat": 42.0042627,
+    "lon": 21.3733433,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Кафана Сокак",
+    "lat": 41.9837709,
+    "lon": 21.4808444,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Th 08:00-24:00, Fr 08:00-01:00, Sa 08:00-24:00, Su 12:00-23:30"
+  },
+  {
+    "title": "Oljo's Burger",
+    "lat": 42.0023198,
+    "lon": 21.4218407,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_RESTAURANT_6",
+    "lat": 42.0015924,
+    "lon": 21.4207785,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "кај сердарот",
+    "lat": 41.9995926,
+    "lon": 21.4366123,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Тарапана",
+    "lat": 41.9729164,
+    "lon": 21.4565032,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Дебар Маало",
+    "lat": 42.0013292,
+    "lon": 21.4205747,
+    "type": "RESTAURANT",
+    "opening_hours": "Su-Th 08:00-00:30; Fr-Sa 08:00-01:00"
+  },
+  {
+    "title": "Vero",
+    "lat": 42.0065477,
+    "lon": 21.393115,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Mikel",
+    "lat": 41.9986406,
+    "lon": 21.4253762,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "МЦМ Мезе Бар",
+    "lat": 42.0023813,
+    "lon": 21.4235595,
+    "type": "RESTAURANT",
+    "opening_hours": "24/7"
+  },
+  {
+    "title": "Костарика",
+    "lat": 42.0028235,
+    "lon": 21.4239655,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Калабалак",
+    "lat": 42.003366,
+    "lon": 21.4242333,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Старо Скупи",
+    "lat": 42.0028813,
+    "lon": 21.4240111,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Занзибар",
+    "lat": 42.0030128,
+    "lon": 21.4240218,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Идадија",
+    "lat": 42.0013712,
+    "lon": 21.4210921,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Наџак",
+    "lat": 42.001453,
+    "lon": 21.4214837,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Кај Перо",
+    "lat": 42.0014888,
+    "lon": 21.4208615,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Sa 13:00-24:00"
+  },
+  {
+    "title": "Radio bar",
+    "lat": 42.0002331,
+    "lon": 21.423451,
+    "type": "BAR",
+    "opening_hours": "PH,Mo-Su 09:00-24:00, Fr,Sa 09:00-01:00"
+  },
+  {
+    "title": "DejaVu",
+    "lat": 41.9922468,
+    "lon": 21.4264143,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Istanbul",
+    "lat": 41.9922273,
+    "lon": 21.4266738,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Gostilnica Estel",
+    "lat": 41.9990664,
+    "lon": 21.4236496,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "AvAv Dog Park",
+    "lat": 42.0229571,
+    "lon": 21.3885778,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Bar",
+    "lat": 41.9937893,
+    "lon": 21.4661079,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Aleksandrija",
+    "lat": 42.0063483,
+    "lon": 21.3740403,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "O La La",
+    "lat": 41.9931868,
+    "lon": 21.4414844,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "СНОШТИ МИНАВ",
+    "lat": 41.9995917,
+    "lon": 21.4361151,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Кафана \"Дебар Маало\"",
+    "lat": 42.000778,
+    "lon": 21.4201149,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Th 08:00-00:00; Fr-Su 08:00-01:00"
+  },
+  {
+    "title": "KAM",
+    "lat": 41.981696,
+    "lon": 21.4438645,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Буре",
+    "lat": 42.0031615,
+    "lon": 21.4001853,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Tinex",
+    "lat": 41.9991202,
+    "lon": 21.4220053,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "The Top of Vodno Millennium Cross Coffee Bar Skopje",
+    "lat": 41.9651051,
+    "lon": 21.3943158,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Casta Diva",
+    "lat": 41.9967891,
+    "lon": 21.4283169,
+    "type": "MIDDLE_SCHOOL",
+    "opening_hours": "16:00-22:00"
+  },
+  {
+    "title": "Gramofon Vinyl Macedonia Makedonija",
+    "lat": 41.993198,
+    "lon": 21.4159259,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 12:00-20:00"
+  },
+  {
+    "title": "Kandi",
+    "lat": 42.0128215,
+    "lon": 21.4341981,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Su 07:15-00:00"
+  },
+  {
+    "title": "Ле Петит",
+    "lat": 42.0027031,
+    "lon": 21.461349,
+    "type": "BAR",
+    "opening_hours": "Mo-Su 08:00-01:00"
+  },
+  {
+    "title": "Паб Олд Лејди",
+    "lat": 41.9945699,
+    "lon": 21.4380805,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_RESTAURANT_7",
+    "lat": 41.9987593,
+    "lon": 21.4242861,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Squeeze Me",
+    "lat": 41.9971825,
+    "lon": 21.4284228,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Su 09:00-21:00"
+  },
+  {
+    "title": "k8",
+    "lat": 42.0002555,
+    "lon": 21.4361778,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Su 10:00-22:00"
+  },
+  {
+    "title": "Pçela",
+    "lat": 42.0002786,
+    "lon": 21.4371953,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Su 08:45-23:45"
+  },
+  {
+    "title": "UNKOWN_COFFEE_SHOP_3",
+    "lat": 41.9946427,
+    "lon": 21.4186412,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Жито Маркети - Центар",
+    "lat": 41.988735,
+    "lon": 21.4364415,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_BAR_4",
+    "lat": 41.9971537,
+    "lon": 21.4284187,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Manda Coffee Bar",
+    "lat": 41.9970171,
+    "lon": 21.428439,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Su 09:00-21:00"
+  },
+  {
+    "title": "Слаткарница Малага",
+    "lat": 41.9938504,
+    "lon": 21.4276852,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_COFFEE_SHOP_4",
+    "lat": 41.9992004,
+    "lon": 21.417224,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_COFFEE_SHOP_5",
+    "lat": 41.9990907,
+    "lon": 21.4172361,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Bratstvo",
+    "lat": 42.0021215,
+    "lon": 21.4378319,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_COFFEE_SHOP_6",
+    "lat": 41.9970085,
+    "lon": 21.4233514,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_21",
+    "lat": 41.9966577,
+    "lon": 21.4199363,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Маркет Пингвин",
+    "lat": 41.9972428,
+    "lon": 21.4169524,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_22",
+    "lat": 41.9984569,
+    "lon": 21.4149954,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_RESTAURANT_8",
+    "lat": 42.0037034,
+    "lon": 21.4154682,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_23",
+    "lat": 42.0011184,
+    "lon": 21.4259798,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_RESTAURANT_9",
+    "lat": 41.9972228,
+    "lon": 21.4228991,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Austrian Palace",
+    "lat": 41.9995711,
+    "lon": 21.4356281,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Su 09:00-24:00"
+  },
+  {
+    "title": "UNKOWN_BAR_5",
+    "lat": 41.9999118,
+    "lon": 21.4353545,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Универзитет за туризам и менаџмент",
+    "lat": 42.0022668,
+    "lon": 21.398993,
+    "type": "MIDDLE_SCHOOL",
+    "opening_hours": null
+  },
+  {
+    "title": "Маркет фратели",
+    "lat": 41.9994766,
+    "lon": 21.4177897,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Paladin M",
+    "lat": 42.0003534,
+    "lon": 21.4158769,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_24",
+    "lat": 42.0004371,
+    "lon": 21.4126908,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_25",
+    "lat": 41.9967119,
+    "lon": 21.4119031,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_BAR_6",
+    "lat": 41.9965743,
+    "lon": 21.4188403,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_26",
+    "lat": 41.9994288,
+    "lon": 21.4129384,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Gala Fruit",
+    "lat": 41.9865793,
+    "lon": 21.4781599,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 07:00-21:00"
+  },
+  {
+    "title": "Mezzo",
+    "lat": 41.9947238,
+    "lon": 21.4173314,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_RESTAURANT_10",
+    "lat": 41.9946111,
+    "lon": 21.4207756,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Меѓународен балкански универзитет",
+    "lat": 42.0017934,
+    "lon": 21.4348281,
+    "type": "FACULTY",
+    "opening_hours": null
+  },
+  {
+    "title": "Spalato",
+    "lat": 41.9980418,
+    "lon": 21.4244255,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "08:00-00:00"
+  },
+  {
+    "title": "Воденица",
+    "lat": 41.9947932,
+    "lon": 21.4135121,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_RESTAURANT_11",
+    "lat": 41.9986877,
+    "lon": 21.4142348,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Ројал",
+    "lat": 41.9992364,
+    "lon": 21.4187447,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Led Zeppelin",
+    "lat": 42.0038026,
+    "lon": 21.3970638,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Restoran Frosina",
+    "lat": 41.9959518,
+    "lon": 21.4199442,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Tinex",
+    "lat": 42.0063857,
+    "lon": 21.3828865,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Sugarland",
+    "lat": 42.0030494,
+    "lon": 21.3994796,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_RESTAURANT_12",
+    "lat": 41.9927293,
+    "lon": 21.4652984,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Krem",
+    "lat": 42.004566,
+    "lon": 21.393778,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Gala Kujna",
+    "lat": 41.9826324,
+    "lon": 21.4520444,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "EZO",
+    "lat": 42.0365961,
+    "lon": 21.4462164,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Меана Б Јавор Мрзенци",
+    "lat": 42.0127048,
+    "lon": 21.4100468,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_27",
+    "lat": 42.0129113,
+    "lon": 21.4357477,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_28",
+    "lat": 42.0403551,
+    "lon": 21.4250316,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Доминос Пица Аеродром",
+    "lat": 41.9837535,
+    "lon": 21.4701282,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Su 10:00-24:00"
+  },
+  {
+    "title": "fourplay",
+    "lat": 42.0012294,
+    "lon": 21.423008,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Joy Café & Bakery (Karposh)",
+    "lat": 42.005579,
+    "lon": 21.4108992,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Restaurant ABC",
+    "lat": 42.0277395,
+    "lon": 21.4409393,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Kaj Гоце",
+    "lat": 41.9996644,
+    "lon": 21.4362086,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Дисконт маркет М",
+    "lat": 41.9898103,
+    "lon": 21.4691912,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 07:00-21:30"
+  },
+  {
+    "title": "Brown Sugar Café & Bar",
+    "lat": 41.9951391,
+    "lon": 21.4216262,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Coffee O'Clock",
+    "lat": 41.9907255,
+    "lon": 21.4260361,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Mr. Jack",
+    "lat": 41.9964359,
+    "lon": 21.4268984,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "BKW Hybrid Bar",
+    "lat": 41.9970446,
+    "lon": 21.4061061,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Kosmos",
+    "lat": 42.0025666,
+    "lon": 21.4383067,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Su 07:00-22:00"
+  },
+  {
+    "title": "Веган365Кујна",
+    "lat": 41.9992458,
+    "lon": 21.4263142,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Fr 09:00-17:00"
+  },
+  {
+    "title": "Ла пица",
+    "lat": 41.9819621,
+    "lon": 21.4681967,
+    "type": "RESTAURANT",
+    "opening_hours": "Tu-Su 08:00-23:30"
+  },
+  {
+    "title": "Super Tinex",
+    "lat": 41.9978906,
+    "lon": 21.4089683,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Su 08:00-22:00"
+  },
+  {
+    "title": "Kebapčilinica Rio",
+    "lat": 41.999319,
+    "lon": 21.4360459,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Gjeltoria Palas",
+    "lat": 42.0018869,
+    "lon": 21.4383639,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Vega",
+    "lat": 41.9995518,
+    "lon": 21.4131738,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Сараево",
+    "lat": 42.0015097,
+    "lon": 21.4381319,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Su 07:30-19:00"
+  },
+  {
+    "title": "Home Brews",
+    "lat": 41.9974096,
+    "lon": 21.4297644,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Su 09:00-22:00"
+  },
+  {
+    "title": "Three Kitchen Bar",
+    "lat": 41.9907645,
+    "lon": 21.4251713,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Distrikt",
+    "lat": 41.9963385,
+    "lon": 21.4306474,
+    "type": "BAR",
+    "opening_hours": "Su-Th 07:00-24:00, Fr,Sa 07:00-01:00"
+  },
+  {
+    "title": "Tako mako",
+    "lat": 42.0005265,
+    "lon": 21.4365599,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Markt kitchen",
+    "lat": 41.9969456,
+    "lon": 21.4285563,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Urban",
+    "lat": 41.9999671,
+    "lon": 21.4370091,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "24/7"
+  },
+  {
+    "title": "Sac",
+    "lat": 42.0002543,
+    "lon": 21.4374652,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Барик",
+    "lat": 42.0019483,
+    "lon": 21.4224937,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Hajri Kompani",
+    "lat": 42.0046727,
+    "lon": 21.4370024,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Palas",
+    "lat": 42.002112,
+    "lon": 21.4385882,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Schpajs",
+    "lat": 42.0017089,
+    "lon": 21.4219242,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "T market",
+    "lat": 42.0015821,
+    "lon": 21.4189761,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Coffe Tearoom Lachi",
+    "lat": 42.0003942,
+    "lon": 21.4364615,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Sa 08:00-18:00"
+  },
+  {
+    "title": "Dm",
+    "lat": 42.0010275,
+    "lon": 21.4396745,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Bomonti",
+    "lat": 41.999797,
+    "lon": 21.4373153,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Su 10:00-22:00"
+  },
+  {
+    "title": "Море Маниа",
+    "lat": 41.9982749,
+    "lon": 21.4283051,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Plaset",
+    "lat": 42.0016292,
+    "lon": 21.4382061,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Su 07:00-02:00"
+  },
+  {
+    "title": "Kit-Go",
+    "lat": 42.0244715,
+    "lon": 21.4283826,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Toto",
+    "lat": 41.9967222,
+    "lon": 21.4225095,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Sa 08:00-01:00"
+  },
+  {
+    "title": "Toto",
+    "lat": 41.9967339,
+    "lon": 21.4229663,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Млечен Бар",
+    "lat": 41.9971719,
+    "lon": 21.4086507,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Teteks",
+    "lat": 42.002027,
+    "lon": 21.4384905,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Букет",
+    "lat": 41.9945241,
+    "lon": 21.4244578,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Shakespeare Cafe",
+    "lat": 41.9981835,
+    "lon": 21.4234973,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Su 08:00-00:00"
+  },
+  {
+    "title": "Juicy&co",
+    "lat": 41.9974479,
+    "lon": 21.4223059,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Nano",
+    "lat": 42.0003785,
+    "lon": 21.4209912,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Majahh",
+    "lat": 42.0023667,
+    "lon": 21.4222629,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Metzka",
+    "lat": 42.0026188,
+    "lon": 21.4186405,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Kairo",
+    "lat": 42.0030613,
+    "lon": 21.4385935,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Su 09:00-21:00"
+  },
+  {
+    "title": "Coffee factory",
+    "lat": 41.9940274,
+    "lon": 21.4304151,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Su 08:00-22:00"
+  },
+  {
+    "title": "JJ&S",
+    "lat": 41.9924748,
+    "lon": 21.4300233,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Su 09:00-21:00"
+  },
+  {
+    "title": "Laboratorium",
+    "lat": 41.9942446,
+    "lon": 21.4243092,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Mulliri",
+    "lat": 41.9976507,
+    "lon": 21.434633,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Su 11:00-23:00"
+  },
+  {
+    "title": "MIG",
+    "lat": 41.9939851,
+    "lon": 21.430389,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Su 09:00-21:00"
+  },
+  {
+    "title": "Pizzeria Bik",
+    "lat": 42.0027517,
+    "lon": 21.4415279,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Gallery 7",
+    "lat": 42.0009497,
+    "lon": 21.438158,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Su 09:00-21:00"
+  },
+  {
+    "title": "Old Balkan",
+    "lat": 42.0011296,
+    "lon": 21.4380383,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Tools, household",
+    "lat": 42.004177,
+    "lon": 21.4360158,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_COFFEE_SHOP_7",
+    "lat": 42.0027924,
+    "lon": 21.4406076,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Sultan Kejf",
+    "lat": 42.0027827,
+    "lon": 21.4402065,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Stokomak",
+    "lat": 41.9993986,
+    "lon": 21.4213699,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Swisslion",
+    "lat": 41.9989821,
+    "lon": 21.4224806,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Kursumli An",
+    "lat": 42.0025774,
+    "lon": 21.4371206,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Tools, household",
+    "lat": 42.0050219,
+    "lon": 21.4357643,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Feki-Kom",
+    "lat": 42.0063897,
+    "lon": 21.435694,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Stokomak",
+    "lat": 41.9910788,
+    "lon": 21.4346069,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Дием-ГП",
+    "lat": 42.0047389,
+    "lon": 21.4254894,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Drip Coffee (Specialty Coffee)",
+    "lat": 41.9906887,
+    "lon": 21.4147527,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Fr 07:30-18:00; Sa 09:00-15:00"
+  },
+  {
+    "title": "Стокомак",
+    "lat": 41.9954171,
+    "lon": 21.5098008,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Short bus",
+    "lat": 41.9979406,
+    "lon": 21.4246771,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Th 09:00-00:00; Fr-Sa 09:00-01:00; Su 17:00-00:00"
+  },
+  {
+    "title": "Кафе Котур",
+    "lat": 41.9944998,
+    "lon": 21.4294233,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "12-12 “Дванаес Дванаес”",
+    "lat": 41.9907915,
+    "lon": 21.4250967,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Ресторан Национал",
+    "lat": 41.993295,
+    "lon": 21.4352029,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Кај Јоле",
+    "lat": 41.996324,
+    "lon": 21.4283137,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Рок Кафана Рустикана 2.0",
+    "lat": 42.0062237,
+    "lon": 21.4157772,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Sa 10:00-24:00"
+  },
+  {
+    "title": "Рузвелт",
+    "lat": 42.0019011,
+    "lon": 21.413452,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Скадарлија",
+    "lat": 42.0046693,
+    "lon": 21.4147058,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Marvel Coffee Bar",
+    "lat": 42.0052778,
+    "lon": 21.4107786,
+    "type": "BAR",
+    "opening_hours": "Mo-Su 08:00-24:00"
+  },
+  {
+    "title": "Тинекс Лиса центар",
+    "lat": 41.9810978,
+    "lon": 21.4727602,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 08:00-21:30; Su 10:00-20:00"
+  },
+  {
+    "title": "by the way",
+    "lat": 41.9874556,
+    "lon": 21.4318702,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Бобико ТП Колонијал",
+    "lat": 41.976006,
+    "lon": 21.4815508,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Su 07:00-22:00"
+  },
+  {
+    "title": "Стокомак",
+    "lat": 42.0364195,
+    "lon": 21.4464861,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Жито Маркет",
+    "lat": 42.0372124,
+    "lon": 21.4458128,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Сидро",
+    "lat": 41.9974684,
+    "lon": 21.4097614,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Кит го",
+    "lat": 42.0036961,
+    "lon": 21.4672422,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Joy Café & Bakery (Centar)",
+    "lat": 41.9929182,
+    "lon": 21.4302321,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Братство",
+    "lat": 41.9963073,
+    "lon": 21.4276671,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 07:00-01:00, Su 15:00-01:00"
+  },
+  {
+    "title": "Ramstore",
+    "lat": 41.9980345,
+    "lon": 21.3981423,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 08:00-22:00"
+  },
+  {
+    "title": "Super TINEX",
+    "lat": 41.998706,
+    "lon": 21.3962482,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "La Noi - Mini Shop",
+    "lat": 42.0054049,
+    "lon": 21.4097719,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Малони",
+    "lat": 41.9833319,
+    "lon": 21.4539407,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Paradise Food",
+    "lat": 41.9944693,
+    "lon": 21.4277003,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Th 08:00-20:00; Fr 08:00-16:00; Sa-Su off"
+  },
+  {
+    "title": "Кај чичо 2",
+    "lat": 42.0091204,
+    "lon": 21.3855189,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Sa 09:00-24:00; Su 12:00-20:00"
+  },
+  {
+    "title": "КАМ Маркет",
+    "lat": 41.9855334,
+    "lon": 21.4485408,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Ресторан Домини",
+    "lat": 41.9909456,
+    "lon": 21.4408895,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Equilibrium",
+    "lat": 41.9866451,
+    "lon": 21.4542028,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Th 08:00-24:00, Fr,Sa 08:00-01:00, Su 08:00-24:00"
+  },
+  {
+    "title": "UNKOWN_PARK_1",
+    "lat": 41.9938468,
+    "lon": 21.4337695,
+    "type": "PARK",
+    "opening_hours": null
+  },
+  {
+    "title": "25 Мај",
+    "lat": 42.0034662,
+    "lon": 21.5001674,
+    "type": "KINDERGARDEN",
+    "opening_hours": null
+  },
+  {
+    "title": "С Маркет",
+    "lat": 42.0069756,
+    "lon": 21.5031425,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Plato Coffee 2.0",
+    "lat": 41.998628,
+    "lon": 21.405925,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_29",
+    "lat": 42.0043927,
+    "lon": 21.4371317,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_30",
+    "lat": 42.0041371,
+    "lon": 21.4346385,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_31",
+    "lat": 42.0027247,
+    "lon": 21.4412408,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_KINDERGARDEN_2",
+    "lat": 41.9931271,
+    "lon": 21.4274537,
+    "type": "KINDERGARDEN",
+    "opening_hours": null
+  },
+  {
+    "title": "Reptil",
+    "lat": 41.9974123,
+    "lon": 21.4222398,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Step",
+    "lat": 41.9959161,
+    "lon": 21.4180198,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Alka-U B",
+    "lat": 41.9873148,
+    "lon": 21.4776722,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 07:00-22:00"
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_32",
+    "lat": 42.0028928,
+    "lon": 21.4402203,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Mexican street food",
+    "lat": 42.0006689,
+    "lon": 21.4142957,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Боко",
+    "lat": 41.9970867,
+    "lon": 21.4171233,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_33",
+    "lat": 42.0063807,
+    "lon": 21.4336115,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_34",
+    "lat": 42.0052062,
+    "lon": 21.416392,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_35",
+    "lat": 41.9982953,
+    "lon": 21.416992,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Lafe",
+    "lat": 41.9949215,
+    "lon": 21.4245361,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Coffee corner",
+    "lat": 42.0010222,
+    "lon": 21.4355656,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "ZUR",
+    "lat": 41.9983437,
+    "lon": 21.4152676,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "КАМ маркет",
+    "lat": 41.9845059,
+    "lon": 21.4589055,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 08:00-21:00"
+  },
+  {
+    "title": "Стокомак",
+    "lat": 41.984756,
+    "lon": 21.4555933,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 07:30-21:30"
+  },
+  {
+    "title": "Рамстор",
+    "lat": 41.9848152,
+    "lon": 21.4509751,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "ЗУР",
+    "lat": 41.9828854,
+    "lon": 21.4556365,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Стокомак",
+    "lat": 41.9888605,
+    "lon": 21.4483803,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 07:30-21:30"
+  },
+  {
+    "title": "Тинекс",
+    "lat": 41.9887772,
+    "lon": 21.461333,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 08:00-21:30"
+  },
+  {
+    "title": "Стикомак",
+    "lat": 41.992847,
+    "lon": 21.4158463,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Факултет за музучка уметност - Скопје",
+    "lat": 41.9977913,
+    "lon": 21.4352317,
+    "type": "FACULTY",
+    "opening_hours": null
+  },
+  {
+    "title": "Здрава станица - Healthylicious",
+    "lat": 41.9994051,
+    "lon": 21.4181973,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Fr 07:30-22:00; Sa 09:00-19:00"
+  },
+  {
+    "title": "Ckoncko",
+    "lat": 41.9952558,
+    "lon": 21.398719,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Mama",
+    "lat": 42.0005347,
+    "lon": 21.4250341,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Fr 10:00-18:00"
+  },
+  {
+    "title": "Oui",
+    "lat": 42.0005653,
+    "lon": 21.4249735,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Fr 08:00-16:00; Sa 10:00-18:00"
+  },
+  {
+    "title": "Chloé Café",
+    "lat": 42.001355,
+    "lon": 21.4228689,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Medo",
+    "lat": 42.0005187,
+    "lon": 21.4371301,
+    "type": "RESTAURANT",
+    "opening_hours": "Su-Sa 08:00-22:00"
+  },
+  {
+    "title": "МКЦ",
+    "lat": 41.9962398,
+    "lon": 21.4425386,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Di Lunna",
+    "lat": 41.9951335,
+    "lon": 21.4286946,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Sa 08:00-24:00"
+  },
+  {
+    "title": "Start Coffee",
+    "lat": 41.9935433,
+    "lon": 21.4276847,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Three Hundred Rabbits",
+    "lat": 41.9972458,
+    "lon": 21.4170298,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Бутик за деца",
+    "lat": 41.9940233,
+    "lon": 21.4014857,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_36",
+    "lat": 41.994906,
+    "lon": 21.3949866,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_37",
+    "lat": 41.994897,
+    "lon": 21.396069,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Nuts",
+    "lat": 41.9947198,
+    "lon": 21.3963536,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Вода 93",
+    "lat": 41.9947476,
+    "lon": 21.3961442,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Рептил",
+    "lat": 41.9951109,
+    "lon": 21.3942515,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 07:00-21:00"
+  },
+  {
+    "title": "Why",
+    "lat": 41.9981066,
+    "lon": 21.3928349,
+    "type": "BAR",
+    "opening_hours": "Su-Th 08:00-24:00, Fr,Sa 08:00-01:00"
+  },
+  {
+    "title": "Бегера",
+    "lat": 41.9941712,
+    "lon": 21.4119491,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Дрен",
+    "lat": 41.9971516,
+    "lon": 21.4061316,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Топ Ган",
+    "lat": 41.9907955,
+    "lon": 21.4455382,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Market 100",
+    "lat": 41.9907796,
+    "lon": 21.4454331,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Rock bar „Old School“",
+    "lat": 41.9931815,
+    "lon": 21.4387563,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Restaurant Gostilnica Vezenka",
+    "lat": 41.9945336,
+    "lon": 21.4282667,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Th 08:00-00:00; Fr, Sa 08:00-00:30"
+  },
+  {
+    "title": "Киппер Маркет - Маџари",
+    "lat": 41.9979523,
+    "lon": 21.4927721,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 08:00-21:30"
+  },
+  {
+    "title": "КАМ Маркет",
+    "lat": 41.9993743,
+    "lon": 21.4884199,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 08:00-21:00"
+  },
+  {
+    "title": "Зур Маркет Триангла",
+    "lat": 42.0001174,
+    "lon": 21.4871082,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 07:00-22:00"
+  },
+  {
+    "title": "Жито Маркет",
+    "lat": 41.98004,
+    "lon": 21.4755136,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 07:00-21:00"
+  },
+  {
+    "title": "Жито Маркети",
+    "lat": 41.9839417,
+    "lon": 21.4648833,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 07:30-21:00"
+  },
+  {
+    "title": "Chloé coffee and juice",
+    "lat": 41.9986082,
+    "lon": 21.4244305,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Маркет зур",
+    "lat": 42.0066788,
+    "lon": 21.3651515,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Filharmonija cafe bar",
+    "lat": 41.9978515,
+    "lon": 21.4357181,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Tobacco KING",
+    "lat": 41.9995488,
+    "lon": 21.4368486,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Кафе „Дабов“",
+    "lat": 41.9976775,
+    "lon": 21.4057194,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Fr 08:00-17:00; Sa 09:00-15:00"
+  },
+  {
+    "title": "Galija",
+    "lat": 41.9959851,
+    "lon": 21.4343993,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Dm",
+    "lat": 41.9948177,
+    "lon": 21.4338476,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Vero",
+    "lat": 41.9947898,
+    "lon": 21.4339037,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Bar coffee",
+    "lat": 41.9949967,
+    "lon": 21.4334455,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Barista cafe",
+    "lat": 41.9946606,
+    "lon": 21.433573,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Dm",
+    "lat": 41.9853149,
+    "lon": 21.4388687,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Pizza Jakomo",
+    "lat": 41.9856469,
+    "lon": 21.4382429,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Freshi",
+    "lat": 41.983481,
+    "lon": 21.4387999,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Fr 07:30-21:00; Sa 10:00-15:00"
+  },
+  {
+    "title": "Magic House",
+    "lat": 41.9808322,
+    "lon": 21.4391686,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Coffee Academy",
+    "lat": 41.9885078,
+    "lon": 21.4355427,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Kaimuck Coffee ʼN More",
+    "lat": 41.9996323,
+    "lon": 21.4372866,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Manuel Caffè",
+    "lat": 41.9996406,
+    "lon": 21.4370077,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Rakia Bar",
+    "lat": 42.0003776,
+    "lon": 21.4364454,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Chillin Bar",
+    "lat": 42.003367,
+    "lon": 21.4164434,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Рагуза 360",
+    "lat": 41.9895164,
+    "lon": 21.4320056,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Reptil 7",
+    "lat": 42.0072488,
+    "lon": 21.3708365,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Mezze Stanica 33",
+    "lat": 41.9899516,
+    "lon": 21.4269282,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Рептил",
+    "lat": 42.0254196,
+    "lon": 21.3758753,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Owl Mixology Bar",
+    "lat": 41.9950421,
+    "lon": 21.4355112,
+    "type": "BAR",
+    "opening_hours": "Mo-Th 11:00-00:00; Fr-Sa 11:00-01:00"
+  },
+  {
+    "title": "Григос",
+    "lat": 41.9868625,
+    "lon": 21.4307957,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Маркет ТОЛИС",
+    "lat": 41.9906499,
+    "lon": 21.4148333,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Mambo Gin Tonic Bar",
+    "lat": 42.0049547,
+    "lon": 21.4140471,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Париз",
+    "lat": 42.0275314,
+    "lon": 21.5138285,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Ланџ бар Бис",
+    "lat": 42.0068785,
+    "lon": 21.4021487,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_38",
+    "lat": 42.0019542,
+    "lon": 21.4114572,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Стокомак Аеродром",
+    "lat": 41.987047,
+    "lon": 21.46803,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 07:30-21:30"
+  },
+  {
+    "title": "Grosh",
+    "lat": 42.0033987,
+    "lon": 21.399689,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Алтан",
+    "lat": 41.9925181,
+    "lon": 21.4168502,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Lusso Specialty Coffee",
+    "lat": 41.9961758,
+    "lon": 21.415319,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Fr 08:00-18:00"
+  },
+  {
+    "title": "The Dude Specialty Coffee",
+    "lat": 41.9977822,
+    "lon": 21.4198495,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Fr 07:30-18:00, Sa 08:30-16:00, Su off"
+  },
+  {
+    "title": "Lipa Cafe",
+    "lat": 42.002116,
+    "lon": 21.4264204,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Fr 08:00-18:00; Sa-Su 09:00-17:00"
+  },
+  {
+    "title": "Тинекс - Годи",
+    "lat": 41.9959282,
+    "lon": 21.4780149,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 08:00-22:00; Su 08:00-20:00"
+  },
+  {
+    "title": "Morris",
+    "lat": 42.0008601,
+    "lon": 21.4196517,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Пицерија Верона",
+    "lat": 41.9836827,
+    "lon": 21.455155,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Кафе Аросто",
+    "lat": 41.9834634,
+    "lon": 21.4549881,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Трач бар",
+    "lat": 41.9896078,
+    "lon": 21.4479699,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Авијатор",
+    "lat": 41.9872479,
+    "lon": 21.4518227,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Кафе Блок",
+    "lat": 41.9876058,
+    "lon": 21.4510693,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Кафе Само",
+    "lat": 42.000215,
+    "lon": 21.4251562,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Gastroteca Siesta",
+    "lat": 41.9931813,
+    "lon": 21.4296203,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Th 09:00-24:00; Fr-Sa 09:00-01:00; Su 12:00-24:00"
+  },
+  {
+    "title": "Spot",
+    "lat": 41.9925002,
+    "lon": 21.4290489,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Fr 07:30-18:00; Sa 08:00-16:00; Su off"
+  },
+  {
+    "title": "Kujna Brabia",
+    "lat": 41.9931248,
+    "lon": 21.4284386,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Steblo Bar",
+    "lat": 41.9952107,
+    "lon": 21.4292621,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Choco House",
+    "lat": 41.9944359,
+    "lon": 21.430643,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Кафе Snooze",
+    "lat": 41.9886541,
+    "lon": 21.4530304,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Abi Doner",
+    "lat": 42.0005325,
+    "lon": 21.436453,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Sa 07:00-22:00; Su off"
+  },
+  {
+    "title": "UNKOWN_GROCERY_STORE_39",
+    "lat": 42.0005297,
+    "lon": 21.4374355,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Ei8ht",
+    "lat": 42.0000419,
+    "lon": 21.4373635,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Arifan",
+    "lat": 41.9995864,
+    "lon": 21.4365247,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Yoyo Park",
+    "lat": 41.9992816,
+    "lon": 21.4355249,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Restaurant Harmony",
+    "lat": 41.9915568,
+    "lon": 21.4356755,
+    "type": "RESTAURANT",
+    "opening_hours": "Mo-Fr 10:00-19:00"
+  },
+  {
+    "title": "Kam",
+    "lat": 41.996627,
+    "lon": 21.406631,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Café Duplo",
+    "lat": 41.9844925,
+    "lon": 21.4522401,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Fr 10:00-17:00; Sa-Su 09:00-17:00"
+  },
+  {
+    "title": "Економски институт - Скопје",
+    "lat": 41.988652,
+    "lon": 21.4372235,
+    "type": "FACULTY",
+    "opening_hours": null
+  },
+  {
+    "title": "ДИМ Маркет",
+    "lat": 42.0060513,
+    "lon": 21.3546223,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Боними",
+    "lat": 42.0030519,
+    "lon": 21.4621624,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Веро Маркет",
+    "lat": 42.0142354,
+    "lon": 21.4450262,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Љубов",
+    "lat": 41.9979089,
+    "lon": 21.4245548,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Reptil Market - Mala Stanica",
+    "lat": 41.9902233,
+    "lon": 21.4252299,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 07:00-20:00; Su off"
+  },
+  {
+    "title": "Cafe Bar Che",
+    "lat": 41.9991187,
+    "lon": 21.4172295,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Mo-Su 08:00-00:00"
+  },
+  {
+    "title": "kids park",
+    "lat": 41.9768614,
+    "lon": 21.4345711,
+    "type": "PARK",
+    "opening_hours": "24/7"
+  },
+  {
+    "title": "Leaf Cafe",
+    "lat": 42.010239,
+    "lon": 21.4080327,
+    "type": "COFFEE_SHOP",
+    "opening_hours": "Su-Sa 09:00-19:00"
+  },
+  {
+    "title": "Baking Bread",
+    "lat": 41.9825293,
+    "lon": 21.4724196,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Зен кафе (Zen Café)",
+    "lat": 41.9931483,
+    "lon": 21.4300613,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Рептил",
+    "lat": 41.9915042,
+    "lon": 21.4338838,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Урбан Скопје",
+    "lat": 41.99403,
+    "lon": 21.4322334,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Рамстор",
+    "lat": 41.9860827,
+    "lon": 21.4667398,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "АлоАло",
+    "lat": 41.9858692,
+    "lon": 21.4660961,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Солис",
+    "lat": 41.9856033,
+    "lon": 21.4666772,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "ДМ",
+    "lat": 41.985852,
+    "lon": 21.4663188,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "кебапчилница Турист",
+    "lat": 41.9848636,
+    "lon": 21.4683144,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Кафуле „Бианконери“",
+    "lat": 41.9951068,
+    "lon": 21.4252942,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "ресторант Театар Комедија",
+    "lat": 41.9944726,
+    "lon": 21.4254539,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Рисан",
+    "lat": 41.9858826,
+    "lon": 21.43604,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 07:00-21:30"
+  },
+  {
+    "title": "Академија",
+    "lat": 41.979033,
+    "lon": 21.4384606,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Баже комерц 95",
+    "lat": 41.9854457,
+    "lon": 21.4365942,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Kafanche",
+    "lat": 42.0028695,
+    "lon": 21.4176071,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "Oud",
+    "lat": 42.0012975,
+    "lon": 21.4366528,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Cherry",
+    "lat": 42.001224,
+    "lon": 21.4367352,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Filicori",
+    "lat": 42.0012027,
+    "lon": 21.4366112,
+    "type": "COFFEE_SHOP",
+    "opening_hours": null
+  },
+  {
+    "title": "Bukva",
+    "lat": 41.9929453,
+    "lon": 21.4309978,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "Salam Pivo",
+    "lat": 41.9967344,
+    "lon": 21.4258774,
+    "type": "BAR",
+    "opening_hours": null
+  },
+  {
+    "title": "UNKOWN_RESTAURANT_13",
+    "lat": 41.9899124,
+    "lon": 21.4367306,
+    "type": "RESTAURANT",
+    "opening_hours": null
+  },
+  {
+    "title": "ДИМ маркет",
+    "lat": 41.9894281,
+    "lon": 21.43723,
+    "type": "GROCERY_STORE",
+    "opening_hours": "Mo-Sa 07:30-21:30"
+  },
+  {
+    "title": "Lady Club",
+    "lat": 41.9956817,
+    "lon": 21.5039324,
+    "type": "GYM",
+    "opening_hours": null
+  },
+  {
+    "title": "Расадник",
+    "lat": 41.977144,
+    "lon": 21.445595,
+    "type": "GROCERY_STORE",
+    "opening_hours": null
+  },
+  {
+    "title": "Кафе Мамбо",
+    "type": "COFFEE_SHOP",
+    "opening_hours": null,
+    "lat": "41.9894549",
+    "lon": "21.4758795"
+  },
+  {
+    "title": "Јуниор",
+    "type": "KINDERGARDEN",
+    "opening_hours": null,
+    "lat": "41.9923042",
+    "lon": "21.4794125"
+  },
+  {
+    "title": "Интерфуд",
+    "type": "RESTAURANT",
+    "opening_hours": null,
+    "lat": "41.993612",
+    "lon": "21.482026"
+  },
+  {
+    "title": "Фитнес Револуција",
+    "type": "GYM",
+    "opening_hours": "Mo-Su 15:00-23:00",
+    "lat": "41.9883612",
+    "lon": "21.417578"
+  },
+  {
+    "title": "Fitness Club FIT",
+    "type": "GYM",
+    "opening_hours": null,
+    "lat": "41.9966729",
+    "lon": "21.4154554"
+  },
+  {
+    "title": "Calisthenics Park",
+    "type": "GYM",
+    "opening_hours": "24/7",
+    "lat": "42.0082066",
+    "lon": "21.4236313"
+  },
+  {
+    "title": "Легион",
+    "type": "GYM",
+    "opening_hours": null,
+    "lat": "41.9991262",
+    "lon": "21.4006628"
+  },
+  {
+    "title": "ХБОДИ ИМПУЛС СТУДИО",
+    "type": "GYM",
+    "opening_hours": "Mo-Sa 09:00-21:00",
+    "lat": "41.9947765",
+    "lon": "21.4017364"
+  },
+  {
+    "title": "Центар за интегрална јога",
+    "type": "GYM",
+    "opening_hours": null,
+    "lat": "42.0014577",
+    "lon": "21.3835301"
+  },
+  {
+    "title": "DM",
+    "type": "GROCERY_STORE",
+    "opening_hours": null,
+    "lat": "41.9936968",
+    "lon": "21.4150618"
+  },
+  {
+    "title": "Klam",
+    "type": "RESTAURANT",
+    "opening_hours": null,
+    "lat": "41.9936979",
+    "lon": "21.415054"
+  },
+  {
+    "title": "Фискултурна Сала Бобан Ивановиќ",
+    "type": "GYM",
+    "opening_hours": "Mo-Fr 09:00-18:00",
+    "lat": "42.0279203",
+    "lon": "21.5136236"
+  },
+  {
+    "title": "Терминатор",
+    "type": "GYM",
+    "opening_hours": null,
+    "lat": "41.9891652",
+    "lon": "21.4477956"
+  },
+  {
+    "title": "Spectre",
+    "type": "GYM",
+    "opening_hours": null,
+    "lat": "42.0002782",
+    "lon": "21.4160259"
+  },
+  {
+    "title": "Lift & Fit",
+    "type": "GYM",
+    "opening_hours": null,
+    "lat": "42.0036944",
+    "lon": "21.3940188"
+  },
+  {
+    "title": "Kipper",
+    "type": "GROCERY_STORE",
+    "opening_hours": null,
+    "lat": "41.9982425",
+    "lon": "21.3990549"
+  }
+]

@@ -1,0 +1,2252 @@
+[
+  {
+    "title": "Рамстор",
+    "lat": 41.9919017,
+    "lon": 21.4266878,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Пелистер",
+    "lat": 41.9953401,
+    "lon": 21.4314898,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "SP Planet",
+    "lat": 42.0068279,
+    "lon": 21.3649348,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Маркет Виврест",
+    "lat": 41.9943861,
+    "lon": 21.4118736,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Маркет Авела",
+    "lat": 41.9941366,
+    "lon": 21.411684,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Бифе Челик",
+    "lat": 41.9936863,
+    "lon": 21.4116647,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Тинекс Ѓорче Петров",
+    "lat": 42.0070862,
+    "lon": 21.3634616,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Интермецо",
+    "lat": 41.9947432,
+    "lon": 21.4140669,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Журнал",
+    "lat": 41.9768256,
+    "lon": 21.4438183,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Hedi's Market 657",
+    "lat": 41.9947806,
+    "lon": 21.5045452,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Hunter’s Lodge “Kamnik”",
+    "lat": 42.0072516,
+    "lon": 21.4871217,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Веро",
+    "lat": 41.9845218,
+    "lon": 21.4688286,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Под Кале",
+    "lat": 42.0047876,
+    "lon": 21.4307036,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Кај Џино",
+    "lat": 41.9943261,
+    "lon": 21.4342799,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Плаза де Торос",
+    "lat": 41.9952456,
+    "lon": 21.4350117,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Веро 7",
+    "lat": 41.9947502,
+    "lon": 21.4345769,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Tinex",
+    "lat": 41.9925332,
+    "lon": 21.4370214,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Tinex",
+    "lat": 41.9903083,
+    "lon": 21.411176,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Енрико",
+    "lat": 42.0031464,
+    "lon": 21.3995191,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "ООУ „Свети Климент Охридски“ - Бутел",
+    "lat": 42.0401876,
+    "lon": 21.445394,
+    "type": "MIDDLE_SCHOOL"
+  },
+  {
+    "title": "Музичко-балетско училиште „Илија Николовски - Луј“",
+    "lat": 41.9983639,
+    "lon": 21.4355617,
+    "type": "MIDDLE_SCHOOL"
+  },
+  {
+    "title": "Prince",
+    "lat": 42.0197651,
+    "lon": 21.4350123,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Prince",
+    "lat": 42.0198926,
+    "lon": 21.4349372,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Две капки",
+    "lat": 42.0028178,
+    "lon": 21.3925931,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "иВ",
+    "lat": 41.9869006,
+    "lon": 21.4368796,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Партенија Зографски",
+    "lat": 41.982566,
+    "lon": 21.4363017,
+    "type": "MIDDLE_SCHOOL"
+  },
+  {
+    "title": "Туpиcт",
+    "lat": 42.0003099,
+    "lon": 21.4367576,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Жито Маркети",
+    "lat": 41.9864614,
+    "lon": 21.4676134,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Жито Маркет",
+    "lat": 42.0046326,
+    "lon": 21.5033827,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Градинка Мирче Ацев",
+    "lat": 42.0183708,
+    "lon": 21.3558666,
+    "type": "KINDERGARDEN"
+  },
+  {
+    "title": "Топаз",
+    "lat": 41.9979155,
+    "lon": 21.4122694,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Веки",
+    "lat": 42.000855,
+    "lon": 21.3989291,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Чешма",
+    "lat": 41.9841333,
+    "lon": 21.4390455,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Ресторан Трпеза",
+    "lat": 41.9710708,
+    "lon": 21.4455687,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Ресторан Кум",
+    "lat": 41.9772623,
+    "lon": 21.4379912,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Игротека Робин Худ",
+    "lat": 41.9824944,
+    "lon": 21.4357786,
+    "type": "KINDERGARDEN"
+  },
+  {
+    "title": "Рустикана",
+    "lat": 41.9997295,
+    "lon": 21.4078483,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Долап",
+    "lat": 41.9985008,
+    "lon": 21.415982,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Рептил",
+    "lat": 41.9813069,
+    "lon": 21.4383256,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Дом за слепи",
+    "lat": 41.9757689,
+    "lon": 21.4411963,
+    "type": "MIDDLE_SCHOOL"
+  },
+  {
+    "title": "Meraklii",
+    "lat": 42.0299906,
+    "lon": 21.3508185,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Gigo",
+    "lat": 42.0063093,
+    "lon": 21.3655868,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Asura Market",
+    "lat": 42.0078582,
+    "lon": 21.3688239,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Ресторан Рагуза 919",
+    "lat": 41.9782792,
+    "lon": 21.4820381,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Старо Буре",
+    "lat": 42.0035286,
+    "lon": 21.3975417,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "62",
+    "lat": 42.0065185,
+    "lon": 21.3741187,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "КАМ Маркет",
+    "lat": 41.9801294,
+    "lon": 21.4753067,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Рамстор",
+    "lat": 41.9794894,
+    "lon": 21.4764231,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "КОСМО Тинекс",
+    "lat": 42.0034268,
+    "lon": 21.3989021,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Ресторан Одисеја",
+    "lat": 41.9843967,
+    "lon": 21.4871492,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Gradinka Mirce Acev",
+    "lat": 42.006901,
+    "lon": 21.3508793,
+    "type": "KINDERGARDEN"
+  },
+  {
+    "title": "Крчма",
+    "lat": 41.9946274,
+    "lon": 21.4151525,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Marana",
+    "lat": 41.9904847,
+    "lon": 21.4204907,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Pastel Wine & Dine",
+    "lat": 41.9947645,
+    "lon": 21.4245254,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "511",
+    "lat": 41.9922398,
+    "lon": 21.4163482,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Акорд",
+    "lat": 41.9972291,
+    "lon": 21.4086601,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "ИТ Академија Александрија",
+    "lat": 41.9967522,
+    "lon": 21.4073092,
+    "type": "MIDDLE_SCHOOL"
+  },
+  {
+    "title": "Пицерија Либертас",
+    "lat": 41.9987097,
+    "lon": 21.4207447,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Кам Маркет",
+    "lat": 41.9810056,
+    "lon": 21.4323628,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Ексклузив",
+    "lat": 41.9775109,
+    "lon": 21.4456487,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Кам Маркет",
+    "lat": 41.988882,
+    "lon": 21.4282537,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Тица - Елени",
+    "lat": 42.0019716,
+    "lon": 21.4647397,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "КАМ Маркет",
+    "lat": 42.0026311,
+    "lon": 21.4623331,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Веро 9",
+    "lat": 41.9930392,
+    "lon": 21.4414652,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Агровита МК",
+    "lat": 41.9993974,
+    "lon": 21.426528,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Тренд",
+    "lat": 41.9957062,
+    "lon": 21.4304595,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Факултет за музичка уметност",
+    "lat": 41.9973091,
+    "lon": 21.4351329,
+    "type": "FACULTY"
+  },
+  {
+    "title": "Дестан",
+    "lat": 41.9987513,
+    "lon": 21.4204158,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Ана Кристи",
+    "lat": 42.0034064,
+    "lon": 21.3995909,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Фотка",
+    "lat": 42.0017742,
+    "lon": 21.3992299,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Balila",
+    "lat": 41.9922245,
+    "lon": 21.416522,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Бифиња - Рамстор",
+    "lat": 41.9913688,
+    "lon": 21.4280088,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Ramstore",
+    "lat": 42.0048803,
+    "lon": 21.3922837,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Бруклински",
+    "lat": 42.0001581,
+    "lon": 21.4252581,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Бела виста",
+    "lat": 41.9953199,
+    "lon": 21.4347685,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Електрометал",
+    "lat": 41.9973587,
+    "lon": 21.483821,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Два Елена",
+    "lat": 41.993167,
+    "lon": 21.4080594,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Tinex",
+    "lat": 42.0022482,
+    "lon": 21.3761957,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Арабеска",
+    "lat": 41.9953042,
+    "lon": 21.430269,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Mena",
+    "lat": 42.0027574,
+    "lon": 21.4053391,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Stokomak",
+    "lat": 42.0027484,
+    "lon": 21.4054411,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Детска градинка Детелинка - Триангла",
+    "lat": 41.9996873,
+    "lon": 21.4940443,
+    "type": "KINDERGARDEN"
+  },
+  {
+    "title": "ТПД Керол",
+    "lat": 41.9978855,
+    "lon": 21.4940611,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Hazel",
+    "lat": 41.994595,
+    "lon": 21.4119198,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Market Kiki",
+    "lat": 42.0197432,
+    "lon": 21.356581,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Фиш",
+    "lat": 42.0131608,
+    "lon": 21.4117168,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Градина",
+    "lat": 41.9650429,
+    "lon": 21.4727082,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Маркет Рамстор",
+    "lat": 41.9844445,
+    "lon": 21.4838698,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Ресторан Bien",
+    "lat": 41.9915731,
+    "lon": 21.4524114,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "ЗУР Маркет",
+    "lat": 41.9720378,
+    "lon": 21.4722684,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Пивница АН",
+    "lat": 42.0000179,
+    "lon": 21.4366005,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "DM",
+    "lat": 41.993327,
+    "lon": 21.441556,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Dal Fufo - Galija",
+    "lat": 41.9917018,
+    "lon": 21.4231542,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Destan",
+    "lat": 41.9947506,
+    "lon": 21.4319604,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Ла Тераца",
+    "lat": 41.9950911,
+    "lon": 21.4317257,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Brooklyn Lounge Bar",
+    "lat": 42.0045421,
+    "lon": 21.3910004,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Кам маркет Козле",
+    "lat": 41.9938437,
+    "lon": 21.401116,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Носталгија",
+    "lat": 41.9953743,
+    "lon": 21.4099065,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "TED",
+    "lat": 41.9993115,
+    "lon": 21.3946356,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Фреш маркет Бојди",
+    "lat": 42.0050579,
+    "lon": 21.3831193,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Кам маркет Тафталиџе",
+    "lat": 42.0017143,
+    "lon": 21.3914204,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Томи",
+    "lat": 41.9754208,
+    "lon": 21.4382827,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Тобако Томи",
+    "lat": 41.9758834,
+    "lon": 21.4385402,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Жито Маркет",
+    "lat": 41.9761625,
+    "lon": 21.4384115,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Grigos Market",
+    "lat": 41.9777179,
+    "lon": 21.4394414,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Барбакан",
+    "lat": 42.006249,
+    "lon": 21.4063046,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Рептил маркет",
+    "lat": 42.0035081,
+    "lon": 21.4152599,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Веро",
+    "lat": 41.9823773,
+    "lon": 21.4403011,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Pizza Amica",
+    "lat": 41.9824716,
+    "lon": 21.4725098,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Кај Злате",
+    "lat": 41.9921952,
+    "lon": 21.442238,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Медицински Факултет",
+    "lat": 41.9898623,
+    "lon": 21.4246243,
+    "type": "FACULTY"
+  },
+  {
+    "title": "бед бунар",
+    "lat": 42.0084895,
+    "lon": 21.4010837,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Кам Маркет",
+    "lat": 42.0248127,
+    "lon": 21.4416628,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "бимекс",
+    "lat": 41.9748528,
+    "lon": 21.4093282,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Пекинг Гарден",
+    "lat": 41.9957324,
+    "lon": 21.4301301,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Златна Ружа Капитол Мол",
+    "lat": 41.9859376,
+    "lon": 21.4661426,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Makedonska sofra",
+    "lat": 41.9871974,
+    "lon": 21.4365756,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Sky ресторанот",
+    "lat": 41.9973163,
+    "lon": 21.434577,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Amigos Мексиканска Кантина",
+    "lat": 41.9932587,
+    "lon": 21.4300957,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Веро 5",
+    "lat": 41.9948735,
+    "lon": 21.4207815,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Елиса",
+    "lat": 41.9751785,
+    "lon": 21.4861998,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Соул кичен",
+    "lat": 41.9955972,
+    "lon": 21.4338587,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Кочо Рацин",
+    "lat": 41.9916779,
+    "lon": 21.4189621,
+    "type": "KINDERGARDEN"
+  },
+  {
+    "title": "Ефтинија",
+    "lat": 42.0424608,
+    "lon": 21.3923668,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Beta",
+    "lat": 42.0229923,
+    "lon": 21.4307185,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Лавче",
+    "lat": 41.9969599,
+    "lon": 21.4160063,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Бабе",
+    "lat": 42.0030463,
+    "lon": 21.4002154,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Златна вилушка",
+    "lat": 41.9915295,
+    "lon": 21.4656274,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Kapael Tobacco",
+    "lat": 41.9983625,
+    "lon": 21.4233757,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "ЗУР Маркет",
+    "lat": 41.980756,
+    "lon": 21.4718709,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Јовче",
+    "lat": 41.9772578,
+    "lon": 21.4835479,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Бина",
+    "lat": 41.9781331,
+    "lon": 21.4851324,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Ресторан Златник",
+    "lat": 41.9788507,
+    "lon": 21.4826634,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Вила Веранда",
+    "lat": 41.9953546,
+    "lon": 21.3679919,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "еквестријан",
+    "lat": 41.9883207,
+    "lon": 21.4520843,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "ASM",
+    "lat": 42.0069157,
+    "lon": 21.3831825,
+    "type": "MIDDLE_SCHOOL"
+  },
+  {
+    "title": "Kaj Serdarot",
+    "lat": 41.9996618,
+    "lon": 21.4362461,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Destan",
+    "lat": 41.9996701,
+    "lon": 21.436081,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Австриска палта",
+    "lat": 41.9994953,
+    "lon": 21.4355402,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Кам Маркет",
+    "lat": 41.9855082,
+    "lon": 21.4672208,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Four",
+    "lat": 42.0061147,
+    "lon": 21.4271057,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Дион",
+    "lat": 41.995703,
+    "lon": 21.4335119,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Зур Маркет",
+    "lat": 41.9760296,
+    "lon": 21.444501,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Ресторан Буре Срна",
+    "lat": 42.0045887,
+    "lon": 21.3936186,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Кај Тоше на Ќоше",
+    "lat": 42.0030521,
+    "lon": 21.4648097,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Рептил",
+    "lat": 41.9972875,
+    "lon": 21.4085105,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Гостилница Софра",
+    "lat": 41.9932328,
+    "lon": 21.5078989,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Пицерија Кремисимо",
+    "lat": 41.9951884,
+    "lon": 21.5099084,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "ОУ Кирил и Медодиј",
+    "lat": 42.0279527,
+    "lon": 21.5133898,
+    "type": "MIDDLE_SCHOOL"
+  },
+  {
+    "title": "Helen Doron Kapistec",
+    "lat": 41.9914476,
+    "lon": 21.4174048,
+    "type": "MIDDLE_SCHOOL"
+  },
+  {
+    "title": "TINEX",
+    "lat": 41.9896032,
+    "lon": 21.4323528,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Рептил",
+    "lat": 42.0005257,
+    "lon": 21.4121462,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Тинекс",
+    "lat": 41.9929149,
+    "lon": 21.4199718,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Market Polo",
+    "lat": 41.9867626,
+    "lon": 21.4306724,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Рамстор Express Дебар Маало",
+    "lat": 42.001234,
+    "lon": 21.4168689,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Mini Market Non-Stop",
+    "lat": 41.9895094,
+    "lon": 21.4190732,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Т'га за југ",
+    "lat": 41.9913259,
+    "lon": 21.4640869,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "BistRaw",
+    "lat": 41.9988648,
+    "lon": 21.4238693,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Бизнис",
+    "lat": 42.0195979,
+    "lon": 21.4412533,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Три Трговца",
+    "lat": 42.0169931,
+    "lon": 21.443321,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Во светот на децата",
+    "lat": 41.9715732,
+    "lon": 21.4563516,
+    "type": "KINDERGARDEN"
+  },
+  {
+    "title": "Дали-Пом",
+    "lat": 42.0042293,
+    "lon": 21.5046552,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "КАМ",
+    "lat": 42.0007316,
+    "lon": 21.4175012,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Парк",
+    "lat": 42.0039853,
+    "lon": 21.4280925,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Стокомак",
+    "lat": 42.0036376,
+    "lon": 21.5043707,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Кантина",
+    "lat": 42.0006129,
+    "lon": 21.4191718,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Mak-Ultra",
+    "lat": 42.0007151,
+    "lon": 21.4365241,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Аликас",
+    "lat": 42.0353232,
+    "lon": 21.404415,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Stokomak Magacin",
+    "lat": 41.9984456,
+    "lon": 21.4757273,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Тинекс центар 2",
+    "lat": 41.9964763,
+    "lon": 21.4276669,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Деликатесен Тинекс",
+    "lat": 41.9934245,
+    "lon": 21.4286854,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "7 Скара Ресторан",
+    "lat": 41.9948346,
+    "lon": 21.4277128,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Кипер Маркет",
+    "lat": 42.0236333,
+    "lon": 21.4371996,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Стоко Мак",
+    "lat": 42.0239903,
+    "lon": 21.4371972,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Мезе Бар",
+    "lat": 41.9898112,
+    "lon": 21.449305,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Ubac",
+    "lat": 42.0084679,
+    "lon": 21.3678533,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Gostilnica Gurman",
+    "lat": 41.9916485,
+    "lon": 21.4223088,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Stokomak",
+    "lat": 41.9949944,
+    "lon": 21.3945748,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Mak Reform Market",
+    "lat": 41.9945528,
+    "lon": 21.388728,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Баба Цана",
+    "lat": 41.9868025,
+    "lon": 21.4193986,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "ДИЕМ-ГП",
+    "lat": 42.0031701,
+    "lon": 21.4074367,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Pizza Jakomo",
+    "lat": 42.0044372,
+    "lon": 21.3931934,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Zur Market",
+    "lat": 42.0056203,
+    "lon": 21.4111987,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Ралекс Маркет",
+    "lat": 42.0058308,
+    "lon": 21.3818221,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Star Ocean",
+    "lat": 41.9913338,
+    "lon": 21.4276864,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Koki",
+    "lat": 42.0038171,
+    "lon": 21.4155593,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Fitness house",
+    "lat": 42.0005187,
+    "lon": 21.4149006,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Ramstore",
+    "lat": 41.9879358,
+    "lon": 21.4558769,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Gyro House",
+    "lat": 42.0029936,
+    "lon": 21.4000959,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Гранап",
+    "lat": 42.0079128,
+    "lon": 21.3842555,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Кам",
+    "lat": 42.0245187,
+    "lon": 21.350659,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "DIEM-GP",
+    "lat": 42.0071667,
+    "lon": 21.3719748,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Алберто",
+    "lat": 42.0071939,
+    "lon": 21.371862,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Reptil",
+    "lat": 42.0075655,
+    "lon": 21.3704929,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Кала",
+    "lat": 42.0235026,
+    "lon": 21.3537042,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Kam market",
+    "lat": 42.0042627,
+    "lon": 21.3733433,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Кафана Сокак",
+    "lat": 41.9837709,
+    "lon": 21.4808444,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Oljo's Burger",
+    "lat": 42.0023198,
+    "lon": 21.4218407,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "кај сердарот",
+    "lat": 41.9995926,
+    "lon": 21.4366123,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Тарапана",
+    "lat": 41.9729164,
+    "lon": 21.4565032,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Дебар Маало",
+    "lat": 42.0013292,
+    "lon": 21.4205747,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Vero",
+    "lat": 42.0065477,
+    "lon": 21.393115,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "МЦМ Мезе Бар",
+    "lat": 42.0023813,
+    "lon": 21.4235595,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Костарика",
+    "lat": 42.0028235,
+    "lon": 21.4239655,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Калабалак",
+    "lat": 42.003366,
+    "lon": 21.4242333,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Старо Скупи",
+    "lat": 42.0028813,
+    "lon": 21.4240111,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Занзибар",
+    "lat": 42.0030128,
+    "lon": 21.4240218,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Идадија",
+    "lat": 42.0013712,
+    "lon": 21.4210921,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Наџак",
+    "lat": 42.001453,
+    "lon": 21.4214837,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Кај Перо",
+    "lat": 42.0014888,
+    "lon": 21.4208615,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Gostilnica Estel",
+    "lat": 41.9990664,
+    "lon": 21.4236496,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Aleksandrija",
+    "lat": 42.0063483,
+    "lon": 21.3740403,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "СНОШТИ МИНАВ",
+    "lat": 41.9995917,
+    "lon": 21.4361151,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Кафана \"Дебар Маало\"",
+    "lat": 42.000778,
+    "lon": 21.4201149,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "KAM",
+    "lat": 41.981696,
+    "lon": 21.4438645,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Буре",
+    "lat": 42.0031615,
+    "lon": 21.4001853,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Tinex",
+    "lat": 41.9991202,
+    "lon": 21.4220053,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Casta Diva",
+    "lat": 41.9967891,
+    "lon": 21.4283169,
+    "type": "MIDDLE_SCHOOL"
+  },
+  {
+    "title": "Gramofon Vinyl Macedonia Makedonija",
+    "lat": 41.993198,
+    "lon": 21.4159259,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Pçela",
+    "lat": 42.0002786,
+    "lon": 21.4371953,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Жито Маркети - Центар",
+    "lat": 41.988735,
+    "lon": 21.4364415,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Bratstvo",
+    "lat": 42.0021215,
+    "lon": 21.4378319,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Маркет Пингвин",
+    "lat": 41.9972428,
+    "lon": 21.4169524,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Austrian Palace",
+    "lat": 41.9995711,
+    "lon": 21.4356281,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Универзитет за туризам и менаџмент",
+    "lat": 42.0022668,
+    "lon": 21.398993,
+    "type": "MIDDLE_SCHOOL"
+  },
+  {
+    "title": "Маркет фратели",
+    "lat": 41.9994766,
+    "lon": 21.4177897,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Gala Fruit",
+    "lat": 41.9865793,
+    "lon": 21.4781599,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Меѓународен балкански универзитет",
+    "lat": 42.0017934,
+    "lon": 21.4348281,
+    "type": "FACULTY"
+  },
+  {
+    "title": "Воденица",
+    "lat": 41.9947932,
+    "lon": 21.4135121,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Ројал",
+    "lat": 41.9992364,
+    "lon": 21.4187447,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Restoran Frosina",
+    "lat": 41.9959518,
+    "lon": 21.4199442,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Tinex",
+    "lat": 42.0063857,
+    "lon": 21.3828865,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Gala Kujna",
+    "lat": 41.9826324,
+    "lon": 21.4520444,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "EZO",
+    "lat": 42.0365961,
+    "lon": 21.4462164,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Меана Б Јавор Мрзенци",
+    "lat": 42.0127048,
+    "lon": 21.4100468,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Доминос Пица Аеродром",
+    "lat": 41.9837535,
+    "lon": 21.4701282,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Restaurant ABC",
+    "lat": 42.0277395,
+    "lon": 21.4409393,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Kaj Гоце",
+    "lat": 41.9996644,
+    "lon": 21.4362086,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Дисконт маркет М",
+    "lat": 41.9898103,
+    "lon": 21.4691912,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Kosmos",
+    "lat": 42.0025666,
+    "lon": 21.4383067,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Ла пица",
+    "lat": 41.9819621,
+    "lon": 21.4681967,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Super Tinex",
+    "lat": 41.9978906,
+    "lon": 21.4089683,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Kebapčilinica Rio",
+    "lat": 41.999319,
+    "lon": 21.4360459,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Gjeltoria Palas",
+    "lat": 42.0018869,
+    "lon": 21.4383639,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Vega",
+    "lat": 41.9995518,
+    "lon": 21.4131738,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Сараево",
+    "lat": 42.0015097,
+    "lon": 21.4381319,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Tako mako",
+    "lat": 42.0005265,
+    "lon": 21.4365599,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Markt kitchen",
+    "lat": 41.9969456,
+    "lon": 21.4285563,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Sac",
+    "lat": 42.0002543,
+    "lon": 21.4374652,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Барик",
+    "lat": 42.0019483,
+    "lon": 21.4224937,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Hajri Kompani",
+    "lat": 42.0046727,
+    "lon": 21.4370024,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Palas",
+    "lat": 42.002112,
+    "lon": 21.4385882,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Schpajs",
+    "lat": 42.0017089,
+    "lon": 21.4219242,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "T market",
+    "lat": 42.0015821,
+    "lon": 21.4189761,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Dm",
+    "lat": 42.0010275,
+    "lon": 21.4396745,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Море Маниа",
+    "lat": 41.9982749,
+    "lon": 21.4283051,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Plaset",
+    "lat": 42.0016292,
+    "lon": 21.4382061,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Kit-Go",
+    "lat": 42.0244715,
+    "lon": 21.4283826,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Toto",
+    "lat": 41.9967339,
+    "lon": 21.4229663,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Млечен Бар",
+    "lat": 41.9971719,
+    "lon": 21.4086507,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Teteks",
+    "lat": 42.002027,
+    "lon": 21.4384905,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Букет",
+    "lat": 41.9945241,
+    "lon": 21.4244578,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Metzka",
+    "lat": 42.0026188,
+    "lon": 21.4186405,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Laboratorium",
+    "lat": 41.9942446,
+    "lon": 21.4243092,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Pizzeria Bik",
+    "lat": 42.0027517,
+    "lon": 21.4415279,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Old Balkan",
+    "lat": 42.0011296,
+    "lon": 21.4380383,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Tools, household",
+    "lat": 42.004177,
+    "lon": 21.4360158,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Stokomak",
+    "lat": 41.9993986,
+    "lon": 21.4213699,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Swisslion",
+    "lat": 41.9989821,
+    "lon": 21.4224806,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Kursumli An",
+    "lat": 42.0025774,
+    "lon": 21.4371206,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Tools, household",
+    "lat": 42.0050219,
+    "lon": 21.4357643,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Feki-Kom",
+    "lat": 42.0063897,
+    "lon": 21.435694,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Stokomak",
+    "lat": 41.9910788,
+    "lon": 21.4346069,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Дием-ГП",
+    "lat": 42.0047389,
+    "lon": 21.4254894,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Стокомак",
+    "lat": 41.9954171,
+    "lon": 21.5098008,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Ресторан Национал",
+    "lat": 41.993295,
+    "lon": 21.4352029,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Кај Јоле",
+    "lat": 41.996324,
+    "lon": 21.4283137,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Рок Кафана Рустикана 2.0",
+    "lat": 42.0062237,
+    "lon": 21.4157772,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Скадарлија",
+    "lat": 42.0046693,
+    "lon": 21.4147058,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Тинекс Лиса центар",
+    "lat": 41.9810978,
+    "lon": 21.4727602,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Бобико ТП Колонијал",
+    "lat": 41.976006,
+    "lon": 21.4815508,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Стокомак",
+    "lat": 42.0364195,
+    "lon": 21.4464861,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Жито Маркет",
+    "lat": 42.0372124,
+    "lon": 21.4458128,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Сидро",
+    "lat": 41.9974684,
+    "lon": 21.4097614,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Кит го",
+    "lat": 42.0036961,
+    "lon": 21.4672422,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Братство",
+    "lat": 41.9963073,
+    "lon": 21.4276671,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Ramstore",
+    "lat": 41.9980345,
+    "lon": 21.3981423,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Super TINEX",
+    "lat": 41.998706,
+    "lon": 21.3962482,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "La Noi - Mini Shop",
+    "lat": 42.0054049,
+    "lon": 21.4097719,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Малони",
+    "lat": 41.9833319,
+    "lon": 21.4539407,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Paradise Food",
+    "lat": 41.9944693,
+    "lon": 21.4277003,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Кај чичо 2",
+    "lat": 42.0091204,
+    "lon": 21.3855189,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "КАМ Маркет",
+    "lat": 41.9855334,
+    "lon": 21.4485408,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Ресторан Домини",
+    "lat": 41.9909456,
+    "lon": 21.4408895,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Equilibrium",
+    "lat": 41.9866451,
+    "lon": 21.4542028,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "25 Мај",
+    "lat": 42.0034662,
+    "lon": 21.5001674,
+    "type": "KINDERGARDEN"
+  },
+  {
+    "title": "С Маркет",
+    "lat": 42.0069756,
+    "lon": 21.5031425,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Reptil",
+    "lat": 41.9974123,
+    "lon": 21.4222398,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Step",
+    "lat": 41.9959161,
+    "lon": 21.4180198,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Alka-U B",
+    "lat": 41.9873148,
+    "lon": 21.4776722,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Mexican street food",
+    "lat": 42.0006689,
+    "lon": 21.4142957,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Боко",
+    "lat": 41.9970867,
+    "lon": 21.4171233,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "ZUR",
+    "lat": 41.9983437,
+    "lon": 21.4152676,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "КАМ маркет",
+    "lat": 41.9845059,
+    "lon": 21.4589055,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Стокомак",
+    "lat": 41.984756,
+    "lon": 21.4555933,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Рамстор",
+    "lat": 41.9848152,
+    "lon": 21.4509751,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "ЗУР",
+    "lat": 41.9828854,
+    "lon": 21.4556365,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Стокомак",
+    "lat": 41.9888605,
+    "lon": 21.4483803,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Тинекс",
+    "lat": 41.9887772,
+    "lon": 21.461333,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Стикомак",
+    "lat": 41.992847,
+    "lon": 21.4158463,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Факултет за музучка уметност - Скопје",
+    "lat": 41.9977913,
+    "lon": 21.4352317,
+    "type": "FACULTY"
+  },
+  {
+    "title": "Ckoncko",
+    "lat": 41.9952558,
+    "lon": 21.398719,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Mama",
+    "lat": 42.0005347,
+    "lon": 21.4250341,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Medo",
+    "lat": 42.0005187,
+    "lon": 21.4371301,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Бутик за деца",
+    "lat": 41.9940233,
+    "lon": 21.4014857,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Nuts",
+    "lat": 41.9947198,
+    "lon": 21.3963536,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Вода 93",
+    "lat": 41.9947476,
+    "lon": 21.3961442,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Рептил",
+    "lat": 41.9951109,
+    "lon": 21.3942515,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Бегера",
+    "lat": 41.9941712,
+    "lon": 21.4119491,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Дрен",
+    "lat": 41.9971516,
+    "lon": 21.4061316,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Топ Ган",
+    "lat": 41.9907955,
+    "lon": 21.4455382,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Market 100",
+    "lat": 41.9907796,
+    "lon": 21.4454331,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Restaurant Gostilnica Vezenka",
+    "lat": 41.9945336,
+    "lon": 21.4282667,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Киппер Маркет - Маџари",
+    "lat": 41.9979523,
+    "lon": 21.4927721,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "КАМ Маркет",
+    "lat": 41.9993743,
+    "lon": 21.4884199,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Зур Маркет Триангла",
+    "lat": 42.0001174,
+    "lon": 21.4871082,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Жито Маркет",
+    "lat": 41.98004,
+    "lon": 21.4755136,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Жито Маркети",
+    "lat": 41.9839417,
+    "lon": 21.4648833,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Маркет зур",
+    "lat": 42.0066788,
+    "lon": 21.3651515,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Tobacco KING",
+    "lat": 41.9995488,
+    "lon": 21.4368486,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Galija",
+    "lat": 41.9959851,
+    "lon": 21.4343993,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Dm",
+    "lat": 41.9948177,
+    "lon": 21.4338476,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Vero",
+    "lat": 41.9947898,
+    "lon": 21.4339037,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Dm",
+    "lat": 41.9853149,
+    "lon": 21.4388687,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Pizza Jakomo",
+    "lat": 41.9856469,
+    "lon": 21.4382429,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Freshi",
+    "lat": 41.983481,
+    "lon": 21.4387999,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Magic House",
+    "lat": 41.9808322,
+    "lon": 21.4391686,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Рагуза 360",
+    "lat": 41.9895164,
+    "lon": 21.4320056,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Reptil 7",
+    "lat": 42.0072488,
+    "lon": 21.3708365,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Mezze Stanica 33",
+    "lat": 41.9899516,
+    "lon": 21.4269282,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Рептил",
+    "lat": 42.0254196,
+    "lon": 21.3758753,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Григос",
+    "lat": 41.9868625,
+    "lon": 21.4307957,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Маркет ТОЛИС",
+    "lat": 41.9906499,
+    "lon": 21.4148333,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Ланџ бар Бис",
+    "lat": 42.0068785,
+    "lon": 21.4021487,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Стокомак Аеродром",
+    "lat": 41.987047,
+    "lon": 21.46803,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Grosh",
+    "lat": 42.0033987,
+    "lon": 21.399689,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Алтан",
+    "lat": 41.9925181,
+    "lon": 21.4168502,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Тинекс - Годи",
+    "lat": 41.9959282,
+    "lon": 21.4780149,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Пицерија Верона",
+    "lat": 41.9836827,
+    "lon": 21.455155,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Авијатор",
+    "lat": 41.9872479,
+    "lon": 21.4518227,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Gastroteca Siesta",
+    "lat": 41.9931813,
+    "lon": 21.4296203,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Kujna Brabia",
+    "lat": 41.9931248,
+    "lon": 21.4284386,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Abi Doner",
+    "lat": 42.0005325,
+    "lon": 21.436453,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Ei8ht",
+    "lat": 42.0000419,
+    "lon": 21.4373635,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Arifan",
+    "lat": 41.9995864,
+    "lon": 21.4365247,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Restaurant Harmony",
+    "lat": 41.9915568,
+    "lon": 21.4356755,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Kam",
+    "lat": 41.996627,
+    "lon": 21.406631,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Економски институт - Скопје",
+    "lat": 41.988652,
+    "lon": 21.4372235,
+    "type": "FACULTY"
+  },
+  {
+    "title": "ДИМ Маркет",
+    "lat": 42.0060513,
+    "lon": 21.3546223,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Боними",
+    "lat": 42.0030519,
+    "lon": 21.4621624,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Веро Маркет",
+    "lat": 42.0142354,
+    "lon": 21.4450262,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Reptil Market - Mala Stanica",
+    "lat": 41.9902233,
+    "lon": 21.4252299,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "kids park",
+    "lat": 41.9768614,
+    "lon": 21.4345711,
+    "type": "PARK"
+  },
+  {
+    "title": "Baking Bread",
+    "lat": 41.9825293,
+    "lon": 21.4724196,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Рептил",
+    "lat": 41.9915042,
+    "lon": 21.4338838,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Рамстор",
+    "lat": 41.9860827,
+    "lon": 21.4667398,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "АлоАло",
+    "lat": 41.9858692,
+    "lon": 21.4660961,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Солис",
+    "lat": 41.9856033,
+    "lon": 21.4666772,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "ДМ",
+    "lat": 41.985852,
+    "lon": 21.4663188,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "кебапчилница Турист",
+    "lat": 41.9848636,
+    "lon": 21.4683144,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "ресторант Театар Комедија",
+    "lat": 41.9944726,
+    "lon": 21.4254539,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "Рисан",
+    "lat": 41.9858826,
+    "lon": 21.43604,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Баже комерц 95",
+    "lat": 41.9854457,
+    "lon": 21.4365942,
+    "type": "GROCERY_STORE"
+  },
+  {
+    "title": "Kafanche",
+    "lat": 42.0028695,
+    "lon": 21.4176071,
+    "type": "RESTAURANT"
+  },
+  {
+    "title": "ДИМ маркет",
+    "lat": 41.9894281,
+    "lon": 21.43723,
+    "type": "GROCERY_STORE"
+  }
+]

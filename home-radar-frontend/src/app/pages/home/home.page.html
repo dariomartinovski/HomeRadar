@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="map-container">
+        <map-component 
+            [properties]="mockProperties"
+            (selectedProperty)="handlePropertyClick($event)">
+        </map-component>
+    </div>
+    <property-details
+        [property]="selectedProperty"
+        (closePopup)="selectedProperty = undefined"
+    ></property-details>
+</div>

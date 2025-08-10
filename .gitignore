@@ -1,0 +1,12 @@
+# Node & Angular
+frontend/node_modules/
+frontend/dist/
+
+# Kotlin/Gradle
+backend/build/
+backend/.gradle/
+
+# OS / IDE
+*.log
+.DS_Store
+.idea/
