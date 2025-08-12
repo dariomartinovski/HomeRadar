@@ -1,11 +1,13 @@
 <div class="container">
-    <div class="map-container">
-        <map-component 
-            [properties]="mockProperties"
-            [perks]="mockPerks"
-            (selectedProperty)="handlePropertyClick($event)">
-        </map-component>
-    </div>
+    @if((perks$ | async); as perks){
+        <div class="map-container">
+            <map-component 
+                [properties]="mockProperties"
+                [perks]="perks"
+                (selectedProperty)="handlePropertyClick($event)">
+            </map-component>
+        </div>
+    }
     <property-details
         [property]="selectedProperty"
         (closePopup)="selectedProperty = undefined"

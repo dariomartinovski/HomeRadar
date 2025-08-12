@@ -18,20 +18,15 @@ import { CommonModule } from '@angular/common';
 export class HomePage implements OnInit {
   #perkService = inject(PerkService);
   
+  perks$: Observable<Perk[]> = of([]);
   properties$: Observable<Property[]> = of(mockProperties);
-  // perks$: Observable<Perk[]>;
   selectedProperty?: Property;
-  perks$ = this.#perkService.fetchPerks(); // directly assigned
   mockProperties = mockProperties;
-  mockPerks = mockPerks;
 
   ngOnInit(): void {
     console.log("call starting")
-    // this.perks$ = this.#perkService.fetchPerks();
-    // .subscribe({
-    //   next: (perks) => console.log(perks),
-    //   error: (err) => console.error(err)
-    // });
+    this.perks$ = this.#perkService.fetchPerks();
+    // this.properties$ = this.#propertyService.fetchProperties();
   }
 
   handlePropertyClick(selectedProperty: Property) {

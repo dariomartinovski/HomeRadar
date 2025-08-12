@@ -13,7 +13,6 @@ import { SelectedArea } from '../../../interfaces/selected-area.interface';
 import * as L from 'leaflet';
 import { Coordinate } from '../../../interfaces/coordinate.interface';
 import { Perk } from '../../../interfaces/perk.interface';
-import { PerkType } from '../../../enums/perk-type.enum';
 import { getPerkIcon } from '../../utils/perk-icon-url.util';
 import { capitilize } from '../../utils/capitilize.util';
 

@@ -7,7 +7,6 @@ import { Perk } from '../../interfaces/perk.interface';
   providedIn: 'root'
 })
 export class PerkService {
-    //TODO add proxy
   private path: string = 'http://localhost:8080/api/perks';
 
   #http = inject(HttpClient);
