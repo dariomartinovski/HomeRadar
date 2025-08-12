@@ -70,7 +70,8 @@
               "buildTarget": "home-radar-frontend:build:production"
             },
             "development": {
-              "buildTarget": "home-radar-frontend:build:development"
+              "buildTarget": "home-radar-frontend:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
