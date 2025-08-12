@@ -7,17 +7,13 @@ import jakarta.persistence.*
 @Table(name = "perks")
 data class Perk (
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
-
     val title: String,
 
     @Enumerated(EnumType.STRING)
     val type: PerkType,
-
     val latitude: Double,
-
     val longitude: Double,
-    
-    val workingHours: String? = null
+    val openingHours: String? = null
 )

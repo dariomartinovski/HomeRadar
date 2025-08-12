@@ -1,20 +1,17 @@
 package com.home_radar.api
 
-import com.home_radar.domain.Perk
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
 import com.home_radar.service.PerkService
+import org.springframework.web.bind.annotation.*
 
+@CrossOrigin
 @RestController
 @RequestMapping("/api/perks")
 class PerkController(
     val perkService: PerkService
 ) {
     @GetMapping
-    fun findAllPerks(): List<Perk> = perkService.findAllPerks()
+    fun findAllPerks() = perkService.findAllPerks()
 
-    @GetMapping("/test")
-    fun test() = "Hello perks!"
-
+    @GetMapping("/{id}")
+    fun findById(@PathVariable id: Long) = perkService.findPerkById(id)
 }

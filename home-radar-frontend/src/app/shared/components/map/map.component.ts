@@ -12,6 +12,10 @@ import { Property } from '../../../interfaces/property.interface';
 import { SelectedArea } from '../../../interfaces/selected-area.interface';
 import * as L from 'leaflet';
 import { Coordinate } from '../../../interfaces/coordinate.interface';
+import { Perk } from '../../../interfaces/perk.interface';
+import { PerkType } from '../../../enums/perk-type.enum';
+import { getPerkIcon } from '../../utils/perk-icon-url.util';
+import { capitilize } from '../../utils/capitilize.util';
 
 @Component({
   selector: 'map-component',
@@ -20,6 +24,7 @@ import { Coordinate } from '../../../interfaces/coordinate.interface';
 })
 export class MapComponent implements AfterViewInit, OnDestroy {
   @Input() properties: Property[] = [];
+  @Input() perks: Perk[] = [];
   @Input() radius: number = 500;
 
   @Output() selectedProperty = new EventEmitter<Property>();
@@ -28,7 +33,7 @@ export class MapComponent implements AfterViewInit, OnDestroy {
   @ViewChild('mapContainer', { static: true }) mapContainer!: ElementRef;
 
   private map!: L.Map;
-  private markers: { marker: L.Marker; property: Property }[] = [];
+  private markers: { marker: L.Marker; property: Property | Perk }[] = [];
   private selectedCircle!: L.Circle;
   private selectedCenterMarker!: L.Marker;
 
@@ -69,11 +74,12 @@ export class MapComponent implements AfterViewInit, OnDestroy {
     });
 
     this.addMarkersForProperties();
+
+    this.addMarkersForPerks();
   }
 
   private addMarkersForProperties() {
     //TODO there are red, orange, yellow, blue, black, gold, violet, grey icons
-    //just change the color in the url at the end
     this.properties.forEach((property) => {
       const greenIcon = new L.Icon({
         iconUrl:
@@ -104,6 +110,63 @@ export class MapComponent implements AfterViewInit, OnDestroy {
       this.markers.push({ marker, property });
     });
   }
+
+  private addMarkersForPerks(): void {
+    this.perks.forEach((perk) => {
+      const perkIcon = getPerkIcon(perk.type);
+
+      const marker = L.marker([perk.latitude, perk.longitude], {
+        icon: perkIcon,
+      }).addTo(this.map);
+
+      marker.bindPopup(this.createPerkPopup(perk));
+
+      marker.on('click', () => {
+        this.map.flyTo([perk.latitude, perk.longitude], 17, {
+          animate: true,
+          duration: 1.4,
+        });
+
+        this.selectedProperty.emit(undefined);
+      });
+
+      this.markers.push({ marker, property: perk });
+    });
+  }
+  
+private createPerkPopup(perk: Perk): string {
+  const openingHoursHtml = perk.openingHours
+    ? `<p><strong>Working Hours:</strong> ${perk.openingHours}</p>`
+    : '';
+
+  return `
+    <div style="
+      font-family: Arial, sans-serif;
+      padding: 8px;
+      max-width: 200px;
+      line-height: 1.4;
+    ">
+      <h3 style="
+        margin: 0 0 6px;
+        font-size: 16px;
+        color: #2c3e50;
+      ">
+        ${perk.title}
+      </h3>
+
+      <p style="margin: 0 0 4px; font-size: 13px; color: #555;">
+        <strong>Type:</strong> ${capitilize(perk.type)}
+      </p>
+
+      <p style="margin: 0 0 4px; font-size: 12px; color: #777;">
+        📍 ${perk.latitude.toFixed(5)}, ${perk.longitude.toFixed(5)}
+      </p>
+
+      ${openingHoursHtml}
+    </div>
+  `;
+}
+
 
   private addCircleFromCoordinates(coordinate: Coordinate): void {
     this.checkIfValidCoordinate(coordinate);
