@@ -2,7 +2,7 @@
     <div class="map-container">
         <map-component 
             [properties]="mockProperties"
-            [perks]="(perks$ | async)"
+            [perks]="mockPerks"
             (selectedProperty)="handlePropertyClick($event)">
         </map-component>
     </div>

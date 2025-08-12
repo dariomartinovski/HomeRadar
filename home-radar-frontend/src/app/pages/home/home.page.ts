@@ -19,18 +19,19 @@ export class HomePage implements OnInit {
   #perkService = inject(PerkService);
   
   properties$: Observable<Property[]> = of(mockProperties);
-  perks$: Observable<Perk[]> = of([]);
+  // perks$: Observable<Perk[]>;
   selectedProperty?: Property;
-
+  perks$ = this.#perkService.fetchPerks(); // directly assigned
   mockProperties = mockProperties;
   mockPerks = mockPerks;
 
   ngOnInit(): void {
     console.log("call starting")
-    this.#perkService.fetchPerks().subscribe({
-      next: (perks) => console.log(perks),
-      error: (err) => console.error(err)
-    });
+    // this.perks$ = this.#perkService.fetchPerks();
+    // .subscribe({
+    //   next: (perks) => console.log(perks),
+    //   error: (err) => console.error(err)
+    // });
   }
 
   handlePropertyClick(selectedProperty: Property) {
