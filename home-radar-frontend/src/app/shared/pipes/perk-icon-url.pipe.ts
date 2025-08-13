@@ -1,14 +1,12 @@
 import { Pipe, PipeTransform } from "@angular/core";
+import { getPerkIconUrl } from "../utils/perk-icon-url.util";
 
 @Pipe({
     name: "perkIconUrl"
 })
-export class PerkIconUrlPipe implements PipeTransform {
-  transform(value: string): string {
+export class PerkIconUrlPipe implements PipeTransform {  
+    transform(value: string): string {
     if (!value) return '';
-    return value
-      .toLowerCase()
-      .replace(/_/g, ' ')
-      .replace(/\b\w/g, char => char.toUpperCase());
+    return getPerkIconUrl(value);
   }
 }
