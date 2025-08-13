@@ -32,3 +32,8 @@ export function getPerkIcon(perkType: string): L.Icon {
   }
   return createIcon(iconUrl);
 }
+
+export function getPerkIconUrl(perkType: string): string {
+  const iconUrl = perkIconUrls[perkType];
+  return iconUrl ?? './assets/icons/detault_marker.png  '
+}
