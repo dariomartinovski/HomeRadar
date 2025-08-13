@@ -1,13 +1,17 @@
 <div class="container">
-    @if((perks$ | async); as perks){
-        <div class="map-container">
-            <map-component 
-                [properties]="mockProperties"
-                [perks]="perks"
-                (selectedProperty)="handlePropertyClick($event)">
-            </map-component>
-        </div>
-    }
+    <div class="search-container">
+        <search></search>
+    </div>
+    <div class="map-container">
+        <map-component 
+            [properties]="properties()"
+            [perks]="perks()"
+            (selectedProperty)="handlePropertyClick($event)">
+        </map-component>
+    </div>
+    <categories-filter
+        [categories]="categories()"
+    ></categories-filter>
     <property-details
         [property]="selectedProperty"
         (closePopup)="selectedProperty = undefined"
