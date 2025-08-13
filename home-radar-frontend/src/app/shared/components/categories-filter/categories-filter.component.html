@@ -1,0 +1,11 @@
+<div class="categories-filter-container">
+    <div class="icon">
+        <input type="checkbox" name="test" id="1">
+        <img src="/assets/icons/bar_pin.png" alt="Bar">
+    </div>
+    @for (perkType of categories(); track $index) {
+        <p>{{perkType}}</p>
+        <input type="checkbox" name="test" id="1">
+        <img [src]="perkType | perkIconUrl" alt="Bar">
+    }
+</div>
