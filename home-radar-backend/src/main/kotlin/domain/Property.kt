@@ -40,4 +40,11 @@ data class Property(
     val floor: Int?,
     val elevator: Boolean?,
     val numberOfRooms: Int
-)
+
+    val price: String,
+    val yearBuilt: Int?,
+    val bedrooms: Int?,
+    val bathrooms: Int?,
+    val imageUrl: String,
+    val neighborhood: String?
+    )
