@@ -47,14 +47,13 @@ export class MapComponent implements AfterViewInit, OnDestroy {
     this.initMap();
 
     runInInjectionContext(this.injector, () => {
-      effect(() => {
-        if (!this.map) return;
-        this.addMarkersForPerks();
-      });
+      // effect(() => {
+      //   if (!this.map) return;
+      //   this.addMarkersForPerks();
+      // });
 
       effect(() => {
         if (!this.map) return;
-        console.log('Properties changed:', this.properties());
         this.addMarkersForProperties();
       });
     });

@@ -10,9 +10,9 @@
         </map-component>
     </div>
     <div class="sidebar-container">
-        <categories-filter
+        <sidebar
             [categories]="categories()"
-        ></categories-filter>
+        ></sidebar>
         <property-details
             [property]="selectedProperty"
             (closePopup)="selectedProperty = undefined"

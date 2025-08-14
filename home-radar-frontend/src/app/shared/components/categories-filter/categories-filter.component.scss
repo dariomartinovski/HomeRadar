@@ -1,52 +1,16 @@
-.categories-filter-container {
-    // position: absolute;
-    // right: 0;
-    // top: 0;
+.categories-icons {
+  display: grid;
+  gap: 0.5em;
+}
+
+.icon {
+  height: 2.5em;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  gap: 0.5em;
+
+  img {
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 0.5em;
-    background: rgba(235, 251, 254, 0.7);
-    backdrop-filter: blur(0.5em);
-    -webkit-backdrop-filter: blur(0.5em);
-
-     
-  .toggle-btn {
-    position: absolute;
-    height: 4em;
-    left: -2.4em;
-    top: 50%;
-    transform: translateY(-50%);
-    border: none;
-    background: rgba(235, 251, 254, 0.7);
-    padding: 0.3em 0.5em;
-    border-radius: 1em 0 0 1em;
-    cursor: pointer;
-    font-size: 1.2em;
-    box-shadow: 0 0.3em 0.6em rgba(0, 0, 0, 0.2);
-    transition: background 0.3s;
-    
-    &:hover {
-      background: rgba(235, 251, 254, 0.9);
-    }
   }
-
-    .icons {
-        display: grid;
-        gap: 0.5em;
-    }
-
-    .icon {
-        height: 2.5em;
-        display: flex;
-        align-items: center;
-        // TODO maybe when its just expanded add justify-content: right
-        justify-content: right;
-        gap: 0.5em;
-        
-        img {
-            height: 100%;
-        }
-    }
 }

@@ -13,18 +13,20 @@ import { PropertyService } from "../../core/services/property.service";
 import { SearchComponent } from "../../shared/components/search/search.component";
 import { CategoriesFilterComponent } from "../../shared/components/categories-filter/categories-filter.component";
 import { PerkType } from "../../enums/perk-type.enum";
+import { SidebarComponent } from "../../shared/components/sidebar/sidebar.component";
 
 @Component({
   selector: 'home',
   templateUrl: './home.page.html',
   styleUrl: './home.page.scss',
   imports: [
-    MapComponent, 
-    PropertyDetails, 
-    SearchComponent, 
+    MapComponent,
+    PropertyDetails,
+    SearchComponent,
     CategoriesFilterComponent,
-    CommonModule
-  ]
+    CommonModule,
+    SidebarComponent
+]
 })
 export class HomePage {
   #perkService = inject(PerkService);

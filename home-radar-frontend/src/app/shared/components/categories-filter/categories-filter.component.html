@@ -1,18 +1,11 @@
-<div class="categories-filter-container">
-    <button class="toggle-btn" (click)="toggle()">
-    <mat-icon>
-        {{ expanded() ? 'arrow_forward' : 'arrow_back' }}
-    </mat-icon>
-    </button>
-    <div class="icons">
-        @for (perkType of categories(); track $index) {
-            <div class="icon">
+<div class="categories-icons">
+    @for (perkType of categories(); track $index) {
+        <div class="icon">
             @if (expanded()) {
                 <p>{{perkType | capitalize}}</p>
             }
             <input type="checkbox" name="test" id="1">
             <img [src]="perkType | perkIconUrl" alt="Bar">
         </div>
-        }
-    </div>
+    }
 </div>
