@@ -14,4 +14,7 @@ class PerkController(
 
     @GetMapping("/{id}")
     fun findById(@PathVariable id: Long) = perkService.findPerkById(id)
+
+    @GetMapping("/categories")
+    fun findAllCategories() = perkService.findAllCategories()
 }

@@ -1,6 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Property } from '../../../interfaces/property.interface';
-import { PropertyCategory } from '../../../enums/property-category.enum';
 
 @Component({
   selector: 'property-details',

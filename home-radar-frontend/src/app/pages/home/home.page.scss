@@ -1,9 +1,16 @@
 .container {
     position: relative;
+    background-color: #20232e;
 }
-h1 {
-    color: red;
-}
+
 .map-container {
     height: 100vh;
+}
+
+.search-container {
+    position: absolute;
+    top: 5em;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 11;
 }

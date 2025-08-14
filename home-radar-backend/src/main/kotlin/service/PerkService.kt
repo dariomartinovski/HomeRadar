@@ -1,6 +1,7 @@
 package com.home_radar.service
 
 import com.home_radar.domain.Perk
+import com.home_radar.domain.enum.PerkType
 import org.springframework.stereotype.Service
 import com.home_radar.repository.PerkRepository
 import com.home_radar.web.extensions.toResponse
@@ -16,4 +17,6 @@ class PerkService(
     .orElseThrow {
         NoSuchElementException("Cannot find perk with id: [$id]")
     }.toResponse()
+
+    fun findAllCategories(): List<PerkType> = perkRepository.findAll().map { it.type }.toSet().toList()
 }

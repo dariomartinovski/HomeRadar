@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from "@angular/core";
+import { Component, inject, OnInit, signal } from "@angular/core";
 import { MapComponent } from "../../shared/components/map/map.component";
 import { mockProperties } from "../../data/properties.mock";
 import { mockPerks } from "../../data/perks.mock";
@@ -8,26 +8,33 @@ import { Perk } from "../../interfaces/perk.interface";
 import { PerkService } from "../../core/services/perks.service";
 import { Observable, of } from "rxjs";
 import { CommonModule } from '@angular/common';
+import { toSignal } from "@angular/core/rxjs-interop";
+import { PropertyService } from "../../core/services/property.service";
+import { SearchComponent } from "../../shared/components/search/search.component";
+import { CategoriesFilterComponent } from "../../shared/components/categories-filter/categories-filter.component";
+import { PerkType } from "../../enums/perk-type.enum";
 
 @Component({
   selector: 'home',
-  imports: [MapComponent, PropertyDetails, CommonModule],
   templateUrl: './home.page.html',
-  styleUrl: './home.page.scss'
+  styleUrl: './home.page.scss',
+  imports: [
+    MapComponent, 
+    PropertyDetails, 
+    SearchComponent, 
+    CategoriesFilterComponent,
+    CommonModule
+  ]
 })
-export class HomePage implements OnInit {
+export class HomePage {
   #perkService = inject(PerkService);
-  
-  perks$: Observable<Perk[]> = of([]);
-  properties$: Observable<Property[]> = of(mockProperties);
-  selectedProperty?: Property;
-  mockProperties = mockProperties;
+  #propertyService = inject(PropertyService);
 
-  ngOnInit(): void {
-    console.log("call starting")
-    this.perks$ = this.#perkService.fetchPerks();
-    // this.properties$ = this.#propertyService.fetchProperties();
-  }
+  selectedProperty?: Property;
+
+  perks = toSignal(this.#perkService.fetchPerks(), { initialValue: [] as Perk[] });
+  properties = toSignal(this.#propertyService.fetchProperties(), { initialValue: [] as Property[] });
+  categories = toSignal(this.#perkService.findAllCategories(), { initialValue: [] as PerkType[] });
 
   handlePropertyClick(selectedProperty: Property) {
     this.selectedProperty = selectedProperty;

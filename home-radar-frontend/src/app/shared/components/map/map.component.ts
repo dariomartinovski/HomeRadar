@@ -7,6 +7,11 @@ import {
   OnDestroy,
   ViewChild,
   ElementRef,
+  input,
+  effect,
+  runInInjectionContext,
+  inject,
+  EnvironmentInjector,
 } from '@angular/core';
 import { Property } from '../../../interfaces/property.interface';
 import { SelectedArea } from '../../../interfaces/selected-area.interface';
@@ -22,9 +27,11 @@ import { capitilize } from '../../utils/capitilize.util';
   styleUrls: ['./map.component.scss'],
 })
 export class MapComponent implements AfterViewInit, OnDestroy {
-  @Input() properties: Property[] = [];
-  @Input() perks: Perk[] = [];
-  @Input() radius: number = 500;
+  private injector = inject(EnvironmentInjector);
+
+  properties = input<Property[]>([]);
+  perks = input<Perk[]>([]);
+  radius = input<number>(500);
 
   @Output() selectedProperty = new EventEmitter<Property>();
   @Output() selectedArea = new EventEmitter<SelectedArea>();
@@ -38,6 +45,19 @@ export class MapComponent implements AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.initMap();
+
+    runInInjectionContext(this.injector, () => {
+      effect(() => {
+        if (!this.map) return;
+        this.addMarkersForPerks();
+      });
+
+      effect(() => {
+        if (!this.map) return;
+        console.log('Properties changed:', this.properties());
+        this.addMarkersForProperties();
+      });
+    });
   }
 
   ngOnDestroy(): void {
@@ -71,15 +91,11 @@ export class MapComponent implements AfterViewInit, OnDestroy {
     this.map.on('contextmenu', () => {
       this.clearSelectedArea();
     });
-
-    this.addMarkersForProperties();
-
-    this.addMarkersForPerks();
   }
 
   private addMarkersForProperties() {
     //TODO there are red, orange, yellow, blue, black, gold, violet, grey icons
-    this.properties.forEach((property) => {
+    this.properties().forEach((property) => {
       const greenIcon = new L.Icon({
         iconUrl:
           'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
@@ -111,7 +127,7 @@ export class MapComponent implements AfterViewInit, OnDestroy {
   }
 
   private addMarkersForPerks(): void {
-    this.perks.forEach((perk) => {
+    this.perks().forEach((perk) => {
       const perkIcon = getPerkIcon(perk.type);
 
       const marker = L.marker([perk.latitude, perk.longitude], {
@@ -181,7 +197,7 @@ private createPerkPopup(perk: Perk): string {
     this.selectedCircle = L.circle(
       [coordinate.latitude, coordinate.longitude],
       {
-        radius: this.radius,
+        radius: this.radius(),
         color: 'green',
       }
     ).addTo(this.map);
@@ -204,10 +220,10 @@ private createPerkPopup(perk: Perk): string {
     this.filterMarkersByRadius(
       coordinate.latitude,
       coordinate.longitude,
-      this.radius
+      this.radius()
     );
 
-    this.selectedArea.emit({ center: coordinate, radius: this.radius });
+    this.selectedArea.emit({ center: coordinate, radius: this.radius() });
   }
 
   private checkIfValidCoordinate(coordinate: Coordinate) {
