@@ -11,4 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class SearchComponent {
 
+  onSubmit() {
+    console.log("Submit button clicked");
+  }
 }

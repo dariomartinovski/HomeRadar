@@ -1,10 +1,10 @@
 <div class="search-container">
-  <div class="input-wrapper">
+  <form action="GET" (submit)="onSubmit()" class="input-wrapper">
     <input type="text" placeholder="Search for title..." />
-    <button type="button" class="search-button">
+    <button type="submit" class="search-button">
         <mat-icon class="icon">search</mat-icon>
     </button>
-    </div>
+  </form>
   <select class="area-dropdown">
     <option value="">Select area</option>
     <option value="kisela-voda">Kisela Voda</option>

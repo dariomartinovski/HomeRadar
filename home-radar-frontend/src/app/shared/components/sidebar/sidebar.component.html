@@ -1,0 +1,27 @@
+<div class="sidebar-container">
+    <button class="toggle-btn" (click)="toggle()">
+    <mat-icon>
+        {{ expanded() ? 'arrow_forward' : 'arrow_back' }}
+    </mat-icon>
+    </button>
+    <div class="icons">
+        <a routerLink="/profile" class="icon profile-icon">
+            @if (expanded()) {
+                <p>Profile</p>
+            }
+            <mat-icon>person</mat-icon>
+        </a>
+
+        <categories-filter
+            [categories]="categories()"
+            [expanded]="expanded()"
+        ></categories-filter>
+
+        <a routerLink="/settings" class="icon settings-icon">
+            @if (expanded()) {
+                <p>Settings</p>
+            }
+            <mat-icon>settings</mat-icon>
+        </a>
+    </div>
+</div>

@@ -12,15 +12,5 @@ import { MatIconModule } from "@angular/material/icon";
 })
 export class CategoriesFilterComponent {
     categories = input<PerkType[]>([]);
-    expanded = signal(false);
-
-    // constructor(){
-    //     effect(() => {
-    //         console.log("the types are ", this.categories);
-    //     })
-    // }
-
-    toggle() {
-        this.expanded.set(!this.expanded());
-    }
+    expanded = input<boolean>(false);
 }
