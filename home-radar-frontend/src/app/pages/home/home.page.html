@@ -3,17 +3,19 @@
         <search></search>
     </div>
     <div class="map-container">
-        <!-- <map-component 
+        <map-component 
             [properties]="properties()"
             [perks]="perks()"
             (selectedProperty)="handlePropertyClick($event)">
-        </map-component> -->
+        </map-component>
     </div>
-    <categories-filter
-        [categories]="categories()"
-    ></categories-filter>
-    <property-details
-        [property]="selectedProperty"
-        (closePopup)="selectedProperty = undefined"
-    ></property-details>
+    <div class="sidebar-container">
+        <categories-filter
+            [categories]="categories()"
+        ></categories-filter>
+        <property-details
+            [property]="selectedProperty"
+            (closePopup)="selectedProperty = undefined"
+        ></property-details>
+    </div>
 </div>

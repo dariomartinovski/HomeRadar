@@ -39,7 +39,7 @@ data class Property(
 
     val floor: Int?,
     val elevator: Boolean?,
-    val numberOfRooms: Int
+    val numberOfRooms: Int,
 
     val price: String,
     val yearBuilt: Int?,

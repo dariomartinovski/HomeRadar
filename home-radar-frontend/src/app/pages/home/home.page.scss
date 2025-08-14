@@ -14,3 +14,12 @@
     transform: translateX(-50%);
     z-index: 11;
 }
+
+.sidebar-container {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    z-index: 11;
+}
