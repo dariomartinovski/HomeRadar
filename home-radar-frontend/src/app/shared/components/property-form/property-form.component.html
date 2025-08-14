@@ -1,0 +1,160 @@
+<div class="form-container">
+  <h2>Profile Page</h2>
+  <h3>Create Property</h3>
+
+  <form [formGroup]="propertyForm" (ngSubmit)="onSubmit()">
+    <div class="form-section">
+      <div class="form-group">
+        <label for="title">Title*</label>
+        <input type="text" id="title" formControlName="title" required>
+        @if (propertyForm.get('title')?.invalid && propertyForm.get('title')?.touched) {
+          <div class="error-message">Title is required</div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="category">Category*</label>
+        <select id="category" formControlName="category" required>
+          <option value="">Select a category</option>
+          @for (category of categories; track category) {
+            <option [value]="category">{{ category | titlecase }}</option>
+          }
+        </select>
+        @if (propertyForm.get('category')?.invalid && propertyForm.get('category')?.touched) {
+          <div class="error-message">Category is required</div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="type">Property Type*</label>
+        <select id="type" formControlName="type" required>
+          <option value="">Select a type</option>
+          @for (type of propertyTypes; track type) {
+            <option [value]="type">{{ type | titlecase }}</option>
+          }
+        </select>
+        @if (propertyForm.get('type')?.invalid && propertyForm.get('type')?.touched) {
+          <div class="error-message">Property type is required</div>
+        }
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-group">
+        <label for="rooms">Number of Rooms*</label>
+        <input type="number" id="rooms" formControlName="numberOfRooms" min="1" required>
+        @if (propertyForm.get('numberOfRooms')?.invalid && propertyForm.get('numberOfRooms')?.touched) {
+          <div class="error-message">Required (minimum 1)</div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="bedrooms">Bedrooms</label>
+        <input type="number" id="bedrooms" formControlName="bedrooms" min="0">
+      </div>
+
+      <div class="form-group">
+        <label for="bathrooms">Bathrooms</label>
+        <input type="number" id="bathrooms" formControlName="bathrooms" min="0">
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-group">
+        <label for="size">Size (m²)*</label>
+        <input type="number" id="size" formControlName="squareMeters" min="1" step="0.01" required>
+        @if (propertyForm.get('squareMeters')?.invalid && propertyForm.get('squareMeters')?.touched) {
+          <div class="error-message">Required (minimum 1m²)</div>
+        }
+      </div>
+
+      <div class="form-group">
+        <label for="floor">Floor</label>
+        <input type="number" id="floor" formControlName="floor">
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-group">
+        <label for="heating">Heating Type*</label>
+        <select id="heating" formControlName="heating" required>
+          <option value="">Select heating type</option>
+          <option value="INVERTER_AC">Inverter AC</option>
+          <option value="AC">AC</option>
+          <option value="CENTRAL">Central Heating</option>
+          <option value="NO_HEATING">No Heating</option>
+          <option value="ELECTRIC">Electric</option>
+          <option value="WOOD">Wood</option>
+          <option value="OTHER">Other</option>
+        </select>
+        @if (propertyForm.get('heating')?.invalid && propertyForm.get('heating')?.touched) {
+          <div class="error-message">Heating type is required</div>
+        }
+      </div>
+    </div>
+
+    <div class="form-section checkboxes">
+      <label class="checkbox-label">
+        <input type="checkbox" formControlName="parking"> Parking
+      </label>
+      <label class="checkbox-label">
+        <input type="checkbox" formControlName="wifi"> WiFi
+      </label>
+      <label class="checkbox-label">
+        <input type="checkbox" formControlName="balcony"> Balcony
+      </label>
+      <label class="checkbox-label">
+        <input type="checkbox" formControlName="elevator"> Elevator
+      </label>
+    </div>
+
+    <div class="form-section">
+      <div class="form-group full-width">
+        <label for="description">Description*</label>
+        <textarea id="description" formControlName="description" rows="4" required></textarea>
+        @if (propertyForm.get('description')?.invalid && propertyForm.get('description')?.touched) {
+          <div class="error-message">Description is required</div>
+        }
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-group full-width">
+        <label for="address">Address*</label>
+        <input type="text" id="address" formControlName="address" required
+               (input)="onAddressInput()"
+               [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          @for (option of addressOptions; track option) {
+            <mat-option [value]="option.display_name" (onSelectionChange)="onAddressSelect(option)">
+              {{ option.display_name }}
+            </mat-option>
+          }
+        </mat-autocomplete>
+        @if (propertyForm.get('address')?.invalid && propertyForm.get('address')?.touched) {
+          <div class="error-message">Address is required</div>
+        }
+      </div>
+    </div>
+
+    <!-- Map Container -->
+    <div class="form-section">
+      <div class="form-group full-width">
+        <div #mapContainer class="map-container"></div>
+        <small class="map-hint">Click on the map to set location or search above</small>
+      </div>
+    </div>
+
+      <div class="form-group">
+        <label for="contactNumber">Contact Number*</label>
+        <input type="tel" id="contactNumber" formControlName="contactNumber" required>
+        @if (propertyForm.get('contactNumber')?.invalid && propertyForm.get('contactNumber')?.touched) {
+          <div class="error-message">Contact number is required</div>
+        }
+      </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary" [disabled]="!propertyForm.valid">Submit Property</button>
+    </div>
+  </form>
+</div>
