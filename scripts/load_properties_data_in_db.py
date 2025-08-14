@@ -118,7 +118,7 @@ def transform_property(original):
     }
 
 def insert_properties(properties):
-    """Insert transformed properties into the database"""
+    """Insert transformed properties into the database and clean up redundant columns"""
     conn = None
     try:
         conn = psycopg2.connect(**DB_CONFIG)
@@ -150,6 +150,15 @@ def insert_properties(properties):
                 conn.rollback()
                 continue
 
+        try:
+            cur.execute("ALTER TABLE properties DROP COLUMN IF EXISTS rooms")
+            cur.execute("ALTER TABLE properties DROP COLUMN IF EXISTS street")
+            conn.commit()
+            print("Successfully removed redundant columns (rooms, street) if they existed")
+        except psycopg2.Error as e:
+            print(f"Warning: Could not remove redundant columns: {e}")
+            conn.rollback()
+
         conn.commit()
         print(f"Successfully inserted {len(valid_properties)} properties")
         print(f"Skipped {len(properties) - len(valid_properties)} invalid records")
@@ -161,7 +170,6 @@ def insert_properties(properties):
     finally:
         if conn:
             conn.close()
-
 def main():
     try:
         with open('data/final_data.json', 'r', encoding='utf-8') as f:
