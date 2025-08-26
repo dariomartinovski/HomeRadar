@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, ElementRef, EventEmitter, inject, OnInit, Output, ViewChild} from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
@@ -14,6 +14,8 @@ import { PropertyCategory } from '../../../enums/property-category.enum';
 import { HttpClient } from '@angular/common/http';
 import { debounceTime, distinctUntilChanged, Subject, switchMap } from 'rxjs';
 import * as L from 'leaflet';
+import { PropertyService } from '../../../core/services/property.service';
+import { SuccessDialogComponent } from '../success-dialog/success-dialog.component';
 
 @Component({
   selector: 'property-form',
@@ -41,6 +43,9 @@ export class PropertyFormComponent implements OnInit, AfterViewInit {
   propertyTypes = Object.values(PropertyType);
   heatingTypes = Object.values(HeatingType);
 
+  areas: string[] = [];
+  loadingAreas: boolean = false;
+
   @Output() formSubmit = new EventEmitter<any>();
 
   addressOptions: any[] = [];
@@ -54,6 +59,8 @@ export class PropertyFormComponent implements OnInit, AfterViewInit {
 
   private fb = inject(FormBuilder)
   private http = inject(HttpClient)
+  private propertyService = inject(PropertyService)
+  private dialog = inject(MatDialog)
 
   ngOnInit() {
     this.propertyForm = this.fb.group({
@@ -80,6 +87,7 @@ export class PropertyFormComponent implements OnInit, AfterViewInit {
       latitude: [42.0024, Validators.required],
       longitude: [21.4361, Validators.required]
     });
+   this.loadAreas()
   }
 
   ngAfterViewInit(): void {
@@ -149,8 +157,10 @@ export class PropertyFormComponent implements OnInit, AfterViewInit {
   onAddressSelect(option: any): void {
     const lat = parseFloat(option.lat);
     const lon = parseFloat(option.lon);
+    const pos = L.latLng(lat, lon);
+
     this.updateMarker([lat, lon]);
-    this.map.setView([lat, lon], 16);
+    this.map.setView(pos, 16);
   }
 
   private searchAddress(query: string) {
@@ -172,17 +182,74 @@ export class PropertyFormComponent implements OnInit, AfterViewInit {
   }
 
   private updateMarker(latlng: L.LatLngExpression): void {
+    const pos = L.latLng(latlng);
     this.marker.setLatLng(latlng);
-    const position = latlng as L.LatLng;
     this.propertyForm.patchValue({
-      latitude: position.lat,
-      longitude: position.lng
+      latitude: pos.lat,
+      longitude: pos.lng
+    });
+  }
+
+   private loadAreas(): void {
+    this.loadingAreas = true;
+    this.propertyService.findAreas().subscribe({
+      next: (areas) => {
+        this.areas = areas;
+        this.loadingAreas = false;
+      },
+      error: (error) => {
+        console.error('Error loading areas:', error);
+        this.loadingAreas = false;
+      }
     });
   }
 
   onSubmit(): void {
     if (this.propertyForm.valid) {
-      this.formSubmit.emit(this.propertyForm.value);
+    const formValue = this.propertyForm.value;
+      const processedData = {
+        ...formValue,
+        squareMeters: parseFloat(formValue.squareMeters),
+        numberOfRooms: parseInt(formValue.numberOfRooms, 10),
+        price: parseFloat(formValue.price),
+        latitude: parseFloat(formValue.latitude),
+        longitude: parseFloat(formValue.longitude),
+        floor: formValue.floor ? parseInt(formValue.floor, 10) : null,
+        yearBuilt: formValue.yearBuilt ? parseInt(formValue.yearBuilt, 10) : null,
+        bedrooms: formValue.bedrooms ? parseInt(formValue.bedrooms, 10) : null,
+        bathrooms: formValue.bathrooms ? parseInt(formValue.bathrooms, 10) : null
+      };
+
+      this.propertyService.createProperty(processedData).subscribe({
+        next: (createdProperty) => {
+          this.formSubmit.emit(createdProperty);
+          this.showSuccessDialog('Property created successfully!','/');
+
+          this.propertyForm.reset();
+
+        },
+        error: (error) => {
+          console.error('Error creating property:', error);
+        }
+      });
+      console.log("siccess")
+      }
+      else {
+      console.log("bad")
+
+      Object.keys(this.propertyForm.controls).forEach(key => {
+        const control = this.propertyForm.get(key);
+        if (control) {
+          control.markAsTouched();
+        }
+      });
     }
+  }
+    private showSuccessDialog(message: string, navigateTo: string | null): void {
+    this.dialog.open(SuccessDialogComponent, {
+      width: '400px',
+      data: { message, navigateTo },
+      disableClose: false
+    });
   }
 }
