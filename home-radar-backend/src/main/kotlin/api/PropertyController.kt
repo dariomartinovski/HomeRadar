@@ -14,4 +14,12 @@ class PropertyController(
 
     @GetMapping("/{id}")
     fun getById(@PathVariable id: Long) = propertyService.findById(id)
+
+    @GetMapping("/filter")
+    fun filter(@RequestParam(required = false) title: String?,
+               @RequestParam(required = false) area: String?)
+    = propertyService.findFiltered(title, area)
+
+    @GetMapping("/areas")
+    fun findAreas() = propertyService.findAllAreas();
 }

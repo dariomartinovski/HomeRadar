@@ -1,18 +1,24 @@
-<div class="search-container">
-  <form action="GET" (submit)="onSubmit()" class="input-wrapper">
-    <input type="text" placeholder="Search for title..." />
+<form (ngSubmit)="onSubmit()" class="search-container">
+  <div class="input-wrapper">
+    <input
+      type="text"
+      placeholder="Search for title..."
+      [(ngModel)]="title"
+      name="title"
+    />
     <button type="submit" class="search-button">
-        <mat-icon class="icon">search</mat-icon>
+      <mat-icon class="icon">search</mat-icon>
     </button>
-  </form>
-  <select class="area-dropdown">
-    <option value="">Select area</option>
-    <option value="kisela-voda">Kisela Voda</option>
-    <option value="aerodrom">Aerodrom</option>
-    <option value="karpos">Karpoš</option>
-    <option value="centar">Centar</option>
-    <option value="gazi-baba">Gazi Baba</option>
-    <option value="chair">Čair</option>
-    <!-- add more areas here -->
-  </select>
-</div>
+  </div> 
+
+  <select
+    class="area-dropdown"
+    [(ngModel)]="area"
+    name="area"
+  >
+  <option value="">Select area</option>
+  @for (area of areas(); track $index) {
+    <option [value]="area">{{area}}</option>
+  }
+</select>
+</form>

@@ -39,7 +39,10 @@ export class MapComponent implements AfterViewInit, OnDestroy {
   @ViewChild('mapContainer', { static: true }) mapContainer!: ElementRef;
 
   private map!: L.Map;
-  private markers: { marker: L.Marker; property: Property | Perk }[] = [];
+
+  private propertyMarkers: { marker: L.Marker; property: Property }[] = [];
+  private perkMarkers: { marker: L.Marker; perk: Perk }[] = [];
+  
   private selectedCircle!: L.Circle;
   private selectedCenterMarker!: L.Marker;
 
@@ -47,6 +50,7 @@ export class MapComponent implements AfterViewInit, OnDestroy {
     this.initMap();
 
     runInInjectionContext(this.injector, () => {
+      //TODO uncomment this later
       // effect(() => {
       //   if (!this.map) return;
       //   this.addMarkersForPerks();
@@ -54,7 +58,9 @@ export class MapComponent implements AfterViewInit, OnDestroy {
 
       effect(() => {
         if (!this.map) return;
-        this.addMarkersForProperties();
+        //TODO remove old markers
+        this.updatePropertyMarkers();
+        // this.addMarkersForProperties();
       });
     });
   }
@@ -121,7 +127,7 @@ export class MapComponent implements AfterViewInit, OnDestroy {
         this.selectedProperty.emit(property);
       });
 
-      this.markers.push({ marker, property });
+      this.propertyMarkers.push({ marker, property });
     });
   }
 
@@ -144,43 +150,60 @@ export class MapComponent implements AfterViewInit, OnDestroy {
         this.selectedProperty.emit(undefined);
       });
 
-      this.markers.push({ marker, property: perk });
+      this.perkMarkers.push({ marker, perk });
     });
   }
+   
+  private clearPropertyMarkers(): void {
+    this.propertyMarkers.forEach(({ marker }) => {
+      this.map.removeLayer(marker);
+    });
+    this.propertyMarkers = [];
+  }
   
-private createPerkPopup(perk: Perk): string {
-  const openingHoursHtml = perk.openingHours
-    ? `<p><strong>Working Hours:</strong> ${perk.openingHours}</p>`
-    : '';
+  private updatePropertyMarkers(): void {
+    this.clearPropertyMarkers();
+    
+    this.addMarkersForProperties();
+    
+    if (this.selectedCircle) {
+      const center = this.selectedCircle.getLatLng();
+      this.filterMarkersByRadius(center.lat, center.lng, this.radius());
+    }
+  }
 
-  return `
-    <div style="
-      font-family: Arial, sans-serif;
-      padding: 8px;
-      max-width: 200px;
-      line-height: 1.4;
-    ">
-      <h3 style="
-        margin: 0 0 6px;
-        font-size: 16px;
-        color: #2c3e50;
+  private createPerkPopup(perk: Perk): string {
+    const openingHoursHtml = perk.openingHours
+      ? `<p><strong>Working Hours:</strong> ${perk.openingHours}</p>`
+      : '';
+
+    return `
+      <div style="
+        font-family: Arial, sans-serif;
+        padding: 8px;
+        max-width: 200px;
+        line-height: 1.4;
       ">
-        ${perk.title}
-      </h3>
+        <h3 style="
+          margin: 0 0 6px;
+          font-size: 16px;
+          color: #2c3e50;
+        ">
+          ${perk.title}
+        </h3>
 
-      <p style="margin: 0 0 4px; font-size: 13px; color: #555;">
-        <strong>Type:</strong> ${capitilize(perk.type)}
-      </p>
+        <p style="margin: 0 0 4px; font-size: 13px; color: #555;">
+          <strong>Type:</strong> ${capitilize(perk.type)}
+        </p>
 
-      <p style="margin: 0 0 4px; font-size: 12px; color: #777;">
-        📍 ${perk.latitude.toFixed(5)}, ${perk.longitude.toFixed(5)}
-      </p>
+        <p style="margin: 0 0 4px; font-size: 12px; color: #777;">
+          📍 ${perk.latitude.toFixed(5)}, ${perk.longitude.toFixed(5)}
+        </p>
 
-      ${openingHoursHtml}
-    </div>
-  `;
-}
-
+        ${openingHoursHtml}
+      </div>
+    `;
+  }
 
   private addCircleFromCoordinates(coordinate: Coordinate): void {
     this.checkIfValidCoordinate(coordinate);
@@ -240,10 +263,15 @@ private createPerkPopup(perk: Perk): string {
     longitude: number,
     radius: number
   ) {
-    this.markers.forEach(({ marker, property }) => {
+    const allMarkers = [
+      ...this.propertyMarkers.map(item => ({ marker: item.marker, location: item.property })),
+      ...this.perkMarkers.map(item => ({ marker: item.marker, location: item.perk }))
+    ];
+
+    allMarkers.forEach(({ marker, location }) => {
       const distance = this.map.distance(
         L.latLng(latitude, longitude),
-        L.latLng(property.latitude, property.longitude)
+        L.latLng(location.latitude, location.longitude)
       );
 
       if (distance <= radius) {
@@ -269,7 +297,7 @@ private createPerkPopup(perk: Perk): string {
       this.selectedCenterMarker = undefined!;
     }
 
-    this.markers.forEach(({ marker }) => {
+    [...this.propertyMarkers, ...this.perkMarkers].forEach(({ marker }) => {
       if (!this.map.hasLayer(marker)) {
         marker.addTo(this.map);
       }

@@ -15,14 +15,24 @@ class PropertyService(
         propertyRepository.findById(id)
             .orElseThrow { NoSuchElementException("Property not found: $id") }
             .toResponse()
-//    fun create(property: Property): Property = propertyRepository.save(property)
-//
-//    fun update(id: Long, updated: Property): Property {
-//        val existing = getById(id)
-//        return propertyRepository.save(
-//            updated.copy(id = existing.id)
-//        )
-//    }
-//
-//    fun delete(id: Long) = propertyRepository.deleteById(id)
+
+    fun findFiltered(title: String?, area: String?): List<PropertyResponse> {
+        if (area != null && title != null) {
+            return propertyRepository.findAllByTitleContainingIgnoreCaseAndNeighborhoodContainingIgnoreCase(title, area).map { it.toResponse() }
+        }
+        if (title != null) {
+            return propertyRepository.findAllByTitleContainingIgnoreCase(title).map { it.toResponse() }
+        }
+        if (area != null) {
+            return propertyRepository.findAllByNeighborhoodContainingIgnoreCase(area).map { it.toResponse() }
+        }
+        return propertyRepository.findAll().map { it.toResponse() }
+    }
+
+    fun findAllAreas(): List<String> =
+        propertyRepository
+            .findAll()
+            .mapNotNull { it.neighborhood }
+            .toSet()
+            .toList()
 }
