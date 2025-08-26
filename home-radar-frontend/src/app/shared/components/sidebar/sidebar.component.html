@@ -15,6 +15,7 @@
         <categories-filter
             [categories]="categories()"
             [expanded]="expanded()"
+            (selectionChange)="onCategoriesSelected($event)">
         ></categories-filter>
 
         <a routerLink="/settings" class="icon settings-icon">

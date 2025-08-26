@@ -1,7 +1,7 @@
-import { Component, inject, input, output } from '@angular/core';
+import { Component, inject, input, OnInit, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatIcon } from '@angular/material/icon';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'search',
@@ -11,14 +11,21 @@ import { Router } from '@angular/router';
     FormsModule,
     MatIcon]
 })
-export class SearchComponent {
+export class SearchComponent implements OnInit {
   #router = inject(Router);
+  #route = inject(ActivatedRoute);
 
   areas = input<string[]>([]);
   onSearch = output<void>();
 
   title = '';
   area = '';
+
+  ngOnInit() {
+    const queryParams = this.#route.snapshot.queryParams;
+    this.title = queryParams['title'] || '';
+    this.area = queryParams['area'] || '';
+  }
 
   onSubmit() {
     this.#router.navigate([], {

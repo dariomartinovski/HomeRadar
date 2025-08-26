@@ -2,7 +2,7 @@
     <div class="search-container">
         <search
             [areas]="areas()"
-            (onSearch)="handleSearch()"
+            (onSearch)="handlePropertySearch()"
         ></search>
     </div>
     <div class="map-container">
@@ -15,6 +15,7 @@
     <div class="sidebar-container">
         <sidebar
             [categories]="categories()"
+            (onCategoryChange)="handlePerkSearch()"
         ></sidebar>
         <property-details
             [property]="selectedProperty"

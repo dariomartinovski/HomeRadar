@@ -12,6 +12,13 @@ class PerkService(
 ) {
     fun findAllPerks(): List<PerkResponse> = perkRepository.findAll().map { it.toResponse() }
 
+    fun findAllPerksFiltered(categories: List<PerkType>?): List<PerkResponse> {
+        if(!categories.isNullOrEmpty()) {
+            return perkRepository.findAllByTypeIn(categories).map { it.toResponse() }
+        }
+        return findAllPerks()
+    }
+
     fun findPerkById(id: Long): PerkResponse? = perkRepository.findById(id)
     .orElseThrow {
         NoSuchElementException("Cannot find perk with id: [$id]")
