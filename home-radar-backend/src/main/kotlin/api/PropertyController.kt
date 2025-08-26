@@ -1,6 +1,8 @@
 package com.home_radar.api
 
 import com.home_radar.service.PropertyService
+import com.home_radar.web.request.PropertyCreateRequest
+import com.home_radar.web.response.PropertyResponse
 import org.springframework.web.bind.annotation.*
 
 @CrossOrigin
@@ -22,4 +24,7 @@ class PropertyController(
 
     @GetMapping("/areas")
     fun findAreas() = propertyService.findAllAreas();
+
+    @PostMapping
+    fun create(@RequestBody request: PropertyCreateRequest): PropertyResponse =  propertyService.create(request)
 }

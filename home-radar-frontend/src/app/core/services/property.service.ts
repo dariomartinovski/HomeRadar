@@ -21,7 +21,7 @@ export class PropertyService {
 
   fetchPropertiesFiltered(title?: string, area?: string): Observable<Property[]> {
     let params = new HttpParams();
-    
+
     if (title) {
       params = params.set('title', title);
     }
@@ -34,5 +34,9 @@ export class PropertyService {
 
   findAreas(): Observable<string[]> {
     return this.#http.get<string[]>(`${this.path}/areas`);
+  }
+
+   createProperty(property: Property): Observable<Property> {
+    return this.#http.post<Property>(this.path, property);
   }
 }
