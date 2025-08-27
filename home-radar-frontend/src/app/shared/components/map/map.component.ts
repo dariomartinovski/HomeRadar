@@ -42,7 +42,7 @@ export class MapComponent implements AfterViewInit, OnDestroy {
 
   private propertyMarkers: { marker: L.Marker; property: Property }[] = [];
   private perkMarkers: { marker: L.Marker; perk: Perk }[] = [];
-  
+
   private selectedCircle!: L.Circle;
   private selectedCenterMarker!: L.Marker;
 
@@ -50,17 +50,14 @@ export class MapComponent implements AfterViewInit, OnDestroy {
     this.initMap();
 
     runInInjectionContext(this.injector, () => {
-      //TODO uncomment this later
-      // effect(() => {
-      //   if (!this.map) return;
-      //   this.addMarkersForPerks();
-      // });
+      effect(() => {
+        if (!this.map) return;
+        this.updatePerksMarkers();
+      });
 
       effect(() => {
         if (!this.map) return;
-        //TODO remove old markers
         this.updatePropertyMarkers();
-        // this.addMarkersForProperties();
       });
     });
   }
@@ -153,19 +150,37 @@ export class MapComponent implements AfterViewInit, OnDestroy {
       this.perkMarkers.push({ marker, perk });
     });
   }
-   
+
   private clearPropertyMarkers(): void {
     this.propertyMarkers.forEach(({ marker }) => {
       this.map.removeLayer(marker);
     });
     this.propertyMarkers = [];
   }
-  
+
+  private clearPerkMarkers(): void {
+    this.perkMarkers.forEach(({ marker }) => {
+      this.map.removeLayer(marker);
+    });
+    this.perkMarkers = [];
+  }
+
   private updatePropertyMarkers(): void {
     this.clearPropertyMarkers();
-    
+
     this.addMarkersForProperties();
-    
+
+    if (this.selectedCircle) {
+      const center = this.selectedCircle.getLatLng();
+      this.filterMarkersByRadius(center.lat, center.lng, this.radius());
+    }
+  }
+
+  private updatePerksMarkers(): void {
+    this.clearPerkMarkers();
+
+    this.addMarkersForPerks();
+
     if (this.selectedCircle) {
       const center = this.selectedCircle.getLatLng();
       this.filterMarkersByRadius(center.lat, center.lng, this.radius());

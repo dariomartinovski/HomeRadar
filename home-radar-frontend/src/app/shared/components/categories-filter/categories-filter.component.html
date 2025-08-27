@@ -1,11 +1,15 @@
 <div class="categories-icons">
     @for (perkType of categories(); track $index) {
-        <div class="icon">
-            @if (expanded()) {
-                <p>{{perkType | capitalize}}</p>
-            }
-            <input type="checkbox" name="test" id="1">
-            <img [src]="perkType | perkIconUrl" alt="Bar">
-        </div>
+    <div class="icon">
+        @if (expanded()) {
+        <p>{{perkType | capitalize}}</p>
+        }
+        <input
+            type="checkbox"
+            [id]="perkType"
+            (change)="toggleCategory(perkType, $event)"
+            >
+        <img [src]="perkType | perkIconUrl" [alt]="perkType">
+    </div>
     }
 </div>

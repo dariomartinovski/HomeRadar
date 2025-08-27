@@ -72,6 +72,7 @@ class PropertyService(
         propertyRepository
             .findAll()
             .mapNotNull { it.neighborhood }
+            .sortedDescending()
             .toSet()
             .toList()
 }

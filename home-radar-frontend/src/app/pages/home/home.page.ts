@@ -9,7 +9,7 @@ import { toSignal } from "@angular/core/rxjs-interop";
 import { PropertyService } from "../../core/services/property.service";
 import { SearchComponent } from "../../shared/components/search/search.component";
 import { PerkType } from "../../enums/perk-type.enum";
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { SidebarComponent } from "../../shared/components/sidebar/sidebar.component";
 
 @Component({
@@ -22,8 +22,8 @@ import { SidebarComponent } from "../../shared/components/sidebar/sidebar.compon
     SearchComponent,
     SidebarComponent,
     CommonModule,
-    RouterModule
-  ]
+    RouterModule,
+  ],
 })
 export class HomePage implements OnInit {
   #perkService = inject(PerkService);
@@ -32,31 +32,47 @@ export class HomePage implements OnInit {
 
   selectedProperty?: Property;
 
-  perks = toSignal(this.#perkService.fetchPerks(), { initialValue: [] as Perk[] });
+  perks = signal<Perk[]>([]);
   properties = signal<Property[]>([]);
-  categories = toSignal(this.#perkService.findAllCategories(), { initialValue: [] as PerkType[] });
-  areas = toSignal(this.#propertyService.findAreas(), { initialValue: [] as string[] });
+  categories = toSignal(this.#perkService.findAllCategories(), {
+    initialValue: [] as PerkType[],
+  });
+  areas = toSignal(this.#propertyService.findAreas(), {
+    initialValue: [] as string[],
+  });
 
   ngOnInit() {
-    //TODO refactor this, same code as below
-    const { title, area } = this.#route.snapshot.queryParams;
-    this.#propertyService
-      .fetchPropertiesFiltered(title || null, area || null)
-      .subscribe(filteredProperties => {
-        this.properties.set(filteredProperties);
-      });
+    this.loadFilteredProperties();
+    this.loadFilteredPerks();
+  }
+
+  handlePropertySearch() {
+    this.loadFilteredProperties();
+  }
+
+  handlePerkSearch() {
+    this.loadFilteredPerks();
   }
 
   handlePropertyClick(selectedProperty: Property) {
     this.selectedProperty = selectedProperty;
   }
 
-  handleSearch() {
+  private loadFilteredProperties() {
     const { title, area } = this.#route.snapshot.queryParams;
     this.#propertyService
       .fetchPropertiesFiltered(title || null, area || null)
-      .subscribe(filteredProperties => {
+      .subscribe((filteredProperties) => {
         this.properties.set(filteredProperties);
+      });
+  }
+
+  private loadFilteredPerks() {
+    const { category } = this.#route.snapshot.queryParams;
+    this.#perkService
+      .fetchPerksFiltered(category)
+      .subscribe((filteredPerks) => {
+        this.perks.set(filteredPerks);
       });
   }
 }
