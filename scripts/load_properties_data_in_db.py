@@ -67,14 +67,14 @@ def transform_property(original):
     rooms = safe_int(original.get('rooms'), 0)
 
     # Create title
-    neighborhood = original.get('neighborhood', 'Unknown Neighborhood')
+    neighborhood = original.get('neighborhood') or 'Unknown Neighborhood'
     room_text = f"{rooms} room{'s' if rooms != 1 else ''}" if rooms != 0 else "rooms not specified"
     title = f"{neighborhood} - {room_text}"
 
     # Handle other fields
-    description = original.get('description', '')
-    address = original.get('street', 'Address not specified')
-    image_url = original.get('image_url', '')
+    description = original.get('description') or ''
+    address = original.get('street') or 'Address not specified'
+    image_url = original.get('image_url') or ''
 
     # Map enums with fallbacks
     try:
@@ -94,22 +94,22 @@ def transform_property(original):
 
     return {
         "title": title,
-        "latitude": original.get('latitude', 0.0),
-        "longitude": original.get('longitude', 0.0),
+        "latitude": original.get('latitude') or 0.0,
+        "longitude": original.get('longitude') or 0.0,
         "category": category,
         "description": description,
         "address": address,
-        "contact_number": original.get('contact_number', ''),
-        "parking": original.get('parking', False),
-        "wifi": original.get('wifi', False),
-        "balcony": original.get('balcony', False),
+        "contact_number": original.get('contact_number') or '',
+        "parking": original.get('parking') or False,
+        "wifi": original.get('wifi') or False,
+        "balcony": original.get('balcony') or False,
         "square_meters": size,  # Use the processed size value
         "heating": heating,
         "type": property_type,
         "floor": floor,
         "elevator": original.get('elevator'),
         "number_of_rooms": rooms,
-        "price": original.get('price', 'Price not specified'),
+        "price": original.get('price') or 'Please contact',
         "year_built": year_built,
         "bedrooms": bedrooms,
         "bathrooms": bathrooms,
@@ -161,7 +161,7 @@ def insert_properties(properties):
 
         conn.commit()
         print(f"Successfully inserted {len(valid_properties)} properties")
-        print(f"Skipped {len(properties) - len(valid_properties)} invalid records")
+        print(f"Skipped {len(properties) - len(valid_properties)} invalid reFcords")
 
     except (Exception, psycopg2.DatabaseError) as error:
         print(f"Database error: {error}")
@@ -172,14 +172,14 @@ def insert_properties(properties):
             conn.close()
 def main():
     try:
-        with open('data/final_data.json', 'r', encoding='utf-8') as f:
+        with open('../data/skopje_appartments_final.json', 'r', encoding='utf-8') as f:
             original_data = json.load(f)
 
         transformed_data = [transform_property(prop) for prop in original_data]
         insert_properties(transformed_data)
 
     except FileNotFoundError:
-        print("Error: data/final_data.json file not found")
+        print("Error: ../data/skopje_appartments_final.json file not found")
     except json.JSONDecodeError:
         print("Error: Invalid JSON format in input file")
     except Exception as e:

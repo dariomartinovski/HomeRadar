@@ -30,7 +30,7 @@ class PropertyService(
             numberOfRooms = request.numberOfRooms,
             floor = request.floor,
             heating = request.heating,
-            price = request.price.toString(),
+            price = request.price,
             parking = request.parking,
             wifi = request.wifi,
             balcony = request.balcony,

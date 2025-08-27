@@ -20,7 +20,7 @@ data class PropertyResponse(
     val parking: Boolean,
     val wifi: Boolean,
     val balcony: Boolean,
-    val elevator: Boolean,
+    val elevator: Boolean?,
     val yearBuilt: Int?,
     val bedrooms: Int?,
     val bathrooms: Int?,
