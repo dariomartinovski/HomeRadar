@@ -28,4 +28,5 @@ data class PropertyResponse(
     val neighborhood: String?,
     val latitude: Double,
     val longitude: Double,
+    val ownerId: Long
 )

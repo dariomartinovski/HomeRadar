@@ -114,7 +114,9 @@ def transform_property(original):
         "bedrooms": bedrooms,
         "bathrooms": bathrooms,
         "image_url": image_url,
-        "neighborhood": neighborhood
+        "neighborhood": neighborhood,
+    	"owner_id": None   
+
     }
 
 def insert_properties(properties):
@@ -129,12 +131,12 @@ def insert_properties(properties):
                 title, latitude, longitude, category, description, address,
                 contact_number, parking, wifi, balcony, square_meters, heating,
                 type, floor, elevator, number_of_rooms, price, year_built,
-                bedrooms, bathrooms, image_url, neighborhood
+                bedrooms, bathrooms, image_url, neighborhood, owner_id
             ) VALUES (
                 %(title)s, %(latitude)s, %(longitude)s, %(category)s, %(description)s, %(address)s,
                 %(contact_number)s, %(parking)s, %(wifi)s, %(balcony)s, %(square_meters)s, %(heating)s,
                 %(type)s, %(floor)s, %(elevator)s, %(number_of_rooms)s, %(price)s, %(year_built)s,
-                %(bedrooms)s, %(bathrooms)s, %(image_url)s, %(neighborhood)s
+                %(bedrooms)s, %(bathrooms)s, %(image_url)s, %(neighborhood)s, %(owner_id)s
             )
         """)
 

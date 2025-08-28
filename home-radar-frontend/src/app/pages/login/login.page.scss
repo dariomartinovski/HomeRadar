@@ -1,0 +1,77 @@
+@use "@angular/material" as mat;
+
+#auth-container {
+  min-height: calc(100vh - 65px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+  background-color: var(--mat-sys-surface-container-low);
+}
+
+.auth-card {
+  background-color: var(--mat-sys-surface);
+  border-radius: 12px;
+  padding: 2.5em;
+  width: 100%;
+  max-width: 450px;
+  box-sizing: border-box;
+}
+
+.auth-title {
+  font: var(--mat-sys-headline-small);
+  color: var(--mat-sys-on-surface);
+  text-align: center;
+  margin-bottom: 1.5em;
+  font-weight: 500;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.form-error-message {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.75em;
+  background-color: var(--mat-sys-error-container);
+  color: var(--mat-sys-on-error-container);
+  border-radius: 4px;
+  font: var(--mat-sys-body-medium);
+
+  mat-icon {
+    font-size: 1.2em;
+    width: 1.2em;
+    height: 1.2em;
+  }
+}
+
+.switch-auth {
+  text-align: center;
+  margin-top: 1.5em;
+  font: var(--mat-sys-body-medium);
+  color: var(--mat-sys-on-surface-variant);
+
+  a {
+    margin-left: 0.5em;
+  }
+}
+
+@media (max-width: 600px) {
+  #auth-container {
+    padding: 1em;
+    align-items: flex-start;
+    padding-top: 2em;
+  }
+
+  .auth-card {
+    padding: 1.5em;
+  }
+}

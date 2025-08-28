@@ -28,7 +28,8 @@ fun Property.toResponse() = PropertyResponse(
     imageUrl = imageUrl,
     neighborhood = neighborhood,
     price = price.toDouble(),
-    yearBuilt = yearBuilt
+    yearBuilt = yearBuilt,
+    ownerId = owner.id
 )
 
 fun Perk.toResponse() = PerkResponse(

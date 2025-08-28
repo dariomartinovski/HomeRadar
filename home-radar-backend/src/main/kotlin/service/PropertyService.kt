@@ -2,6 +2,7 @@ package com.home_radar.service
 
 import com.home_radar.domain.Property
 import com.home_radar.repository.PropertyRepository
+import com.home_radar.repository.UserRepository
 import com.home_radar.web.extensions.toResponse
 import com.home_radar.web.request.PropertyCreateRequest
 import com.home_radar.web.response.PropertyResponse
@@ -9,7 +10,8 @@ import org.springframework.stereotype.Service
 
 @Service
 class PropertyService(
-    private val propertyRepository: PropertyRepository
+    private val propertyRepository: PropertyRepository,
+    private val userRepository: UserRepository,
 ) {
     fun findAll(): List<PropertyResponse> = propertyRepository.findAll().map { it.toResponse() }
 
@@ -19,6 +21,7 @@ class PropertyService(
             .toResponse()
 
     fun create(request: PropertyCreateRequest): PropertyResponse {
+       val owner = userRepository.findById(request.ownerId).orElseThrow { NoSuchElementException("User not found: $request.ownerId") }
         val property = Property(
             title = request.title,
             category = request.category,
@@ -41,7 +44,8 @@ class PropertyService(
             imageUrl = request.imageUrl.toString(),
             neighborhood = request.neighborhood,
             latitude = request.latitude,
-            longitude = request.longitude
+            longitude = request.longitude,
+            owner = owner
         )
 
         return propertyRepository.save(property).toResponse()

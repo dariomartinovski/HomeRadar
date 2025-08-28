@@ -1,0 +1,157 @@
+@use "@angular/material" as mat;
+
+#auth-container {
+  min-height: calc(100vh - 65px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+  background-color: var(--mat-sys-surface-container-low);
+}
+
+.auth-card {
+  background-color: var(--mat-sys-surface);
+  border-radius: 12px;
+  padding: 2.5em;
+  width: 100%;
+  max-width: 450px;
+  box-sizing: border-box;
+}
+
+.auth-title {
+  font: var(--mat-sys-headline-small);
+  color: var(--mat-sys-on-surface);
+  text-align: center;
+  margin-bottom: 1.5em;
+  font-weight: 500;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 0.5em;
+}
+
+// Password Requirements (displayed separately)
+.password-requirements {
+  background-color: var(--mat-sys-error-container);
+  color: var(--mat-sys-on-error-container);
+  border-radius: 4px;
+  padding: 1em;
+  margin-top: -0.5em;
+  margin-bottom: 0.5em;
+
+  h4 {
+    margin: 0 0 0.5em 0;
+    font: var(--mat-sys-body-small);
+    font-weight: 500;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: 1.5em;
+  }
+
+  .requirement-error {
+    font: var(--mat-sys-body-small);
+    margin: 0.3em 0;
+  }
+}
+
+.password-strength {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.password-strength-label {
+  font: var(--mat-sys-body-small);
+  color: var(--mat-sys-on-surface-variant);
+  margin-bottom: 0.5em;
+
+  .strength-weak {
+    color: var(--mat-sys-error);
+  }
+
+  .strength-medium {
+    color: var(--mat-sys-tertiary);
+  }
+
+  .strength-strong {
+    color: var(--mat-sys-secondary);
+  }
+}
+
+.password-strength-bar {
+  height: 4px;
+  background-color: var(--mat-sys-surface-variant);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.password-strength-bar-fill {
+  height: 100%;
+  width: 0%;
+  transition: width 0.3s ease, background-color 0.3s ease;
+
+  &.weak {
+    width: 30%;
+    background-color: var(--mat-sys-error);
+  }
+
+  &.medium {
+    width: 60%;
+    background-color: rgb(234, 198, 129)
+  }
+
+  &.strong {
+    width: 100%;
+    background-color: green;
+  }
+}
+
+.form-error-message {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.75em;
+  background-color: var(--mat-sys-error-container);
+  color: var(--mat-sys-on-error-container);
+  border-radius: 4px;
+  font: var(--mat-sys-body-medium);
+  margin-top: 0.5em;
+
+  mat-icon {
+    font-size: 1.2em;
+    width: 1.2em;
+    height: 1.2em;
+  }
+}
+
+.switch-auth {
+  text-align: center;
+  margin-top: 1.5em;
+  font: var(--mat-sys-body-medium);
+  color: var(--mat-sys-on-surface-variant);
+
+  a {
+    margin-left: 0.5em;
+  }
+}
+
+// Responsive design
+@media (max-width: 600px) {
+  #auth-container {
+    padding: 1em;
+    align-items: flex-start;
+    padding-top: 2em;
+  }
+
+  .auth-card {
+    padding: 1.5em;
+  }
+}

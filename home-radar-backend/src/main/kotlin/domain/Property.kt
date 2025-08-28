@@ -1,5 +1,6 @@
 package com.home_radar.domain
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.home_radar.domain.enum.HeatingType
 import com.home_radar.domain.enum.PropertyCategory
 import com.home_radar.domain.enum.PropertyType
@@ -46,5 +47,10 @@ data class Property(
     val bedrooms: Int?,
     val bathrooms: Int?,
     val imageUrl: String,
-    val neighborhood: String?
+    val neighborhood: String?,
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "owner_id", nullable = true)
+    @JsonIgnoreProperties("ownedProperties")
+    var owner: User
     )

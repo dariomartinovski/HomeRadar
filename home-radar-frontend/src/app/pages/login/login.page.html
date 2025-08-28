@@ -1,0 +1,48 @@
+<div id="auth-container">
+  <div class="auth-card mat-elevation-z4">
+    <h2 class="auth-title">Login</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" placeholder="Email" required>
+        @if(submitted && loginForm.get('email')?.errors) {
+          <mat-error>
+            @if(loginForm.get('email')?.errors?.['required']) {
+              <span>Email is required</span>
+            }
+            @if(loginForm.get('email')?.errors?.['email']) {
+              <span>Please enter a valid email</span>
+            }
+          </mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" placeholder="Password" required>
+        <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+          <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        @if(submitted && loginForm.get('password')?.errors) {
+          <mat-error>Password is required</mat-error>
+        }
+      </mat-form-field>
+
+      @if (errorMessage) {
+        <mat-error class="form-error-message">
+          <mat-icon>error</mat-icon>
+          Invalid username or password
+        </mat-error>
+      }
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid && submitted">
+        Login
+      </button>
+    </form>
+
+    <p class="switch-auth">
+      Don't have an account? <a mat-button color="primary" [routerLink]="['/register']">Register</a>
+    </p>
+  </div>
+</div>

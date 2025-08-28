@@ -26,5 +26,6 @@ data class PropertyCreateRequest(
     val imageUrl: String? = null,
     val neighborhood: String? = null,
     val latitude: Double,
-    val longitude: Double
+    val longitude: Double,
+    val ownerId: Long
 )
