@@ -11,6 +11,8 @@ import { SearchComponent } from "../../shared/components/search/search.component
 import { PerkType } from "../../enums/perk-type.enum";
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { SidebarComponent } from "../../shared/components/sidebar/sidebar.component";
+import { HomeRadarScoreComponent } from "../../shared/components/home-radar-score/home-radar-score.component";
+import { SelectedArea } from "../../interfaces/selected-area.interface";
 
 @Component({
   selector: 'home',
@@ -23,7 +25,8 @@ import { SidebarComponent } from "../../shared/components/sidebar/sidebar.compon
     SidebarComponent,
     CommonModule,
     RouterModule,
-  ],
+    HomeRadarScoreComponent
+],
 })
 export class HomePage implements OnInit {
   #perkService = inject(PerkService);
@@ -31,6 +34,7 @@ export class HomePage implements OnInit {
   #route = inject(ActivatedRoute);
 
   selectedProperty?: Property;
+  selectedArea?: SelectedArea;
 
   perks = signal<Perk[]>([]);
   properties = signal<Property[]>([]);
@@ -56,6 +60,10 @@ export class HomePage implements OnInit {
 
   handlePropertyClick(selectedProperty: Property) {
     this.selectedProperty = selectedProperty;
+  }
+
+  handleAreaSelect(selectedArea: SelectedArea) {
+    this.selectedArea = selectedArea;
   }
 
   private loadFilteredProperties() {

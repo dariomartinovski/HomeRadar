@@ -1,0 +1,21 @@
+@if (showDialog && area() && area()?.radius != 0) {
+  <div class="container">
+    <button class="close-button" (click)="close()">
+      <span>&times;</span>
+    </button>
+
+    @if (!score) {
+      <div class="score-btn-wrapper">
+        <button class="calculate-button" (click)="calculateScore()">
+          Calculate Home Radar Score
+        </button>
+      </div>
+    }
+
+    @if (score) {
+      <div class="score-result" [ngClass]="getScoreClass(score)">
+        Score: {{ score }}
+        </div>
+    }
+  </div>
+}

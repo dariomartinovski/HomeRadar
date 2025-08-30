@@ -2,9 +2,10 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Property } from '../../interfaces/property.interface';
+import { Coordinate } from '../../interfaces/coordinate.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PropertyService {
   private path: string = 'http://localhost:8080/api/properties';
@@ -19,7 +20,10 @@ export class PropertyService {
     return this.#http.get<Property>(`${this.path}/${id}`);
   }
 
-  fetchPropertiesFiltered(title?: string, area?: string): Observable<Property[]> {
+  fetchPropertiesFiltered(
+    title?: string,
+    area?: string
+  ): Observable<Property[]> {
     let params = new HttpParams();
 
     if (title) {
@@ -36,7 +40,13 @@ export class PropertyService {
     return this.#http.get<string[]>(`${this.path}/areas`);
   }
 
-   createProperty(property: Property): Observable<Property> {
+  createProperty(property: Property): Observable<Property> {
     return this.#http.post<Property>(this.path, property);
+  }
+
+  calculateCircleScore(center: Coordinate, radius: number): Observable<number> {
+    return this.#http.get<number>(
+      `${this.path}/circle/score?latitude=${center.latitude}&longitude=${center.longitude}&radius=${radius}`
+    );
   }
 }

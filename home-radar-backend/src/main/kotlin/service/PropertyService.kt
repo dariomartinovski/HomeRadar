@@ -1,6 +1,8 @@
 package com.home_radar.service
 
+import com.home_radar.domain.Coordinate
 import com.home_radar.domain.Property
+import com.home_radar.domain.enum.PerkType
 import com.home_radar.repository.PropertyRepository
 import com.home_radar.web.extensions.toResponse
 import com.home_radar.web.request.PropertyCreateRequest
@@ -72,7 +74,7 @@ class PropertyService(
         propertyRepository
             .findAll()
             .mapNotNull { it.neighborhood }
-            .sortedDescending()
+            .sorted ()
             .toSet()
             .toList()
 }

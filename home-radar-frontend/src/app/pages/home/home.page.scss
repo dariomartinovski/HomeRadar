@@ -7,12 +7,19 @@
     height: 100vh;
 }
 
-.search-container {
+.horizontally-centered-container {
     position: absolute;
-    top: 5em;
     left: 50%;
     transform: translateX(-50%);
     z-index: 11;
+}
+
+.search-container {
+    top: 5em;
+}
+
+.home-radar-score-container {
+    bottom: 3em;
 }
 
 .sidebar-container {
