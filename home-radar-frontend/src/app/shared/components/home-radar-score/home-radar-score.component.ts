@@ -1,31 +1,39 @@
-import { Component, effect, inject, input, signal } from '@angular/core';
+import { Component, effect, inject, input } from '@angular/core';
 import { SelectedArea } from '../../../interfaces/selected-area.interface';
-import { JsonPipe, NgClass } from '@angular/common';
+import { DecimalPipe, NgClass } from '@angular/common';
 import { PropertyService } from '../../../core/services/property.service';
+import { HomeRadarScore } from '../../../interfaces/home-radar-score.interface';
+import { CapitilizePipe } from '../../pipes/capitilzie.pipe';
+import { PerkIconUrlPipe } from '../../pipes/perk-icon-url.pipe';
 
 @Component({
   selector: 'home-radar-score',
   templateUrl: './home-radar-score.component.html',
   styleUrls: ['./home-radar-score.component.scss'],
-  imports: [NgClass],
+  imports: [
+    DecimalPipe,
+    CapitilizePipe,
+    PerkIconUrlPipe,
+    NgClass
+  ],
 })
 export class HomeRadarScoreComponent {
   #propertyService = inject(PropertyService);
 
   area = input<SelectedArea>();
 
-  score: number | null = null;
+  statistics: HomeRadarScore | null = null;
+
   showDialog: boolean = false;
 
   constructor() {
     effect(() => {
-      this.score = null;
+      this.statistics = null;
       this.showDialog = (this.area() && this.area()?.radius != 0) ?? false;
     });
   }
 
-  calculateScore() {
-    console.log("whats going on")
+  calculateStatistics() {
     const area = this.area();
     if (!area || !area.center || !area.radius) {
       return;
@@ -33,7 +41,9 @@ export class HomeRadarScoreComponent {
 
     this.#propertyService
       .calculateCircleScore(area.center, area.radius)
-      .subscribe((result) => console.log("Score is ?", result));
+      .subscribe((result) => {
+        this.statistics = result;
+      });
   }
 
   getScoreClass(score: number) {

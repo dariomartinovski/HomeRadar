@@ -1,7 +1,6 @@
 package com.home_radar.api
 
-import com.home_radar.domain.Coordinate
-import com.home_radar.service.LocationScoreService
+import com.home_radar.service.LocationScoreManagingService
 import com.home_radar.service.PropertyService
 import com.home_radar.web.request.PropertyCreateRequest
 import com.home_radar.web.response.PropertyResponse
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("/api/properties")
 class PropertyController(
     private val propertyService: PropertyService,
-    private val locationScoreService: LocationScoreService
+    private val locationScoreManagingService: LocationScoreManagingService
 ) {
     @GetMapping
     fun getAll() = propertyService.findAll()
@@ -32,7 +31,7 @@ class PropertyController(
     fun getSelectedCircleScore(@RequestParam latitude: Double,
                                @RequestParam longitude: Double,
                                @RequestParam radius: Double)
-    = locationScoreService.calculateCircleScore(latitude, longitude, radius)
+    = locationScoreManagingService.calculateAndPersistScore(latitude, longitude, radius)
 
         @PostMapping
     fun create(@RequestBody request: PropertyCreateRequest): PropertyResponse =  propertyService.create(request)

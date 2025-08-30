@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Property } from '../../interfaces/property.interface';
 import { Coordinate } from '../../interfaces/coordinate.interface';
+import { HomeRadarScore } from '../../interfaces/home-radar-score.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -44,8 +45,11 @@ export class PropertyService {
     return this.#http.post<Property>(this.path, property);
   }
 
-  calculateCircleScore(center: Coordinate, radius: number): Observable<number> {
-    return this.#http.get<number>(
+  calculateCircleScore(
+    center: Coordinate,
+    radius: number
+  ): Observable<HomeRadarScore> {
+    return this.#http.get<HomeRadarScore>(
       `${this.path}/circle/score?latitude=${center.latitude}&longitude=${center.longitude}&radius=${radius}`
     );
   }

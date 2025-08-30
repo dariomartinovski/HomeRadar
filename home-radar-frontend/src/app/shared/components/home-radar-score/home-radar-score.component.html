@@ -4,18 +4,34 @@
       <span>&times;</span>
     </button>
 
-    @if (!score) {
+    @if (!statistics) {
       <div class="score-btn-wrapper">
-        <button class="calculate-button" (click)="calculateScore()">
+        <button class="calculate-button" (click)="calculateStatistics()">
           Calculate Home Radar Score
         </button>
       </div>
     }
 
-    @if (score) {
-      <div class="score-result" [ngClass]="getScoreClass(score)">
-        Score: {{ score }}
+     @if (statistics) {
+      <div class="score-result-wrapper">
+        <p>
+          Average price for property rent is <strong>{{ statistics.averageRentPrice | number:'1.0-0' }} €</strong>,
+          with a score of <strong [ngClass]="getScoreClass(statistics.rentScore)">{{ statistics.rentScore | number:'1.1-1' }}</strong>
+        </p>
+        <p>
+          Average price for property sale: <strong>{{ statistics.averageSalePrice| number:'1.0-0' }} €</strong>,
+          with a score of <strong [ngClass]="getScoreClass(statistics.saleScore)">{{ statistics.saleScore | number:'1.1-1' }}</strong>
+        </p>
+
+        <div class="perk-grid">
+          @for (perk of statistics.perkCounts; track $index) {
+            <div class="perk-item">
+              <img [src]="perk.perkType | perkIconUrl" [alt]="perk.perkType">
+              {{ perk.perkType | capitalize }}: {{ perk.count }}
+            </div>
+          }
         </div>
+      </div>
     }
   </div>
 }

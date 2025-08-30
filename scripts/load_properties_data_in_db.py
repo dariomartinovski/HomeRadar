@@ -161,7 +161,7 @@ def insert_properties(properties):
 
         conn.commit()
         print(f"Successfully inserted {len(valid_properties)} properties")
-        print(f"Skipped {len(properties) - len(valid_properties)} invalid reFcords")
+        print(f"Skipped {len(properties) - len(valid_properties)} invalid records")
 
     except (Exception, psycopg2.DatabaseError) as error:
         print(f"Database error: {error}")
