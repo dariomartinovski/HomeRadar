@@ -22,22 +22,36 @@
   font: var(--mat-sys-headline-small);
   color: var(--mat-sys-on-surface);
   text-align: center;
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
   font-weight: 500;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  gap: 0.5em;
 }
 
-mat-form-field {
-  width: 100%;
-  margin-bottom: 0.5em;
+.form-field label {
+  display: block;
+  margin-bottom: 0.2em;
+  color: var(--mat-sys-on-surface-variant);
+  font: var(--mat-sys-body-small);
 }
 
-// Password Requirements (displayed separately)
+mat-form-field input {
+  font-size: 0.8em !important;
+  font-weight: 400;
+}
+
+mat-form-field ::placeholder {
+  font-size: 14px !important;
+}
+
+mat-form-field mat-label {
+  font-size: 10px;
+}
+
 .password-requirements {
   background-color: var(--mat-sys-error-container);
   color: var(--mat-sys-on-error-container);
@@ -143,6 +157,10 @@ mat-form-field {
   }
 }
 
+mat-error {
+  margin-bottom: 1em;
+}
+
 // Responsive design
 @media (max-width: 600px) {
   #auth-container {
@@ -153,5 +171,14 @@ mat-form-field {
 
   .auth-card {
     padding: 1.5em;
+  }
+
+  // Even smaller input text on mobile if needed
+  mat-form-field input {
+    font-size: 13px !important;
+  }
+
+  mat-form-field ::placeholder {
+    font-size: 13px !important;
   }
 }
