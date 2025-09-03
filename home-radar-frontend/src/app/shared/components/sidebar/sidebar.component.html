@@ -5,13 +5,14 @@
     </mat-icon>
     </button>
     <div class="icons">
-        <a routerLink="/profile" class="icon profile-icon">
-            @if (expanded()) {
-                <p>Profile</p>
-            }
-            <mat-icon>person</mat-icon>
+        <a
+          [routerLink]="user != null ? '/profile' : '/login'"
+          class="icon profile-icon">
+          @if (expanded()) {
+            <p>{{ user != null ? 'Profile' : 'Login' }}</p>
+          }
+          <mat-icon>person</mat-icon>
         </a>
-
         <categories-filter
             [categories]="categories()"
             [expanded]="expanded()"

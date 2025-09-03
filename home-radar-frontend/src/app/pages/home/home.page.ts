@@ -11,6 +11,8 @@ import { SearchComponent } from "../../shared/components/search/search.component
 import { PerkType } from "../../enums/perk-type.enum";
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { SidebarComponent } from "../../shared/components/sidebar/sidebar.component";
+import { UserService } from "../../core/services/user.service";
+import { User } from "../../interfaces/user.interface";
 
 @Component({
   selector: 'home',
@@ -28,9 +30,11 @@ import { SidebarComponent } from "../../shared/components/sidebar/sidebar.compon
 export class HomePage implements OnInit {
   #perkService = inject(PerkService);
   #propertyService = inject(PropertyService);
+  #userService = inject(UserService)
   #route = inject(ActivatedRoute);
 
   selectedProperty?: Property;
+  user?: User | null
 
   perks = signal<Perk[]>([]);
   properties = signal<Property[]>([]);
@@ -44,6 +48,7 @@ export class HomePage implements OnInit {
   ngOnInit() {
     this.loadFilteredProperties();
     this.loadFilteredPerks();
+    this.loadUser();
   }
 
   handlePropertySearch() {
@@ -74,5 +79,11 @@ export class HomePage implements OnInit {
       .subscribe((filteredPerks) => {
         this.perks.set(filteredPerks);
       });
+  }
+  
+  private loadUser() {
+    this.#userService.getUserDetails().subscribe((user) => {
+      this.user = user;
+    });
   }
 }

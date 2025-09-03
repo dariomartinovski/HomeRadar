@@ -6,7 +6,7 @@
         ></search>
     </div>
     <div class="map-container">
-        <map-component 
+        <map-component
             [properties]="properties()"
             [perks]="perks()"
             (selectedProperty)="handlePropertyClick($event)">
@@ -15,6 +15,7 @@
     <div class="sidebar-container">
         <sidebar
             [categories]="categories()"
+            [user]="user"
             (onCategoryChange)="handlePerkSearch()"
         ></sidebar>
         <property-details
