@@ -31,7 +31,9 @@ export class LoginPage implements OnInit {
   loginForm: FormGroup;
   service = inject(AuthService);
   router = inject(Router);
-  userService = inject(UserService);
+  #userService = inject(UserService);
+  #authService = inject(AuthService)
+
   errorMessage: boolean = false;
   submitted = false;
   hidePassword = true;
@@ -48,6 +50,7 @@ export class LoginPage implements OnInit {
           this.errorMessage = false;
         }
       });
+    this.#authService.logout()
   }
 
   onSubmit() {
@@ -68,8 +71,8 @@ export class LoginPage implements OnInit {
         this.errorMessage = true;
       }
       if (response.token) {
-        this.userService.getUserDetails().subscribe((user) => {
-          this.userService.setCurrentUser(user);
+        this.#userService.getUserDetails().subscribe((user) => {
+          this.#userService.setCurrentUser(user);
           this.router.navigate(['/']);
         });
       }
