@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, EventEmitter, inject, OnInit, Output, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, EventEmitter, inject, input, Input, OnInit, Output, ViewChild} from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
@@ -16,6 +16,7 @@ import { debounceTime, distinctUntilChanged, Subject, switchMap } from 'rxjs';
 import * as L from 'leaflet';
 import { PropertyService } from '../../../core/services/property.service';
 import { SuccessDialogComponent } from '../success-dialog/success-dialog.component';
+import { User } from '../../../interfaces/user.interface';
 
 @Component({
   selector: 'property-form',
@@ -45,6 +46,7 @@ export class PropertyFormComponent implements OnInit, AfterViewInit {
 
   areas: string[] = [];
   loadingAreas: boolean = false;
+  user = input.required<User>();
 
   @Output() formSubmit = new EventEmitter<any>();
 
@@ -209,6 +211,7 @@ export class PropertyFormComponent implements OnInit, AfterViewInit {
     const formValue = this.propertyForm.value;
       const processedData = {
         ...formValue,
+        ownerId: this.user().id,
         squareMeters: parseFloat(formValue.squareMeters),
         numberOfRooms: parseInt(formValue.numberOfRooms, 10),
         price: parseFloat(formValue.price),
@@ -229,14 +232,10 @@ export class PropertyFormComponent implements OnInit, AfterViewInit {
 
         },
         error: (error) => {
-          console.error('Error creating property:', error);
         }
       });
-      console.log("siccess")
       }
       else {
-      console.log("bad")
-
       Object.keys(this.propertyForm.controls).forEach(key => {
         const control = this.propertyForm.get(key);
         if (control) {

@@ -12,6 +12,7 @@ import {
   runInInjectionContext,
   inject,
   EnvironmentInjector,
+  signal,
 } from '@angular/core';
 import { Property } from '../../../interfaces/property.interface';
 import { SelectedArea } from '../../../interfaces/selected-area.interface';
@@ -20,11 +21,16 @@ import { Coordinate } from '../../../interfaces/coordinate.interface';
 import { Perk } from '../../../interfaces/perk.interface';
 import { getPerkIcon } from '../../utils/perk-icon-url.util';
 import { capitilize } from '../../utils/capitilize.util';
+import { SubscribeButtonComponent } from '../subscribe-button/subscribe-button.component';
+import { SubscriptionService } from '../../../core/services/subscription.service';
+import { CreateSubscriptionRequest, SubscriptionType } from '../../../interfaces/subscription.interface';
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'map-component',
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss'],
+  imports: [SubscribeButtonComponent]
 })
 export class MapComponent implements AfterViewInit, OnDestroy {
   private injector = inject(EnvironmentInjector);
@@ -32,6 +38,9 @@ export class MapComponent implements AfterViewInit, OnDestroy {
   properties = input<Property[]>([]);
   perks = input<Perk[]>([]);
   radius = input<number>(500);
+
+  showSubscribeButton = signal(false);
+  isSubscribing = signal(false);
 
   @Output() selectedProperty = new EventEmitter<Property>();
   @Output() selectedArea = new EventEmitter<SelectedArea>();
@@ -45,6 +54,8 @@ export class MapComponent implements AfterViewInit, OnDestroy {
 
   private selectedCircle!: L.Circle;
   private selectedCenterMarker!: L.Marker;
+
+  subscriptionService = inject(SubscriptionService)
 
   ngAfterViewInit(): void {
     this.initMap();
@@ -261,6 +272,8 @@ export class MapComponent implements AfterViewInit, OnDestroy {
     );
 
     this.selectedArea.emit({ center: coordinate, radius: this.radius() });
+
+    this.showSubscribeButton.set(true);
   }
 
   private checkIfValidCoordinate(coordinate: Coordinate) {
@@ -320,5 +333,46 @@ export class MapComponent implements AfterViewInit, OnDestroy {
 
     this.selectedArea.emit({ center: undefined!, radius: 0 });
     this.selectedProperty.emit(undefined);
+
+    this.showSubscribeButton.set(false);
+
+  }
+
+   subscribeToArea() {
+    if (!this.selectedCircle) {
+      return;
+    }
+
+    const area = this.selectedCircle.getLatLng();
+    const radius = this.selectedCircle.getRadius();
+
+    if (this.isSubscribing()) {
+      return;
+    }
+
+    this.isSubscribing.set(true);
+
+    const subscriptionRequest: CreateSubscriptionRequest = {
+      latitude: area.lat,
+      longitude: area.lng,
+      radiusMeters: radius,
+      type: SubscriptionType.INSTANT
+      };
+
+    this.subscriptionService.createSubscription(subscriptionRequest)
+      .pipe(
+        catchError((error) => {
+          alert('Failed to create subscription. Please try again.');
+          return of(null);
+        })
+      )
+      .subscribe((subscription) => {
+        this.isSubscribing.set(false);
+
+        if (subscription) {
+          alert('Successfully subscribed to this area!');
+          this.clearSelectedArea();
+        }
+      });
   }
 }

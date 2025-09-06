@@ -1,1 +1,7 @@
 <div class="map-container" #mapContainer></div>
+
+@if(showSubscribeButton()) {
+  <subscribe-button
+  (subscribe)="subscribeToArea()"
+></subscribe-button>
+}

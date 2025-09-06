@@ -1,17 +1,20 @@
 package com.home_radar.service
 
 import com.home_radar.domain.Property
+import com.home_radar.domain.events.PropertyCreatedEvent
 import com.home_radar.repository.PropertyRepository
 import com.home_radar.repository.UserRepository
 import com.home_radar.web.extensions.toResponse
 import com.home_radar.web.request.PropertyCreateRequest
 import com.home_radar.web.response.PropertyResponse
+import org.springframework.context.ApplicationEventPublisher
 import org.springframework.stereotype.Service
 
 @Service
 class PropertyService(
     private val propertyRepository: PropertyRepository,
     private val userRepository: UserRepository,
+    private val eventPublisher: ApplicationEventPublisher
 ) {
     fun findAll(): List<PropertyResponse> = propertyRepository.findAll().map { it.toResponse() }
 
@@ -48,7 +51,11 @@ class PropertyService(
             owner = owner
         )
 
-        return propertyRepository.save(property).toResponse()
+        propertyRepository.save(property)
+
+        eventPublisher.publishEvent(PropertyCreatedEvent(property))
+
+        return property.toResponse()
     }
 //    fun update(id: Long, updated: Property): Property {
 //        val existing = getById(id)

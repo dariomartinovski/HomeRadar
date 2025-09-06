@@ -3,5 +3,8 @@
     ← Back to Home
   </a>
   <profile-info></profile-info>
-  <property-form></property-form>
+  @if(user) {
+      <property-form [user]="user"></property-form>
+
+  }
 </div>
