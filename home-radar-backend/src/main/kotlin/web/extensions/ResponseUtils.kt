@@ -29,7 +29,7 @@ fun Property.toResponse() = PropertyResponse(
     neighborhood = neighborhood,
     price = price,
     yearBuilt = yearBuilt,
-    ownerId = owner.id
+    ownerId = owner?.id ?: 0
 )
 
 fun Perk.toResponse() = PerkResponse(

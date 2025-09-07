@@ -52,5 +52,5 @@ data class Property(
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner_id", nullable = true)
     @JsonIgnoreProperties("ownedProperties")
-    var owner: User
+    var owner: User?
 )
