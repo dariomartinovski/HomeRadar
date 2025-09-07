@@ -17,6 +17,7 @@ import * as L from 'leaflet';
 import { PropertyService } from '../../../core/services/property.service';
 import { SuccessDialogComponent } from '../success-dialog/success-dialog.component';
 import { User } from '../../../interfaces/user.interface';
+import { PropertyEventService } from '../../../core/services/property-event.service';
 
 @Component({
   selector: 'property-form',
@@ -47,6 +48,8 @@ export class PropertyFormComponent implements OnInit, AfterViewInit {
   areas: string[] = [];
   loadingAreas: boolean = false;
   user = input.required<User>();
+  selectedFile: File | null = null;
+  previewUrl: string | null = null;
 
   @Output() formSubmit = new EventEmitter<any>();
 
@@ -61,8 +64,10 @@ export class PropertyFormComponent implements OnInit, AfterViewInit {
 
   private fb = inject(FormBuilder)
   private http = inject(HttpClient)
-  private propertyService = inject(PropertyService)
   private dialog = inject(MatDialog)
+
+  private propertyService = inject(PropertyService)
+  private propertyEventService = inject(PropertyEventService);
 
   ngOnInit() {
     this.propertyForm = this.fb.group({
@@ -223,9 +228,21 @@ export class PropertyFormComponent implements OnInit, AfterViewInit {
         bathrooms: formValue.bathrooms ? parseInt(formValue.bathrooms, 10) : null
       };
 
-      this.propertyService.createProperty(processedData).subscribe({
+      const formData = new FormData();
+      formData.append(
+      'request',
+      new Blob([JSON.stringify(processedData)], { type: 'application/json' })
+    );
+
+    if(this.selectedFile) {
+      formData.append('image', this.selectedFile);
+      }
+
+      this.propertyService.createProperty(formData).subscribe({
         next: (createdProperty) => {
+          this.propertyEventService.emitPropertyCreated(createdProperty);
           this.formSubmit.emit(createdProperty);
+
           this.showSuccessDialog('Property created successfully!','/');
 
           this.propertyForm.reset();
@@ -250,5 +267,13 @@ export class PropertyFormComponent implements OnInit, AfterViewInit {
       data: { message, navigateTo },
       disableClose: false
     });
+  }
+
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (!input.files || input.files.length === 0) return;
+
+    this.selectedFile = input.files[0];
+    this.previewUrl = URL.createObjectURL(this.selectedFile);
   }
 }

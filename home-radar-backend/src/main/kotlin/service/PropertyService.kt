@@ -9,6 +9,12 @@ import com.home_radar.web.request.PropertyCreateRequest
 import com.home_radar.web.response.PropertyResponse
 import org.springframework.context.ApplicationEventPublisher
 import org.springframework.stereotype.Service
+import org.springframework.web.multipart.MultipartFile
+import java.nio.file.Files
+import java.nio.file.Paths
+import java.nio.file.StandardCopyOption
+import java.util.*
+import kotlin.NoSuchElementException
 
 @Service
 class PropertyService(
@@ -23,8 +29,16 @@ class PropertyService(
             .orElseThrow { NoSuchElementException("Property not found: $id") }
             .toResponse()
 
-    fun create(request: PropertyCreateRequest): PropertyResponse {
-       val owner = userRepository.findById(request.ownerId).orElseThrow { NoSuchElementException("User not found: $request.ownerId") }
+    fun create(request: PropertyCreateRequest, image: MultipartFile?): PropertyResponse {
+        val owner = userRepository.findById(request.ownerId).orElseThrow { NoSuchElementException("User not found: $request.ownerId") }
+        val imageUrl = if (image != null && !image.isEmpty) {
+            val filename = UUID.randomUUID().toString() + "_" + image.originalFilename
+            val path = Paths.get("uploads/$filename")
+            Files.copy(image.inputStream, path, StandardCopyOption.REPLACE_EXISTING)
+            "/uploads/$filename"
+        } else {
+            null
+        }
         val property = Property(
             title = request.title,
             category = request.category,
@@ -44,11 +58,11 @@ class PropertyService(
             yearBuilt = request.yearBuilt,
             bedrooms = request.bedrooms,
             bathrooms = request.bathrooms,
-            imageUrl = request.imageUrl.toString(),
             neighborhood = request.neighborhood,
             latitude = request.latitude,
             longitude = request.longitude,
-            owner = owner
+            owner = owner,
+            imageUrl = imageUrl ?: ""
         )
 
         propertyRepository.save(property)

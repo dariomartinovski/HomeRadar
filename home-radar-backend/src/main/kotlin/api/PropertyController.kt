@@ -4,6 +4,7 @@ import com.home_radar.service.PropertyService
 import com.home_radar.web.request.PropertyCreateRequest
 import com.home_radar.web.response.PropertyResponse
 import org.springframework.web.bind.annotation.*
+import org.springframework.web.multipart.MultipartFile
 
 @CrossOrigin
 @RestController
@@ -25,6 +26,6 @@ class PropertyController(
     @GetMapping("/areas")
     fun findAreas() = propertyService.findAllAreas();
 
-    @PostMapping
-    fun create(@RequestBody request: PropertyCreateRequest): PropertyResponse =  propertyService.create(request)
+    @PostMapping(consumes = ["multipart/form-data"])
+    fun create(@RequestPart("request") request: PropertyCreateRequest, @RequestPart("image", required = false) image: MultipartFile?): PropertyResponse =  propertyService.create(request, image)
 }

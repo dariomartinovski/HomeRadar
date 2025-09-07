@@ -39,8 +39,9 @@ spring:
 
   web:
     resources:
-      static-locations: classpath:/static/
-
+      static-locations:
+        - classpath:/static/
+          - file:uploads/
   servlet:
     multipart:
       enabled: true

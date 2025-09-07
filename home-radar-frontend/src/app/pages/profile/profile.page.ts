@@ -11,11 +11,12 @@ import { User } from "../../interfaces/user.interface";
   imports: [PropertyFormComponent, ProfileInfoComponent]
 })
 export class ProfilePage implements OnInit {
-  ngOnInit(): void {
-    this.loadUser()
-  }
   #userService = inject(UserService)
   user?: User | null = null
+
+    ngOnInit(): void {
+    this.loadUser()
+  }
 
   private loadUser() {
     this.#userService.getUserDetails().subscribe((user) => {

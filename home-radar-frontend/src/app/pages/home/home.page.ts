@@ -13,6 +13,7 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { SidebarComponent } from "../../shared/components/sidebar/sidebar.component";
 import { UserService } from "../../core/services/user.service";
 import { User } from "../../interfaces/user.interface";
+import { PropertyEventService } from "../../core/services/property-event.service";
 
 @Component({
   selector: 'home',
@@ -31,6 +32,8 @@ export class HomePage implements OnInit {
   #perkService = inject(PerkService);
   #propertyService = inject(PropertyService);
   #userService = inject(UserService)
+  #propertyEventService = inject(PropertyEventService);
+
   #route = inject(ActivatedRoute);
 
   selectedProperty?: Property;
@@ -49,6 +52,10 @@ export class HomePage implements OnInit {
     this.loadFilteredProperties();
     this.loadFilteredPerks();
     this.loadUser();
+
+     this.#propertyEventService.propertyCreated$.subscribe((newProperty) => {
+     this.properties.set([...this.properties(), newProperty]);
+  });
   }
 
   handlePropertySearch() {
@@ -80,7 +87,7 @@ export class HomePage implements OnInit {
         this.perks.set(filteredPerks);
       });
   }
-  
+
   private loadUser() {
     this.#userService.getUserDetails().subscribe((user) => {
       this.user = user;

@@ -36,7 +36,7 @@ export class PropertyService {
     return this.#http.get<string[]>(`${this.path}/areas`);
   }
 
-   createProperty(property: Property): Observable<Property> {
-    return this.#http.post<Property>(this.path, property);
+  createProperty(formData: FormData): Observable<Property> {
+    return this.#http.post<Property>(this.path, formData);
   }
 }
