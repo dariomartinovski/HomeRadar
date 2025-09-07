@@ -6,7 +6,7 @@
     </button>
     <div class="icons">
         <a
-          [routerLink]= "'/profile'"
+          [routerLink]="'/profile'"
           class="icon profile-icon">
           @if (expanded()) {
             <p>{{ user != null ? 'Profile' : 'Login' }}</p>

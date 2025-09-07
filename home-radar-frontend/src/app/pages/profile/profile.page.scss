@@ -1,0 +1,63 @@
+.profile-top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0.8rem 1rem;
+  background-color: #f5f5f5;
+  border-radius: 12px;
+
+  .back-home {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #1565c0;
+    text-decoration: none;
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+
+    mat-icon {
+      font-size: 1rem;
+    }
+
+    &:hover {
+      background-color: rgba(21, 101, 192, 0.1);
+      color: #0d47a1;
+    }
+  }
+
+  .logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #fff;
+    background-color: #1565c0;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    mat-icon {
+      font-size: 1rem;
+    }
+
+    &:hover {
+      background-color: #08284c;
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .profile-top-bar {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+

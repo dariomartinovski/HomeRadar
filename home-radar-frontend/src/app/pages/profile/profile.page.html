@@ -1,7 +1,15 @@
 <div class="container">
-  <a routerLink="/">
-    ← Back to Home
+<div class="profile-top-bar">
+  <a routerLink="/" class="back-home">
+    <mat-icon>arrow_back</mat-icon>
+    Back to Home
   </a>
+  <button class="logout-btn" (click)="logout()">
+    <mat-icon>logout</mat-icon>
+    Logout
+  </button>
+</div>
+
   <profile-info></profile-info>
   @if(user) {
       <property-form [user]="user"></property-form>

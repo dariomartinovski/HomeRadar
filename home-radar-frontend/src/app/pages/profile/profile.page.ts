@@ -3,7 +3,8 @@ import { PropertyFormComponent } from "../../shared/components/property-form/pro
 import { ProfileInfoComponent } from "../../shared/components/profile-info/profile-info.component";
 import { UserService } from "../../core/services/user.service";
 import { User } from "../../interfaces/user.interface";
-import { RouterLink } from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
+import { MatIcon } from "@angular/material/icon";
 
 @Component({
   selector: 'profile',
@@ -12,12 +13,16 @@ import { RouterLink } from "@angular/router";
   imports: [
     PropertyFormComponent,
     RouterLink,
-    ProfileInfoComponent
+    ProfileInfoComponent,
+    MatIcon
   ]
 })
 export class ProfilePage implements OnInit {
   #userService = inject(UserService)
+  #router = inject(Router);
+
   user?: User | null = null
+
 
     ngOnInit(): void {
     this.loadUser()
@@ -27,5 +32,10 @@ export class ProfilePage implements OnInit {
     this.#userService.getUserDetails().subscribe((user) => {
       this.user = user;
     });
+  }
+
+  logout() {
+    this.#userService.logout();
+    this.#router.navigate(['/login']);
   }
 }
