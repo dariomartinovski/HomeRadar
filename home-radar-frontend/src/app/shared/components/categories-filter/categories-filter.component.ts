@@ -1,7 +1,7 @@
 import { Component, inject, input, OnInit, output } from '@angular/core';
 import { PerkType } from '../../../enums/perk-type.enum';
 import { PerkIconUrlPipe } from '../../pipes/perk-icon-url.pipe';
-import { CapitilizePipe } from '../../pipes/capitilzie.pipe';
+import { CapitalizePipe } from '../../pipes/capitilzie.pipe';
 import { MatIconModule } from '@angular/material/icon';
 import { ActivatedRoute } from '@angular/router';
 
@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
   selector: 'categories-filter',
   templateUrl: './categories-filter.component.html',
   styleUrls: ['./categories-filter.component.scss'],
-  imports: [PerkIconUrlPipe, CapitilizePipe, MatIconModule],
+  imports: [PerkIconUrlPipe, CapitalizePipe, MatIconModule],
 })
 export class CategoriesFilterComponent implements OnInit {
   #route = inject(ActivatedRoute);

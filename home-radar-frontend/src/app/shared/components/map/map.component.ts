@@ -20,6 +20,8 @@ import { Coordinate } from '../../../interfaces/coordinate.interface';
 import { Perk } from '../../../interfaces/perk.interface';
 import { getPerkIcon } from '../../utils/perk-icon-url.util';
 import { capitilize } from '../../utils/capitilize.util';
+import { defaultUserPreferences } from '../../../data/default-user-preferences.const';
+import { UserPreferences } from '../../../interfaces/user-preferences.interface';
 
 @Component({
   selector: 'map-component',
@@ -31,8 +33,8 @@ export class MapComponent implements AfterViewInit, OnDestroy {
 
   properties = input<Property[]>([]);
   perks = input<Perk[]>([]);
-  radius = input<number>(500);
-
+  userPreferences = input<UserPreferences>(defaultUserPreferences);
+  
   @Output() selectedProperty = new EventEmitter<Property>();
   @Output() selectedArea = new EventEmitter<SelectedArea>();
 
@@ -172,7 +174,7 @@ export class MapComponent implements AfterViewInit, OnDestroy {
 
     if (this.selectedCircle) {
       const center = this.selectedCircle.getLatLng();
-      this.filterMarkersByRadius(center.lat, center.lng, this.radius());
+      this.filterMarkersByRadius(center.lat, center.lng, this.userPreferences().radius);
     }
   }
 
@@ -183,7 +185,7 @@ export class MapComponent implements AfterViewInit, OnDestroy {
 
     if (this.selectedCircle) {
       const center = this.selectedCircle.getLatLng();
-      this.filterMarkersByRadius(center.lat, center.lng, this.radius());
+      this.filterMarkersByRadius(center.lat, center.lng, this.userPreferences().radius);
     }
   }
 
@@ -221,6 +223,8 @@ export class MapComponent implements AfterViewInit, OnDestroy {
   }
 
   private addCircleFromCoordinates(coordinate: Coordinate): void {
+    console.log("the radius when clicking is ", this.userPreferences().radius)
+
     this.checkIfValidCoordinate(coordinate);
 
     if (this.selectedCircle) {
@@ -234,7 +238,7 @@ export class MapComponent implements AfterViewInit, OnDestroy {
     this.selectedCircle = L.circle(
       [coordinate.latitude, coordinate.longitude],
       {
-        radius: this.radius(),
+        radius: this.userPreferences().radius,
         color: 'green',
       }
     ).addTo(this.map);
@@ -257,10 +261,10 @@ export class MapComponent implements AfterViewInit, OnDestroy {
     this.filterMarkersByRadius(
       coordinate.latitude,
       coordinate.longitude,
-      this.radius()
+      this.userPreferences().radius
     );
 
-    this.selectedArea.emit({ center: coordinate, radius: this.radius() });
+    this.selectedArea.emit({ center: coordinate, radius: this.userPreferences().radius });
   }
 
   private checkIfValidCoordinate(coordinate: Coordinate) {

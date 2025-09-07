@@ -1,0 +1,30 @@
+<h2>User Preferences</h2>
+@if (form) {
+  <form [formGroup]="form" (ngSubmit)="submitPreferences()">
+    <h3>Radius Preference</h3>
+    <p class="radius-label">Search Radius (m)</p>
+    <mat-form-field appearance="outline" class="radius-input">
+      <input matInput type="number" formControlName="radius" />
+    </mat-form-field>
+   
+    <h3>Perk Preferences</h3>
+    <div formGroupName="perks" class="perks">
+      @for (perk of categories(); track $index) {
+        <p>{{ perk | capitalize }}</p>
+        <div class="slider">
+          <mat-slider min="0" max="1" step="0.1" discrete="">
+            <span class="slider-value">{{ sliderThumb.value | number:'1.1-1' }}</span>
+            <input
+            [formControlName]="perk"
+            matSliderThumb
+            #sliderThumb="matSliderThumb">
+          </mat-slider>
+        </div>
+      }
+    </div>
+   
+    <button mat-raised-button color="primary" type="submit">
+      Save Preferences
+    </button>
+  </form>
+}

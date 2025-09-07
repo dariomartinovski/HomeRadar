@@ -2,8 +2,11 @@ package com.home_radar.web.extensions
 
 import com.home_radar.domain.Perk
 import com.home_radar.domain.Property
+import com.home_radar.domain.UserPreference
 import com.home_radar.web.response.PerkResponse
+import com.home_radar.web.response.PerkWeightResponse
 import com.home_radar.web.response.PropertyResponse
+import com.home_radar.web.response.UserPreferenceResponse
 
 fun Property.toResponse() = PropertyResponse(
     id = id,
@@ -39,3 +42,12 @@ fun Perk.toResponse() = PerkResponse(
     type = type.name,
     openingHours = openingHours
 )
+
+fun UserPreference.toResponse(): UserPreferenceResponse {
+    return UserPreferenceResponse(
+        radius = this.radius,
+        perkPreferences = this.perkPreferences.map { (perkType, weight) ->
+            PerkWeightResponse(perkType, weight)
+        }
+    )
+}

@@ -29,9 +29,8 @@ class PropertyController(
 
     @GetMapping("/circle/score")
     fun getSelectedCircleScore(@RequestParam latitude: Double,
-                               @RequestParam longitude: Double,
-                               @RequestParam radius: Double)
-    = locationScoreManagingService.calculateAndPersistScore(latitude, longitude, radius)
+                               @RequestParam longitude: Double)
+    = locationScoreManagingService.calculateAndPersistScore(latitude, longitude)
 
         @PostMapping
     fun create(@RequestBody request: PropertyCreateRequest): PropertyResponse =  propertyService.create(request)

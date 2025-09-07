@@ -25,6 +25,7 @@ dependencies {
     // Kotlin support for Spring
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
+    implementation("io.hypersistence:hypersistence-utils-hibernate-63:3.8.2")
 
     // Testing
     testImplementation("org.springframework.boot:spring-boot-starter-test")

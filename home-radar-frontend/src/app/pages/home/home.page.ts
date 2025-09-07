@@ -13,6 +13,8 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { SidebarComponent } from "../../shared/components/sidebar/sidebar.component";
 import { HomeRadarScoreComponent } from "../../shared/components/home-radar-score/home-radar-score.component";
 import { SelectedArea } from "../../interfaces/selected-area.interface";
+import { UserPreferencesService } from "../../core/services/user-preferences.service";
+import { defaultUserPreferences } from "../../data/default-user-preferences.const";
 
 @Component({
   selector: 'home',
@@ -32,6 +34,7 @@ export class HomePage implements OnInit {
   #perkService = inject(PerkService);
   #propertyService = inject(PropertyService);
   #route = inject(ActivatedRoute);
+  #userPreferencesService = inject(UserPreferencesService);
 
   selectedProperty?: Property;
   selectedArea?: SelectedArea;
@@ -44,6 +47,9 @@ export class HomePage implements OnInit {
   areas = toSignal(this.#propertyService.findAreas(), {
     initialValue: [] as string[],
   });
+  userPreferences = toSignal(this.#userPreferencesService.getUserPreference(), {
+    initialValue: defaultUserPreferences
+  })
 
   ngOnInit() {
     this.loadFilteredProperties();

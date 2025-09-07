@@ -1,2 +1,9 @@
-<h1>Settings page</h1>
-<h5>TODO add just a back arrow to home</h5>
+<div class="container">
+    <a [routerLink]="['/']">
+        ← Back to Home
+    </a>
+    <user-preferences
+        [categories]="categories()"
+        [userPreferences]="userPreferences()"
+    ></user-preferences>
+</div>

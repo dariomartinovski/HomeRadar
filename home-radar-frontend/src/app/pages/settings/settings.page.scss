@@ -1,0 +1,14 @@
+.container {
+    width: 40em;
+    margin: 0 auto;
+    padding: 2em;
+    // min-height: 100vh;
+    display: grid;
+    // background-color: #d3d3d3;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+    a {
+        justify-self: end;
+        cursor: pointer;
+    }
+}

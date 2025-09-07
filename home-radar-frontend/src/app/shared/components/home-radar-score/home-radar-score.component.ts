@@ -3,7 +3,7 @@ import { SelectedArea } from '../../../interfaces/selected-area.interface';
 import { DecimalPipe, NgClass } from '@angular/common';
 import { PropertyService } from '../../../core/services/property.service';
 import { HomeRadarScore } from '../../../interfaces/home-radar-score.interface';
-import { CapitilizePipe } from '../../pipes/capitilzie.pipe';
+import { CapitalizePipe } from '../../pipes/capitilzie.pipe';
 import { PerkIconUrlPipe } from '../../pipes/perk-icon-url.pipe';
 
 @Component({
@@ -12,7 +12,7 @@ import { PerkIconUrlPipe } from '../../pipes/perk-icon-url.pipe';
   styleUrls: ['./home-radar-score.component.scss'],
   imports: [
     DecimalPipe,
-    CapitilizePipe,
+    CapitalizePipe,
     PerkIconUrlPipe,
     NgClass
   ],
