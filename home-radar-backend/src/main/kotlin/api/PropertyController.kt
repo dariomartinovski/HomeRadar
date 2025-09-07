@@ -30,9 +30,8 @@ class PropertyController(
 
     @GetMapping("/circle/score")
     fun getSelectedCircleScore(@RequestParam latitude: Double,
-                               @RequestParam longitude: Double,
-                               @RequestParam radius: Double)
-    = locationScoreManagingService.calculateAndPersistScore(latitude, longitude, radius)
+                               @RequestParam longitude: Double)
+    = locationScoreManagingService.calculateAndPersistScore(latitude, longitude)
 
     @PostMapping(consumes = ["multipart/form-data"])
     fun create(@RequestPart("request") request: PropertyCreateRequest, @RequestPart("image", required = false) image: MultipartFile?): PropertyResponse =  propertyService.create(request, image)

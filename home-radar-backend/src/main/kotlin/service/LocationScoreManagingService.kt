@@ -2,7 +2,11 @@ package com.home_radar.service
 
 import com.home_radar.domain.HomeRadarScore
 import com.home_radar.domain.Property
-import com.home_radar.domain.enum.PerkType
+import com.home_radar.domain.UserPreference
+import com.home_radar.domain.constants.DEFAULT_PERKS_WEIGHT
+import com.home_radar.domain.constants.DEFAULT_PERK_TYPES_WEIGHT
+import com.home_radar.domain.constants.DEFAULT_PROPERTIES_PRICES_WEIGHT
+import com.home_radar.domain.constants.DEFAULT_RADIUS
 import com.home_radar.domain.enum.PropertyCategory
 import com.home_radar.repository.PerkRepository
 import com.home_radar.repository.PropertyRepository
@@ -14,42 +18,26 @@ import org.springframework.stereotype.Service
 class LocationScoreManagingService(
     private val propertyRepository: PropertyRepository,
     private val perkRepository: PerkRepository,
-    private val homeRadarScoreService: HomeRadarScoreService
+    private val homeRadarScoreService: HomeRadarScoreService,
+    private val userPreferenceService: UserPreferenceService
 ) {
-    companion object {
-        const val PRICE_WEIGHT = 1.0
-        const val PERK_WEIGHT = 0.6
-    }
-
-    val defaultPerkWeights: Map<PerkType, Double> = mapOf(
-        PerkType.GYM to 0.6,
-        PerkType.MIDDLE_SCHOOL to 0.9,
-        PerkType.PRE_SCHOOL to 0.8,
-        PerkType.HIGH_SCHOOL to 0.9,
-        PerkType.KINDERGARDEN to 0.8,
-        PerkType.FACULTY to 0.7,
-        PerkType.GROCERY_STORE to 1.0,
-        PerkType.RESTAURANT to 0.6,
-        PerkType.COFFEE_SHOP to 0.5,
-        PerkType.PARK to 0.7,
-        PerkType.BAR to 0.4
-    )
-
     /**
         This is done because the scores would never reach 10, they went to most of 5.2 score
         Now we persist the raw scores in a table, and we calculate the 97.5th percentage each time
         (the top 5%) and count that as a 10, so there are no skews for outliers.
         Then we use the top 5% in order to scale the current raw score to a factored score
     */
-    fun calculateAndPersistScore(lat: Double, lng: Double, radius: Double, percentile: Double = 0.975): LocationScoreResponse {
+    fun calculateAndPersistScore(lat: Double, lng: Double, percentile: Double = 0.975): LocationScoreResponse {
+        val userPreference = userPreferenceService.getUserPreference(1)
+
         // Calculate raw scores
-        val rawScores: LocationScoreResponse = this.calculateCircleScore(lat, lng, radius)
+        val rawScores: LocationScoreResponse = this.calculateCircleScore(lat, lng, userPreference)
 
         // Persist raw scores for both categories
         val rentScoreEntry = HomeRadarScore(
             lat = lat,
             lng = lng,
-            radius = radius,
+            radius = userPreference?.radius ?: DEFAULT_RADIUS,
             rawScore = rawScores.rentScore,
             propertyCategory = PropertyCategory.FOR_RENT
         )
@@ -58,7 +46,7 @@ class LocationScoreManagingService(
         val saleScoreEntry = HomeRadarScore(
             lat = lat,
             lng = lng,
-            radius = radius,
+            radius = userPreference?.radius ?: DEFAULT_RADIUS,
             rawScore = rawScores.saleScore,
             propertyCategory = PropertyCategory.FOR_SALE
         )
@@ -92,9 +80,10 @@ class LocationScoreManagingService(
         return sorted[index]
     }
 
-    fun calculateCircleScore(latitude: Double, longitude: Double, radius: Double): LocationScoreResponse {
+    fun calculateCircleScore(latitude: Double, longitude: Double, userPreferences: UserPreference?): LocationScoreResponse {
+        val radius = userPreferences?.radius ?: DEFAULT_RADIUS
+
         val properties = propertyRepository.findWithinRadius(latitude, longitude, radius)
-//        TODO throw an error that there are no properties for this?
         if (properties.isEmpty()) return LocationScoreResponse(0.0, 0.0, 0.0, 0.0, emptyList())
 
         val forRent = properties.filter { it.category == PropertyCategory.FOR_RENT }
@@ -108,7 +97,8 @@ class LocationScoreManagingService(
             4. Apply sqrt to reduce impact of very high counts of perks of certain type
         */
         val perkScore = perks.groupBy { it.type }.values.sumOf { perksOfType ->
-            val baseWeight = defaultPerkWeights[perksOfType.first().type] ?: 0.5
+            val baseWeight = userPreferences?.getPerkWeight(perksOfType.first().type)
+                ?: DEFAULT_PERK_TYPES_WEIGHT[perksOfType.first().type] ?: 0.5
             val totalDistWeight = perksOfType.sumOf { perk -> distanceWeight(
                 haversineDistance(latitude, longitude, perk.latitude, perk.longitude), radius
             )}
@@ -125,8 +115,8 @@ class LocationScoreManagingService(
 
         // beta = 0.4, maximum density boost is 40%
         return LocationScoreResponse(
-            rentScore = calculateBoostedPriceScore(forRent, beta = 0.4) + PERK_WEIGHT * perkScore,
-            saleScore = calculateBoostedPriceScore(forSale, beta = 0.4) + PERK_WEIGHT * perkScore,
+            rentScore = calculateBoostedPriceScore(forRent, beta = 0.4) + DEFAULT_PROPERTIES_PRICES_WEIGHT * perkScore,
+            saleScore = calculateBoostedPriceScore(forSale, beta = 0.4) + DEFAULT_PERKS_WEIGHT * perkScore,
             averageRentPrice = avgRentPrice,
             averageSalePrice = avgSalePrice,
             perkCounts = perkCounts
@@ -154,7 +144,7 @@ class LocationScoreManagingService(
 
         val normalized = if (max > min) (avg - min) / (max - min) else 1.0
 
-        return PRICE_WEIGHT * normalized * densityBoostLog(properties.size, nMax, beta)
+        return DEFAULT_PROPERTIES_PRICES_WEIGHT * normalized * densityBoostLog(properties.size, nMax, beta)
     }
 
     /**
@@ -169,7 +159,7 @@ class LocationScoreManagingService(
 
           Ex. factor ∈ (0, 1], since ln(1+n) ≤ ln(1+nMax).
           When n=0 -> returns 1.0 boost (no boost)
-          When n=nMax -> factor 1 -> boost = 1.0+beta (max boost, for example 35%)
+          When n=nMax -> factor 1 -> boost = 1.0+beta (max boost, for example 40%)
     */
     private fun densityBoostLog(n: Int, nMax: Int = 120, beta: Double = 0.35): Double {
         if (n <= 0) return 1.0
