@@ -149,3 +149,28 @@
   max-height: 200px !important;
   overflow-y: auto !important;
 }
+
+input[type="file"] {
+  width: 100%;
+  padding: 0.65rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.65rem;
+  background-color: #fff;
+  cursor: pointer;
+
+  &::file-selector-button {
+    margin-right: 1rem;
+    border: none;
+    background: #3498db;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #2980b9;
+    }
+  }
+}
