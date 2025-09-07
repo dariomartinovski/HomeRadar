@@ -1,4 +1,4 @@
-import { Component, inject, input, output, signal } from '@angular/core';
+import { Component, computed, inject, input, output, signal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { PerkType } from '../../../enums/perk-type.enum';
 import { CategoriesFilterComponent } from '../categories-filter/categories-filter.component';
@@ -39,4 +39,8 @@ export class SidebarComponent {
       this.onCategoryChange.emit();
     });;
   }
+
+    profileRoute = computed(() => {
+    return this.user() != null ? '/profile' : '/login';
+  });
 }
