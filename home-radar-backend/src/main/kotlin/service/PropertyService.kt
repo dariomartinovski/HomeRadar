@@ -1,7 +1,9 @@
 package com.home_radar.service
 
+import com.home_radar.domain.Coordinate
 import com.home_radar.domain.Property
 import com.home_radar.domain.events.PropertyCreatedEvent
+import com.home_radar.domain.enum.PerkType
 import com.home_radar.repository.PropertyRepository
 import com.home_radar.repository.UserRepository
 import com.home_radar.web.extensions.toResponse
@@ -50,7 +52,7 @@ class PropertyService(
             numberOfRooms = request.numberOfRooms,
             floor = request.floor,
             heating = request.heating,
-            price = request.price.toString(),
+            price = request.price,
             parking = request.parking,
             wifi = request.wifi,
             balcony = request.balcony,
@@ -97,7 +99,7 @@ class PropertyService(
         propertyRepository
             .findAll()
             .mapNotNull { it.neighborhood }
-            .sortedDescending()
+            .sorted ()
             .toSet()
             .toList()
 }

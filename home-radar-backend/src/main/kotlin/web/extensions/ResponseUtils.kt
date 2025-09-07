@@ -27,7 +27,7 @@ fun Property.toResponse() = PropertyResponse(
     bedrooms = bedrooms,
     imageUrl = imageUrl,
     neighborhood = neighborhood,
-    price = price.toDouble(),
+    price = price,
     yearBuilt = yearBuilt,
     ownerId = owner.id
 )

@@ -24,5 +24,8 @@ class PerkService(
         NoSuchElementException("Cannot find perk with id: [$id]")
     }.toResponse()
 
-    fun findAllCategories(): List<PerkType> = perkRepository.findAll().map { it.type }.toSet().toList()
+    fun findAllCategories(): List<PerkType> = perkRepository.findAll()
+        .map { it.type }
+        .toSet()
+        .toList()
 }

@@ -42,15 +42,15 @@ data class Property(
     val elevator: Boolean?,
     val numberOfRooms: Int,
 
-    val price: String,
+    val price: Double,
     val yearBuilt: Int?,
     val bedrooms: Int?,
     val bathrooms: Int?,
-    val imageUrl: String,
+    val imageUrl: String?,
     val neighborhood: String?,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "owner_id", nullable = true)
     @JsonIgnoreProperties("ownedProperties")
     var owner: User
-    )
+)

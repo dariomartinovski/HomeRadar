@@ -14,6 +14,8 @@ import { SidebarComponent } from "../../shared/components/sidebar/sidebar.compon
 import { UserService } from "../../core/services/user.service";
 import { User } from "../../interfaces/user.interface";
 import { PropertyEventService } from "../../core/services/property-event.service";
+import { HomeRadarScoreComponent } from "../../shared/components/home-radar-score/home-radar-score.component";
+import { SelectedArea } from "../../interfaces/selected-area.interface";
 
 @Component({
   selector: 'home',
@@ -26,7 +28,8 @@ import { PropertyEventService } from "../../core/services/property-event.service
     SidebarComponent,
     CommonModule,
     RouterModule,
-  ],
+    HomeRadarScoreComponent
+],
 })
 export class HomePage implements OnInit {
   #perkService = inject(PerkService);
@@ -38,6 +41,7 @@ export class HomePage implements OnInit {
 
   selectedProperty?: Property;
   user?: User | null
+  selectedArea?: SelectedArea;
 
   perks = signal<Perk[]>([]);
   properties = signal<Property[]>([]);
@@ -68,6 +72,10 @@ export class HomePage implements OnInit {
 
   handlePropertyClick(selectedProperty: Property) {
     this.selectedProperty = selectedProperty;
+  }
+
+  handleAreaSelect(selectedArea: SelectedArea) {
+    this.selectedArea = selectedArea;
   }
 
   private loadFilteredProperties() {

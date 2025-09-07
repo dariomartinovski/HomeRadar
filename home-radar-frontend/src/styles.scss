@@ -1,5 +1,12 @@
 @use "@angular/material" as mat;
 
+:root {
+  $primary-text-color: #20232e;
+  $secondary-text-color: #f7f7f7;
+  $heading-font-size: 2rem;
+  $body-font-size: 1rem;
+}
+
 html {
   @include mat.theme(
     (

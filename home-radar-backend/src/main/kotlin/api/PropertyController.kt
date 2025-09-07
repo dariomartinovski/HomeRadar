@@ -1,5 +1,6 @@
 package com.home_radar.api
 
+import com.home_radar.service.LocationScoreManagingService
 import com.home_radar.service.PropertyService
 import com.home_radar.web.request.PropertyCreateRequest
 import com.home_radar.web.response.PropertyResponse
@@ -10,7 +11,8 @@ import org.springframework.web.multipart.MultipartFile
 @RestController
 @RequestMapping("/api/properties")
 class PropertyController(
-    private val propertyService: PropertyService
+    private val propertyService: PropertyService,
+    private val locationScoreManagingService: LocationScoreManagingService
 ) {
     @GetMapping
     fun getAll() = propertyService.findAll()
@@ -26,6 +28,14 @@ class PropertyController(
     @GetMapping("/areas")
     fun findAreas() = propertyService.findAllAreas();
 
+    @GetMapping("/circle/score")
+    fun getSelectedCircleScore(@RequestParam latitude: Double,
+                               @RequestParam longitude: Double,
+                               @RequestParam radius: Double)
+    = locationScoreManagingService.calculateAndPersistScore(latitude, longitude, radius)
+
+        @PostMapping
+    fun create(@RequestBody request: PropertyCreateRequest): PropertyResponse =  propertyService.create(request)
     @PostMapping(consumes = ["multipart/form-data"])
     fun create(@RequestPart("request") request: PropertyCreateRequest, @RequestPart("image", required = false) image: MultipartFile?): PropertyResponse =  propertyService.create(request, image)
 }

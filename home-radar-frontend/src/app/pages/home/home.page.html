@@ -1,14 +1,20 @@
 <div class="container">
-    <div class="search-container">
+    <div class="search-container horizontally-centered-container">
         <search
             [areas]="areas()"
             (onSearch)="handlePropertySearch()"
         ></search>
     </div>
+    <div class="home-radar-score-container horizontally-centered-container">
+        <home-radar-score
+            [area]="selectedArea"
+        ></home-radar-score>
+    </div>
     <div class="map-container">
         <map-component
             [properties]="properties()"
             [perks]="perks()"
+            (selectedArea)="handleAreaSelect($event)"
             (selectedProperty)="handlePropertyClick($event)">
         </map-component>
     </div>
