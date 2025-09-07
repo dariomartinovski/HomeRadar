@@ -3,11 +3,13 @@ package com.home_radar.service
 import com.home_radar.config.JwtService
 import com.home_radar.domain.User
 import com.home_radar.domain.enum.UserRole
+import com.home_radar.domain.events.UserCreatedEvent
 import com.home_radar.repository.UserRepository
 import com.home_radar.web.request.AuthenticationRequest
 import com.home_radar.web.request.RegisterRequest
 import com.home_radar.web.response.AuthenticationResponse
 import jakarta.transaction.Transactional
+import org.springframework.context.ApplicationEventPublisher
 import org.springframework.security.authentication.AuthenticationManager
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.crypto.password.PasswordEncoder
@@ -18,7 +20,8 @@ class AuthenticationService(
     val repository: UserRepository,
     val passwordEncoder: PasswordEncoder,
     val jwtService: JwtService,
-    val authenticationManager: AuthenticationManager
+    val authenticationManager: AuthenticationManager,
+    val applicationEventPublisher: ApplicationEventPublisher
 ) {
     @Transactional
     fun register(request: RegisterRequest): AuthenticationResponse {
@@ -39,6 +42,9 @@ class AuthenticationService(
         )
         repository.save(user)
         val jwtToken = jwtService.generateToken(user)
+        applicationEventPublisher.publishEvent(
+            UserCreatedEvent(user)
+        )
         return AuthenticationResponse(token = jwtToken)
     }
 

@@ -1,6 +1,5 @@
 package com.home_radar.domain.listener
 
-
 import com.home_radar.domain.PendingNotification
 import com.home_radar.domain.enum.SubscriptionType
 import com.home_radar.domain.events.PropertyCreatedEvent

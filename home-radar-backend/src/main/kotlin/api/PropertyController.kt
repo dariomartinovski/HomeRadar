@@ -26,7 +26,7 @@ class PropertyController(
     = propertyService.findFiltered(title, area)
 
     @GetMapping("/areas")
-    fun findAreas() = propertyService.findAllAreas();
+    fun findAreas() = propertyService.findAllAreas()
 
     @GetMapping("/circle/score")
     fun getSelectedCircleScore(@RequestParam latitude: Double,

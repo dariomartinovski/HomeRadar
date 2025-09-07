@@ -10,10 +10,9 @@ class UserPreferenceService(
     private val userPreferenceRepository: UserPreferenceRepository
 ) {
 
-    //TODO remove id from here, fetch from the user
     @Transactional(readOnly = true)
-    fun getUserPreference(id: Long): UserPreference? {
-        return userPreferenceRepository.findById(id).orElse(null)
+    fun getUserPreference(userId: Long): UserPreference? {
+        return userPreferenceRepository.findByUserId(userId)
     }
 
     @Transactional

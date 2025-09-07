@@ -6,10 +6,11 @@
     </button>
     <div class="icons">
         <a
-          [routerLink]= "'/profile'"
+          [routerLink]="profileRoute()"
+          [title]="user() != null ? 'Profile' : 'Login'"
           class="icon profile-icon">
           @if (expanded()) {
-            <p>{{ user != null ? 'Profile' : 'Login' }}</p>
+            <span>{{ user() != null ? 'Profile' : 'Login' }}</span>
           }
           <mat-icon>person</mat-icon>
         </a>
@@ -19,7 +20,7 @@
             (selectionChange)="onCategoriesSelected($event)">
         ></categories-filter>
 
-        <a routerLink="/settings" class="icon settings-icon">
+        <a routerLink="/settings" class="icon settings-icon" title="Settings">
             @if (expanded()) {
                 <p>Settings</p>
             }

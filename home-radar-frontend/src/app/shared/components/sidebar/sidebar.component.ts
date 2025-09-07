@@ -40,7 +40,7 @@ export class SidebarComponent {
     });;
   }
 
-    profileRoute = computed(() => {
+  profileRoute = computed(() => {
     return this.user() != null ? '/profile' : '/login';
   });
 }

@@ -19,7 +19,7 @@
     font-size: 1.2em;
     box-shadow: 0 0.3em 0.6em rgba(0, 0, 0, 0.2);
     transition: background 0.3s;
-    
+
     &:hover {
       background: rgba(235, 251, 254, 0.9);
     }
@@ -32,7 +32,7 @@
       justify-content: space-between;
       padding: 2em 0;
     }
-    
+
     .categories-icons {
       display: grid;
       gap: 0.5em;
@@ -44,7 +44,7 @@
         align-items: center;
         justify-content: right;
         gap: 0.5em;
-        
+
         img {
             height: 100%;
         }

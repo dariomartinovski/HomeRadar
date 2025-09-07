@@ -29,7 +29,8 @@ class SecurityConfiguration(val authenticationProvider: AuthenticationProvider, 
                         "/api/perks",
                         "/api/perks/**",
                         "/api/subscriptions/**",
-                        "/api/properties/**"
+                        "/api/properties/**",
+                        "/api/user-preferences"
                         ).permitAll()
                     .requestMatchers(
                         HttpMethod.GET, "/api/properties", "/api/properties/**",

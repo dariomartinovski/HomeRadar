@@ -5,4 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-interface UserPreferenceRepository : JpaRepository<UserPreference, Long>
+interface UserPreferenceRepository : JpaRepository<UserPreference, Long> {
+    fun findByUserId(userId: Long): UserPreference?
+}

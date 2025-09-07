@@ -16,7 +16,9 @@ data class UserPreference (
 
     @Column(name = "perkPreferences", columnDefinition = "jsonb")
     @JdbcTypeCode(SqlTypes.JSON)
-    val perkPreferences: Map<String, Double> = emptyMap()
+    val perkPreferences: Map<String, Double> = emptyMap(),
+
+    val userId: Long
 ) {
     fun getPerkWeight(perkType: PerkType): Double? {
         return perkPreferences[perkType.name]

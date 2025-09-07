@@ -98,7 +98,7 @@ class LocationScoreManagingService(
         */
         val perkScore = perks.groupBy { it.type }.values.sumOf { perksOfType ->
             val baseWeight = userPreferences?.getPerkWeight(perksOfType.first().type)
-                ?: DEFAULT_PERK_TYPES_WEIGHT[perksOfType.first().type] ?: 0.5
+                ?: DEFAULT_PERK_TYPES_WEIGHT[perksOfType.first().type.name] ?: 0.5
             val totalDistWeight = perksOfType.sumOf { perk -> distanceWeight(
                 haversineDistance(latitude, longitude, perk.latitude, perk.longitude), radius
             )}

@@ -5,7 +5,7 @@ import { MatButtonModule } from "@angular/material/button";
 import { PerkType } from "../../../enums/perk-type.enum";
 import { MatSliderModule } from "@angular/material/slider";
 import { CapitalizePipe } from "../../pipes/capitilzie.pipe";
-import { DecimalPipe, JsonPipe } from "@angular/common";
+import { DecimalPipe } from "@angular/common";
 import { UserPreferencesService } from "../../../core/services/user-preferences.service";
 import { UserPreferences } from "../../../interfaces/user-preferences.interface";
 import { defaultUserPreferences } from "../../../data/default-user-preferences.const";
@@ -20,8 +20,7 @@ import { defaultUserPreferences } from "../../../data/default-user-preferences.c
     ReactiveFormsModule,
     MatSliderModule,
     CapitalizePipe,
-    DecimalPipe,
-    JsonPipe
+    DecimalPipe
   ],
 })
 export class UserPreferencesComponent {
