@@ -24,7 +24,7 @@ import { defaultUserPreferences } from "../../../data/default-user-preferences.c
   ],
 })
 export class UserPreferencesComponent {
-   #formBuilder = inject(FormBuilder);
+  #formBuilder = inject(FormBuilder);
   #userPreferencesService = inject(UserPreferencesService);
  
   categories = input<PerkType[]>([]);
@@ -39,6 +39,7 @@ export class UserPreferencesComponent {
       
       const prefs = this.userPreferences();
       const initialRadius = prefs?.radius ?? 1000;
+      // const initialPropertyPricePerkWeightBalaance = prefs?.propertyPricePerkWeightBalaance ?? 0.5;
       
       const initialPerks = cats.reduce((acc, perk) => {
         const perkPref = prefs?.perkPreferences?.find(p => p.perkType === perk);
@@ -48,6 +49,7 @@ export class UserPreferencesComponent {
 
       this.form = this.#formBuilder.group({
         radius: [initialRadius],
+        propertyPricePerkWeightsBalance: [0.6],
         perks: this.#formBuilder.group(initialPerks),
       });
     });

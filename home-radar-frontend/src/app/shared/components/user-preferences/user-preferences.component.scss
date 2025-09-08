@@ -4,9 +4,16 @@ form {
   grid-template-columns: 1fr 2fr;
   gap: 0.5em;
   
-  h3 {
+  .span-row {
     grid-column: 1/-1;
     margin: 1em 0 0.5em;
+  }
+  
+  hr {
+    width: 95%;
+    justify-self: center;
+    border-radius: 1em;
+    opacity: 0.4;
   }
 
   p {
@@ -17,6 +24,33 @@ form {
     margin-bottom: 1em;
   }
   
+  .balance-slider {
+    position: relative;
+
+    h3 {
+      margin: 3em 0 0.5em;
+    }
+
+    .labels {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      .weight {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    mat-slider {
+      margin-top: 2em;
+      width: 100%;
+    }
+  }
+
   .perks {
     display: grid;
     grid-template-columns: 1fr 2fr;
