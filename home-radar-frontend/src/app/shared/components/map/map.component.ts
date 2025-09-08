@@ -27,6 +27,7 @@ import { SubscribeButtonComponent } from '../subscribe-button/subscribe-button.c
 import { SubscriptionService } from '../../../core/services/subscription.service';
 import { CreateSubscriptionRequest, SubscriptionType } from '../../../interfaces/subscription.interface';
 import { catchError, of } from 'rxjs';
+import { PropertyType } from '../../../enums/property-type.enum';
 
 @Component({
   selector: 'map-component',
@@ -114,8 +115,7 @@ export class MapComponent implements AfterViewInit, OnDestroy {
     //TODO there are red, orange, yellow, blue, black, gold, violet, grey icons
     this.properties().forEach((property) => {
       const greenIcon = new L.Icon({
-        iconUrl:
-          'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+        iconUrl:property.type == PropertyType.HOUSE ? '/assets/icons/house_pin.png' : '/assets/icons/apartments_pin.png',
           shadowUrl:
             'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
         iconSize: [25, 41],
