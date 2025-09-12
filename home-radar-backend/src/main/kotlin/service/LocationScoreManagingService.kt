@@ -3,7 +3,6 @@ package com.home_radar.service
 import com.home_radar.domain.HomeRadarScore
 import com.home_radar.domain.Property
 import com.home_radar.domain.UserPreference
-import com.home_radar.domain.constants.DEFAULT_PERKS_WEIGHT
 import com.home_radar.domain.constants.DEFAULT_PERK_TYPES_WEIGHT
 import com.home_radar.domain.constants.DEFAULT_PROPERTIES_PRICES_WEIGHT
 import com.home_radar.domain.constants.DEFAULT_RADIUS
@@ -82,9 +81,10 @@ class LocationScoreManagingService(
 
     fun calculateCircleScore(latitude: Double, longitude: Double, userPreferences: UserPreference?): LocationScoreResponse {
         val radius = userPreferences?.radius ?: DEFAULT_RADIUS
+        val weightsBalance = userPreferences?.weightsBalance ?: DEFAULT_PROPERTIES_PRICES_WEIGHT
 
         val properties = propertyRepository.findWithinRadius(latitude, longitude, radius)
-        if (properties.isEmpty()) return LocationScoreResponse(0.0, 0.0, 0.0, 0.0, emptyList())
+        if (properties.isEmpty() && weightsBalance > 0) return LocationScoreResponse(0.0, 0.0, 0.0, 0.0, emptyList())
 
         val forRent = properties.filter { it.category == PropertyCategory.FOR_RENT }
         val forSale = properties.filter { it.category == PropertyCategory.FOR_SALE }
@@ -115,8 +115,8 @@ class LocationScoreManagingService(
 
         // beta = 0.4, maximum density boost is 40%
         return LocationScoreResponse(
-            rentScore = calculateBoostedPriceScore(forRent, beta = 0.4) + DEFAULT_PROPERTIES_PRICES_WEIGHT * perkScore,
-            saleScore = calculateBoostedPriceScore(forSale, beta = 0.4) + DEFAULT_PERKS_WEIGHT * perkScore,
+            rentScore = weightsBalance * calculateBoostedPriceScore(forRent, beta = 0.4) + (1 - weightsBalance) * perkScore,
+            saleScore = weightsBalance * calculateBoostedPriceScore(forSale, beta = 0.4) + (1 - weightsBalance) * perkScore,
             averageRentPrice = avgRentPrice,
             averageSalePrice = avgSalePrice,
             perkCounts = perkCounts
@@ -144,7 +144,7 @@ class LocationScoreManagingService(
 
         val normalized = if (max > min) (avg - min) / (max - min) else 1.0
 
-        return DEFAULT_PROPERTIES_PRICES_WEIGHT * normalized * densityBoostLog(properties.size, nMax, beta)
+        return normalized * densityBoostLog(properties.size, nMax, beta)
     }
 
     /**

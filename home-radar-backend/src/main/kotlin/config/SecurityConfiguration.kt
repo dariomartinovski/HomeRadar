@@ -30,6 +30,7 @@ class SecurityConfiguration(val authenticationProvider: AuthenticationProvider, 
                         "/api/perks/**",
                         "/api/subscriptions/**",
                         "/api/properties/**",
+                        "/api/properties/**",
                         "/api/user-preferences"
                         ).permitAll()
                     .requestMatchers(

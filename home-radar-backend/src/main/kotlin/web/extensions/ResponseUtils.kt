@@ -47,6 +47,7 @@ fun Perk.toResponse() = PerkResponse(
 fun UserPreference.toResponse(): UserPreferenceResponse {
     return UserPreferenceResponse(
         radius = this.radius,
+        weightsBalance = this.weightsBalance,
         perkPreferences = this.perkPreferences.map { (perkType, weight) ->
             PerkWeightResponse(perkType, weight)
         }
