@@ -28,6 +28,7 @@ import { SubscriptionService } from '../../../core/services/subscription.service
 import { CreateSubscriptionRequest, SubscriptionType } from '../../../interfaces/subscription.interface';
 import { catchError, of } from 'rxjs';
 import { PropertyType } from '../../../enums/property-type.enum';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'map-component',
@@ -60,7 +61,8 @@ export class MapComponent implements AfterViewInit, OnDestroy {
   private selectedCircle!: L.Circle;
   private selectedCenterMarker!: L.Marker;
 
-  subscriptionService = inject(SubscriptionService)
+  subscriptionService = inject(SubscriptionService);
+  #route = inject(ActivatedRoute);
 
   ngAfterViewInit(): void {
     this.initMap();
@@ -69,11 +71,21 @@ export class MapComponent implements AfterViewInit, OnDestroy {
       effect(() => {
         if (!this.map) return;
         this.updatePerksMarkers();
+        this.#route.queryParams.subscribe(params => {
+        if (params['perkId']) {
+          this.focusPerk(+params['perkId']);
+        }
+      });
       });
 
       effect(() => {
         if (!this.map) return;
         this.updatePropertyMarkers();
+          this.#route.queryParams.subscribe(params => {
+        if (params['propertyId']) {
+          this.focusProperty(+params['propertyId']);
+        }
+      });
       });
     });
   }
@@ -381,4 +393,28 @@ export class MapComponent implements AfterViewInit, OnDestroy {
         }
       });
   }
+
+  private focusProperty(id: number) {
+  const found = this.propertyMarkers.find(pm => pm.property.id === id);
+  if (found) {
+    this.map.flyTo([found.property.latitude, found.property.longitude], 17, {
+      animate: true,
+      duration: 1.4,
+    });
+    found.marker.openPopup();
+    this.selectedProperty.emit(found.property);
+  }
+}
+
+private focusPerk(id: number) {
+  const found = this.perkMarkers.find(pm => pm.perk.id === id);
+  if (found) {
+    this.map.flyTo([found.perk.latitude, found.perk.longitude], 17, {
+      animate: true,
+      duration: 1.4,
+    });
+    found.marker.openPopup();
+    this.selectedProperty.emit(undefined);
+  }
+}
 }

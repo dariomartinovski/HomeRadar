@@ -20,7 +20,7 @@
             (selectionChange)="onCategoriesSelected($event)">
         ></categories-filter>
 
-        <a routerLink="/settings" class="icon settings-icon" title="Settings">
+        <a [routerLink]="settingsRoute()" class="icon settings-icon" title="Settings">
             @if (expanded()) {
                 <p>Settings</p>
             }

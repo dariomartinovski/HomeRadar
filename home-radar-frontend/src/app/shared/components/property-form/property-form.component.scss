@@ -9,13 +9,13 @@
 
   h2 {
     margin: 0 0 3.5rem 1rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: #2c3e50;
   }
 
   h3 {
     margin: 0 0 1.5rem 0;
-    font-size: 0.8rem;
+    font-size: 0.95rem;
     color: #2c3e50;
     text-align: center;
   }
@@ -36,7 +36,7 @@
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
-    font-size: 0.8em;
+    font-size: 0.95em;
     color: #2c3e50;
   }
 
@@ -47,6 +47,7 @@
     border-radius: 6px;
     font-size: 0.65rem;
     transition: border-color 0.3s;
+    font-size: 0.9em;
 
     &:focus {
       outline: none;
@@ -173,4 +174,21 @@ input[type="file"] {
       background-color: #2980b9;
     }
   }
+}
+
+.error-message {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  color: #e74c3c;
+  font-weight: 500;
+  line-height: 1.2;
+  padding-left: 0.25rem;
+
+  border-left: 3px solid #e74c3c;
+  padding-left: 0.5rem;
+}
+
+mat-progress-spinner {
+  display: inline-block;
+  vertical-align: middle;
 }

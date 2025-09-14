@@ -5,6 +5,7 @@ import { UserService } from "../../core/services/user.service";
 import { User } from "../../interfaces/user.interface";
 import { Router, RouterLink } from "@angular/router";
 import { MatIcon } from "@angular/material/icon";
+import { LoadingOverlayComponent } from "../../shared/components/loading-overlay/loading-overlay.component";
 
 @Component({
   selector: 'profile',
@@ -14,7 +15,8 @@ import { MatIcon } from "@angular/material/icon";
     PropertyFormComponent,
     RouterLink,
     ProfileInfoComponent,
-    MatIcon
+    MatIcon,
+    LoadingOverlayComponent
   ]
 })
 export class ProfilePage implements OnInit {
@@ -22,20 +24,29 @@ export class ProfilePage implements OnInit {
   #router = inject(Router);
 
   user?: User | null = null
+  loading = false;
 
-
-    ngOnInit(): void {
+  ngOnInit(): void {
     this.loadUser()
   }
 
   private loadUser() {
-    this.#userService.getUserDetails().subscribe((user) => {
-      this.user = user;
+    this.loading = true;
+    this.#userService.getUserDetails().subscribe({
+       next: (user) => {
+        this.user = user;
+        this.loading = false; 
+      },
+      error: () => {
+        this.loading = false;
+      }
     });
   }
 
   logout() {
     this.#userService.logout();
-    this.#router.navigate(['/login']);
+     this.#router.navigate(['/login']).then(() => {
+      this.loading = false;
+    });
   }
 }

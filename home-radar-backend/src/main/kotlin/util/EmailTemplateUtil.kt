@@ -95,7 +95,7 @@ object EmailTemplateUtil {
                       <p><b>Rooms:</b> ${property.numberOfRooms} | <b>Size:</b> ${property.squareMeters} m²</p>
                     </div>
                                         
-                    <a class="btn" href="http://localhost:4200/property/${property.id}">View Details</a>
+                    <a class="btn" href="http://localhost:4200?propertyId=${property.id}">View Details</a>
                   </div>
                   <div class="footer">
                     You are receiving this email because you subscribed to property alerts.

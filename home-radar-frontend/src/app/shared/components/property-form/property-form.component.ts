@@ -18,6 +18,8 @@ import { PropertyService } from '../../../core/services/property.service';
 import { SuccessDialogComponent } from '../success-dialog/success-dialog.component';
 import { User } from '../../../interfaces/user.interface';
 import { PropertyEventService } from '../../../core/services/property-event.service';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { LoadingOverlayComponent } from '../loading-overlay/loading-overlay.component';
 
 @Component({
   selector: 'property-form',
@@ -34,7 +36,9 @@ import { PropertyEventService } from '../../../core/services/property-event.serv
     MatCheckboxModule,
     MatIconModule,
     MatAutocompleteModule,
-    MatAutocompleteTrigger
+    MatAutocompleteTrigger,
+    MatProgressSpinner,
+    LoadingOverlayComponent
   ]
 })
 export class PropertyFormComponent implements OnInit, AfterViewInit {
@@ -50,6 +54,7 @@ export class PropertyFormComponent implements OnInit, AfterViewInit {
   user = input.required<User>();
   selectedFile: File | null = null;
   previewUrl: string | null = null;
+  loading: boolean = false;
 
   @Output() formSubmit = new EventEmitter<any>();
 
@@ -213,6 +218,8 @@ export class PropertyFormComponent implements OnInit, AfterViewInit {
 
   onSubmit(): void {
     if (this.propertyForm.valid) {
+    this.loading = true;
+
     const formValue = this.propertyForm.value;
       const processedData = {
         ...formValue,
@@ -240,6 +247,7 @@ export class PropertyFormComponent implements OnInit, AfterViewInit {
 
       this.propertyService.createProperty(formData).subscribe({
         next: (createdProperty) => {
+          this.loading = false;
           this.propertyEventService.emitPropertyCreated(createdProperty);
           this.formSubmit.emit(createdProperty);
 
@@ -249,6 +257,7 @@ export class PropertyFormComponent implements OnInit, AfterViewInit {
 
         },
         error: (error) => {
+          this.loading = false;
         }
       });
       }
