@@ -21,21 +21,31 @@ export class PropertyService {
     return this.#http.get<Property>(`${this.path}/${id}`);
   }
 
-  fetchPropertiesFiltered(
+  fetchPropertiesFiltered(filters: {
     title?: string,
-    area?: string
-  ): Observable<Property[]> {
+    area?: string,
+    propertyCategory?: string,
+    priceMin?: string,
+    priceMax?: string,
+    rooms?: string,
+    bedrooms?: string,
+    bathrooms?: string,
+    size?: string,
+    yearBuilt?: string,
+    parking?: string,
+    balcony?: string,
+    elevator?: string
+  }): Observable<Property[]> {
     let params = new HttpParams();
 
-    if (title) {
-      params = params.set('title', title);
+  Object.entries(filters).forEach(([key, value]) => {
+    if (value !== null && value !== undefined) {
+      params = params.set(key, value.toString());
     }
-    if (area) {
-      params = params.set('area', area);
-    }
+  });
 
-    return this.#http.get<Property[]>(`${this.path}/filter`, { params });
-  }
+  return this.#http.get<Property[]>(`${this.path}/filter`, { params });
+}
 
   findAreas(): Observable<string[]> {
     return this.#http.get<string[]>(`${this.path}/areas`);

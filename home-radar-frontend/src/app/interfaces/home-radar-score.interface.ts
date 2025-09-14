@@ -5,5 +5,7 @@ export interface HomeRadarScore {
   saleScore: number;
   averageRentPrice?: number;
   averageSalePrice?: number;
+  averageRentSize?: number;
+  averageSaleSize?: number;
   perkCounts?: PerkCount[];
 }

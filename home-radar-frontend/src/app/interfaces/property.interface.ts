@@ -18,6 +18,7 @@ export interface Property {
   balcony: boolean;
 
   squareMeters: number;
+  price: number;
 
   heating: HeatingType;
   type: PropertyType;

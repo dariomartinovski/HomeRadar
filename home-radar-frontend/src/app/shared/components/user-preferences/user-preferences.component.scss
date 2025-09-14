@@ -97,3 +97,9 @@ form {
 .mt-1-2 {
   margin-top: 1.2em;
 }
+
+.mat-mdc-form-field {
+  --mat-form-field-container-height: 40px;
+  --mat-form-field-container-vertical-padding: 4px;
+  --mat-form-field-container-horizontal-padding: 8px;
+}

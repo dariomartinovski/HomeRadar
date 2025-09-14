@@ -1,6 +1,7 @@
 package com.home_radar.service
 
 import com.home_radar.domain.Property
+import com.home_radar.domain.enum.PropertyCategory
 import com.home_radar.domain.events.PropertyCreatedEvent
 import com.home_radar.repository.PropertyRepository
 import com.home_radar.repository.UserRepository
@@ -15,6 +16,8 @@ import java.nio.file.Paths
 import java.nio.file.StandardCopyOption
 import java.util.*
 import kotlin.NoSuchElementException
+import org.springframework.data.jpa.domain.Specification
+import jakarta.persistence.criteria.Predicate
 
 @Service
 class PropertyService(
@@ -80,17 +83,94 @@ class PropertyService(
 //
 //    fun delete(id: Long) = propertyRepository.deleteById(id)
 
-    fun findFiltered(title: String?, area: String?): List<PropertyResponse> {
-        if (area != null && title != null) {
-            return propertyRepository.findAllByTitleContainingIgnoreCaseAndNeighborhoodContainingIgnoreCase(title, area).map { it.toResponse() }
+//    fun findFiltered(title: String?, area: String?): List<PropertyResponse> {
+//        if (area != null && title != null) {
+//            return propertyRepository.findAllByTitleContainingIgnoreCaseAndNeighborhoodContainingIgnoreCase(title, area).map { it.toResponse() }
+//        }
+//        if (title != null) {
+//            return propertyRepository.findAllByTitleContainingIgnoreCase(title).map { it.toResponse() }
+//        }
+//        if (area != null) {
+//            return propertyRepository.findAllByNeighborhoodContainingIgnoreCase(area).map { it.toResponse() }
+//        }
+//        return propertyRepository.findAll().map { it.toResponse() }
+//    }
+
+    fun findFiltered(
+        title: String?,
+        area: String?,
+        propertyCategory: PropertyCategory?,
+        priceMin: Double?,
+        priceMax: Double?,
+        rooms: Int?,
+        bedrooms: Int?,
+        bathrooms: Int?,
+        size: Double?,
+        yearBuilt: Int?,
+        parking: Boolean?,
+        balcony: Boolean?,
+        elevator: Boolean?
+    ): List<PropertyResponse> {
+
+        val spec = Specification<Property> { root, query, cb ->
+            val predicates = mutableListOf<Predicate>()
+
+            title?.let {
+                predicates.add(cb.like(cb.lower(root.get("title")), "%${it.lowercase()}%"))
+            }
+
+            area?.let {
+                predicates.add(cb.like(cb.lower(root.get("neighborhood")), "%${it.lowercase()}%"))
+            }
+
+            propertyCategory?.let {
+                predicates.add(cb.equal(root.get<PropertyCategory>("category"), it))
+            }
+
+            priceMin?.let {
+                predicates.add(cb.greaterThanOrEqualTo(root.get("price"), it))
+            }
+
+            priceMax?.let {
+                predicates.add(cb.lessThanOrEqualTo(root.get("price"), it))
+            }
+
+            rooms?.let {
+                predicates.add(cb.greaterThanOrEqualTo(root.get<Int>("numberOfRooms"), it))
+            }
+
+            bedrooms?.let {
+                predicates.add(cb.greaterThanOrEqualTo(root.get<Int>("bedrooms"), it))
+            }
+
+            bathrooms?.let {
+                predicates.add(cb.greaterThanOrEqualTo(root.get<Int>("bathrooms"), it))
+            }
+
+            size?.let {
+                predicates.add(cb.greaterThanOrEqualTo(root.get<Double>("squareMeters"), it))
+            }
+
+            yearBuilt?.let {
+                predicates.add(cb.greaterThanOrEqualTo(root.get<Int>("yearBuilt"), it))
+            }
+
+            parking?.let {
+                predicates.add(cb.equal(root.get<Boolean>("parking"), it))
+            }
+
+            balcony?.let {
+                predicates.add(cb.equal(root.get<Boolean>("balcony"), it))
+            }
+
+            elevator?.let {
+                predicates.add(cb.equal(root.get<Boolean>("elevator"), it))
+            }
+
+            cb.and(*predicates.toTypedArray())
         }
-        if (title != null) {
-            return propertyRepository.findAllByTitleContainingIgnoreCase(title).map { it.toResponse() }
-        }
-        if (area != null) {
-            return propertyRepository.findAllByNeighborhoodContainingIgnoreCase(area).map { it.toResponse() }
-        }
-        return propertyRepository.findAll().map { it.toResponse() }
+
+        return propertyRepository.findAll(spec).map { it.toResponse() }
     }
 
     fun findAllAreas(): List<String> =

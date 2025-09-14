@@ -16,9 +16,23 @@
     [(ngModel)]="area"
     name="area"
   >
-  <option value="">Select area</option>
-  @for (area of areas(); track $index) {
-    <option [value]="area">{{area}}</option>
+    <option value="">Select area</option>
+    @for (area of areas(); track $index) {
+      <option [value]="area">{{area}}</option>
+    }
+  </select>
+
+  <button 
+    type="button" 
+    class="advanced-filters-btn" 
+    (click)="onToggleAdvancedFilters()">
+    Advanced Filters
+      <mat-icon>expand_more</mat-icon>
+  </button>
+  @if (isAdvancedFiltersOpen()) {
+    <advanced-filters
+      (onApplyFilters)="onApplyAdvancedFilters()"
+    ></advanced-filters>
   }
-</select>
+
 </form>

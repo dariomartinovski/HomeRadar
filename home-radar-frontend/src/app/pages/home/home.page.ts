@@ -85,9 +85,24 @@ export class HomePage implements OnInit {
   }
 
   private loadFilteredProperties() {
-    const { title, area } = this.#route.snapshot.queryParams;
-    this.#propertyService
-      .fetchPropertiesFiltered(title || null, area || null)
+    const queryParams = this.#route.snapshot.queryParams;
+    const filters = {
+      title: queryParams['title'] || undefined,
+      area: queryParams['area'] || undefined,
+      propertyCategory: queryParams['propertyCategory'] || undefined,
+      priceMin: queryParams['priceMin'] || undefined,
+      priceMax: queryParams['priceMax'] || undefined,
+      rooms: queryParams['rooms'] || undefined,
+      bedrooms: queryParams['bedrooms'] || undefined,
+      bathrooms: queryParams['bathrooms'] || undefined,
+      size: queryParams['size'] || undefined,
+      yearBuilt: queryParams['yearBuilt'] || undefined,
+      parking: queryParams['parking'] ? queryParams['parking'] : undefined,
+      balcony: queryParams['balcony'] ? queryParams['balcony'] : undefined,
+      elevator: queryParams['elevator'] ? queryParams['elevator'] : undefined,
+    };
+    
+    this.#propertyService.fetchPropertiesFiltered(filters)
       .subscribe((filteredProperties) => {
         this.properties.set(filteredProperties);
       });

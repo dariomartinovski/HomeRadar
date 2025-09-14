@@ -8,5 +8,6 @@ import org.springframework.stereotype.Repository
 @Repository
 interface HomeRadarScoreRepository : JpaRepository<HomeRadarScore, Int> {
     fun findByPropertyCategory(category: PropertyCategory): List<HomeRadarScore>
+    fun findByPropertyCategoryAndRadius(category: PropertyCategory, radius: Double): List<HomeRadarScore>
     fun findTopByPropertyCategoryOrderByRawScoreDesc(propertyCategory: PropertyCategory): HomeRadarScore?
 }

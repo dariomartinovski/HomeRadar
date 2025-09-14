@@ -28,6 +28,7 @@ class LocationScoreManagingService(
     */
     fun calculateAndPersistScore(lat: Double, lng: Double, percentile: Double = 0.975): LocationScoreResponse {
         val userPreference = userPreferenceService.getUserPreference(1)
+        val radius = userPreference?.radius ?: DEFAULT_RADIUS
 
         // Calculate raw scores
         val rawScores: LocationScoreResponse = this.calculateCircleScore(lat, lng, userPreference)
@@ -36,7 +37,7 @@ class LocationScoreManagingService(
         val rentScoreEntry = HomeRadarScore(
             lat = lat,
             lng = lng,
-            radius = userPreference?.radius ?: DEFAULT_RADIUS,
+            radius = radius,
             rawScore = rawScores.rentScore,
             propertyCategory = PropertyCategory.FOR_RENT
         )
@@ -45,16 +46,16 @@ class LocationScoreManagingService(
         val saleScoreEntry = HomeRadarScore(
             lat = lat,
             lng = lng,
-            radius = userPreference?.radius ?: DEFAULT_RADIUS,
+            radius = radius,
             rawScore = rawScores.saleScore,
             propertyCategory = PropertyCategory.FOR_SALE
         )
         homeRadarScoreService.saveScore(saleScoreEntry)
 
         // Fetch all raw scores for scaling
-        val allRentScores = homeRadarScoreService.getScoresByCategory(PropertyCategory.FOR_RENT)
+        val allRentScores = homeRadarScoreService.getScoresByCategoryAndRadius(PropertyCategory.FOR_RENT, radius)
             .map { it.rawScore }
-        val allSaleScores = homeRadarScoreService.getScoresByCategory(PropertyCategory.FOR_SALE)
+        val allSaleScores = homeRadarScoreService.getScoresByCategoryAndRadius(PropertyCategory.FOR_SALE, radius)
             .map { it.rawScore }
 
         // Compute percentile-based max for scaling
@@ -84,7 +85,7 @@ class LocationScoreManagingService(
         val weightsBalance = userPreferences?.weightsBalance ?: DEFAULT_PROPERTIES_PRICES_WEIGHT
 
         val properties = propertyRepository.findWithinRadius(latitude, longitude, radius)
-        if (properties.isEmpty() && weightsBalance > 0) return LocationScoreResponse(0.0, 0.0, 0.0, 0.0, emptyList())
+        if (properties.isEmpty() && weightsBalance > 0) return LocationScoreResponse(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, emptyList())
 
         val forRent = properties.filter { it.category == PropertyCategory.FOR_RENT }
         val forSale = properties.filter { it.category == PropertyCategory.FOR_SALE }
@@ -109,6 +110,10 @@ class LocationScoreManagingService(
         val avgRentPrice = if (forRent.isNotEmpty()) forRent.map { it.price }.average() else 0.0
         val avgSalePrice = if (forSale.isNotEmpty()) forSale.map { it.price }.average() else 0.0
 
+        // Calculate average size
+        val avgRentSize = if (forRent.isNotEmpty()) forRent.map { it.squareMeters }.average() else 0.0
+        val avgSaleSize = if (forSale.isNotEmpty()) forSale.map { it.squareMeters }.average() else 0.0
+
         // Count perks
         val perkCounts: List<PerkCountResponse> = perks.groupingBy { it.type }.eachCount()
             .map { PerkCountResponse(it.key, it.value) }
@@ -119,6 +124,8 @@ class LocationScoreManagingService(
             saleScore = weightsBalance * calculateBoostedPriceScore(forSale, beta = 0.4) + (1 - weightsBalance) * perkScore,
             averageRentPrice = avgRentPrice,
             averageSalePrice = avgSalePrice,
+            averageRentSize = avgRentSize,
+            averageSaleSize = avgSaleSize,
             perkCounts = perkCounts
         )
     }
