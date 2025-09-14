@@ -14,6 +14,8 @@ data class UserPreference (
 
     val radius: Double = 500.0,
 
+    val weightsBalance: Double = 0.7,
+
     @Column(name = "perkPreferences", columnDefinition = "jsonb")
     @JdbcTypeCode(SqlTypes.JSON)
     val perkPreferences: Map<String, Double> = emptyMap(),

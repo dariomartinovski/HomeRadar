@@ -38,8 +38,7 @@ export class UserPreferencesComponent {
       if (cats.length === 0) return;
       
       const prefs = this.userPreferences();
-      const initialRadius = prefs?.radius ?? 1000;
-      // const initialPropertyPricePerkWeightBalaance = prefs?.propertyPricePerkWeightBalaance ?? 0.5;
+      const initialRadius = prefs?.radius ?? defaultUserPreferences.radius;
       
       const initialPerks = cats.reduce((acc, perk) => {
         const perkPref = prefs?.perkPreferences?.find(p => p.perkType === perk);
@@ -49,7 +48,7 @@ export class UserPreferencesComponent {
 
       this.form = this.#formBuilder.group({
         radius: [initialRadius],
-        propertyPricePerkWeightsBalance: [0.6],
+        weightsBalance: [0.6],
         perks: this.#formBuilder.group(initialPerks),
       });
     });
@@ -68,6 +67,7 @@ export class UserPreferencesComponent {
     if (!this.form) return;
 
     this.form.get('radius')?.setValue(preferences.radius);
+    this.form.get('weightsBalance')?.setValue(preferences.weightsBalance);
 
     const perksObject = preferences.perkPreferences.reduce((acc, p) => {
       acc[p.perkType] = p.weight;
@@ -92,6 +92,7 @@ export class UserPreferencesComponent {
 
     const payload = {
       radius: rawValue.radius,
+      weightsBalance: rawValue.weightsBalance,
       perkPreferences: Object.entries(rawValue.perks).map(([perkType, weight]) => ({
         perkType,
         weight

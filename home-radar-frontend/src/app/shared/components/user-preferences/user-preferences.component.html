@@ -6,32 +6,28 @@
     <mat-form-field appearance="outline" class="radius-input">
       <input matInput type="number" formControlName="radius" />
     </mat-form-field>
-   
+
     <hr class="span-row">
-    
-    <h3>Weight Balance</h3>
+
+    <h3 class="mt-1-2">Weight Balance</h3>
     <div class="balance-slider">
       <div class="labels">
         <div class="weight">
           <span>Property Price</span>
-          <span>{{ form.get('propertyPricePerkWeightsBalance')?.value | number:'1.2-2' }}</span>
+          <span>{{ form.get('weightsBalance')?.value | number:'1.2-2' }}</span>
         </div>
         <div class="weight">
           <span>Perks</span>
-          <span>{{ (1- form.get('propertyPricePerkWeightsBalance')?.value) | number:'1.2-2' }}</span>
+          <span>{{ (1- form.get('weightsBalance')?.value) | number:'1.2-2' }}</span>
         </div>
       </div>
-      <mat-slider
-      formControlName="propertyPricePerkWeightsBalance"
-      min="0"
-      max="1"
-      step="0.05"
-      discrete
-      >
-      <input matSliderThumb>
-    </mat-slider>
+      <mat-slider min="0" max="1" step="0.05" discrete="">
+        <input
+        formControlName="weightsBalance"
+        matSliderThumb>
+      </mat-slider>
     </div>
-  
+
     <hr class="span-row">
     <h3>Perk Preferences</h3>
     <div formGroupName="perks" class="perks">
@@ -48,7 +44,7 @@
         </div>
       }
     </div>
-   
+
     <button mat-raised-button color="primary" type="submit">
       Save Preferences
     </button>

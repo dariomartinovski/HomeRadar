@@ -2,8 +2,7 @@ package com.home_radar.domain.constants
 
 import com.home_radar.domain.enum.PerkType
 
-val DEFAULT_PROPERTIES_PRICES_WEIGHT = 1.0
-val DEFAULT_PERKS_WEIGHT = 0.6
+val DEFAULT_PROPERTIES_PRICES_WEIGHT = 0.7
 
 val DEFAULT_RADIUS = 500.0
 
