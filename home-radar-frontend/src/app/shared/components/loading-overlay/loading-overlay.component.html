@@ -192,8 +192,18 @@
         }
       </div>
     <div class="form-actions">
-      <button type="submit" class="btn btn-primary" [disabled]="!propertyForm.valid">Submit Property</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!propertyForm.valid">
+              @if (!loading) {
+          Submit Property
+        }
+        @else {
+          <mat-progress-spinner
+            diameter="20"
+            mode="indeterminate"
+            color="accent">
+          </mat-progress-spinner>
+        }
+      </button>
     </div>
   </form>
-    <loading-overlay [show]="loading"></loading-overlay>
 </div>

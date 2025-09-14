@@ -25,4 +25,5 @@ export interface Property {
   floor?: number;
   elevator?: boolean;
   numberOfRooms: number;
+  imageUrl?: string;
 }
