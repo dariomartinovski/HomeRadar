@@ -15,6 +15,7 @@ data class HomeRadarScore(
     val lng: Double,
     val radius: Double,
     val rawScore: Double,
+    val propertyCount: Int,
 
     @Enumerated(EnumType.STRING)
     val propertyCategory: PropertyCategory,

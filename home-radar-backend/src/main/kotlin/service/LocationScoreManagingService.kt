@@ -8,17 +8,17 @@ import com.home_radar.domain.constants.DEFAULT_PROPERTIES_PRICES_WEIGHT
 import com.home_radar.domain.constants.DEFAULT_RADIUS
 import com.home_radar.domain.enum.PropertyCategory
 import com.home_radar.repository.PerkRepository
-import com.home_radar.repository.PropertyRepository
+import com.home_radar.web.request.PropertyFilterRequest
 import com.home_radar.web.response.LocationScoreResponse
 import com.home_radar.web.response.PerkCountResponse
 import org.springframework.stereotype.Service
 
 @Service
 class LocationScoreManagingService(
-    private val propertyRepository: PropertyRepository,
     private val perkRepository: PerkRepository,
     private val homeRadarScoreService: HomeRadarScoreService,
-    private val userPreferenceService: UserPreferenceService
+    private val userPreferenceService: UserPreferenceService,
+    private val propertyService: PropertyService
 ) {
     /**
         This is done because the scores would never reach 10, they went to most of 5.2 score
@@ -26,12 +26,14 @@ class LocationScoreManagingService(
         (the top 5%) and count that as a 10, so there are no skews for outliers.
         Then we use the top 5% in order to scale the current raw score to a factored score
     */
-    fun calculateAndPersistScore(lat: Double, lng: Double, percentile: Double = 0.975): LocationScoreResponse {
+    fun calculateAndPersistScore(lat: Double, lng: Double, filter: PropertyFilterRequest, percentile: Double = 0.975): LocationScoreResponse {
         val userPreference = userPreferenceService.getUserPreference(1)
         val radius = userPreference?.radius ?: DEFAULT_RADIUS
 
+        val filteredProperties = propertyService.findFilteredWithinRadius(filter, lat, lng, radius)
+
         // Calculate raw scores
-        val rawScores: LocationScoreResponse = this.calculateCircleScore(lat, lng, userPreference)
+        val rawScores: LocationScoreResponse = this.calculateCircleScore(lat, lng, userPreference, filteredProperties)
 
         // Persist raw scores for both categories
         val rentScoreEntry = HomeRadarScore(
@@ -39,6 +41,7 @@ class LocationScoreManagingService(
             lng = lng,
             radius = radius,
             rawScore = rawScores.rentScore,
+            propertyCount = filteredProperties.size,
             propertyCategory = PropertyCategory.FOR_RENT
         )
         homeRadarScoreService.saveScore(rentScoreEntry)
@@ -48,14 +51,17 @@ class LocationScoreManagingService(
             lng = lng,
             radius = radius,
             rawScore = rawScores.saleScore,
+            propertyCount = filteredProperties.size,
             propertyCategory = PropertyCategory.FOR_SALE
         )
         homeRadarScoreService.saveScore(saleScoreEntry)
 
+        val (minCount, maxCount) = getCountRange(filteredProperties.size)
+
         // Fetch all raw scores for scaling
-        val allRentScores = homeRadarScoreService.getScoresByCategoryAndRadius(PropertyCategory.FOR_RENT, radius)
+        val allRentScores = homeRadarScoreService.getScoresByCategoryAndRadius(PropertyCategory.FOR_RENT, radius, minCount, maxCount)
             .map { it.rawScore }
-        val allSaleScores = homeRadarScoreService.getScoresByCategoryAndRadius(PropertyCategory.FOR_SALE, radius)
+        val allSaleScores = homeRadarScoreService.getScoresByCategoryAndRadius(PropertyCategory.FOR_SALE, radius, minCount, maxCount)
             .map { it.rawScore }
 
         // Compute percentile-based max for scaling
@@ -80,15 +86,14 @@ class LocationScoreManagingService(
         return sorted[index]
     }
 
-    fun calculateCircleScore(latitude: Double, longitude: Double, userPreferences: UserPreference?): LocationScoreResponse {
+    fun calculateCircleScore(latitude: Double, longitude: Double, userPreferences: UserPreference?, filteredProperties: List<Property>): LocationScoreResponse {
         val radius = userPreferences?.radius ?: DEFAULT_RADIUS
         val weightsBalance = userPreferences?.weightsBalance ?: DEFAULT_PROPERTIES_PRICES_WEIGHT
 
-        val properties = propertyRepository.findWithinRadius(latitude, longitude, radius)
-        if (properties.isEmpty() && weightsBalance > 0) return LocationScoreResponse(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, emptyList())
+        if (filteredProperties.isEmpty() && weightsBalance > 0) return LocationScoreResponse(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, emptyList())
 
-        val forRent = properties.filter { it.category == PropertyCategory.FOR_RENT }
-        val forSale = properties.filter { it.category == PropertyCategory.FOR_SALE }
+        val forRent = filteredProperties.filter { it.category == PropertyCategory.FOR_RENT }
+        val forSale = filteredProperties.filter { it.category == PropertyCategory.FOR_SALE }
         val perks = perkRepository.findWithinRadius(latitude, longitude, radius)
 
         /**
@@ -190,5 +195,21 @@ class LocationScoreManagingService(
                 Math.sin(dLon / 2) * Math.sin(dLon / 2)
         val c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
         return R * c
+    }
+
+    private fun getCountRange(count: Int): Pair<Int, Int> {
+        return when {
+            count <= 5 -> count to count
+            count in 6..12 -> (count - 1) to (count + 1)
+            count in 13..20 -> (count - 2) to (count + 2)
+            count in 21..30 -> (count - 3) to (count + 3)
+            count in 31..40 -> (count - 4) to (count + 4)
+            count in 41..50 -> (count - 5) to (count + 5)
+            count in 51..60 -> (count - 6) to (count + 6)
+            count in 61..70 -> (count - 7) to (count + 7)
+            count in 71..80 -> (count - 8) to (count + 8)
+            count in 81..90 -> (count - 9) to (count + 9)
+            else -> (count - 10) to (count + 10)
+        }
     }
 }

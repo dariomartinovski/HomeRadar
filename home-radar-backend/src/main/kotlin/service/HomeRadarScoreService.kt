@@ -18,8 +18,8 @@ class HomeRadarScoreService(
         return homeRadarScoreRepository.findByPropertyCategory(category)
     }
 
-    fun getScoresByCategoryAndRadius(category: PropertyCategory, radius: Double): List<HomeRadarScore> =
-        homeRadarScoreRepository.findByPropertyCategoryAndRadius(category, radius)
+    fun getScoresByCategoryAndRadius(category: PropertyCategory, radius: Double, propertyCountLower: Int, propertyCountUpper: Int): List<HomeRadarScore> =
+        homeRadarScoreRepository.findByPropertyCategoryAndRadiusAndPropertyCountBetween(category, radius, propertyCountLower, propertyCountUpper)
 
     fun getTopScore(propertyCategory: PropertyCategory): HomeRadarScore? {
         return homeRadarScoreRepository.findTopByPropertyCategoryOrderByRawScoreDesc(propertyCategory)

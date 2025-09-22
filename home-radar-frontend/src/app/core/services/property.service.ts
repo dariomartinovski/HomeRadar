@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Property } from '../../interfaces/property.interface';
 import { Coordinate } from '../../interfaces/coordinate.interface';
 import { HomeRadarScore } from '../../interfaces/home-radar-score.interface';
+import { PropertyFilterRequest } from '../../interfaces/requests/property-filter.request';
 
 @Injectable({
   providedIn: 'root',
@@ -21,31 +22,17 @@ export class PropertyService {
     return this.#http.get<Property>(`${this.path}/${id}`);
   }
 
-  fetchPropertiesFiltered(filters: {
-    title?: string,
-    area?: string,
-    propertyCategory?: string,
-    priceMin?: string,
-    priceMax?: string,
-    rooms?: string,
-    bedrooms?: string,
-    bathrooms?: string,
-    size?: string,
-    yearBuilt?: string,
-    parking?: string,
-    balcony?: string,
-    elevator?: string
-  }): Observable<Property[]> {
+  fetchPropertiesFiltered(filters: PropertyFilterRequest): Observable<Property[]> {
     let params = new HttpParams();
 
-  Object.entries(filters).forEach(([key, value]) => {
-    if (value !== null && value !== undefined) {
-      params = params.set(key, value.toString());
-    }
-  });
+    Object.entries(filters).forEach(([key, value]) => {
+      if (value !== null && value !== undefined) {
+        params = params.set(key, value.toString());
+      }
+    });
 
-  return this.#http.get<Property[]>(`${this.path}/filter`, { params });
-}
+    return this.#http.get<Property[]>(`${this.path}/filter`, { params });
+  }
 
   findAreas(): Observable<string[]> {
     return this.#http.get<string[]>(`${this.path}/areas`);
@@ -57,10 +44,30 @@ export class PropertyService {
 
   calculateCircleScore(
     center: Coordinate,
-    radius: number
+    radius: number,
+    filters: PropertyFilterRequest
   ): Observable<HomeRadarScore> {
+    
+    let params = new HttpParams();
+
+    Object.entries(filters).forEach(([key, value]) => {
+      if (value !== null && value !== undefined) {
+        params = params.set(key, value.toString());
+      }
+    });
+
+    if (center != null){
+      params = params.set("latitude", center.latitude);
+      params = params.set("longitude", center.longitude);
+    }
+
+    if (radius != null){
+      params = params.set("radius", radius);
+    }
+
     return this.#http.get<HomeRadarScore>(
-      `${this.path}/circle/score?latitude=${center.latitude}&longitude=${center.longitude}&radius=${radius}`
+      `${this.path}/circle/score`, { params }
     );
+    // ?latitude=${center.latitude}&longitude=${center.longitude}&radius=${radius}
   }
 }

@@ -9,9 +9,6 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface PropertyRepository : JpaRepository<Property, Long>, JpaSpecificationExecutor<Property> {
-fun findAllByTitleContainingIgnoreCase(name: String): List<Property>
-    fun findAllByTitleContainingIgnoreCaseAndNeighborhoodContainingIgnoreCase(title: String, neighborsIgnoreCase: String): List<Property>
-    fun findAllByNeighborhoodContainingIgnoreCase(neighborhoodIgnoreCase: String): List<Property>
     @Query(
         """
         SELECT p FROM Property p

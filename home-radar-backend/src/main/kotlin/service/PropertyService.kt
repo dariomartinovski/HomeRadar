@@ -7,6 +7,7 @@ import com.home_radar.repository.PropertyRepository
 import com.home_radar.repository.UserRepository
 import com.home_radar.web.extensions.toResponse
 import com.home_radar.web.request.PropertyCreateRequest
+import com.home_radar.web.request.PropertyFilterRequest
 import com.home_radar.web.response.PropertyResponse
 import org.springframework.context.ApplicationEventPublisher
 import org.springframework.stereotype.Service
@@ -74,45 +75,12 @@ class PropertyService(
 
         return property.toResponse()
     }
-//    fun update(id: Long, updated: Property): Property {
-//        val existing = getById(id)
-//        return propertyRepository.save(
-//            updated.copy(id = existing.id)
-//        )
-//    }
-//
-//    fun delete(id: Long) = propertyRepository.deleteById(id)
-
-//    fun findFiltered(title: String?, area: String?): List<PropertyResponse> {
-//        if (area != null && title != null) {
-//            return propertyRepository.findAllByTitleContainingIgnoreCaseAndNeighborhoodContainingIgnoreCase(title, area).map { it.toResponse() }
-//        }
-//        if (title != null) {
-//            return propertyRepository.findAllByTitleContainingIgnoreCase(title).map { it.toResponse() }
-//        }
-//        if (area != null) {
-//            return propertyRepository.findAllByNeighborhoodContainingIgnoreCase(area).map { it.toResponse() }
-//        }
-//        return propertyRepository.findAll().map { it.toResponse() }
-//    }
 
     fun findFiltered(
-        title: String?,
-        area: String?,
-        propertyCategory: PropertyCategory?,
-        priceMin: Double?,
-        priceMax: Double?,
-        rooms: Int?,
-        bedrooms: Int?,
-        bathrooms: Int?,
-        size: Double?,
-        yearBuilt: Int?,
-        parking: Boolean?,
-        balcony: Boolean?,
-        elevator: Boolean?
-    ): List<PropertyResponse> {
-
-        val spec = Specification<Property> { root, query, cb ->
+        filter: PropertyFilterRequest
+    ): List<Property> {
+        with(filter) {
+            val spec = Specification<Property> { root, query, cb ->
             val predicates = mutableListOf<Predicate>()
 
             title?.let {
@@ -147,8 +115,12 @@ class PropertyService(
                 predicates.add(cb.greaterThanOrEqualTo(root.get<Int>("bathrooms"), it))
             }
 
-            size?.let {
+            sizeMin?.let {
                 predicates.add(cb.greaterThanOrEqualTo(root.get<Double>("squareMeters"), it))
+            }
+
+            sizeMax?.let {
+                predicates.add(cb.lessThanOrEqualTo(root.get<Double>("squareMeters"), it))
             }
 
             yearBuilt?.let {
@@ -169,8 +141,113 @@ class PropertyService(
 
             cb.and(*predicates.toTypedArray())
         }
+            return propertyRepository.findAll(spec)
+        }
+    }
 
-        return propertyRepository.findAll(spec).map { it.toResponse() }
+    fun findFilteredWithinRadius(filter: PropertyFilterRequest,
+                                    lat: Double? = null,
+                                    lon: Double? = null,
+                                    radius: Double? = null): List<Property> {
+        val spec = Specification<Property> { root, query, cb ->
+            val predicates = mutableListOf<Predicate>()
+
+            filter.title?.let {
+                predicates.add(cb.like(cb.lower(root.get("title")), "%${it.lowercase()}%"))
+            }
+
+            filter.area?.let {
+                predicates.add(cb.like(cb.lower(root.get("neighborhood")), "%${it.lowercase()}%"))
+            }
+
+            filter.propertyCategory?.let {
+                predicates.add(cb.equal(root.get<PropertyCategory>("category"), it))
+            }
+
+            filter.priceMin?.let {
+                predicates.add(cb.greaterThanOrEqualTo(root.get("price"), it))
+            }
+
+            filter.priceMax?.let {
+                predicates.add(cb.lessThanOrEqualTo(root.get("price"), it))
+            }
+
+            filter.rooms?.let {
+                predicates.add(cb.greaterThanOrEqualTo(root.get<Int>("numberOfRooms"), it))
+            }
+
+            filter.bedrooms?.let {
+                predicates.add(cb.greaterThanOrEqualTo(root.get<Int>("bedrooms"), it))
+            }
+
+            filter.bathrooms?.let {
+                predicates.add(cb.greaterThanOrEqualTo(root.get<Int>("bathrooms"), it))
+            }
+
+            filter.sizeMin?.let {
+                predicates.add(cb.greaterThanOrEqualTo(root.get<Double>("squareMeters"), it))
+            }
+
+            filter.sizeMax?.let {
+                predicates.add(cb.lessThanOrEqualTo(root.get<Double>("squareMeters"), it))
+            }
+
+            filter.yearBuilt?.let {
+                predicates.add(cb.greaterThanOrEqualTo(root.get<Int>("yearBuilt"), it))
+            }
+
+            filter.parking?.let {
+                predicates.add(cb.equal(root.get<Boolean>("parking"), it))
+            }
+
+            filter.balcony?.let {
+                predicates.add(cb.equal(root.get<Boolean>("balcony"), it))
+            }
+
+            filter.elevator?.let {
+                predicates.add(cb.equal(root.get<Boolean>("elevator"), it))
+            }
+
+            if (lat != null && lon != null && radius != null) {
+                val earthRadius = 6371000
+                val latExpression = cb.toDouble(root.get<Double>("latitude"))
+                val lonExpression = cb.toDouble(root.get<Double>("longitude"))
+
+                val haversine = cb.prod(
+                    earthRadius.toDouble(),
+                    cb.function(
+                        "acos",
+                        Double::class.java,
+                        cb.sum(
+                            cb.prod(
+                                cb.function("cos", Double::class.java, cb.function("radians", Double::class.java, cb.literal(lat))),
+                                cb.prod(
+                                    cb.function("cos", Double::class.java, cb.function("radians", Double::class.java, latExpression)),
+                                    cb.function(
+                                        "cos",
+                                        Double::class.java,
+                                        cb.diff(
+                                            cb.function("radians", Double::class.java, lonExpression),
+                                            cb.function("radians", Double::class.java, cb.literal(lon))
+                                        )
+                                    )
+                                )
+                            ),
+                            cb.prod(
+                                cb.function("sin", Double::class.java, cb.function("radians", Double::class.java, cb.literal(lat))),
+                                cb.function("sin", Double::class.java, cb.function("radians", Double::class.java, latExpression))
+                            )
+                        )
+                    )
+                )
+
+                predicates.add(cb.le(haversine, radius))
+            }
+
+            cb.and(*predicates.toTypedArray())
+        }
+
+        return propertyRepository.findAll(spec)
     }
 
     fun findAllAreas(): List<String> =
