@@ -90,6 +90,13 @@
         </div>
       </div>
 
+      <div class="action-buttons">
+        <button class="details-button" (click)="viewFullDetails()">
+          <span class="button-icon">🔍</span>
+          View Full Details
+        </button>
+      </div>
+
       <div class="contact-section">
         <h3>Contact</h3>
         <a [href]="'tel:' + property.contactNumber" class="contact-button">

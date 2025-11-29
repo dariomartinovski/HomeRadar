@@ -1,5 +1,6 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+  import {Component, Input, Output, EventEmitter, inject} from '@angular/core';
 import { Property } from '../../../interfaces/property.interface';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'property-details-popup',
@@ -9,6 +10,8 @@ import { Property } from '../../../interfaces/property.interface';
 export class PropertyDetailsPopupComponent {
   @Input() property?: Property;
   @Output() closePopup = new EventEmitter<void>();
+
+  #router = inject(Router);
 
   close() {
     this.closePopup.emit();
@@ -20,5 +23,10 @@ export class PropertyDetailsPopupComponent {
       : (property.type === 'HOUSE'
         ? 'assets/images/sale_house_small.jpg'
         : 'assets/images/sale_flat_small.jpg');
+  }
+
+  viewFullDetails(): void {
+    if (this.property?.id)
+      this.#router.navigate(["/property-details/" + this.property.id]);
   }
 }

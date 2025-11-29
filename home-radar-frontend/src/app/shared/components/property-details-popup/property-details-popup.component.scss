@@ -241,6 +241,36 @@
     }
   }
 
+  .action-buttons {
+    margin: 1.5rem 0;
+  }
+
+  .details-button {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .details-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  }
+
+  .button-icon {
+    font-size: 1.1rem;
+  }
+
   .contact-section {
     margin-top: 1.25rem;
     padding-top: 1.25rem;
