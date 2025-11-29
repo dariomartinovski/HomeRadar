@@ -4,11 +4,16 @@ import { ProfilePage } from './pages/profile/profile.page';
 import { SettingsPage } from './pages/settings/settings.page';
 import { LoginPage } from './pages/login/login.page';
 import { RegisterPage } from './pages/register/register.page';
+import {PropertyDetailsPage} from './pages/property-details/property-details.page';
 
 export const routes: Routes = [
   {
     path: '',
     component: HomePage,
+  },
+  {
+    path: 'property-details/:id',
+    component: PropertyDetailsPage,
   },
   {
     path: 'profile',

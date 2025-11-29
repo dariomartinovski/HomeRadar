@@ -1,0 +1,172 @@
+<div class="property-details-container">
+  @if (loading) {
+    <div class="loading-state">
+      <div class="spinner"></div>
+      <p>Loading property details...</p>
+    </div>
+  } @else if (!property) {
+    <div class="error-state">
+      <h2>Property Not Found</h2>
+      <p>The property you're looking for doesn't exist or has been removed.</p>
+      <button class="back-btn" (click)="goBack()">Back to Properties</button>
+    </div>
+  } @else {
+    <!-- Navigation Bar -->
+    <div class="details-header">
+      <button class="back-btn" (click)="goBack()">
+        <span class="icon">←</span>
+        Back to Properties
+      </button>
+      <button class="share-btn" (click)="shareProperty()">
+        <span class="icon">🔗</span>
+        Share
+      </button>
+    </div>
+
+    <!-- Hero Image Section -->
+    <div class="hero-image">
+      <img [src]="getImageUrl(property)" [alt]="property.title" />
+      <div class="category-overlay">
+        <span class="category-badge" [class.for-rent]="property.category === 'FOR_RENT'">
+          {{ getCategoryLabel(property.category) }}
+        </span>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="details-content">
+      <!-- Title and Price Section -->
+      <div class="title-section">
+        <div class="title-info">
+          <h1 class="property-title">{{ property.title }}</h1>
+          <p class="property-address">
+            <span class="icon">📍</span>
+            {{ property.address }}
+          </p>
+        </div>
+        <div class="price-section">
+          <div class="price">{{ property.price }}€</div>
+          <div class="price-label">
+            {{ property.category === 'FOR_RENT' ? 'per month' : 'total price' }}
+          </div>
+        </div>
+      </div>
+
+      <!-- Key Information Grid -->
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-icon">🏢</div>
+          <div class="info-content">
+            <div class="info-label">Type</div>
+            <div class="info-value">{{ property.type }}</div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">📐</div>
+          <div class="info-content">
+            <div class="info-label">Size</div>
+            <div class="info-value">{{ property.squareMeters }} m²</div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">🛏️</div>
+          <div class="info-content">
+            <div class="info-label">Rooms</div>
+            <div class="info-value">{{ property.numberOfRooms }}</div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">🏢</div>
+          <div class="info-content">
+            <div class="info-label">Floor</div>
+            <div class="info-value">{{ property.floor ?? 'N/A' }}</div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">🔥</div>
+          <div class="info-content">
+            <div class="info-label">Heating</div>
+            <div class="info-value">{{ property.heating }}</div>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">🛗</div>
+          <div class="info-content">
+            <div class="info-label">Elevator</div>
+            <div class="info-value">{{ property.elevator ? 'Yes' : 'No' }}</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features Section -->
+      <div class="section">
+        <h2 class="section-title">Features & Amenities</h2>
+        <div class="features-list">
+          @if (property.parking) {
+            <div class="feature-item">
+              <span class="feature-icon">🅿️</span>
+              <span class="feature-text">Parking Available</span>
+            </div>
+          }
+          @if (property.wifi) {
+            <div class="feature-item">
+              <span class="feature-icon">📶</span>
+              <span class="feature-text">WiFi Included</span>
+            </div>
+          }
+          @if (property.balcony) {
+            <div class="feature-item">
+              <span class="feature-icon">🏠</span>
+              <span class="feature-text">Balcony</span>
+            </div>
+          }
+          @if (property.elevator) {
+            <div class="feature-item">
+              <span class="feature-icon">🛗</span>
+              <span class="feature-text">Elevator Access</span>
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- Description Section -->
+      <div class="section">
+        <h2 class="section-title">Description</h2>
+        <p class="description-text">{{ property.description }}</p>
+      </div>
+
+      <!-- Contact Section -->
+      <div class="section contact-section">
+        <h2 class="section-title">Contact Information</h2>
+        <div class="contact-card">
+          <div class="contact-info">
+            <div class="contact-icon">📞</div>
+            <div class="contact-details">
+              <div class="contact-label">Phone Number</div>
+              <div class="contact-value">{{ property.contactNumber }}</div>
+            </div>
+          </div>
+          <button class="contact-btn" (click)="contactOwner()">
+            Call Owner
+          </button>
+        </div>
+      </div>
+
+      <!-- Location Section (Placeholder) -->
+      <div class="section">
+        <h2 class="section-title">Location</h2>
+        <div class="map-placeholder">
+          <p class="map-text">
+            📍 Coordinates: {{ property.latitude }}, {{ property.longitude }}
+          </p>
+          <p class="map-info">Map integration can be added here</p>
+        </div>
+      </div>
+    </div>
+  }
+</div>
