@@ -1,38 +1,39 @@
 <form (ngSubmit)="onSubmit()" class="search-container">
-  <div class="input-wrapper">
-    <input
-      type="text"
-      placeholder="Search for title..."
-      [(ngModel)]="title"
-      name="title"
-    />
-    <button type="submit" class="search-button">
-      <mat-icon class="icon">search</mat-icon>
+  <div class="search-fields-container">
+    <div class="input-wrapper">
+      <input
+        type="text"
+        placeholder="Search for title..."
+        [(ngModel)]="title"
+        name="title"
+      />
+      <button type="submit" class="search-button">
+        <mat-icon class="icon">search</mat-icon>
+      </button>
+    </div>
+
+    <select
+      class="area-dropdown"
+      [(ngModel)]="area"
+      name="area"
+    >
+      <option value="">Select area</option>
+      @for (area of areas(); track $index) {
+        <option [value]="area">{{area}}</option>
+      }
+    </select>
+
+    <button
+      type="button"
+      class="advanced-filters-btn"
+      (click)="onToggleAdvancedFilters()">
+      Advanced Filters
+        <mat-icon>expand_more</mat-icon>
     </button>
-  </div> 
-
-  <select
-    class="area-dropdown"
-    [(ngModel)]="area"
-    name="area"
-  >
-    <option value="">Select area</option>
-    @for (area of areas(); track $index) {
-      <option [value]="area">{{area}}</option>
-    }
-  </select>
-
-  <button 
-    type="button" 
-    class="advanced-filters-btn" 
-    (click)="onToggleAdvancedFilters()">
-    Advanced Filters
-      <mat-icon>expand_more</mat-icon>
-  </button>
+  </div>
   @if (isAdvancedFiltersOpen()) {
     <advanced-filters
       (onApplyFilters)="onApplyAdvancedFilters()"
     ></advanced-filters>
   }
-
 </form>

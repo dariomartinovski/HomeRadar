@@ -1,0 +1,102 @@
+@if (property) {
+  <div class="details-container">
+    <div class="header">
+      <img [src]="getImageUrl(property)" alt="Property Image" class="property-image" />
+      <span class="category-badge" [class.for-rent]="property.category === 'FOR_RENT'">
+            {{ property.category === 'FOR_RENT' ? 'For Rent' : 'For Sale' }}
+        </span>
+      <button class="close-button" (click)="close()">
+        <span>&times;</span>
+      </button>
+    </div>
+
+    <div class="content">
+      <h2 class="title">{{ property.title }}</h2>
+
+      <div class="price-section">
+        <span class="price">{{ property.price }}€</span>
+        <span class="price-label">{{ property.category === 'FOR_RENT' ? '/month' : 'total' }}</span>
+      </div>
+
+      <div class="location-type">
+        <p class="info-item">
+          <span class="icon">📍</span>
+          <span>{{ property.address }}</span>
+        </p>
+        <p class="info-item">
+          <span class="icon">🏠</span>
+          <span>{{ property.type }}</span>
+        </p>
+      </div>
+
+      <div class="description-section">
+        <h3>Description</h3>
+        <p class="description">{{ property.description }}</p>
+      </div>
+
+      <div class="key-features">
+        <h3>Key Features</h3>
+        <div class="features-grid">
+          <div class="feature-card">
+            <span class="feature-icon">🛏️</span>
+            <div class="feature-info">
+              <span class="feature-value">{{ property.numberOfRooms }}</span>
+              <span class="feature-label">Rooms</span>
+            </div>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">📐</span>
+            <div class="feature-info">
+              <span class="feature-value">{{ property.squareMeters }} m²</span>
+              <span class="feature-label">Size</span>
+            </div>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🏢</span>
+            <div class="feature-info">
+              <span class="feature-value">{{ property.floor ?? 'N/A' }}</span>
+              <span class="feature-label">Floor</span>
+            </div>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🔥</span>
+            <div class="feature-info">
+              <span class="feature-value">{{ property.heating }}</span>
+              <span class="feature-label">Heating</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="amenities-section">
+        <h3>Amenities</h3>
+        <div class="amenities-list">
+          <div class="amenity" [class.available]="property.elevator">
+            <span class="amenity-icon">{{ property.elevator ? '✓' : '✗' }}</span>
+            <span>Elevator</span>
+          </div>
+          <div class="amenity" [class.available]="property.balcony">
+            <span class="amenity-icon">{{ property.balcony ? '✓' : '✗' }}</span>
+            <span>Balcony</span>
+          </div>
+          <div class="amenity" [class.available]="property.parking">
+            <span class="amenity-icon">{{ property.parking ? '✓' : '✗' }}</span>
+            <span>Parking</span>
+          </div>
+          <div class="amenity" [class.available]="property.wifi">
+            <span class="amenity-icon">{{ property.wifi ? '✓' : '✗' }}</span>
+            <span>WiFi</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-section">
+        <h3>Contact</h3>
+        <a [href]="'tel:' + property.contactNumber" class="contact-button">
+          <span class="phone-icon">📞</span>
+          {{ property.contactNumber }}
+        </a>
+      </div>
+    </div>
+  </div>
+}

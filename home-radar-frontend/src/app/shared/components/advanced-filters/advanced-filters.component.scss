@@ -3,6 +3,8 @@
   position: absolute;
   left: 0;
   top: 3em;
+  z-index: 11;
+  box-sizing: border-box;
 
   border-radius: 1em;
   background: rgba(235, 251, 254, 0.7);
@@ -24,10 +26,6 @@
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     column-gap: 1em;
-
-    // mat-form-field {
-    //   width: 100%;
-    // }
 
     .span-2 {
       grid-column: span 2;
