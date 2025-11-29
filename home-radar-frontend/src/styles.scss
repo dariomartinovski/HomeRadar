@@ -1,12 +1,5 @@
 @use "@angular/material" as mat;
 
-:root {
-  $primary-text-color: #20232e;
-  $secondary-text-color: #f7f7f7;
-  $heading-font-size: 2rem;
-  $body-font-size: 1rem;
-}
-
 html {
   @include mat.theme(
     (
@@ -22,25 +15,18 @@ html {
 
 body {
   color-scheme: light;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 
   background-color: var(--mat-sys-surface);
   color: var(--mat-sys-on-surface);
   font: var(--mat-sys-body-medium);
-
-  margin: 0;
 }
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-}
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 a {
@@ -64,4 +50,107 @@ mat-form-field ::placeholder {
 
 mat-form-field mat-label {
   font-size: 10px;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.leaflet-control-zoom {
+  margin: 0 6em 1em 0 !important;
+}
+
+// Leaflet cluster heatmap styles
+.marker-cluster {
+  background-clip: padding-box;
+  border-radius: 50%;
+
+  div {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+  }
+}
+
+.marker-cluster-small div {
+  background-color: rgba(110, 204, 57, 0.8);
+  box-shadow: 0 0 10px rgba(110, 204, 57, 0.5);
+
+  span {
+    font-size: 14px;
+  }
+}
+
+.marker-cluster-medium div {
+  background-color: rgba(255, 165, 0, 0.85);
+  box-shadow: 0 0 15px rgba(255, 165, 0, 0.6);
+
+  span {
+    font-size: 16px;
+  }
+}
+
+.marker-cluster-large div {
+  background-color: rgba(255, 87, 51, 0.9);
+  box-shadow: 0 0 20px rgba(255, 87, 51, 0.7);
+
+  span {
+    font-size: 18px;
+  }
+}
+
+.marker-cluster-xlarge div {
+  background-color: rgba(220, 20, 60, 0.95);
+  box-shadow: 0 0 25px rgba(220, 20, 60, 0.8);
+  animation: pulse-cluster 2s infinite;
+
+  span {
+    font-size: 20px;
+  }
+}
+
+.perk-cluster-small div {
+  background-color: rgba(74, 144, 226, 0.8);
+  box-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
+}
+
+.perk-cluster-medium div {
+  background-color: rgba(52, 103, 235, 0.85);
+  box-shadow: 0 0 15px rgba(52, 103, 235, 0.6);
+}
+
+.perk-cluster-large div {
+  background-color: rgba(30, 60, 200, 0.9);
+  box-shadow: 0 0 20px rgba(30, 60, 200, 0.7);
+}
+
+.perk-cluster-xlarge div {
+  background-color: rgba(15, 30, 150, 0.95);
+  box-shadow: 0 0 25px rgba(15, 30, 150, 0.8);
+  animation: pulse-cluster 2s infinite;
+}
+
+@keyframes pulse-cluster {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.marker-cluster:hover div {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
 }

@@ -2,10 +2,203 @@
   display: block;
   height: 100%;
   width: 100%;
+  position: relative;
 }
 
 .map-container {
   height: 100%;
   width: 100%;
   z-index: 10;
+}
+
+.legend-container {
+  position: absolute;
+  bottom: 2em;
+  right: 8.5em;
+  z-index: 11;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.legend-toggle {
+  background: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #2c3e50;
+  transition: all 0.2s ease;
+
+  svg {
+    flex-shrink: 0;
+  }
+
+  &:hover {
+    background: #f8f9fa;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &.expanded {
+    background: #e8f4f8;
+
+    svg {
+      color: #3498db;
+    }
+  }
+}
+
+.legend {
+  background: white;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  font-family: Arial, sans-serif;
+  max-width: 200px;
+  animation: slideIn 0.3s ease-out;
+
+  h4 {
+    margin: 0 0 12px 0;
+    font-size: 14px;
+    font-weight: bold;
+    color: #2c3e50;
+    border-bottom: 2px solid #ecf0f1;
+    padding-bottom: 6px;
+  }
+
+  h5 {
+    margin: 8px 0 6px 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: #34495e;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.legend-section {
+  margin-bottom: 12px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+  font-size: 11px;
+  color: #555;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  span {
+    margin-left: 8px;
+  }
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+// Property colors
+.property-small {
+  background-color: rgba(110, 204, 57, 0.8);
+}
+
+.property-medium {
+  background-color: rgba(255, 165, 0, 0.85);
+}
+
+.property-large {
+  background-color: rgba(255, 87, 51, 0.9);
+}
+
+.property-xlarge {
+  background-color: rgba(220, 20, 60, 0.95);
+}
+
+// Perk colors
+.perk-small {
+  background-color: rgba(74, 144, 226, 0.8);
+}
+
+.perk-medium {
+  background-color: rgba(52, 103, 235, 0.85);
+}
+
+.perk-large {
+  background-color: rgba(30, 60, 200, 0.9);
+}
+
+.perk-xlarge {
+  background-color: rgba(15, 30, 150, 0.95);
+}
+
+@media (max-width: 768px) {
+  .legend-container {
+    bottom: 1.5em;
+    right: 6em;
+  }
+
+  .legend-toggle {
+    font-size: 12px;
+    padding: 6px 10px;
+
+    span {
+      display: none;
+    }
+  }
+
+  .legend {
+    padding: 10px 12px;
+    max-width: 160px;
+
+    h4 {
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    h5 {
+      font-size: 11px;
+    }
+
+    .legend-item {
+      font-size: 10px;
+      margin-bottom: 4px;
+    }
+
+    .legend-color {
+      width: 16px;
+      height: 16px;
+    }
+  }
 }

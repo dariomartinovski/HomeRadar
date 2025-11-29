@@ -17,6 +17,7 @@ import {
 import { Property } from '../../../interfaces/property.interface';
 import { SelectedArea } from '../../../interfaces/selected-area.interface';
 import * as L from 'leaflet';
+import 'leaflet.markercluster';
 import { Coordinate } from '../../../interfaces/coordinate.interface';
 import { Perk } from '../../../interfaces/perk.interface';
 import { getPerkIcon } from '../../utils/perk-icon-url.util';
@@ -45,6 +46,7 @@ export class MapComponent implements AfterViewInit, OnDestroy {
 
   showSubscribeButton = signal(false);
   isSubscribing = signal(false);
+  showLegend = signal(false);
 
   userPreferences = input<UserPreferences>(defaultUserPreferences);
 
@@ -55,11 +57,18 @@ export class MapComponent implements AfterViewInit, OnDestroy {
 
   private map!: L.Map;
 
+  // Use marker cluster groups for better performance
+  private propertyClusterGroup!: L.MarkerClusterGroup;
+  private perkClusterGroup!: L.MarkerClusterGroup;
+
   private propertyMarkers: { marker: L.Marker; property: Property }[] = [];
   private perkMarkers: { marker: L.Marker; perk: Perk }[] = [];
 
   private selectedCircle!: L.Circle;
   private selectedCenterMarker!: L.Marker;
+
+  // Cache icons to avoid recreating them
+  private iconCache = new Map<string, L.Icon>();
 
   subscriptionService = inject(SubscriptionService);
   #route = inject(ActivatedRoute);
@@ -72,49 +81,133 @@ export class MapComponent implements AfterViewInit, OnDestroy {
         if (!this.map) return;
         this.updatePerksMarkers();
         this.#route.queryParams.subscribe(params => {
-        if (params['perkId']) {
-          this.focusPerk(+params['perkId']);
-        }
-      });
+          if (params['perkId']) {
+            this.focusPerk(+params['perkId']);
+          }
+        });
       });
 
       effect(() => {
         if (!this.map) return;
         this.updatePropertyMarkers();
-          this.#route.queryParams.subscribe(params => {
-        if (params['propertyId']) {
-          this.focusProperty(+params['propertyId']);
-        }
-      });
+        this.#route.queryParams.subscribe(params => {
+          if (params['propertyId']) {
+            this.focusProperty(+params['propertyId']);
+          }
+        });
       });
     });
   }
 
   ngOnDestroy(): void {
+    if (this.propertyClusterGroup) {
+      this.propertyClusterGroup.clearLayers();
+    }
+    if (this.perkClusterGroup) {
+      this.perkClusterGroup.clearLayers();
+    }
+    this.iconCache.clear();
     this.map.remove();
   }
 
   private initMap(): void {
-    this.map = L.map(this.mapContainer.nativeElement).setView(
-      [41.9981, 21.4254],
-      13
-    );
+    this.map = L.map(this.mapContainer.nativeElement, {
+      preferCanvas: true, // Use Canvas renderer for better performance
+      zoomControl: false,
+    }).setView([41.9981, 21.4254], 13);
+
+    L.control.zoom({
+      position: 'bottomright'
+    }).addTo(this.map);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
       attribution: '&copy; OpenStreetMap contributors',
+      updateWhenIdle: true, // Only update tiles when map stops moving
+      keepBuffer: 2, // Keep fewer tiles in memory
     }).addTo(this.map);
+
+    // Initialize marker cluster groups with custom icon creation
+    this.propertyClusterGroup = L.markerClusterGroup({
+      maxClusterRadius: 50,
+      disableClusteringAtZoom: 18,
+      spiderfyOnMaxZoom: true,
+      showCoverageOnHover: false,
+      zoomToBoundsOnClick: true,
+      chunkedLoading: true,
+      iconCreateFunction: (cluster) => {
+        const childCount = cluster.getChildCount();
+        let className = 'marker-cluster-';
+        let size = 40;
+
+        // Color code based on density
+        if (childCount < 10) {
+          className += 'small';
+        } else if (childCount < 50) {
+          className += 'medium';
+          size = 50;
+        } else if (childCount < 100) {
+          className += 'large';
+          size = 60;
+        } else {
+          className += 'xlarge';
+          size = 70;
+        }
+
+        return new L.DivIcon({
+          html: `<div><span>${childCount}</span></div>`,
+          className: 'marker-cluster ' + className,
+          iconSize: new L.Point(size, size)
+        });
+      }
+    });
+
+    this.perkClusterGroup = L.markerClusterGroup({
+      maxClusterRadius: 40,
+      disableClusteringAtZoom: 18,
+      spiderfyOnMaxZoom: true,
+      showCoverageOnHover: false,
+      zoomToBoundsOnClick: true,
+      chunkedLoading: true,
+      iconCreateFunction: (cluster) => {
+        const childCount = cluster.getChildCount();
+        let className = 'perk-cluster-';
+        let size = 40;
+
+        // Color code based on density
+        if (childCount < 10) {
+          className += 'small';
+        } else if (childCount < 50) {
+          className += 'medium';
+          size = 50;
+        } else if (childCount < 100) {
+          className += 'large';
+          size = 60;
+        } else {
+          className += 'xlarge';
+          size = 70;
+        }
+
+        return new L.DivIcon({
+          html: `<div><span>${childCount}</span></div>`,
+          className: 'marker-cluster ' + className,
+          iconSize: new L.Point(size, size)
+        });
+      }
+    });
+
+    this.map.addLayer(this.propertyClusterGroup);
+    this.map.addLayer(this.perkClusterGroup);
 
     this.map.on('click', (e: L.LeafletMouseEvent) => {
       const { lat, lng } = e.latlng;
 
-      this.map.flyTo([lat, lng], 16, {
+      this.map.flyTo([lat, lng], 17, {
         animate: true,
         duration: 1,
       });
 
       this.addCircleFromCoordinates({ latitude: lat, longitude: lng });
-
       this.selectedProperty.emit(undefined);
     });
 
@@ -123,22 +216,36 @@ export class MapComponent implements AfterViewInit, OnDestroy {
     });
   }
 
-  private addMarkersForProperties() {
-    //TODO there are red, orange, yellow, blue, black, gold, violet, grey icons
-    this.properties().forEach((property) => {
-      const greenIcon = new L.Icon({
-        iconUrl:property.type == PropertyType.HOUSE ? '/assets/icons/house_pin.png' : '/assets/icons/apartments_pin.png',
-          shadowUrl:
-            'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+  private getOrCreateIcon(iconUrl: string): L.Icon {
+    if (!this.iconCache.has(iconUrl)) {
+      const icon = new L.Icon({
+        iconUrl,
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
         iconSize: [25, 41],
         iconAnchor: [12, 41],
         popupAnchor: [1, -34],
         shadowSize: [41, 41],
       });
+      this.iconCache.set(iconUrl, icon);
+    }
+    return this.iconCache.get(iconUrl)!;
+  }
+
+  private addMarkersForProperties() {
+    // Batch marker creation
+    const markers: L.Marker[] = [];
+
+    this.properties().forEach((property) => {
+      const iconUrl = property.type == PropertyType.HOUSE
+        ? '/assets/icons/house_pin.png'
+        : '/assets/icons/apartments_pin.png';
+
+      const icon = this.getOrCreateIcon(iconUrl);
 
       const marker = L.marker([property.latitude, property.longitude], {
-        icon: greenIcon,
-      }).addTo(this.map);
+        icon,
+        title: property.title, // Improves accessibility
+      });
 
       marker.bindPopup(property.title);
 
@@ -147,21 +254,27 @@ export class MapComponent implements AfterViewInit, OnDestroy {
           animate: true,
           duration: 1.4,
         });
-
         this.selectedProperty.emit(property);
       });
 
       this.propertyMarkers.push({ marker, property });
+      markers.push(marker);
     });
+
+    // Add all markers at once to the cluster group
+    this.propertyClusterGroup.addLayers(markers);
   }
 
   private addMarkersForPerks(): void {
+    const markers: L.Marker[] = [];
+
     this.perks().forEach((perk) => {
       const perkIcon = getPerkIcon(perk.type);
 
       const marker = L.marker([perk.latitude, perk.longitude], {
         icon: perkIcon,
-      }).addTo(this.map);
+        title: perk.title,
+      });
 
       marker.bindPopup(this.createPerkPopup(perk));
 
@@ -170,31 +283,28 @@ export class MapComponent implements AfterViewInit, OnDestroy {
           animate: true,
           duration: 1.4,
         });
-
         this.selectedProperty.emit(undefined);
       });
 
       this.perkMarkers.push({ marker, perk });
+      markers.push(marker);
     });
+
+    this.perkClusterGroup.addLayers(markers);
   }
 
   private clearPropertyMarkers(): void {
-    this.propertyMarkers.forEach(({ marker }) => {
-      this.map.removeLayer(marker);
-    });
+    this.propertyClusterGroup.clearLayers();
     this.propertyMarkers = [];
   }
 
   private clearPerkMarkers(): void {
-    this.perkMarkers.forEach(({ marker }) => {
-      this.map.removeLayer(marker);
-    });
+    this.perkClusterGroup.clearLayers();
     this.perkMarkers = [];
   }
 
   private updatePropertyMarkers(): void {
     this.clearPropertyMarkers();
-
     this.addMarkersForProperties();
 
     if (this.selectedCircle) {
@@ -205,7 +315,6 @@ export class MapComponent implements AfterViewInit, OnDestroy {
 
   private updatePerksMarkers(): void {
     this.clearPerkMarkers();
-
     this.addMarkersForPerks();
 
     if (this.selectedCircle) {
@@ -248,8 +357,6 @@ export class MapComponent implements AfterViewInit, OnDestroy {
   }
 
   private addCircleFromCoordinates(coordinate: Coordinate): void {
-    console.log("the radius when clicking is ", this.userPreferences().radius)
-
     this.checkIfValidCoordinate(coordinate);
 
     if (this.selectedCircle) {
@@ -290,7 +397,6 @@ export class MapComponent implements AfterViewInit, OnDestroy {
     );
 
     this.selectedArea.emit({ center: coordinate, radius: this.userPreferences().radius });
-
     this.showSubscribeButton.set(true);
   }
 
@@ -309,27 +415,46 @@ export class MapComponent implements AfterViewInit, OnDestroy {
     longitude: number,
     radius: number
   ) {
-    const allMarkers = [
-      ...this.propertyMarkers.map(item => ({ marker: item.marker, location: item.property })),
-      ...this.perkMarkers.map(item => ({ marker: item.marker, location: item.perk }))
-    ];
+    const centerLatLng = L.latLng(latitude, longitude);
 
-    allMarkers.forEach(({ marker, location }) => {
-      const distance = this.map.distance(
-        L.latLng(latitude, longitude),
-        L.latLng(location.latitude, location.longitude)
+    // Filter properties
+    const visiblePropertyMarkers: L.Marker[] = [];
+    const hiddenPropertyMarkers: L.Marker[] = [];
+
+    this.propertyMarkers.forEach(({ marker, property }) => {
+      const distance = centerLatLng.distanceTo(
+        L.latLng(property.latitude, property.longitude)
       );
 
       if (distance <= radius) {
-        if (!this.map.hasLayer(marker)) {
-          marker.addTo(this.map);
-        }
+        visiblePropertyMarkers.push(marker);
       } else {
-        if (this.map.hasLayer(marker)) {
-          this.map.removeLayer(marker);
-        }
+        hiddenPropertyMarkers.push(marker);
       }
     });
+
+    // Filter perks
+    const visiblePerkMarkers: L.Marker[] = [];
+    const hiddenPerkMarkers: L.Marker[] = [];
+
+    this.perkMarkers.forEach(({ marker, perk }) => {
+      const distance = centerLatLng.distanceTo(
+        L.latLng(perk.latitude, perk.longitude)
+      );
+
+      if (distance <= radius) {
+        visiblePerkMarkers.push(marker);
+      } else {
+        hiddenPerkMarkers.push(marker);
+      }
+    });
+
+    // Batch update cluster groups
+    this.propertyClusterGroup.clearLayers();
+    this.propertyClusterGroup.addLayers(visiblePropertyMarkers);
+
+    this.perkClusterGroup.clearLayers();
+    this.perkClusterGroup.addLayers(visiblePerkMarkers);
   }
 
   private clearSelectedArea(): void {
@@ -343,20 +468,19 @@ export class MapComponent implements AfterViewInit, OnDestroy {
       this.selectedCenterMarker = undefined!;
     }
 
-    [...this.propertyMarkers, ...this.perkMarkers].forEach(({ marker }) => {
-      if (!this.map.hasLayer(marker)) {
-        marker.addTo(this.map);
-      }
-    });
+    // Restore all markers
+    this.propertyClusterGroup.clearLayers();
+    this.propertyClusterGroup.addLayers(this.propertyMarkers.map(pm => pm.marker));
+
+    this.perkClusterGroup.clearLayers();
+    this.perkClusterGroup.addLayers(this.perkMarkers.map(pm => pm.marker));
 
     this.selectedArea.emit({ center: undefined!, radius: 0 });
     this.selectedProperty.emit(undefined);
-
     this.showSubscribeButton.set(false);
-
   }
 
-   subscribeToArea() {
+  subscribeToArea() {
     if (!this.selectedCircle) {
       return;
     }
@@ -375,7 +499,7 @@ export class MapComponent implements AfterViewInit, OnDestroy {
       longitude: area.lng,
       radiusMeters: radius,
       type: SubscriptionType.INSTANT
-      };
+    };
 
     this.subscriptionService.createSubscription(subscriptionRequest)
       .pipe(
@@ -395,26 +519,30 @@ export class MapComponent implements AfterViewInit, OnDestroy {
   }
 
   private focusProperty(id: number) {
-  const found = this.propertyMarkers.find(pm => pm.property.id === id);
-  if (found) {
-    this.map.flyTo([found.property.latitude, found.property.longitude], 17, {
-      animate: true,
-      duration: 1.4,
-    });
-    found.marker.openPopup();
-    this.selectedProperty.emit(found.property);
+    const found = this.propertyMarkers.find(pm => pm.property.id === id);
+    if (found) {
+      this.map.flyTo([found.property.latitude, found.property.longitude], 17, {
+        animate: true,
+        duration: 1.4,
+      });
+      found.marker.openPopup();
+      this.selectedProperty.emit(found.property);
+    }
   }
-}
 
-private focusPerk(id: number) {
-  const found = this.perkMarkers.find(pm => pm.perk.id === id);
-  if (found) {
-    this.map.flyTo([found.perk.latitude, found.perk.longitude], 17, {
-      animate: true,
-      duration: 1.4,
-    });
-    found.marker.openPopup();
-    this.selectedProperty.emit(undefined);
+  private focusPerk(id: number) {
+    const found = this.perkMarkers.find(pm => pm.perk.id === id);
+    if (found) {
+      this.map.flyTo([found.perk.latitude, found.perk.longitude], 17, {
+        animate: true,
+        duration: 1.4,
+      });
+      found.marker.openPopup();
+      this.selectedProperty.emit(undefined);
+    }
   }
-}
+
+  toggleLegend() {
+    this.showLegend.update(value => !value);
+  }
 }

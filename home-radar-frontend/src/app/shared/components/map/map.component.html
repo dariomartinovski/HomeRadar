@@ -5,3 +5,60 @@
   (subscribe)="subscribeToArea()"
 ></subscribe-button>
 }
+
+<div class="legend-container">
+  <button class="legend-toggle" (click)="toggleLegend()" [class.expanded]="showLegend()">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <circle cx="12" cy="12" r="10"/>
+      <circle cx="12" cy="12" r="6"/>
+      <circle cx="12" cy="12" r="2"/>
+    </svg>
+    <span>Cluster Legend</span>
+  </button>
+
+  @if(showLegend()) {
+    <div class="legend" [@slideIn]>
+      <h4>Density Legend</h4>
+
+      <div class="legend-section">
+        <h5>Properties</h5>
+        <div class="legend-item">
+          <div class="legend-color property-small"></div>
+          <span>1-9 properties</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color property-medium"></div>
+          <span>10-49 properties</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color property-large"></div>
+          <span>50-99 properties</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color property-xlarge"></div>
+          <span>100+ properties</span>
+        </div>
+      </div>
+
+      <div class="legend-section">
+        <h5>Perks</h5>
+        <div class="legend-item">
+          <div class="legend-color perk-small"></div>
+          <span>1-9 perks</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color perk-medium"></div>
+          <span>10-49 perks</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color perk-large"></div>
+          <span>50-99 perks</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color perk-xlarge"></div>
+          <span>100+ perks</span>
+        </div>
+      </div>
+    </div>
+  }
+</div>
