@@ -1,23 +1,28 @@
-import { Component, inject, OnInit, signal } from "@angular/core";
-import { MapComponent } from "../../shared/components/map/map.component";
-import { Property } from "../../interfaces/property.interface";
-import { PropertyDetails } from "../../shared/components/property-details/property-details.component";
-import { Perk } from "../../interfaces/perk.interface";
-import { PerkService } from "../../core/services/perks.service";
-import { CommonModule } from '@angular/common';
-import { toSignal } from "@angular/core/rxjs-interop";
-import { PropertyService } from "../../core/services/property.service";
-import { SearchComponent } from "../../shared/components/search/search.component";
-import { PerkType } from "../../enums/perk-type.enum";
-import { ActivatedRoute, RouterModule } from '@angular/router';
-import { SidebarComponent } from "../../shared/components/sidebar/sidebar.component";
-import { UserService } from "../../core/services/user.service";
-import { User } from "../../interfaces/user.interface";
-import { PropertyEventService } from "../../core/services/property-event.service";
-import { HomeRadarScoreComponent } from "../../shared/components/home-radar-score/home-radar-score.component";
-import { SelectedArea } from "../../interfaces/selected-area.interface";
-import { UserPreferencesService } from "../../core/services/user-preferences.service";
-import { defaultUserPreferences } from "../../data/default-user-preferences.const";
+import {Component, inject, OnInit, signal} from "@angular/core";
+import {MapComponent} from "../../shared/components/map/map.component";
+import {Property} from "../../interfaces/property.interface";
+import {Perk} from "../../interfaces/perk.interface";
+import {PerkService} from "../../core/services/perks.service";
+import {CommonModule} from '@angular/common';
+import {toSignal} from "@angular/core/rxjs-interop";
+import {PropertyService} from "../../core/services/property.service";
+import {SearchComponent} from "../../shared/components/search/search.component";
+import {PerkType} from "../../enums/perk-type.enum";
+import {ActivatedRoute, RouterModule} from '@angular/router';
+import {SidebarComponent} from "../../shared/components/sidebar/sidebar.component";
+import {UserService} from "../../core/services/user.service";
+import {User} from "../../interfaces/user.interface";
+import {PropertyEventService} from "../../core/services/property-event.service";
+import {HomeRadarScoreComponent} from "../../shared/components/home-radar-score/home-radar-score.component";
+import {SelectedArea} from "../../interfaces/selected-area.interface";
+import {UserPreferencesService} from "../../core/services/user-preferences.service";
+import {defaultUserPreferences} from "../../data/default-user-preferences.const";
+import {PropertyListComponent} from '../../shared/components/property-list/property-list.component';
+import {ViewSwitchComponent} from '../../shared/components/view-selector/view-switch.component';
+import {ViewTypeEnum} from '../../enums/view-type.enum';
+import {
+  PropertyDetailsPopupComponent
+} from '../../shared/components/property-details-popup/property-details-popup.component';
 
 @Component({
   selector: 'home',
@@ -25,13 +30,15 @@ import { defaultUserPreferences } from "../../data/default-user-preferences.cons
   styleUrl: './home.page.scss',
   imports: [
     MapComponent,
-    PropertyDetails,
+    PropertyDetailsPopupComponent,
     SearchComponent,
     SidebarComponent,
     CommonModule,
     RouterModule,
-    HomeRadarScoreComponent
-],
+    HomeRadarScoreComponent,
+    ViewSwitchComponent,
+    PropertyListComponent
+  ],
 })
 export class HomePage implements OnInit {
   #perkService = inject(PerkService);
@@ -48,6 +55,8 @@ export class HomePage implements OnInit {
 
   perks = signal<Perk[]>([]);
   properties = signal<Property[]>([]);
+  viewType = signal<ViewTypeEnum>(ViewTypeEnum.MAP_VIEW);
+
   categories = toSignal(this.#perkService.findAllCategories(), {
     initialValue: [] as PerkType[],
   });
@@ -59,13 +68,22 @@ export class HomePage implements OnInit {
   })
 
   ngOnInit() {
+    this.loadViewType();
     this.loadFilteredProperties();
     this.loadFilteredPerks();
     this.loadUser();
 
-     this.#propertyEventService.propertyCreated$.subscribe((newProperty) => {
-     this.properties.set([...this.properties(), newProperty]);
-  });
+    this.#propertyEventService.propertyCreated$.subscribe((newProperty) => {
+      this.properties.set([...this.properties(), newProperty]);
+    });
+  }
+
+  handleViewSwitch(view: ViewTypeEnum) {
+    this.viewType.set(
+      view == ViewTypeEnum.MAP_VIEW
+        ? ViewTypeEnum.MAP_VIEW
+        : ViewTypeEnum.LIST_VIEW
+    );
   }
 
   handlePropertySearch() {
@@ -82,6 +100,11 @@ export class HomePage implements OnInit {
 
   handleAreaSelect(selectedArea: SelectedArea) {
     this.selectedArea = selectedArea;
+  }
+
+  private loadViewType() {
+    const { viewType } = this.#route.snapshot.queryParams;
+    this.viewType.set(viewType ?? ViewTypeEnum.MAP_VIEW);
   }
 
   private loadFilteredProperties() {
@@ -102,7 +125,7 @@ export class HomePage implements OnInit {
       balcony: queryParams['balcony'] ? queryParams['balcony'] : undefined,
       elevator: queryParams['elevator'] ? queryParams['elevator'] : undefined,
     };
-    
+
     this.#propertyService.fetchPropertiesFiltered(filters)
       .subscribe((filteredProperties) => {
         this.properties.set(filteredProperties);
@@ -123,4 +146,6 @@ export class HomePage implements OnInit {
       this.user = user;
     });
   }
+
+  protected readonly ViewTypeEnum = ViewTypeEnum;
 }

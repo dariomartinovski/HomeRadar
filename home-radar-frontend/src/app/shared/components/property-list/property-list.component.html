@@ -1,0 +1,36 @@
+<div class="property-list-container">
+  @if (sortedProperties.length === 0) {
+    <div class="no-properties">
+      <p>No properties found matching your criteria.</p>
+    </div>
+  } @else {
+    <div class="list-header">
+      <div class="results-count">
+        <span class="count">{{ sortedProperties.length }}</span>
+        <span class="label">{{ sortedProperties.length === 1 ? 'Property' : 'Properties' }}</span>
+      </div>
+
+      <div class="sort-controls">
+        <label for="sort-select">Sort by:</label>
+        <select
+          id="sort-select"
+          [(ngModel)]="selectedSort"
+          (change)="onSortChange()"
+          class="sort-dropdown">
+          @for (option of sortOptions; track option.value) {
+            <option [value]="option.value">{{ option.label }}</option>
+          }
+        </select>
+      </div>
+    </div>
+
+    <div class="properties-grid">
+      @for (property of sortedProperties; track property.id) {
+        <property-list-card
+          [property]="property"
+          (cardClick)="onPropertyClick($event)">
+        </property-list-card>
+      }
+    </div>
+  }
+</div>

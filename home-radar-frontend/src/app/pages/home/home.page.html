@@ -1,33 +1,46 @@
 <div class="container">
-    <div class="search-container horizontally-centered-container">
+    <div class="toolbar-container">
+        <view-switch
+            [viewType]="viewType()"
+            (onViewSwitch)="handleViewSwitch($event)"
+        ></view-switch>
         <search
             [areas]="areas()"
             (onSearch)="handlePropertySearch()"
         ></search>
     </div>
-    <div class="home-radar-score-container horizontally-centered-container">
+  <main>
+    @if (viewType() == ViewTypeEnum.LIST_VIEW) {
+      <property-list
+        [properties]="properties()"
+        (propertySelected)="handlePropertyClick($event)"
+      ></property-list>
+    } @else if (viewType() == ViewTypeEnum.MAP_VIEW) {
+      <div class="home-radar-score-container horizontally-centered-container">
         <home-radar-score
-            [area]="selectedArea"
+          [area]="selectedArea"
         ></home-radar-score>
-    </div>
-    <div class="map-container">
+      </div>
+      <div class="map-container">
         <map-component
-            [properties]="properties()"
-            [perks]="perks()"
-            [userPreferences]="userPreferences()"
-            (selectedArea)="handleAreaSelect($event)"
-            (selectedProperty)="handlePropertyClick($event)">
+          [properties]="properties()"
+          [perks]="perks()"
+          [userPreferences]="userPreferences()"
+          (selectedArea)="handleAreaSelect($event)"
+          (selectedProperty)="handlePropertyClick($event)">
         </map-component>
-    </div>
-    <div class="sidebar-container">
+      </div>
+      <div class="sidebar-container">
         <sidebar
-            [categories]="categories()"
-            [user]="user"
-            (onCategoryChange)="handlePerkSearch()"
+          [categories]="categories()"
+          [user]="user"
+          (onCategoryChange)="handlePerkSearch()"
         ></sidebar>
-        <property-details
-            [property]="selectedProperty"
-            (closePopup)="selectedProperty = undefined"
-        ></property-details>
-    </div>
+        <property-details-popup
+          [property]="selectedProperty"
+          (closePopup)="selectedProperty = undefined"
+        ></property-details-popup>
+      </div>
+    }
+  </main>
 </div>

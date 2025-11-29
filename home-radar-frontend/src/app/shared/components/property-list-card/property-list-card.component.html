@@ -1,0 +1,56 @@
+<div class="property-card" (click)="onCardClick()">
+  <div class="card-image">
+    <img [src]="imageUrl" [alt]="property.title" />
+    <span class="category-badge" [class.for-rent]="property.category === 'FOR_RENT'">
+      {{ getCategoryLabel(property.category) }}
+    </span>
+  </div>
+
+  <div class="card-content">
+    <h3 class="property-title">{{ property.title }}</h3>
+
+    <p class="property-address">
+      <span class="icon">📍</span>
+      {{ property.address }}
+    </p>
+
+    <div class="property-info">
+      <div class="info-item">
+        <span class="label">Type</span>
+        <span class="value">{{ property.type }}</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Rooms</span>
+        <span class="value">{{ property.numberOfRooms }}</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Size</span>
+        <span class="value">{{ property.squareMeters }} m²</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Floor</span>
+        <span class="value">{{ property.floor ?? 'N/A' }}</span>
+      </div>
+    </div>
+
+    <div class="property-features">
+      @if (property.parking) {
+        <span class="feature">🅿️ Parking</span>
+      }
+      @if (property.wifi) {
+        <span class="feature">📶 WiFi</span>
+      }
+      @if (property.balcony) {
+        <span class="feature">🏠 Balcony</span>
+      }
+      @if (property.elevator) {
+        <span class="feature">🛗 Elevator</span>
+      }
+    </div>
+
+    <div class="card-footer">
+      <div class="price">{{ property.price }}€</div>
+      <button class="view-details-btn">View Details</button>
+    </div>
+  </div>
+</div>
