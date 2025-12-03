@@ -17,10 +17,31 @@
         <span class="icon">←</span>
         Back to Properties
       </button>
-      <button class="share-btn" (click)="shareProperty()">
-        <span class="icon">🔗</span>
-        Share
-      </button>
+      <div class="header-actions">
+        <!-- Like/Dislike Buttons - Only show if user is logged in -->
+        @if (isLoggedIn) {
+          <button
+            class="preference-btn like-btn"
+            [class.active]="isLiked()"
+            [disabled]="savingPreference"
+            (click)="likeProperty()">
+            <span class="icon">{{ isLiked() ? '❤️' : '🤍' }}</span>
+            <span class="btn-text">Like</span>
+          </button>
+          <button
+            class="preference-btn dislike-btn"
+            [class.active]="isDisliked()"
+            [disabled]="savingPreference"
+            (click)="dislikeProperty()">
+            <span class="icon">{{ isDisliked() ? '👎' : '👎🏻' }}</span>
+            <span class="btn-text">Dislike</span>
+          </button>
+        }
+        <button class="share-btn" (click)="shareProperty()">
+          <span class="icon">🔗</span>
+          Share
+        </button>
+      </div>
     </div>
 
     <!-- Hero Image Section -->

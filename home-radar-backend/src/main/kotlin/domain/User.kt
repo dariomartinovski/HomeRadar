@@ -38,6 +38,9 @@ data class User(
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "owner", cascade = [CascadeType.PERSIST, CascadeType.MERGE])
     @JsonIgnore
     var ownedProperties: MutableList<Property> = mutableListOf(),
+
+    @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL], orphanRemoval = true)
+    var propertyPreferences: MutableList<UserPropertyPreference> = mutableListOf()
 ) : UserDetails {
 
     fun getFullName() = "$firstName $lastName"
@@ -61,7 +64,8 @@ data class User(
             lastName = this.lastName,
             email = this.email,
             phoneNumber = this.phoneNumber,
-            role = this.role.name
+            role = this.role.name,
+            propertyPreferences = this.propertyPreferences.map { it.toSimpleDto() }
         )
     }
 

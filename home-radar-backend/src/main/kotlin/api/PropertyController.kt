@@ -17,10 +17,10 @@ class PropertyController(
     private val locationScoreManagingService: LocationScoreManagingService
 ) {
     @GetMapping
-    fun getAll() = propertyService.findAll()
+    fun getAll() = propertyService.findAll().map { it.toResponse() }
 
     @GetMapping("/{id}")
-    fun getById(@PathVariable id: Long) = propertyService.findById(id)
+    fun getById(@PathVariable id: Long) = propertyService.findById(id).toResponse()
 
     @GetMapping("/filter")
     fun filter(@ModelAttribute filter: PropertyFilterRequest) =

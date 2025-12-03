@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../../interfaces/user.interface';
+import {PreferenceTypeEnum} from '../../enums/preference-type.enum';
+import {UserPropertyPreference} from '../../interfaces/user-property-preference.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +13,8 @@ export class UserService {
   private currentUserSubject: BehaviorSubject<User | null>;
   public currentUser$: Observable<User | null>;
   private http: HttpClient = inject(HttpClient);
+
+  #path = '/api/users';
 
   constructor() {
     const userJson = localStorage.getItem('currentUser');
@@ -49,5 +53,9 @@ export class UserService {
   getCurrentUser() {
     const userJson = localStorage.getItem('currentUser');
     return userJson ? JSON.parse(userJson) : null;
+  }
+
+  setUserPropertyPreference(propertyId: number, preference: PreferenceTypeEnum): Observable<User> {
+    return this.http.put<User>(`${this.#path}/property/${propertyId}/preference?type=${preference}`, {});
   }
 }

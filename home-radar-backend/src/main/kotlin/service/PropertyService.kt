@@ -26,12 +26,11 @@ class PropertyService(
     private val userRepository: UserRepository,
     private val eventPublisher: ApplicationEventPublisher
 ) {
-    fun findAll(): List<PropertyResponse> = propertyRepository.findAll().map { it.toResponse() }
+    fun findAll(): List<Property> = propertyRepository.findAll()
 
-    fun findById(id: Long): PropertyResponse =
+    fun findById(id: Long): Property =
         propertyRepository.findById(id)
             .orElseThrow { NoSuchElementException("Property not found: $id") }
-            .toResponse()
 
     fun create(request: PropertyCreateRequest, image: MultipartFile?): PropertyResponse {
         val owner = userRepository.findById(request.ownerId).orElseThrow { NoSuchElementException("User not found: $request.ownerId") }

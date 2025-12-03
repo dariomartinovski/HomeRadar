@@ -413,3 +413,102 @@
     }
   }
 }
+
+.details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+
+  .header-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+}
+
+.preference-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+  font-weight: 500;
+
+  .icon {
+    font-size: 1.25rem;
+    transition: transform 0.2s ease;
+  }
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &.like-btn {
+    &.active {
+      background: #fee2e2;
+      border-color: #ef4444;
+      color: #dc2626;
+
+      .icon {
+        transform: scale(1.1);
+      }
+    }
+
+    &:hover:not(.active):not(:disabled) {
+      border-color: #fca5a5;
+      background: #fef2f2;
+    }
+  }
+
+  &.dislike-btn {
+    &.active {
+      background: #e5e7eb;
+      border-color: #6b7280;
+      color: #374151;
+
+      .icon {
+        transform: scale(1.1) rotate(180deg);
+      }
+    }
+
+    &:hover:not(.active):not(:disabled) {
+      border-color: #9ca3af;
+      background: #f3f4f6;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .details-header {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: stretch;
+
+    .header-actions {
+      justify-content: space-between;
+    }
+  }
+
+  .preference-btn {
+    flex: 1;
+    justify-content: center;
+
+    .btn-text {
+      display: none;
+    }
+  }
+}

@@ -1,3 +1,5 @@
+import {UserPropertyPreference} from './user-property-preference.interface';
+
 export interface User {
   id: number,
   email: string,
@@ -5,5 +7,6 @@ export interface User {
   lastName: string,
   phoneNumber: string,
   role: string,
-  ownedProperties: number[]
+  ownedProperties: number[],
+  propertyPreferences: UserPropertyPreference[]
 }
