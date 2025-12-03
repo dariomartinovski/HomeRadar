@@ -178,15 +178,14 @@
         </div>
       </div>
 
-      <!-- Location Section (Placeholder) -->
+      <!-- Location Section with Interactive Map -->
+
       <div class="section">
-        <h2 class="section-title">Location</h2>
-        <div class="map-placeholder">
-          <p class="map-text">
-            📍 Coordinates: {{ property.latitude }}, {{ property.longitude }}
-          </p>
-          <p class="map-info">Map integration can be added here</p>
+        <h2 class="section-title">Location & Directions</h2>
+        <div class="map-info-text">
+          <p>📍 Click anywhere on the map to get directions and estimated travel time</p>
         </div>
+        <property-detail-map [property]="property"></property-detail-map>
       </div>
     </div>
   }

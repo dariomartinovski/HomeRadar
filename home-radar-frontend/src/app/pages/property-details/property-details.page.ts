@@ -7,14 +7,17 @@ import { PropertyCategory } from '../../enums/property-category.enum';
 import { CapitalizePipe } from '../../shared/pipes/capitilzie.pipe';
 import { UserService } from '../../core/services/user.service';
 import { PreferenceTypeEnum } from '../../enums/preference-type.enum';
-import {User} from '../../interfaces/user.interface';
+import { User } from '../../interfaces/user.interface';
+import {PropertyDetailMapComponent} from '../../shared/components/property-details-map/property-details-map.component';
 
 @Component({
   selector: 'property-details',
   templateUrl: './property-details.page.html',
   styleUrl: './property-details.page.scss',
   imports: [
-    CapitalizePipe
+    CommonModule,
+    CapitalizePipe,
+    PropertyDetailMapComponent
   ]
 })
 export class PropertyDetailsPage implements OnInit {
