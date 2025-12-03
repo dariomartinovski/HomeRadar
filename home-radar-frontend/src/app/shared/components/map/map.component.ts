@@ -12,7 +12,7 @@ import {
   runInInjectionContext,
   inject,
   EnvironmentInjector,
-  signal,
+  signal, OnInit,
 } from '@angular/core';
 import { Property } from '../../../interfaces/property.interface';
 import { SelectedArea } from '../../../interfaces/selected-area.interface';
@@ -30,6 +30,9 @@ import { CreateSubscriptionRequest, SubscriptionType } from '../../../interfaces
 import { catchError, of } from 'rxjs';
 import { PropertyType } from '../../../enums/property-type.enum';
 import { ActivatedRoute } from '@angular/router';
+import {UserService} from '../../../core/services/user.service';
+import {User} from '../../../interfaces/user.interface';
+import {PreferenceTypeEnum} from '../../../enums/preference-type.enum';
 
 @Component({
   selector: 'map-component',
@@ -37,7 +40,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./map.component.scss'],
   imports: [SubscribeButtonComponent]
 })
-export class MapComponent implements AfterViewInit, OnDestroy {
+export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   private injector = inject(EnvironmentInjector);
 
   properties = input<Property[]>([]);
@@ -67,11 +70,17 @@ export class MapComponent implements AfterViewInit, OnDestroy {
   private selectedCircle!: L.Circle;
   private selectedCenterMarker!: L.Marker;
 
-  // Cache icons to avoid recreating them
   private iconCache = new Map<string, L.Icon>();
+
+  private user?: User;
 
   subscriptionService = inject(SubscriptionService);
   #route = inject(ActivatedRoute);
+  #userService = inject(UserService);
+
+  ngOnInit() {
+    this.user = this.#userService.getCurrentUser();
+  }
 
   ngAfterViewInit(): void {
     this.initMap();
@@ -235,16 +244,36 @@ export class MapComponent implements AfterViewInit, OnDestroy {
     // Batch marker creation
     const markers: L.Marker[] = [];
 
+    const userInteractedProperties = new Map(
+      this.user?.propertyPreferences.map(it => [it.propertyId, it.preferenceType]) ?? []
+    );
+
     this.properties().forEach((property) => {
-      const iconUrl = property.type == PropertyType.HOUSE
-        ? '/assets/icons/house_pin.png'
-        : '/assets/icons/apartments_pin.png';
+      let iconUrl: string;
+
+      const pref = userInteractedProperties.get(property.id);
+
+      if (!pref) {
+        iconUrl = property.type === PropertyType.HOUSE
+          ? '/assets/icons/house_pin.png'
+          : '/assets/icons/apartments_pin.png';
+      } else {
+        if (pref === PreferenceTypeEnum.LIKE) {
+          iconUrl = property.type === PropertyType.HOUSE
+            ? '/assets/icons/house_liked_pin.png'
+            : '/assets/icons/apartments_liked_pin.png';
+        } else {
+          iconUrl = property.type === PropertyType.HOUSE
+            ? '/assets/icons/house_disliked_pin.png'
+            : '/assets/icons/apartments_disliked_pin.png';
+        }
+      }
 
       const icon = this.getOrCreateIcon(iconUrl);
 
       const marker = L.marker([property.latitude, property.longitude], {
         icon,
-        title: property.title, // Improves accessibility
+        title: property.title,
       });
 
       marker.bindPopup(property.title);
