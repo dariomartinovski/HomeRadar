@@ -1,5 +1,15 @@
-import { Component, inject, input, OnInit, output } from '@angular/core';
-import { PerkType } from '../../../enums/perk-type.enum';
+import {
+  AfterViewInit,
+  Component,
+  effect,
+  EnvironmentInjector,
+  inject,
+  input,
+  OnInit,
+  output,
+  runInInjectionContext
+} from '@angular/core';
+import { PerkType } from '../../../interfaces/perk-type.interface';
 import { PerkIconUrlPipe } from '../../pipes/perk-icon-url.pipe';
 import { CapitalizePipe } from '../../pipes/capitilzie.pipe';
 import { MatIconModule } from '@angular/material/icon';
@@ -13,41 +23,47 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CategoriesFilterComponent implements OnInit {
   #route = inject(ActivatedRoute);
-  
+  #injector = inject(EnvironmentInjector);
+
   categories = input<PerkType[]>([]);
   expanded = input<boolean>(false);
 
-  selectedCategories = new Set<PerkType>();
+  selectedCategories = new Set<String>();
 
-  selectionChange = output<PerkType[]>();
+  selectionChange = output<String[]>();
 
   ngOnInit(): void {
-    const { category } = this.#route.snapshot.queryParams;
-    let preselected: string[] = [];
+    runInInjectionContext(this.#injector, () => {
+      effect(() => {
+        if (!this.categories()) return;
 
-    if (category) {
-      preselected = category.split(",");
-      console.log("preselcted is ", preselected)
-    }
+        const { category } = this.#route.snapshot.queryParams;
+        let preselected: string[] = [];
 
-    preselected.forEach((c) => {
-      if (Object.values(PerkType).includes(c as PerkType)) {
-        this.selectedCategories.add(c as PerkType);
-      }
+        if (category) {
+          preselected = category.split(",");
+        }
+
+        preselected.forEach((preselectedCategory) => {
+          const flatCategories = this.categories().map(c => c.name);
+          if (flatCategories.includes(preselectedCategory))
+            this.selectedCategories.add(preselectedCategory);
+        });
+      });
     });
   }
 
-  toggleCategory(perkType: PerkType, event: Event) {
+  toggleCategory(perkTypeName: String, event: Event) {
     const checked = (event.target as HTMLInputElement).checked;
     if (checked) {
-      this.selectedCategories.add(perkType);
+      this.selectedCategories.add(perkTypeName);
     } else {
-      this.selectedCategories.delete(perkType);
+      this.selectedCategories.delete(perkTypeName);
     }
     this.selectionChange.emit(Array.from(this.selectedCategories));
   }
 
-   isChecked(perkType: PerkType): boolean {
+   isChecked(perkType: String): boolean {
     return this.selectedCategories.has(perkType);
   }
 }

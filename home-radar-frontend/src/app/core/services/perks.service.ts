@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Perk } from '../../interfaces/perk.interface';
-import { PerkType } from '../../enums/perk-type.enum';
+import {PerkType} from '../../interfaces/perk-type.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -15,13 +15,13 @@ export class PerkService {
   fetchPerks(): Observable<Perk[]> {
     return this.#http.get<Perk[]>(this.path);
   }
-  
+
   fetchPerksFiltered(categories: string): Observable<Perk[]> {
     let params = new HttpParams();
     if (categories) {
       params = params.set('categories', categories);
     }
-  
+
     return this.#http.get<Perk[]>(`${this.path}/filter`, {params});
   }
 

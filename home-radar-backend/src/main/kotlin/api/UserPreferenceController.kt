@@ -1,9 +1,9 @@
 package com.home_radar.api
 
 import com.home_radar.domain.UserPreference
-import com.home_radar.domain.constants.DEFAULT_PERK_TYPES_WEIGHT
 import com.home_radar.domain.constants.DEFAULT_PROPERTIES_PRICES_WEIGHT
 import com.home_radar.domain.constants.DEFAULT_RADIUS
+import com.home_radar.service.PerkTypeService
 import com.home_radar.service.UserPreferenceService
 import com.home_radar.service.UserService
 import com.home_radar.web.extensions.toResponse
@@ -11,6 +11,7 @@ import com.home_radar.web.request.UserPreferenceRequest
 import com.home_radar.web.response.PerkWeightResponse
 import com.home_radar.web.response.UserPreferenceResponse
 import org.springframework.security.core.context.SecurityContextHolder
+import org.springframework.security.core.userdetails.UsernameNotFoundException
 import org.springframework.web.bind.annotation.*
 
 @CrossOrigin
@@ -18,14 +19,26 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("/api/user-preferences")
 class UserPreferenceController(
     private val userPreferenceService: UserPreferenceService,
+    private val perkTypeService: PerkTypeService,
     private val userService: UserService
 ) {
+
+    @GetMapping("/default")
+    fun getDefaultUserPreference(): UserPreferenceResponse = UserPreferenceResponse(
+        radius = DEFAULT_RADIUS,
+        weightsBalance = DEFAULT_PROPERTIES_PRICES_WEIGHT,
+        perkPreferences = perkTypeService.getAllPerkTypes().map {
+            PerkWeightResponse(
+                it.name, it.defaultPerkTypeWeight
+            )
+        })
 
     @GetMapping
     fun getUserPreference(): UserPreferenceResponse? {
         try {
             val currentUser = userService
                 .getUserFromAuthentication(SecurityContextHolder.getContext().authentication)
+                    ?: throw UsernameNotFoundException("User not found")
             val userPref = userPreferenceService.getUserPreference(currentUser.id)
             return userPref?.toResponse()
         }
@@ -33,10 +46,10 @@ class UserPreferenceController(
             return UserPreferenceResponse(
                 radius = DEFAULT_RADIUS,
                 weightsBalance = DEFAULT_PROPERTIES_PRICES_WEIGHT,
-                perkPreferences = DEFAULT_PERK_TYPES_WEIGHT.map {
+                perkPreferences = perkTypeService.getAllPerkTypes().map {
                     PerkWeightResponse(
-                        it.key,
-                        it.value
+                        it.name,
+                        it.defaultPerkTypeWeight
                     )
                 }
             )
@@ -47,6 +60,7 @@ class UserPreferenceController(
     fun createOrUpdateUserPreference(@RequestBody request: UserPreferenceRequest): UserPreferenceResponse {
         val currentUser = userService
             .getUserFromAuthentication(SecurityContextHolder.getContext().authentication)
+                ?: throw UsernameNotFoundException("User not found")
         val existing = userPreferenceService.getUserPreference(currentUser.id)
 
         val userPref = existing?.let { it.copy(

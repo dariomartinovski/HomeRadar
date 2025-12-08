@@ -5,6 +5,7 @@ import com.home_radar.service.UserService
 import com.home_radar.web.request.CreateSubscriptionRequest
 import com.home_radar.web.request.SubscriptionResponse
 import org.springframework.security.core.context.SecurityContextHolder
+import org.springframework.security.core.userdetails.UsernameNotFoundException
 import org.springframework.web.bind.annotation.*
 import java.security.Principal
 
@@ -19,9 +20,10 @@ class SubscriptionController(
     @PostMapping
     fun createSubscription(
         @RequestBody request: CreateSubscriptionRequest,
-        principal: Principal // Assuming you have authentication
+        principal: Principal
     ): SubscriptionResponse {
         val user = userService.getUserFromAuthentication(SecurityContextHolder.getContext().authentication)
+            ?: throw UsernameNotFoundException("User not found")
 
         val subscription = subscriptionService.createSubscription(user.id, request)
         return subscription

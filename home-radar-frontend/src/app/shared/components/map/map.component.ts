@@ -22,7 +22,7 @@ import { Coordinate } from '../../../interfaces/coordinate.interface';
 import { Perk } from '../../../interfaces/perk.interface';
 import { getPerkIcon } from '../../utils/perk-icon-url.util';
 import { capitilize } from '../../utils/capitilize.util';
-import { defaultUserPreferences } from '../../../data/default-user-preferences.const';
+import {DEFAULT_PREFERENCES_RADIUS} from '../../../data/default-user-preferences.const';
 import { UserPreferences } from '../../../interfaces/user-preferences.interface';
 import { SubscribeButtonComponent } from '../subscribe-button/subscribe-button.component';
 import { SubscriptionService } from '../../../core/services/subscription.service';
@@ -45,13 +45,13 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
   properties = input<Property[]>([]);
   perks = input<Perk[]>([]);
-  radius = input<number>(500);
+  radius = input<number>(DEFAULT_PREFERENCES_RADIUS);
 
   showSubscribeButton = signal(false);
   isSubscribing = signal(false);
   showLegend = signal(false);
 
-  userPreferences = input<UserPreferences>(defaultUserPreferences);
+  userPreferences = input<UserPreferences>()//defaultUserPreferences);
 
   @Output() selectedProperty = new EventEmitter<Property>();
   @Output() selectedArea = new EventEmitter<SelectedArea>();
@@ -298,7 +298,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     const markers: L.Marker[] = [];
 
     this.perks().forEach((perk) => {
-      const perkIcon = getPerkIcon(perk.type);
+      const perkIcon = getPerkIcon(perk.perkType.name);
 
       const marker = L.marker([perk.latitude, perk.longitude], {
         icon: perkIcon,
@@ -338,7 +338,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
     if (this.selectedCircle) {
       const center = this.selectedCircle.getLatLng();
-      this.filterMarkersByRadius(center.lat, center.lng, this.userPreferences().radius);
+      this.filterMarkersByRadius(center.lat, center.lng, this.userPreferences()?.radius ?? DEFAULT_PREFERENCES_RADIUS);
     }
   }
 
@@ -348,7 +348,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
     if (this.selectedCircle) {
       const center = this.selectedCircle.getLatLng();
-      this.filterMarkersByRadius(center.lat, center.lng, this.userPreferences().radius);
+      this.filterMarkersByRadius(center.lat, center.lng, this.userPreferences()?.radius ?? DEFAULT_PREFERENCES_RADIUS);
     }
   }
 
@@ -373,7 +373,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
         </h3>
 
         <p style="margin: 0 0 4px; font-size: 13px; color: #555;">
-          <strong>Type:</strong> ${capitilize(perk.type)}
+          <strong>Type:</strong> ${capitilize(perk.perkType.name)}
         </p>
 
         <p style="margin: 0 0 4px; font-size: 12px; color: #777;">
@@ -399,7 +399,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     this.selectedCircle = L.circle(
       [coordinate.latitude, coordinate.longitude],
       {
-        radius: this.userPreferences().radius,
+        radius: this.userPreferences()?.radius ?? DEFAULT_PREFERENCES_RADIUS,
         color: 'green',
       }
     ).addTo(this.map);
@@ -422,10 +422,10 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     this.filterMarkersByRadius(
       coordinate.latitude,
       coordinate.longitude,
-      this.userPreferences().radius
+      this.userPreferences()?.radius ?? DEFAULT_PREFERENCES_RADIUS
     );
 
-    this.selectedArea.emit({ center: coordinate, radius: this.userPreferences().radius });
+    this.selectedArea.emit({ center: coordinate, radius: this.userPreferences()?.radius ?? DEFAULT_PREFERENCES_RADIUS });
     this.showSubscribeButton.set(true);
   }
 

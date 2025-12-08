@@ -3,18 +3,21 @@ package com.home_radar.service
 import com.home_radar.domain.HomeRadarScore
 import com.home_radar.domain.Property
 import com.home_radar.domain.UserPreference
-import com.home_radar.domain.constants.DEFAULT_PERK_TYPES_WEIGHT
 import com.home_radar.domain.constants.DEFAULT_PROPERTIES_PRICES_WEIGHT
 import com.home_radar.domain.constants.DEFAULT_RADIUS
+import com.home_radar.domain.enum.PreferenceType
 import com.home_radar.domain.enum.PropertyCategory
 import com.home_radar.repository.PerkRepository
 import com.home_radar.web.request.PropertyFilterRequest
 import com.home_radar.web.response.LocationScoreResponse
 import com.home_radar.web.response.PerkCountResponse
+import org.springframework.http.ResponseEntity
+import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.stereotype.Service
 
 @Service
 class LocationScoreManagingService(
+    private val userService: UserService,
     private val perkRepository: PerkRepository,
     private val homeRadarScoreService: HomeRadarScoreService,
     private val userPreferenceService: UserPreferenceService,
@@ -27,7 +30,11 @@ class LocationScoreManagingService(
         Then we use the top 5% in order to scale the current raw score to a factored score
     */
     fun calculateAndPersistScore(lat: Double, lng: Double, filter: PropertyFilterRequest, percentile: Double = 0.975): LocationScoreResponse {
-        val userPreference = userPreferenceService.getUserPreference(1)
+        val userPreference = userService
+            .getUserFromAuthentication(SecurityContextHolder.getContext().authentication)?.let { user ->
+                userPreferenceService.getUserPreference(user.id)
+            }
+
         val radius = userPreference?.radius ?: DEFAULT_RADIUS
 
         val filteredProperties = propertyService.findFilteredWithinRadius(filter, lat, lng, radius)
@@ -102,9 +109,9 @@ class LocationScoreManagingService(
             3. Sum the total heuristic distance where distance over the radius does not matter
             4. Apply sqrt to reduce impact of very high counts of perks of certain type
         */
-        val perkScore = perks.groupBy { it.type }.values.sumOf { perksOfType ->
-            val baseWeight = userPreferences?.getPerkWeight(perksOfType.first().type)
-                ?: DEFAULT_PERK_TYPES_WEIGHT[perksOfType.first().type.name] ?: 0.5
+        val perkScore = perks.groupBy { it.perkType }.values.sumOf { perksOfType ->
+            val baseWeight = userPreferences?.getPerkWeight(perksOfType.first().perkType)
+                ?: perksOfType.first().perkType.defaultPerkTypeWeight
             val totalDistWeight = perksOfType.sumOf { perk -> distanceWeight(
                 haversineDistance(latitude, longitude, perk.latitude, perk.longitude), radius
             )}
@@ -120,7 +127,7 @@ class LocationScoreManagingService(
         val avgSaleSize = if (forSale.isNotEmpty()) forSale.map { it.squareMeters }.average() else 0.0
 
         // Count perks
-        val perkCounts: List<PerkCountResponse> = perks.groupingBy { it.type }.eachCount()
+        val perkCounts: List<PerkCountResponse> = perks.groupingBy { it.perkType }.eachCount()
             .map { PerkCountResponse(it.key, it.value) }
 
         // beta = 0.4, maximum density boost is 40%

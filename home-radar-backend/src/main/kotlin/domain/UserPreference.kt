@@ -1,6 +1,5 @@
 package com.home_radar.domain
 
-import com.home_radar.domain.enum.PerkType
 import jakarta.persistence.*
 import org.hibernate.annotations.JdbcTypeCode
 import org.hibernate.type.SqlTypes

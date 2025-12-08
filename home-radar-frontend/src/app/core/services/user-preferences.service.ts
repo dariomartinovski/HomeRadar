@@ -11,6 +11,10 @@ export class UserPreferencesService {
 
   #http = inject(HttpClient);
 
+  getDefaultPreferences(): Observable<UserPreferences> {
+    return this.#http.get<UserPreferences>(`${this.path}/default`);
+  }
+
   getUserPreference(): Observable<UserPreferences> {
     return this.#http.get<UserPreferences>(this.path);
   }

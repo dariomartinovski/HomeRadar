@@ -26,8 +26,8 @@
         <div class="perk-grid">
           @for (perk of statistics.perkCounts; track $index) {
             <div class="perk-item">
-              <img [src]="perk.perkType | perkIconUrl" [alt]="perk.perkType">
-              {{ perk.perkType | capitalize }}: {{ perk.count }}
+              <img [src]="perk.perkType.name | perkIconUrl" [alt]="perk.perkType">
+              {{ perk.perkType.name | capitalize }}: {{ perk.count }}
             </div>
           }
         </div>

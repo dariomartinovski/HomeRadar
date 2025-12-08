@@ -1,12 +1,10 @@
 package com.home_radar.web.extensions
 
 import com.home_radar.domain.Perk
+import com.home_radar.domain.PerkType
 import com.home_radar.domain.Property
 import com.home_radar.domain.UserPreference
-import com.home_radar.web.response.PerkResponse
-import com.home_radar.web.response.PerkWeightResponse
-import com.home_radar.web.response.PropertyResponse
-import com.home_radar.web.response.UserPreferenceResponse
+import com.home_radar.web.response.*
 
 fun Property.toResponse() = PropertyResponse(
     id = id,
@@ -35,12 +33,19 @@ fun Property.toResponse() = PropertyResponse(
     ownerId = owner?.id ?: 0
 )
 
+fun PerkType.toResponse() = PerkTypeResponse(
+    id = id,
+    name = name,
+    description = description,
+    defaultPerkTypeWeight = defaultPerkTypeWeight
+)
+
 fun Perk.toResponse() = PerkResponse(
     id = id,
     title = title,
     latitude = latitude,
     longitude = longitude,
-    type = type.name,
+    perkType = perkType.toResponse(),
     openingHours = openingHours
 )
 

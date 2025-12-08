@@ -5,7 +5,7 @@ const perkIconUrls: Record<string, string> = {
   MIDDLE_SCHOOL: '/assets/icons/middle_school_pin.png',
   PRE_SCHOOL: '/assets/icons/middle_school_pin.png',
   HIGH_SCHOOL: '/assets/icons/middle_school_pin.png',
-  KINDERGARDEN: '/assets/icons/kindergarden_pin.png',
+  KINDERGARTEN: '/assets/icons/kindergarten_pin.png',
   FACULTY: '/assets/icons/fax_pin.png',
   GROCERY_STORE: '/assets/icons/grocery_store_pin.png',
   RESTAURANT: '/assets/icons/restaurant_pin.png',
@@ -35,5 +35,5 @@ export function getPerkIcon(perkType: string): L.Icon {
 
 export function getPerkIconUrl(perkType: string): string {
   const iconUrl = perkIconUrls[perkType];
-  return iconUrl ?? './assets/icons/detault_marker.png';
+  return iconUrl ?? './assets/icons/default_marker.png';
 }

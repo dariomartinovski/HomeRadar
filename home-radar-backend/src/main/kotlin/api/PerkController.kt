@@ -1,6 +1,5 @@
 package com.home_radar.api
 
-import com.home_radar.domain.enum.PerkType
 import com.home_radar.service.PerkService
 import org.springframework.web.bind.annotation.*
 
@@ -14,7 +13,7 @@ class PerkController(
     fun findAllPerks() = perkService.findAllPerks()
 
     @GetMapping("/filter")
-    fun findAllPerksFiltered(@RequestParam(required = false) categories: List<PerkType>?)
+    fun findAllPerksFiltered(@RequestParam(required = false) categories: List<String>?)
         = perkService.findAllPerksFiltered(categories)
 
     @GetMapping("/{id}")

@@ -4,6 +4,7 @@ import com.home_radar.domain.enum.PreferenceType
 import com.home_radar.service.UserService
 import org.springframework.http.ResponseEntity
 import org.springframework.security.core.context.SecurityContextHolder
+import org.springframework.security.core.userdetails.UsernameNotFoundException
 import org.springframework.web.bind.annotation.*
 
 @CrossOrigin
@@ -16,6 +17,7 @@ class UserController(
     fun getUserDetails(): ResponseEntity<Any> {
         return try {
             val user = userService.getUserFromAuthentication(SecurityContextHolder.getContext().authentication)
+                ?: throw UsernameNotFoundException("User not found")
             ResponseEntity.ok(user.toSimpleDto())
         } catch (e: Exception) {
             ResponseEntity.badRequest().body(mapOf("error" to e.message))
@@ -29,6 +31,7 @@ class UserController(
     ): ResponseEntity<Any> {
         return try {
             val user = userService.getUserFromAuthentication(SecurityContextHolder.getContext().authentication)
+                ?: throw UsernameNotFoundException("User not found")
             val preferenceType = PreferenceType.valueOf(type.uppercase())
             val updatedUser = userService.setPreference(user, propertyId, preferenceType)
 

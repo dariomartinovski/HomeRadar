@@ -32,12 +32,12 @@
     <h3>Perk Preferences</h3>
     <div formGroupName="perks" class="perks">
       @for (perk of categories(); track $index) {
-        <p>{{ perk | capitalize }}</p>
+        <p>{{ perk.name | capitalize }}</p>
         <div class="slider">
           <mat-slider min="0" max="1" step="0.1" discrete="">
             <span class="slider-value">{{ sliderThumb.value | number:'1.1-1' }}</span>
             <input
-            [formControlName]="perk"
+            [formControlName]="perk.name"
             matSliderThumb
             #sliderThumb="matSliderThumb">
           </mat-slider>

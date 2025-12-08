@@ -1,9 +1,9 @@
-import { PerkType } from "../enums/perk-type.enum";
+import {PerkType} from './perk-type.interface';
 
 export interface Perk {
   id?: number;
   title: string;
-  type: PerkType;
+  perkType: PerkType;
   latitude: number;
   longitude: number;
   openingHours?: string;

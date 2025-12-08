@@ -7,7 +7,7 @@ import {CommonModule} from '@angular/common';
 import {toSignal} from "@angular/core/rxjs-interop";
 import {PropertyService} from "../../core/services/property.service";
 import {SearchComponent} from "../../shared/components/search/search.component";
-import {PerkType} from "../../enums/perk-type.enum";
+import {PerkType} from '../../interfaces/perk-type.interface';
 import {ActivatedRoute, RouterModule} from '@angular/router';
 import {SidebarComponent} from "../../shared/components/sidebar/sidebar.component";
 import {UserService} from "../../core/services/user.service";
@@ -16,7 +16,7 @@ import {PropertyEventService} from "../../core/services/property-event.service";
 import {HomeRadarScoreComponent} from "../../shared/components/home-radar-score/home-radar-score.component";
 import {SelectedArea} from "../../interfaces/selected-area.interface";
 import {UserPreferencesService} from "../../core/services/user-preferences.service";
-import {defaultUserPreferences} from "../../data/default-user-preferences.const";
+import {UserPreferencesStore} from '../../core/stores/user-preferences.store';
 import {PropertyListComponent} from '../../shared/components/property-list/property-list.component';
 import {ViewSwitchComponent} from '../../shared/components/view-selector/view-switch.component';
 import {ViewTypeEnum} from '../../enums/view-type.enum';
@@ -45,6 +45,7 @@ export class HomePage implements OnInit {
   #propertyService = inject(PropertyService);
   #userService = inject(UserService)
   #propertyEventService = inject(PropertyEventService);
+  #defaultPreferenceStore = inject(UserPreferencesStore);
 
   #route = inject(ActivatedRoute);
   #userPreferencesService = inject(UserPreferencesService);
@@ -64,7 +65,7 @@ export class HomePage implements OnInit {
     initialValue: [] as string[],
   });
   userPreferences = toSignal(this.#userPreferencesService.getUserPreference(), {
-    initialValue: defaultUserPreferences
+    // initialValue: defaultUserPreferences
   })
 
   ngOnInit() {
@@ -76,6 +77,10 @@ export class HomePage implements OnInit {
     this.#propertyEventService.propertyCreated$.subscribe((newProperty) => {
       this.properties.set([...this.properties(), newProperty]);
     });
+
+    this.#defaultPreferenceStore.preferences$.subscribe(
+      pref => console.log("Default user preferences: ", pref)
+    )
   }
 
   handleViewSwitch(view: ViewTypeEnum) {

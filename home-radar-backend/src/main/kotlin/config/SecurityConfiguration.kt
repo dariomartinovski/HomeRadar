@@ -31,6 +31,7 @@ class SecurityConfiguration(val authenticationProvider: AuthenticationProvider, 
                         "/api/subscriptions/**",
                         "/api/properties/**",
                         "/api/user-preferences",
+                        "/api/user-preferences/default",
                         "/uploads/**",
                         "/api/users/**"
                         ).permitAll()

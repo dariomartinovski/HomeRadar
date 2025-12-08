@@ -1,4 +1,4 @@
-import { PerkType } from "../enums/perk-type.enum";
+import {PerkCount} from './perk-count.interface';
 
 export interface HomeRadarScore {
   rentScore: number;

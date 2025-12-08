@@ -1,6 +1,6 @@
 package com.home_radar.web.response
 
-import com.home_radar.domain.enum.PerkType
+import com.home_radar.domain.PerkType
 
 data class PerkCountResponse (
     val perkType: PerkType,

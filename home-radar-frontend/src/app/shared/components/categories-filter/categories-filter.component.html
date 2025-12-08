@@ -2,16 +2,16 @@
     @for (perkType of categories(); track $index) {
     <div class="icon">
         @if (expanded()) {
-        <p>{{perkType | capitalize}}</p>
+        <p>{{perkType.name | capitalize}}</p>
         }
         <input
             type="checkbox"
-            [id]="perkType"
-            [title]="perkType | capitalize"
-            [checked]="isChecked(perkType)"
-            (change)="toggleCategory(perkType, $event)"
+            [id]="perkType.id"
+            [title]="perkType.name | capitalize"
+            [checked]="isChecked(perkType.name)"
+            (change)="toggleCategory(perkType.name, $event)"
             >
-        <img [src]="perkType | perkIconUrl" [alt]="perkType">
+        <img [src]="perkType.name | perkIconUrl" [alt]="perkType">
     </div>
     }
 </div>

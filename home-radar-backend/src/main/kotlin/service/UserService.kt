@@ -15,10 +15,9 @@ class UserService(
     private val propertyService: PropertyService
 ) {
     @Transactional
-    fun getUserFromAuthentication(authentication: org.springframework.security.core.Authentication): User {
+    fun getUserFromAuthentication(authentication: org.springframework.security.core.Authentication): User? {
         val userDetails: UserDetails = authentication.principal as UserDetails
         return userRepository.findByEmail(userDetails.username)
-            ?: throw UsernameNotFoundException("User not found")
     }
 
     @Transactional

@@ -18,7 +18,6 @@ import { PropertyService } from '../../../core/services/property.service';
 import { SuccessDialogComponent } from '../success-dialog/success-dialog.component';
 import { User } from '../../../interfaces/user.interface';
 import { PropertyEventService } from '../../../core/services/property-event.service';
-import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { LoadingOverlayComponent } from '../loading-overlay/loading-overlay.component';
 
 @Component({
@@ -37,7 +36,6 @@ import { LoadingOverlayComponent } from '../loading-overlay/loading-overlay.comp
     MatIconModule,
     MatAutocompleteModule,
     MatAutocompleteTrigger,
-    MatProgressSpinner,
     LoadingOverlayComponent
   ]
 })

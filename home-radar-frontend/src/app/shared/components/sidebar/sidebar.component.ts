@@ -1,6 +1,6 @@
 import { Component, computed, inject, input, output, signal } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { PerkType } from '../../../enums/perk-type.enum';
+import {PerkType} from '../../../interfaces/perk-type.interface';
 import { CategoriesFilterComponent } from '../categories-filter/categories-filter.component';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { User } from '../../../interfaces/user.interface';
@@ -20,13 +20,13 @@ export class SidebarComponent {
   expanded = signal(false);
   onCategoryChange = output<void>();
 
-  selectedCategories: PerkType[] = [];
+  selectedCategories: String[] = [];
 
   toggle() {
     this.expanded.set(!this.expanded());
   }
 
-  onCategoriesSelected(selected: PerkType[]) {
+  onCategoriesSelected(selected: String[]) {
     this.selectedCategories = selected;
 
     this.#router.navigate([], {
@@ -37,7 +37,7 @@ export class SidebarComponent {
       queryParamsHandling: 'merge',
     }).then(() => {
       this.onCategoryChange.emit();
-    });;
+    });
   }
 
   profileRoute = computed(() => {

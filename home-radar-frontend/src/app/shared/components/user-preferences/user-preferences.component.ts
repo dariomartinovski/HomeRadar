@@ -2,13 +2,12 @@ import { Component, effect, inject, input, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, ReactiveFormsModule } from "@angular/forms";
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
-import { PerkType } from "../../../enums/perk-type.enum";
+import { PerkType } from "../../../interfaces/perk-type.interface";
 import { MatSliderModule } from "@angular/material/slider";
 import { CapitalizePipe } from "../../pipes/capitilzie.pipe";
 import { DecimalPipe } from "@angular/common";
 import { UserPreferencesService } from "../../../core/services/user-preferences.service";
 import { UserPreferences } from "../../../interfaces/user-preferences.interface";
-import { defaultUserPreferences } from "../../../data/default-user-preferences.const";
 
 @Component({
   selector: 'user-preferences',
@@ -26,23 +25,23 @@ import { defaultUserPreferences } from "../../../data/default-user-preferences.c
 export class UserPreferencesComponent {
   #formBuilder = inject(FormBuilder);
   #userPreferencesService = inject(UserPreferencesService);
- 
+
   categories = input<PerkType[]>([]);
-  userPreferences = input<UserPreferences>(defaultUserPreferences);
- 
+  userPreferences = input<UserPreferences>();//defaultUserPreferences);
+
   form!: FormGroup;
 
   constructor() {
     effect(() => {
       const cats = this.categories();
       if (cats.length === 0) return;
-      
+
       const prefs = this.userPreferences();
-      const initialRadius = prefs?.radius ?? defaultUserPreferences.radius;
-      
+      const initialRadius = prefs?.radius ?? 500;//defaultUserPreferences.radius;
+
       const initialPerks = cats.reduce((acc, perk) => {
-        const perkPref = prefs?.perkPreferences?.find(p => p.perkType === perk);
-        acc[perk] = [perkPref?.weight ?? 0.5];
+        const perkPref = prefs?.perkPreferences?.find(p => p.perkType === perk.name);
+        acc[perk.name] = [perkPref?.weight ?? 0.5];
         return acc;
       }, {} as Record<string, any>);
 
@@ -56,9 +55,9 @@ export class UserPreferencesComponent {
     effect(() => {
       const prefs = this.userPreferences();
       const cats = this.categories();
-      
+
       if (!this.form || !prefs || cats.length === 0) return;
-      
+
       this.patchFormWithPreferences(prefs);
     });
   }
