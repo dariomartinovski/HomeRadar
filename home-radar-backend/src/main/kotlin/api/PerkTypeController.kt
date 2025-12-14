@@ -6,8 +6,9 @@ import com.home_radar.web.response.PerkTypeResponse
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import org.springframework.web.multipart.MultipartFile
 
-@CrossOrigin()
+@CrossOrigin
 @RestController
 @RequestMapping("/api/perk-types")
 class PerkTypeController(
@@ -30,10 +31,12 @@ class PerkTypeController(
         }
     }
 
-    @PostMapping
-    fun createPerkType(@RequestBody request: CreatePerkTypeRequest): ResponseEntity<PerkTypeResponse> {
+    @PostMapping(consumes = ["multipart/form-data"])
+    fun createPerkType(@RequestPart request: CreatePerkTypeRequest,
+                       @RequestPart("image") image: MultipartFile
+    ): ResponseEntity<PerkTypeResponse> {
         return try {
-            val perkType = perkTypeService.createPerkType(request)
+            val perkType = perkTypeService.createPerkType(request, image)
             ResponseEntity.status(HttpStatus.CREATED).body(perkType)
         } catch (e: IllegalArgumentException) {
             ResponseEntity.badRequest().build()

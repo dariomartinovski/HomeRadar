@@ -1,14 +1,19 @@
 package com.home_radar.service
 
+import com.home_radar.domain.Perk
 import com.home_radar.domain.PerkType
 import org.springframework.stereotype.Service
 import com.home_radar.repository.PerkRepository
+import com.home_radar.repository.PerkTypeRepository
 import com.home_radar.web.extensions.toResponse
+import com.home_radar.web.request.CreatePerkRequest
 import com.home_radar.web.response.PerkResponse
+import jakarta.transaction.Transactional
 
 @Service
 class PerkService(
-    private val perkRepository: PerkRepository
+    private val perkRepository: PerkRepository,
+    private val perkTypeRepository: PerkTypeRepository
 ) {
     fun findAllPerks(): List<PerkResponse> = perkRepository.findAll().map { it.toResponse() }
 
@@ -28,67 +33,29 @@ class PerkService(
         .map { it.perkType }
         .toSet()
         .toList()
+
+    @Transactional
+    fun createPerk(request: CreatePerkRequest): PerkResponse {
+        val perkType = perkTypeRepository.findById(request.perkTypeId)
+            .orElseThrow { IllegalArgumentException("PerkType not found with id: ${request.perkTypeId}") }
+
+        val perk = Perk(
+            title = request.title,
+            perkType = perkType,
+            latitude = request.latitude,
+            longitude = request.longitude,
+            openingHours = request.openingHours
+        )
+
+        val savedPerk = perkRepository.save(perk)
+        return savedPerk.toResponse()
+    }
+
+    @Transactional
+    fun deletePerk(id: Long) {
+        if (!perkRepository.existsById(id)) {
+            throw IllegalArgumentException("Perk not found with id: $id")
+        }
+        perkRepository.deleteById(id)
+    }
 }
-//package com.home_radar.service
-//
-//import com.home_radar.domain.Perk
-//import com.home_radar.dto.CreatePerkRequest
-//import com.home_radar.dto.PerkDto
-//import com.home_radar.repository.PerkRepository
-//import com.home_radar.repository.PerkTypeRepository
-//import org.springframework.stereotype.Service
-//import org.springframework.transaction.annotation.Transactional
-//
-//@Service
-//class PerkService(
-//    private val perkRepository: PerkRepository,
-//    private val perkTypeRepository: PerkTypeRepository
-//) {
-//
-//    @Transactional(readOnly = true)
-//    fun getAllPerks(): List<PerkDto> {
-//        return perkRepository.findAll().map { it.toDto() }
-//    }
-//
-//    @Transactional(readOnly = true)
-//    fun getPerkById(id: Long): PerkDto {
-//        val perk = perkRepository.findById(id)
-//            .orElseThrow { IllegalArgumentException("Perk not found with id: $id") }
-//        return perk.toDto()
-//    }
-//
-//    @Transactional
-//    fun createPerk(request: CreatePerkRequest): PerkDto {
-//        val perkType = perkTypeRepository.findById(request.perkTypeId)
-//            .orElseThrow { IllegalArgumentException("PerkType not found with id: ${request.perkTypeId}") }
-//
-//        val perk = Perk(
-//            title = request.title,
-//            perkType = perkType,
-//            latitude = request.latitude,
-//            longitude = request.longitude,
-//            openingHours = request.openingHours
-//        )
-//
-//        val savedPerk = perkRepository.save(perk)
-//        return savedPerk.toDto()
-//    }
-//
-//    @Transactional
-//    fun deletePerk(id: Long) {
-//        if (!perkRepository.existsById(id)) {
-//            throw IllegalArgumentException("Perk not found with id: $id")
-//        }
-//        perkRepository.deleteById(id)
-//    }
-//
-//    private fun Perk.toDto() = PerkDto(
-//        id = this.id,
-//        title = this.title,
-//        perkTypeId = this.perkType.id!!,
-//        perkTypeName = this.perkType.name,
-//        latitude = this.latitude,
-//        longitude = this.longitude,
-//        openingHours = this.openingHours
-//    )
-//}

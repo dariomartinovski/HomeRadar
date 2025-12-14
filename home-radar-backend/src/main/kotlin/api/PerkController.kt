@@ -1,6 +1,10 @@
 package com.home_radar.api
 
 import com.home_radar.service.PerkService
+import com.home_radar.web.request.CreatePerkRequest
+import com.home_radar.web.response.PerkResponse
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @CrossOrigin
@@ -21,4 +25,14 @@ class PerkController(
 
     @GetMapping("/categories")
     fun findAllCategories() = perkService.findAllCategories()
+
+    @PostMapping
+    fun createPerk(@RequestBody request: CreatePerkRequest): ResponseEntity<PerkResponse> {
+        return try {
+            val perk = perkService.createPerk(request)
+            ResponseEntity.status(HttpStatus.CREATED).body(perk)
+        } catch (e: IllegalArgumentException) {
+            ResponseEntity.badRequest().build()
+        }
+    }
 }

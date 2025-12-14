@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Perk } from '../../interfaces/perk.interface';
 import {PerkType} from '../../interfaces/perk-type.interface';
+import {CreatePerkRequest} from '../../interfaces/requests/create-perk.request';
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +32,9 @@ export class PerkService {
 
   findAllCategories(): Observable<PerkType[]> {
     return this.#http.get<PerkType[]>(`${this.path}/categories`);
+  }
+
+  createPerk(request: CreatePerkRequest): Observable<Perk> {
+    return this.#http.post<Perk>(this.path, request);
   }
 }

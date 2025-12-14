@@ -16,5 +16,8 @@ data class PerkType(
     val description: String? = null,
 
     @Column(nullable = false)
-    val defaultPerkTypeWeight: Double
+    val defaultPerkTypeWeight: Double,
+
+    @Column
+    val iconImageId: Long
 )
