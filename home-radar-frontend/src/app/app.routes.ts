@@ -5,6 +5,9 @@ import { SettingsPage } from './pages/settings/settings.page';
 import { LoginPage } from './pages/login/login.page';
 import { RegisterPage } from './pages/register/register.page';
 import {PropertyDetailsPage} from './pages/property-details/property-details.page';
+import {AdminPanelPage} from './pages/admin-panel/admin-panel.page';
+import {authGuard} from './core/guards/auth.guard';
+import {ForbiddenPage} from './pages/forbidden/forbidden.page';
 
 export const routes: Routes = [
   {
@@ -17,11 +20,18 @@ export const routes: Routes = [
   },
   {
     path: 'profile',
-    component: ProfilePage
+    component: ProfilePage,
+    canActivate: [authGuard]
   },
   {
     path: 'settings',
-    component: SettingsPage
+    component: SettingsPage,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'admin-panel',
+    component: AdminPanelPage,
+    canActivate: [authGuard]
   },
   {
     path: 'login',
@@ -30,6 +40,10 @@ export const routes: Routes = [
   {
     path: 'register',
     component: RegisterPage
+  },
+  {
+    path: 'forbidden',
+    component: ForbiddenPage
   },
   {
     path: '**',

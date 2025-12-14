@@ -1,5 +1,4 @@
 import { Component, inject, OnInit } from "@angular/core";
-import { PropertyFormComponent } from "../../shared/components/property-form/property-form.component";
 import { ProfileInfoComponent } from "../../shared/components/profile-info/profile-info.component";
 import { UserService } from "../../core/services/user.service";
 import { User } from "../../interfaces/user.interface";
@@ -12,7 +11,6 @@ import { LoadingOverlayComponent } from "../../shared/components/loading-overlay
   templateUrl: './profile.page.html',
   styleUrl: './profile.page.scss',
   imports: [
-    PropertyFormComponent,
     RouterLink,
     ProfileInfoComponent,
     MatIcon,
@@ -35,7 +33,7 @@ export class ProfilePage implements OnInit {
     this.#userService.getUserDetails().subscribe({
        next: (user) => {
         this.user = user;
-        this.loading = false; 
+        this.loading = false;
       },
       error: () => {
         this.loading = false;

@@ -16,7 +16,7 @@
         <select id="category" formControlName="category" required>
           <option value="">Select a category</option>
           @for (category of categories; track category) {
-            <option [value]="category">{{ category | titlecase }}</option>
+            <option [value]="category">{{ category | capitalize }}</option>
           }
         </select>
         @if (propertyForm.get('category')?.invalid && propertyForm.get('category')?.touched) {

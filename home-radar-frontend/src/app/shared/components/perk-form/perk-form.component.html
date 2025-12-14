@@ -1,0 +1,102 @@
+<div class="container">
+  <div class="card">
+    <h2>Create Perk</h2>
+
+    @if (errorMessage) {
+      <div class="alert alert-error">
+        {{ errorMessage }}
+      </div>
+    }
+
+    @if (successMessage) {
+      <div class="alert alert-success">
+        {{ successMessage }}
+      </div>
+    }
+
+    @if (loadingPerkTypes) {
+      <div class="loading">Loading perk types...</div>
+    } @else {
+      <form [formGroup]="perkForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="title">Title <span class="required">*</span></label>
+          <mat-form-field appearance="outline" class="full-width">
+            <input matInput type="text" id="title" formControlName="title" placeholder="Enter perk title" />
+            @if (perkForm.get('title')?.invalid && perkForm.get('title')?.touched) {
+              <mat-error>Title is required</mat-error>
+            }
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <label for="perkTypeId">Perk Type <span class="required">*</span></label>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-select id="perkTypeId" formControlName="perkTypeId" placeholder="Select a perk type">
+              @for (perkType of perkTypes; track perkType.id) {
+                <mat-option [value]="perkType.id">{{ perkType.name | capitalize }}</mat-option>
+              }
+            </mat-select>
+            @if (perkForm.get('perkTypeId')?.invalid && perkForm.get('perkTypeId')?.touched) {
+              <mat-error>Perk type is required</mat-error>
+            }
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <label for="address">Address <span class="required">*</span></label>
+          <mat-form-field appearance="outline" class="full-width">
+            <input
+              matInput
+              type="text"
+              id="address"
+              formControlName="address"
+              placeholder="Search for address"
+              (input)="onAddressInput()"
+              [matAutocomplete]="auto"
+            />
+            <mat-autocomplete #auto="matAutocomplete">
+              @for (option of addressOptions; track option) {
+                <mat-option [value]="option.display_name" (onSelectionChange)="onAddressSelect(option)">
+                  {{ option.display_name }}
+                </mat-option>
+              }
+            </mat-autocomplete>
+            @if (perkForm.get('address')?.invalid && perkForm.get('address')?.touched) {
+              <mat-error>Address is required</mat-error>
+            }
+          </mat-form-field>
+        </div>
+
+        <div class="form-group">
+          <div #mapContainer class="map-container"></div>
+          <small class="map-hint">Click on the map to set location or search above</small>
+        </div>
+
+        <input type="hidden" formControlName="latitude">
+        <input type="hidden" formControlName="longitude">
+
+        <div class="form-group">
+          <label for="openingHours">Opening Hours</label>
+          <mat-form-field appearance="outline" class="full-width">
+            <textarea
+              matInput
+              id="openingHours"
+              formControlName="openingHours"
+              rows="3"
+              placeholder="e.g. Mon-Fri: 9:00-17:00"
+            ></textarea>
+          </mat-form-field>
+        </div>
+
+        <div class="button-group">
+          <button mat-raised-button color="primary" type="submit" [disabled]="loading || perkForm.invalid">
+            {{ loading ? 'Creating...' : 'Create Perk' }}
+          </button>
+          <button mat-raised-button type="button" (click)="onReset()">
+            Reset
+          </button>
+        </div>
+      </form>
+    }
+  </div>
+</div>

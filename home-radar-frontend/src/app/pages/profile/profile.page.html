@@ -1,18 +1,19 @@
 <div class="container">
-<div class="profile-top-bar">
-  <a routerLink="/" class="back-home">
-    <mat-icon>arrow_back</mat-icon>
-    <span>Back to Home</span>
-  </a>
-  <button class="logout-btn" (click)="logout()">
-    <mat-icon>logout</mat-icon>
-    <span>Logout</span>
-  </button>
-</div>
+  <div class="profile-top-bar">
+    <a routerLink="/" class="back-home">
+      <mat-icon>arrow_back</mat-icon>
+      <span>Back to Home</span>
+    </a>
+    <button class="logout-btn" (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      <span>Logout</span>
+    </button>
+  </div>
 
-  <profile-info></profile-info>
-  @if(user) {
-      <property-form [user]="user"></property-form>
+  @if (user) {
+    <profile-info
+      [user]="user"
+    ></profile-info>
   }
   <loading-overlay [show]="loading"></loading-overlay>
 </div>

@@ -33,4 +33,9 @@ export class AuthService {
     localStorage.removeItem('currentUser');
     localStorage.removeItem('token');
   }
+
+  isAuthenticated(): boolean {
+    const token = localStorage.getItem('token');
+    return !!token;
+  }
 }
