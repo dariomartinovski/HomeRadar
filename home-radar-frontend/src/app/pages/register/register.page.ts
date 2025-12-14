@@ -187,7 +187,7 @@ export class RegisterPage {
 
   get passwordStrength(): string {
     const password = this.registerForm.get('password')?.value;
-    if (!password) return '';
+    if (!password) return 'weak';
 
     const hasUpper = /[A-Z]/.test(password);
     const hasLower = /[a-z]/.test(password);

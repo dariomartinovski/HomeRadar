@@ -1,29 +1,30 @@
-@use "@angular/material" as mat;
+@use 'colors' as *;
 
 #auth-container {
-  min-height: calc(100vh - 65px);
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 2em;
-  background-color: var(--mat-sys-surface-container-low);
+  background-color: $purple-200;
 }
 
 .auth-card {
-  background-color: var(--mat-sys-surface);
-  border-radius: 12px;
-  padding: 2.5em;
+  background-color: $secondary-text-color;
+  border-radius: 0.5em;
+  padding: 3em 2.5em;
   width: 100%;
   max-width: 450px;
   box-sizing: border-box;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
 .auth-title {
-  font: var(--mat-sys-headline-small);
-  color: var(--mat-sys-on-surface);
+  font-size: $subheading-font-size;
+  color: $primary-text-color;
   text-align: center;
-  margin-bottom: 1em;
-  font-weight: 500;
+  margin: 0 0 1.5em 0;
+  font-weight: 700;
 }
 
 form {
@@ -32,39 +33,62 @@ form {
   gap: 0.5em;
 }
 
-.form-field label {
-  display: block;
-  margin-bottom: 0.2em;
-  color: var(--mat-sys-on-surface-variant);
-  font: var(--mat-sys-body-small);
+mat-form-field {
+  width: 100%;
 }
 
-mat-form-field input {
-  font-size: 0.8em !important;
-  font-weight: 400;
-}
+// Override Material form field colors
+::ng-deep {
+  .mat-mdc-form-field {
+    .mat-mdc-text-field-wrapper {
+      .mat-mdc-form-field-flex {
+        .mdc-notched-outline {
+          .mdc-notched-outline__leading,
+          .mdc-notched-outline__notch,
+          .mdc-notched-outline__trailing {
+            border-color: $purple-600 !important;
+          }
+        }
+      }
+    }
 
-mat-form-field ::placeholder {
-  font-size: 14px !important;
-}
+    &.mat-focused {
+      .mdc-notched-outline {
+        .mdc-notched-outline__leading,
+        .mdc-notched-outline__notch,
+        .mdc-notched-outline__trailing {
+          border-color: $purple-600 !important;
+          border-width: 0.15em !important;
+        }
+      }
 
-mat-form-field mat-label {
-  font-size: 10px;
+      .mat-mdc-floating-label {
+        color: $purple-600 !important;
+      }
+    }
+
+    .mat-mdc-floating-label {
+      color: $grey-600 !important;
+    }
+
+    input {
+      color: $primary-text-color !important;
+    }
+  }
+
+  .mat-icon {
+    color: $purple-600 !important;
+  }
 }
 
 .password-requirements {
-  background-color: var(--mat-sys-error-container);
-  color: var(--mat-sys-on-error-container);
-  border-radius: 4px;
+  background-color: $purple-100;
+  color: $primary-text-color;
+  border: 0.1em solid $purple-600;
+  border-radius: 0.5em;
   padding: 1em;
-  margin-top: -0.5em;
+  margin-top: 0.5em;
   margin-bottom: 0.5em;
-
-  h4 {
-    margin: 0 0 0.5em 0;
-    font: var(--mat-sys-body-small);
-    font-weight: 500;
-  }
 
   ul {
     margin: 0;
@@ -72,8 +96,9 @@ mat-form-field mat-label {
   }
 
   .requirement-error {
-    font: var(--mat-sys-body-small);
+    font-size: $body-font-size;
     margin: 0.3em 0;
+    color: $primary-text-color;
   }
 }
 
@@ -83,26 +108,29 @@ mat-form-field mat-label {
 }
 
 .password-strength-label {
-  font: var(--mat-sys-body-small);
-  color: var(--mat-sys-on-surface-variant);
+  font-size: $body-font-size;
+  color: $grey-600;
   margin-bottom: 0.5em;
 
   .strength-weak {
-    color: var(--mat-sys-error);
+    color: #dc3545;
+    font-weight: 600;
   }
 
   .strength-medium {
-    color: var(--mat-sys-tertiary);
+    color: #eac681;
+    font-weight: 600;
   }
 
   .strength-strong {
-    color: var(--mat-sys-secondary);
+    color: #28a745;
+    font-weight: 600;
   }
 }
 
 .password-strength-bar {
   height: 4px;
-  background-color: var(--mat-sys-surface-variant);
+  background-color: $purple-100;
   border-radius: 2px;
   overflow: hidden;
 }
@@ -114,17 +142,17 @@ mat-form-field mat-label {
 
   &.weak {
     width: 30%;
-    background-color: var(--mat-sys-error);
+    background-color: #dc3545;
   }
 
   &.medium {
     width: 60%;
-    background-color: rgb(234, 198, 129)
+    background-color: #eac681;
   }
 
   &.strong {
     width: 100%;
-    background-color: green;
+    background-color: #28a745;
   }
 }
 
@@ -133,10 +161,11 @@ mat-form-field mat-label {
   align-items: center;
   gap: 0.5em;
   padding: 0.75em;
-  background-color: var(--mat-sys-error-container);
-  color: var(--mat-sys-on-error-container);
-  border-radius: 4px;
-  font: var(--mat-sys-body-medium);
+  background-color: $purple-100;
+  color: $primary-text-color;
+  border: 0.1em solid $purple-600;
+  border-radius: 0.5em;
+  font-size: $body-font-size;
   margin-top: 0.5em;
 
   mat-icon {
@@ -146,22 +175,55 @@ mat-form-field mat-label {
   }
 }
 
-.switch-auth {
-  text-align: center;
+.register-button {
+  width: 100%;
   margin-top: 1.5em;
-  font: var(--mat-sys-body-medium);
-  color: var(--mat-sys-on-surface-variant);
+  padding: 0.75em 2em;
+  font-size: $body-font-size;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.5em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: $purple-600;
+  color: $secondary-text-color;
 
-  a {
-    margin-left: 0.5em;
+  &:hover:not(:disabled) {
+    background-color: darken($purple-600, 8%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(136, 136, 168, 0.3);
+  }
+
+  &:disabled {
+    background-color: $grey-600;
+    cursor: not-allowed;
+    opacity: 0.6;
   }
 }
 
-mat-error {
-  margin-bottom: 1em;
+.switch-auth {
+  text-align: center;
+  margin-top: 1.5em;
+  margin-bottom: 0;
+  font-size: $body-font-size;
+  color: $grey-600;
+
+  .login-link {
+    color: $purple-600;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 0.5em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    filter: brightness(1);
+
+    &:hover {
+      color: darken($purple-600, 8%);
+      text-decoration: underline;
+    }
+  }
 }
 
-// Responsive design
 @media (max-width: 600px) {
   #auth-container {
     padding: 1em;
@@ -170,15 +232,10 @@ mat-error {
   }
 
   .auth-card {
-    padding: 1.5em;
+    padding: 2em 1.5em;
   }
 
-  // Even smaller input text on mobile if needed
-  mat-form-field input {
-    font-size: 13px !important;
-  }
-
-  mat-form-field ::placeholder {
-    font-size: 13px !important;
+  .auth-title {
+    font-size: 1.5rem;
   }
 }

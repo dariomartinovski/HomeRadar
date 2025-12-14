@@ -1,29 +1,33 @@
+@use 'colors' as *;
+
 form {
   margin-top: 2em;
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 0.5em;
-  
+
   .span-row {
     grid-column: 1/-1;
     margin: 1em 0 0.5em;
   }
-  
+
   hr {
     width: 95%;
     justify-self: center;
     border-radius: 1em;
     opacity: 0.4;
+    border-color: $purple-600;
   }
 
   p {
     align-self: center;
+    color: $primary-text-color;
   }
 
   & > p {
     margin-bottom: 1em;
   }
-  
+
   .balance-slider {
     position: relative;
 
@@ -42,6 +46,10 @@ form {
         display: flex;
         flex-direction: column;
         align-items: center;
+
+        span {
+          color: $primary-text-color;
+        }
       }
     }
 
@@ -56,17 +64,21 @@ form {
     grid-template-columns: 1fr 2fr;
     gap: 0.5em;
     grid-column: 1/-1;
-  
-  
+
+    p {
+      color: $primary-text-color;
+    }
+
     .slider {
       position: relative;
-  
+
       .slider-value {
         position: absolute;
         top: -0.5em;
         right: 0;
+        color: $purple-600;
       }
-  
+
       mat-slider {
         width: 100%;
       }
@@ -78,8 +90,20 @@ form {
     margin-top: 1em;
     justify-self: right;
     padding: 0.5em 2.5em;
+    background-color: $purple-600;
+    color: $secondary-text-color;
+    border: none;
+    border-radius: 0.5em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: darken($purple-600, 8%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(136, 136, 168, 0.3);
+    }
   }
-  
+
   mat-form-field input {
     font-size: 0.8em !important;
     font-weight: 400;
@@ -102,4 +126,63 @@ form {
   --mat-form-field-container-height: 40px;
   --mat-form-field-container-vertical-padding: 4px;
   --mat-form-field-container-horizontal-padding: 8px;
+}
+
+::ng-deep {
+  .mat-mdc-form-field {
+    .mat-mdc-text-field-wrapper {
+      .mat-mdc-form-field-flex {
+        .mdc-notched-outline {
+          .mdc-notched-outline__leading,
+          .mdc-notched-outline__notch,
+          .mdc-notched-outline__trailing {
+            border-color: $purple-600 !important;
+          }
+        }
+      }
+    }
+
+    &.mat-focused {
+      .mdc-notched-outline {
+        .mdc-notched-outline__leading,
+        .mdc-notched-outline__notch,
+        .mdc-notched-outline__trailing {
+          border-color: $purple-600 !important;
+          border-width: 0.15em !important;
+        }
+      }
+
+      .mat-mdc-floating-label {
+        color: $purple-600 !important;
+      }
+    }
+
+    .mat-mdc-floating-label {
+      color: $grey-600 !important;
+    }
+
+    input {
+      color: $primary-text-color !important;
+    }
+  }
+
+  // Style Material sliders
+  .mat-mdc-slider {
+    .mdc-slider__track--active_fill {
+      border-color: $purple-600 !important;
+    }
+
+    .mdc-slider__track--inactive {
+      background-color: $purple-200 !important;
+    }
+
+    .mdc-slider__thumb-knob {
+      background-color: $purple-600 !important;
+      border-color: $purple-600 !important;
+    }
+
+    .mdc-slider__value-indicator {
+      background-color: $purple-600 !important;
+    }
+  }
 }
