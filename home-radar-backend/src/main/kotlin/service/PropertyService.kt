@@ -1,8 +1,10 @@
 package com.home_radar.service
 
+import com.home_radar.domain.ImageEntity
 import com.home_radar.domain.Property
 import com.home_radar.domain.enum.PropertyCategory
 import com.home_radar.domain.events.PropertyCreatedEvent
+import com.home_radar.repository.ImageRepository
 import com.home_radar.repository.PropertyRepository
 import com.home_radar.repository.UserRepository
 import com.home_radar.web.extensions.toResponse
@@ -12,10 +14,6 @@ import com.home_radar.web.response.PropertyResponse
 import org.springframework.context.ApplicationEventPublisher
 import org.springframework.stereotype.Service
 import org.springframework.web.multipart.MultipartFile
-import java.nio.file.Files
-import java.nio.file.Paths
-import java.nio.file.StandardCopyOption
-import java.util.*
 import kotlin.NoSuchElementException
 import org.springframework.data.jpa.domain.Specification
 import jakarta.persistence.criteria.Predicate
@@ -24,6 +22,7 @@ import jakarta.persistence.criteria.Predicate
 class PropertyService(
     private val propertyRepository: PropertyRepository,
     private val userRepository: UserRepository,
+    private val imageRepository: ImageRepository,
     private val eventPublisher: ApplicationEventPublisher
 ) {
     fun findAll(): List<Property> = propertyRepository.findAll()
@@ -34,14 +33,13 @@ class PropertyService(
 
     fun create(request: PropertyCreateRequest, image: MultipartFile?): PropertyResponse {
         val owner = userRepository.findById(request.ownerId).orElseThrow { NoSuchElementException("User not found: $request.ownerId") }
-        val imageUrl = if (image != null && !image.isEmpty) {
-            val filename = UUID.randomUUID().toString() + "_" + image.originalFilename
-            val path = Paths.get("uploads/$filename")
-            Files.copy(image.inputStream, path, StandardCopyOption.REPLACE_EXISTING)
-            "/uploads/$filename"
-        } else {
-            null
+
+        val imageEntity = image?.let {
+            imageRepository.save(
+                ImageEntity(image = it.bytes)
+            )
         }
+
         val property = Property(
             title = request.title,
             category = request.category,
@@ -65,7 +63,8 @@ class PropertyService(
             latitude = request.latitude,
             longitude = request.longitude,
             owner = owner,
-            imageUrl = imageUrl ?: ""
+            externalImageUrl = null,
+            internalImageId = imageEntity?.id
         )
 
         propertyRepository.save(property)

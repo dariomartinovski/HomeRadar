@@ -1,6 +1,8 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {Component, Input, Output, EventEmitter, inject} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Property } from '../../../interfaces/property.interface';
+import {PropertyService} from '../../../core/services/property.service';
+import {ImageService} from '../../../core/services/image.service';
 
 @Component({
   selector: 'property-list-card',
@@ -13,9 +15,15 @@ export class PropertyListCardComponent {
   @Input({ required: true }) property!: Property;
   @Output() cardClick = new EventEmitter<Property>();
 
+  #imageService = inject(ImageService);
+
   get imageUrl(): string {
-    return this.property.imageUrl
-      ? this.property.imageUrl
+    if (this.property?.internalImageId) {
+      return this.#imageService.getImageUrl(this.property.internalImageId);
+    }
+
+    return this.property.externalImageUrl
+      ? this.property.externalImageUrl
       : (this.property.type === 'HOUSE'
         ? 'assets/images/sale_house_small.jpg'
         : 'assets/images/sale_flat_small.jpg');

@@ -21,6 +21,7 @@ class SecurityConfiguration(val authenticationProvider: AuthenticationProvider, 
     @Bean
     fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
         http
+            .cors {  }
             .csrf { it.disable() }
             .authorizeHttpRequests {
                 it
@@ -33,10 +34,15 @@ class SecurityConfiguration(val authenticationProvider: AuthenticationProvider, 
                         "/api/user-preferences",
                         "/api/user-preferences/default",
                         "/uploads/**",
-                        "/api/users/**"
+                        "/api/users/**",
+                        "/api/images/**"
                         ).permitAll()
                     .requestMatchers(
-                        HttpMethod.GET, "/api/properties", "/api/properties/**",
+                        HttpMethod.GET,
+                        "/api/properties",
+                        "/api/properties/**",
+                        "/api/perk-types",
+                        "/api/perk-types/**"
                     ).permitAll()
                     .dispatcherTypeMatchers(DispatcherType.ASYNC).permitAll()
                     .anyRequest().authenticated()

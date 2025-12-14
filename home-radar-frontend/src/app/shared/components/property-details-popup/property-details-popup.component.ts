@@ -1,6 +1,7 @@
-  import {Component, Input, Output, EventEmitter, inject} from '@angular/core';
+import {Component, Input, Output, EventEmitter, inject} from '@angular/core';
 import { Property } from '../../../interfaces/property.interface';
 import {Router} from '@angular/router';
+import {ImageService} from '../../../core/services/image.service';
 
 @Component({
   selector: 'property-details-popup',
@@ -12,14 +13,19 @@ export class PropertyDetailsPopupComponent {
   @Output() closePopup = new EventEmitter<void>();
 
   #router = inject(Router);
+  #imageService = inject(ImageService);
 
   close() {
     this.closePopup.emit();
   }
 
   getImageUrl(property: any): string {
-    return property.imageUrl
-      ? property.imageUrl
+    if (this.property?.internalImageId) {
+      return this.#imageService.getImageUrl(this.property.internalImageId);
+    }
+
+    return property.externalImageUrl
+      ? property.externalImageUrl
       : (property.type === 'HOUSE'
         ? 'assets/images/sale_house_small.jpg'
         : 'assets/images/sale_flat_small.jpg');

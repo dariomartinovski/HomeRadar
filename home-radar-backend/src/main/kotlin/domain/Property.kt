@@ -46,7 +46,8 @@ data class Property(
     val yearBuilt: Int?,
     val bedrooms: Int?,
     val bathrooms: Int?,
-    val imageUrl: String?,
+    val externalImageUrl: String?,
+    val internalImageId: Long? = null,
     val neighborhood: String?,
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -23,7 +23,6 @@ data class PropertyCreateRequest(
     val yearBuilt: Int? = null,
     val bedrooms: Int? = null,
     val bathrooms: Int? = null,
-    val imageUrl: String? = null,
     val neighborhood: String? = null,
     val latitude: Double,
     val longitude: Double,

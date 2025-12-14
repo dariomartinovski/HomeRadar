@@ -46,7 +46,7 @@
 
     <!-- Hero Image Section -->
     <div class="hero-image">
-      <img [src]="getImageUrl(property)" [alt]="property.title" />
+    <img [src]="getImageUrl(property)" [alt]="property.title" />
       <div class="category-overlay">
         <span class="category-badge" [class.for-rent]="property.category === 'FOR_RENT'">
           {{ getCategoryLabel(property.category) }}

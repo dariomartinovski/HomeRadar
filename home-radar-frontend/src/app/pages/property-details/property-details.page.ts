@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, inject, OnInit} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Property } from '../../interfaces/property.interface';
@@ -9,6 +9,7 @@ import { UserService } from '../../core/services/user.service';
 import { PreferenceTypeEnum } from '../../enums/preference-type.enum';
 import { User } from '../../interfaces/user.interface';
 import {PropertyDetailMapComponent} from '../../shared/components/property-details-map/property-details-map.component';
+import {ImageService} from '../../core/services/image.service';
 
 @Component({
   selector: 'property-details',
@@ -27,24 +28,23 @@ export class PropertyDetailsPage implements OnInit {
   savingPreference = false;
   isLoggedIn = false;
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private propertyService: PropertyService,
-    private userService: UserService
-  ) {}
+  #route = inject(ActivatedRoute);
+  #router = inject(Router);
+  #propertyService = inject(PropertyService);
+  #imageService = inject(ImageService);
+  #userService = inject(UserService);
 
   ngOnInit(): void {
-    this.isLoggedIn = !!this.userService.getCurrentUser();
+    this.isLoggedIn = !!this.#userService.getCurrentUser();
 
-    const propertyId = this.route.snapshot.paramMap.get('id');
+    const propertyId = this.#route.snapshot.paramMap.get('id');
     if (propertyId) {
       this.loadProperty(+propertyId);
     }
   }
 
   loadProperty(id: number): void {
-    this.propertyService.findById(id).subscribe({
+    this.#propertyService.findById(id).subscribe({
       next: (property) => {
         this.property = property;
         this.loading = false;
@@ -62,7 +62,7 @@ export class PropertyDetailsPage implements OnInit {
       return;
     }
 
-    const currentUser: User | null = this.userService.getCurrentUser();
+    const currentUser: User | null = this.#userService.getCurrentUser();
     if (currentUser && this.property) {
       const preference = currentUser.propertyPreferences?.find(
         (p: any) => p.propertyId === this.property?.id
@@ -76,7 +76,7 @@ export class PropertyDetailsPage implements OnInit {
 
     this.savingPreference = true;
 
-    this.userService.setUserPropertyPreference(this.property.id, preference).subscribe({
+    this.#userService.setUserPropertyPreference(this.property.id, preference).subscribe({
       next: (updatedUser) => {
         if (this.userPreference === preference) {
           this.userPreference = null;
@@ -84,7 +84,7 @@ export class PropertyDetailsPage implements OnInit {
           this.userPreference = preference;
         }
         this.savingPreference = false;
-        this.userService.setCurrentUser(updatedUser);
+        this.#userService.setCurrentUser(updatedUser);
       },
       error: (error) => {
         console.error('Error saving preference:', error);
@@ -114,15 +114,19 @@ export class PropertyDetailsPage implements OnInit {
   }
 
   getImageUrl(property: Property): string {
-    return property.imageUrl
-      ? property.imageUrl
+    if (this.property?.internalImageId) {
+      return this.#imageService.getImageUrl(this.property.internalImageId);
+    }
+
+    return property.externalImageUrl
+      ? property.externalImageUrl
       : (property.type === 'HOUSE'
         ? 'assets/images/sale_house_small.jpg'
         : 'assets/images/sale_flat_small.jpg');
   }
 
   goBack(): void {
-    this.router.navigate(['/properties']);
+    this.#router.navigate(['/properties']);
   }
 
   contactOwner(): void {

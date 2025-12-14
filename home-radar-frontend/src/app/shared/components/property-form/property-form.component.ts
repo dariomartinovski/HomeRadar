@@ -12,13 +12,15 @@ import { PropertyType } from '../../../enums/property-type.enum';
 import { HeatingType } from '../../../enums/heating-type.enum';
 import { PropertyCategory } from '../../../enums/property-category.enum';
 import { HttpClient } from '@angular/common/http';
-import { debounceTime, distinctUntilChanged, Subject, switchMap } from 'rxjs';
+import {debounceTime, distinctUntilChanged, finalize, Subject, switchMap} from 'rxjs';
 import * as L from 'leaflet';
 import { PropertyService } from '../../../core/services/property.service';
 import { SuccessDialogComponent } from '../success-dialog/success-dialog.component';
 import { User } from '../../../interfaces/user.interface';
 import { PropertyEventService } from '../../../core/services/property-event.service';
 import { LoadingOverlayComponent } from '../loading-overlay/loading-overlay.component';
+import {CapitalizePipe} from '../../pipes/capitilzie.pipe';
+import {UserService} from '../../../core/services/user.service';
 
 @Component({
   selector: 'property-form',
@@ -36,7 +38,8 @@ import { LoadingOverlayComponent } from '../loading-overlay/loading-overlay.comp
     MatIconModule,
     MatAutocompleteModule,
     MatAutocompleteTrigger,
-    LoadingOverlayComponent
+    LoadingOverlayComponent,
+    CapitalizePipe
   ]
 })
 export class PropertyFormComponent implements OnInit, AfterViewInit {
@@ -51,8 +54,8 @@ export class PropertyFormComponent implements OnInit, AfterViewInit {
   loadingAreas: boolean = false;
   user = input.required<User>();
   selectedFile: File | null = null;
-  previewUrl: string | null = null;
   loading: boolean = false;
+  currUser?: User;
 
   @Output() formSubmit = new EventEmitter<any>();
 
@@ -64,16 +67,19 @@ export class PropertyFormComponent implements OnInit, AfterViewInit {
   private readonly SKOPJE_CENTER: L.LatLngExpression = [42.0024, 21.4361];
   private readonly DEFAULT_ZOOM = 14;
   private readonly geocoder = 'https://nominatim.openstreetmap.org/search?format=json&addressdetails=1';
+  private readonly reverseGeocoder = 'https://nominatim.openstreetmap.org/reverse?format=json';
 
-  private fb = inject(FormBuilder)
-  private http = inject(HttpClient)
-  private dialog = inject(MatDialog)
+  #fb = inject(FormBuilder);
+  #http = inject(HttpClient);
+  #dialog = inject(MatDialog);
+  #userService = inject(UserService);
 
   private propertyService = inject(PropertyService)
   private propertyEventService = inject(PropertyEventService);
+  private geocodeSubject = new Subject<{lat: number, lng: number}>();
 
   ngOnInit() {
-    this.propertyForm = this.fb.group({
+    this.propertyForm = this.#fb.group({
       title: ['', Validators.required],
       category: ['', Validators.required],
       description: ['', Validators.required],
@@ -92,12 +98,20 @@ export class PropertyFormComponent implements OnInit, AfterViewInit {
       yearBuilt: [''],
       bedrooms: [''],
       bathrooms: [''],
-      imageUrl: [''],
       neighborhood: [''],
       latitude: [42.0024, Validators.required],
       longitude: [21.4361, Validators.required]
     });
-   this.loadAreas()
+    this.loadAreas()
+
+    this.currUser = this.#userService.getCurrentUser();
+
+    this.geocodeSubject.pipe(
+      debounceTime(500),
+      distinctUntilChanged((a, b) => a.lat === b.lat && a.lng === b.lng)
+    ).subscribe(({lat, lng}) => {
+      this.reverseGeocode(lat, lng);
+    });
   }
 
   ngAfterViewInit(): void {
@@ -134,7 +148,7 @@ export class PropertyFormComponent implements OnInit, AfterViewInit {
 
     this.map.on('click', (e: L.LeafletMouseEvent) => {
       this.updateMarker(e.latlng);
-      this.reverseGeocode(e.latlng.lat, e.latlng.lng);
+      this.geocodeSubject.next({lat: e.latlng.lat, lng: e.latlng.lng});
     });
 
     this.marker.on('dragend', () => {
@@ -174,11 +188,11 @@ export class PropertyFormComponent implements OnInit, AfterViewInit {
   }
 
   private searchAddress(query: string) {
-    return this.http.get<any[]>(`${this.geocoder}&q=${encodeURIComponent(query)}`);
+    return this.#http.get<any[]>(`${this.geocoder}&q=${encodeURIComponent(query)}`);
   }
 
   private reverseGeocode(lat: number, lng: number): void {
-    this.http.get<any>(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`)
+    this.#http.get<any>(`${this.reverseGeocoder}&lat=${lat}&lon=${lng}`)
       .subscribe({
         next: (data) => {
           this.propertyForm.patchValue({
@@ -187,7 +201,13 @@ export class PropertyFormComponent implements OnInit, AfterViewInit {
             longitude: lng
           });
         },
-        error: (err) => console.error('Reverse geocoding error:', err)
+        error: (err) => {
+          console.warn('Reverse geocoding unavailable, please enter address manually');
+          this.propertyForm.patchValue({
+            latitude: lat,
+            longitude: lng
+          });
+        }
       });
   }
 
@@ -221,7 +241,7 @@ export class PropertyFormComponent implements OnInit, AfterViewInit {
     const formValue = this.propertyForm.value;
       const processedData = {
         ...formValue,
-        ownerId: this.user().id,
+        ownerId: this.currUser?.id,
         squareMeters: parseFloat(formValue.squareMeters),
         numberOfRooms: parseInt(formValue.numberOfRooms, 10),
         price: parseFloat(formValue.price),
@@ -235,31 +255,35 @@ export class PropertyFormComponent implements OnInit, AfterViewInit {
 
       const formData = new FormData();
       formData.append(
-      'request',
-      new Blob([JSON.stringify(processedData)], { type: 'application/json' })
-    );
+        'request',
+        new Blob([JSON.stringify(processedData)], {type: 'application/json'})
+      );
 
-    if(this.selectedFile) {
-      formData.append('image', this.selectedFile);
+      if (this.selectedFile) {
+        formData.append('image', this.selectedFile, this.selectedFile.name);
       }
 
-      this.propertyService.createProperty(formData).subscribe({
-        next: (createdProperty) => {
-          this.loading = false;
-          this.propertyEventService.emitPropertyCreated(createdProperty);
-          this.formSubmit.emit(createdProperty);
+      this.propertyService.createProperty(formData)
+        .pipe(
+          finalize(() => {
+            this.loading = false;
+          })
+        )
+        .subscribe({
+          next: (createdProperty) => {
+            this.propertyEventService.emitPropertyCreated(createdProperty);
+            this.formSubmit.emit(createdProperty);
 
-          this.showSuccessDialog('Property created successfully!','/');
+            this.showSuccessDialog('Property created successfully!', '/');
 
-          this.propertyForm.reset();
-
-        },
-        error: (error) => {
-          this.loading = false;
-        }
-      });
-      }
-      else {
+            this.propertyForm.reset();
+          },
+          error: (error) => {
+            console.error('Property creation failed:', error);
+            alert('Failed to create property. Please try again.');
+          }
+        });
+    } else {
       Object.keys(this.propertyForm.controls).forEach(key => {
         const control = this.propertyForm.get(key);
         if (control) {
@@ -268,10 +292,11 @@ export class PropertyFormComponent implements OnInit, AfterViewInit {
       });
     }
   }
-    private showSuccessDialog(message: string, navigateTo: string | null): void {
-    this.dialog.open(SuccessDialogComponent, {
+
+  private showSuccessDialog(message: string, navigateTo: string | null): void {
+    this.#dialog.open(SuccessDialogComponent, {
       width: '400px',
-      data: { message, navigateTo },
+      data: {message, navigateTo},
       disableClose: false
     });
   }
@@ -280,7 +305,6 @@ export class PropertyFormComponent implements OnInit, AfterViewInit {
     const input = event.target as HTMLInputElement;
     if (!input.files || input.files.length === 0) return;
 
-    this.selectedFile = input.files[0];
-    this.previewUrl = URL.createObjectURL(this.selectedFile);
+    this.selectedFile = input.files[0] as File;
   }
 }

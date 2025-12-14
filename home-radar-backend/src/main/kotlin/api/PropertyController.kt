@@ -37,5 +37,8 @@ class PropertyController(
     ) = locationScoreManagingService.calculateAndPersistScore(latitude, longitude, filter)
 
     @PostMapping(consumes = ["multipart/form-data"])
-    fun create(@RequestPart("request") request: PropertyCreateRequest, @RequestPart("image", required = false) image: MultipartFile?): PropertyResponse =  propertyService.create(request, image)
+    fun create(
+        @RequestPart("request") request: PropertyCreateRequest,
+        @RequestPart("image", required = false) image: MultipartFile?
+    ): PropertyResponse = propertyService.create(request, image)
 }
