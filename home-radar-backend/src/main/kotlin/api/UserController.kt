@@ -2,6 +2,8 @@ package com.home_radar.api
 
 import com.home_radar.domain.enum.PreferenceType
 import com.home_radar.service.UserService
+import com.home_radar.web.extensions.toSimpleResponse
+import com.home_radar.web.response.PropertySimpleResponse
 import org.springframework.http.ResponseEntity
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.security.core.userdetails.UsernameNotFoundException
@@ -41,6 +43,29 @@ class UserController(
         } catch (e: Exception) {
             ResponseEntity.badRequest().body(mapOf("error" to e.message))
         }
+    }
+
+    @GetMapping("/preferences/properties")
+    fun getPreferredPropertiesSummaries(
+    ): ResponseEntity<Map<PreferenceType, List<PropertySimpleResponse>>> {
+        val user = userService.getUserFromAuthentication(SecurityContextHolder.getContext().authentication)
+            ?: throw UsernameNotFoundException("User not found")
+
+        if (user.propertyPreferences.isEmpty()) {
+            return ResponseEntity.ok(
+                mapOf(
+                    PreferenceType.LIKE to emptyList(),
+                    PreferenceType.DISLIKE to emptyList()
+                )
+            )
+        }
+
+        val grouped = user.propertyPreferences
+            .groupBy { it.preferenceType }
+            .mapValues { it.value.map { pref -> pref.property.toSimpleResponse() }
+            }
+
+        return ResponseEntity.ok(grouped)
     }
 
 }

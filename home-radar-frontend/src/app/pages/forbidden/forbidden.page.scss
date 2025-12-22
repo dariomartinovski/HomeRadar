@@ -1,4 +1,5 @@
 @use 'colors' as *;
+@use "sass:color";
 
 .forbidden-container {
   display: flex;
@@ -71,8 +72,8 @@
 }
 
 .btn-primary:hover {
-  background-color: darken($purple-600, 8%);
-  border-color: darken($purple-600, 8%);
+  background-color: color.adjust($purple-600, $lightness: -8%);
+  border-color: color.adjust($purple-600, $lightness: -8%);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(136, 136, 168, 0.3);
 }

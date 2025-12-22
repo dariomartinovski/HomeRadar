@@ -1,10 +1,12 @@
 import { Component, inject, OnInit } from "@angular/core";
 import { ProfileInfoComponent } from "../../shared/components/profile-info/profile-info.component";
+import { UserPropertyPreferencesComponent } from "../../shared/components/user-property-preferences/user-property-preferences.component";
 import { UserService } from "../../core/services/user.service";
 import { User } from "../../interfaces/user.interface";
 import { Router, RouterLink } from "@angular/router";
 import { MatIcon } from "@angular/material/icon";
 import { LoadingOverlayComponent } from "../../shared/components/loading-overlay/loading-overlay.component";
+import {UserRole} from '../../enums/user-role.enums';
 
 @Component({
   selector: 'profile',
@@ -13,6 +15,7 @@ import { LoadingOverlayComponent } from "../../shared/components/loading-overlay
   imports: [
     RouterLink,
     ProfileInfoComponent,
+    UserPropertyPreferencesComponent,
     MatIcon,
     LoadingOverlayComponent
   ]
@@ -31,7 +34,7 @@ export class ProfilePage implements OnInit {
   private loadUser() {
     this.loading = true;
     this.#userService.getUserDetails().subscribe({
-       next: (user) => {
+      next: (user) => {
         this.user = user;
         this.loading = false;
       },
@@ -43,8 +46,10 @@ export class ProfilePage implements OnInit {
 
   logout() {
     this.#userService.logout();
-     this.#router.navigate(['/login']).then(() => {
+    this.#router.navigate(['/login']).then(() => {
       this.loading = false;
     });
   }
+
+  protected readonly UserRole = UserRole;
 }

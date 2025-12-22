@@ -4,16 +4,27 @@
       <mat-icon>arrow_back</mat-icon>
       <span>Back to Home</span>
     </a>
-    <button class="logout-btn" (click)="logout()">
-      <mat-icon>logout</mat-icon>
-      <span>Logout</span>
-    </button>
+    <div class="top-bar-actions">
+      @if (user && user.role === UserRole.ADMIN) {
+        <a routerLink="/admin-panel" class="admin-btn">
+          <mat-icon>admin_panel_settings</mat-icon>
+          <span>Admin Panel</span>
+        </a>
+      }
+      <button class="logout-btn" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </div>
   </div>
 
   @if (user) {
     <profile-info
       [user]="user"
     ></profile-info>
+
+    <user-property-preferences></user-property-preferences>
   }
+
   <loading-overlay [show]="loading"></loading-overlay>
 </div>

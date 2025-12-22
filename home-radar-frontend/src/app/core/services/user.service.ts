@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../../interfaces/user.interface';
 import {PreferenceTypeEnum} from '../../enums/preference-type.enum';
 import {UserPropertyPreference} from '../../interfaces/user-property-preference.interface';
+import {PropertySimple} from '../../interfaces/property-simple.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -57,5 +58,11 @@ export class UserService {
 
   setUserPropertyPreference(propertyId: number, preference: PreferenceTypeEnum): Observable<User> {
     return this.http.put<User>(`${this.#path}/property/${propertyId}/preference?type=${preference}`, {});
+  }
+
+  getPreferredPropertiesSummaries(): Observable<{ LIKE?: PropertySimple[], DISLIKE?: PropertySimple[] }> {
+    return this.http.get<{ LIKE?: PropertySimple[], DISLIKE?: PropertySimple[] }>(
+      `${this.#path}/preferences/properties`
+    );
   }
 }

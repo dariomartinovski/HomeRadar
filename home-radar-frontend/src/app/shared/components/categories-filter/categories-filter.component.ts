@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   Component,
   effect,
   EnvironmentInjector,
@@ -10,7 +9,7 @@ import {
   runInInjectionContext
 } from '@angular/core';
 import { PerkType } from '../../../interfaces/perk-type.interface';
-import { PerkIconUrlPipe } from '../../pipes/perk-icon-url.pipe';
+import { ImageUrlPipe } from '../../pipes/image-url.pipe';
 import { CapitalizePipe } from '../../pipes/capitilzie.pipe';
 import { MatIconModule } from '@angular/material/icon';
 import { ActivatedRoute } from '@angular/router';
@@ -19,7 +18,7 @@ import { ActivatedRoute } from '@angular/router';
   selector: 'categories-filter',
   templateUrl: './categories-filter.component.html',
   styleUrls: ['./categories-filter.component.scss'],
-  imports: [PerkIconUrlPipe, CapitalizePipe, MatIconModule],
+  imports: [ImageUrlPipe, CapitalizePipe, MatIconModule],
 })
 export class CategoriesFilterComponent implements OnInit {
   #route = inject(ActivatedRoute);

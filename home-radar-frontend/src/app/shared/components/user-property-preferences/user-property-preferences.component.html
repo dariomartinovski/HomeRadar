@@ -1,0 +1,102 @@
+<div class="preferences-container">
+  <div class="preferences-card">
+    <h2 class="preferences-title">Property Preferences</h2>
+
+    <div class="tabs">
+      <button
+        class="tab"
+        [class.active]="activeTab === 'liked'"
+        (click)="setActiveTab('liked')">
+        Liked Properties
+        <span class="count">{{ likedProperties.length }}</span>
+      </button>
+      <button
+        class="tab"
+        [class.active]="activeTab === 'disliked'"
+        (click)="setActiveTab('disliked')">
+        Disliked Properties
+        <span class="count">{{ dislikedProperties.length }}</span>
+      </button>
+    </div>
+
+    @if (loading) {
+      <div class="loading-state">
+        <p>Loading properties...</p>
+      </div>
+    }
+
+    @if (!loading) {
+      <div class="tab-content">
+        @if (activeTab === 'liked') {
+          @if (likedProperties.length > 0) {
+            <div class="properties-grid">
+              @for (property of likedProperties; track property.id) {
+                <a [routerLink]="['/property-details', property.id]" class="property-card">
+                  <div class="property-badge liked">
+                    <img
+                      [src]="property.type === PropertyType.FLAT
+                        ? '/assets/icons/apartments_liked_pin.png'
+                        : '/assets/icons/house_liked_pin.png'"
+                      alt="Liked"
+                    />
+                  </div>
+                  <div class="property-info">
+                    <h3 class="property-title">{{ property.title }}</h3>
+                    <p class="property-location">
+                      {{ property.neighborhood || property.address }}
+                    </p>
+                    <div class="property-details">
+                      <span class="property-type">{{ property.type }}</span>
+                      <span class="property-category">{{ property.category }}</span>
+                    </div>
+                    <p class="property-price">{{ formatPrice(property.price) }}</p>
+                  </div>
+                </a>
+              }
+            </div>
+          } @else {
+            <div class="empty-state">
+              <p>No liked properties yet</p>
+              <span class="empty-subtitle">Start exploring properties to add your favorites</span>
+            </div>
+          }
+        }
+
+        @if (activeTab === 'disliked') {
+          @if (dislikedProperties.length > 0) {
+            <div class="properties-grid">
+              @for (property of dislikedProperties; track property.id) {
+                <a [routerLink]="['/property-details', property.id]" class="property-card">
+                  <div class="property-badge disliked">
+                    <img
+                      [src]="property.type === PropertyType.FLAT
+                        ? '/assets/icons/apartments_disliked_pin.png'
+                        : '/assets/icons/house_disliked_pin.png'"
+                      alt="Disliked"
+                    />
+                  </div>
+                  <div class="property-info">
+                    <h3 class="property-title">{{ property.title }}</h3>
+                    <p class="property-location">
+                      {{ property.neighborhood || property.address }}
+                    </p>
+                    <div class="property-details">
+                      <span class="property-type">{{ property.type }}</span>
+                      <span class="property-category">{{ property.category }}</span>
+                    </div>
+                    <p class="property-price">{{ formatPrice(property.price) }}</p>
+                  </div>
+                </a>
+              }
+            </div>
+          } @else {
+            <div class="empty-state">
+              <p>No disliked properties</p>
+              <span class="empty-subtitle">Properties you dislike will appear here</span>
+            </div>
+          }
+        }
+      </div>
+    }
+  </div>
+</div>

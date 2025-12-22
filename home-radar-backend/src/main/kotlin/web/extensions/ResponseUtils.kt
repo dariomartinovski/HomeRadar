@@ -34,11 +34,22 @@ fun Property.toResponse() = PropertyResponse(
     ownerId = owner?.id ?: 0
 )
 
+fun Property.toSimpleResponse() = PropertySimpleResponse(
+    id = id,
+    title = title,
+    address = address,
+    neighborhood = neighborhood,
+    category = category,
+    type = type,
+    price = price
+)
+
 fun PerkType.toResponse() = PerkTypeResponse(
     id = id,
     name = name,
     description = description,
-    defaultPerkTypeWeight = defaultPerkTypeWeight
+    defaultPerkTypeWeight = defaultPerkTypeWeight,
+    iconImageId = iconImageId
 )
 
 fun Perk.toResponse() = PerkResponse(
