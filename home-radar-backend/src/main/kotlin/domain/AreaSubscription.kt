@@ -1,11 +1,12 @@
 package com.home_radar.domain
 
-import com.home_radar.domain.enum.SubscriptionType
+import com.home_radar.domain.enum.AreaSubscriptionType
 import jakarta.persistence.*
 
 @Entity
-data class Subscription(
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+data class AreaSubscription(
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,
 
     @ManyToOne
@@ -16,5 +17,5 @@ data class Subscription(
     val radiusMeters: Double,
 
     @Enumerated(EnumType.STRING)
-    val type: SubscriptionType
+    val type: AreaSubscriptionType
 )

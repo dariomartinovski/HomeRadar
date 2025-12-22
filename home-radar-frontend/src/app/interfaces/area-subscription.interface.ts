@@ -1,19 +1,19 @@
-export interface CreateSubscriptionRequest {
+export interface CreateAreaSubscriptionRequest {
   latitude: number;
   longitude: number;
   radiusMeters: number;
-  type: SubscriptionType;
+  type: AreaSubscriptionType;
 }
 
-export interface SubscriptionResponse {
+export interface AreaSubscriptionResponse {
   id: number;
   latitude: number;
   longitude: number;
   radiusMeters: number;
-  type: SubscriptionType;
+  type: AreaSubscriptionType;
 }
 
-export enum SubscriptionType {
+export enum AreaSubscriptionType {
   INSTANT = 'INSTANT',
   DAILY = 'DAILY',
   WEEKLY = 'WEEKLY'

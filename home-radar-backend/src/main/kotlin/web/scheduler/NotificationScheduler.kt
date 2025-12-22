@@ -1,6 +1,6 @@
 package com.home_radar.web.scheduler
 
-import com.home_radar.domain.enum.SubscriptionType
+import com.home_radar.domain.enum.AreaSubscriptionType
 import com.home_radar.repository.PendingNotificationRepository
 import com.home_radar.service.EmailService
 import org.springframework.scheduling.annotation.Scheduled
@@ -18,7 +18,7 @@ class NotificationScheduler(
     fun sendDailyNotifications() {
         val today = LocalDate.now()
         val notifications = pendingNotificationRepository.findAllForTypeAndDate(
-            SubscriptionType.DAILY, today
+            AreaSubscriptionType.DAILY, today
         )
         groupAndSend(notifications)
     }
@@ -28,7 +28,7 @@ class NotificationScheduler(
     fun sendWeeklyNotifications() {
         val weekStart = LocalDate.now().with(DayOfWeek.MONDAY).atStartOfDay()
         val notifications = pendingNotificationRepository.findAllForTypeAndAfterDate(
-            SubscriptionType.WEEKLY, weekStart
+            AreaSubscriptionType.WEEKLY, weekStart
         )
         groupAndSend(notifications)
     }

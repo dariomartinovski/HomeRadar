@@ -1,17 +1,17 @@
 package com.home_radar.repository
 
-import com.home_radar.domain.Subscription
+import com.home_radar.domain.AreaSubscription
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 import org.springframework.data.repository.query.Param
 import org.springframework.stereotype.Repository
 
 @Repository
-interface SubscriptionRepository : JpaRepository<Subscription, Long> {
+interface AreaSubscriptionRepository : JpaRepository<AreaSubscription, Long> {
 
     @Query(
         """
-        SELECT s FROM Subscription s
+        SELECT s FROM AreaSubscription s
         WHERE (6371000 * acos(
           cos(radians(:lat)) * cos(radians(s.latitude)) *
           cos(radians(s.longitude) - radians(:lon)) +
@@ -22,7 +22,7 @@ interface SubscriptionRepository : JpaRepository<Subscription, Long> {
     fun findAllSubscriptionsCovering(
         @Param("lat") lat: Double,
         @Param("lon") lon: Double
-    ): List<Subscription>
+    ): List<AreaSubscription>
 
-    fun findByUserId(userId: Long): List<Subscription>
+    fun findByUserId(userId: Long): List<AreaSubscription>
 }

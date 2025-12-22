@@ -9,7 +9,7 @@ data class PendingNotification(
     val id: Long = 0,
 
     @ManyToOne
-    val subscription: Subscription,
+    val subscription: AreaSubscription,
 
     @ManyToOne
     val property: Property,

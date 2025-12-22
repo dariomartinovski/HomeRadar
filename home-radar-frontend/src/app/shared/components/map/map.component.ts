@@ -25,8 +25,8 @@ import { capitilize } from '../../utils/capitilize.util';
 import {DEFAULT_PREFERENCES_RADIUS} from '../../../data/default-user-preferences.const';
 import { UserPreferences } from '../../../interfaces/user-preferences.interface';
 import { SubscribeButtonComponent } from '../subscribe-button/subscribe-button.component';
-import { SubscriptionService } from '../../../core/services/subscription.service';
-import { CreateSubscriptionRequest, SubscriptionType } from '../../../interfaces/subscription.interface';
+import { AreaSubscriptionService } from '../../../core/services/area-subscription.service';
+import { CreateAreaSubscriptionRequest, AreaSubscriptionType } from '../../../interfaces/area-subscription.interface';
 import { catchError, of } from 'rxjs';
 import { PropertyType } from '../../../enums/property-type.enum';
 import { ActivatedRoute } from '@angular/router';
@@ -75,7 +75,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private user?: User;
 
-  subscriptionService = inject(SubscriptionService);
+  areaSubscriptionService = inject(AreaSubscriptionService);
   #route = inject(ActivatedRoute);
   #userService = inject(UserService);
   #imageService = inject(ImageService);
@@ -526,14 +526,14 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.isSubscribing.set(true);
 
-    const subscriptionRequest: CreateSubscriptionRequest = {
+    const subscriptionRequest: CreateAreaSubscriptionRequest = {
       latitude: area.lat,
       longitude: area.lng,
       radiusMeters: radius,
-      type: SubscriptionType.INSTANT
+      type: AreaSubscriptionType.INSTANT
     };
 
-    this.subscriptionService.createSubscription(subscriptionRequest)
+    this.areaSubscriptionService.createAreaSubscription(subscriptionRequest)
       .pipe(
         catchError((error) => {
           alert('Failed to create subscription. Please try again.');

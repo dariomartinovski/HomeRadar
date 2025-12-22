@@ -1,6 +1,6 @@
 package com.home_radar.domain.enum
 
-enum class SubscriptionType {
+enum class AreaSubscriptionType {
     INSTANT,
     DAILY,
     WEEKLY

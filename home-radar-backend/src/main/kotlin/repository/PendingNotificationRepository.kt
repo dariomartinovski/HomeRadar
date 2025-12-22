@@ -1,6 +1,6 @@
 package com.home_radar.repository
 
-import com.home_radar.domain.enum.SubscriptionType
+import com.home_radar.domain.enum.AreaSubscriptionType
 import org.springframework.stereotype.Repository
 
 
@@ -22,7 +22,7 @@ interface PendingNotificationRepository : JpaRepository<PendingNotification, Lon
         """
     )
     fun findAllForTypeAndDate(
-        @Param("type") type: SubscriptionType,
+        @Param("type") type: AreaSubscriptionType,
         @Param("date") date: LocalDate
     ): List<PendingNotification>
 
@@ -34,7 +34,7 @@ interface PendingNotificationRepository : JpaRepository<PendingNotification, Lon
         """
     )
     fun findAllForTypeAndAfterDate(
-        @Param("type") type: SubscriptionType,
+        @Param("type") type: AreaSubscriptionType,
         @Param("fromDate") fromDate: LocalDateTime
     ): List<PendingNotification>
 }
