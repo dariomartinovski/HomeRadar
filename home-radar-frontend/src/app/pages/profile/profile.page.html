@@ -5,6 +5,10 @@
       <span>Back to Home</span>
     </a>
     <div class="top-bar-actions">
+      <button class="plans-btn" (click)="viewPlans()">
+        <mat-icon>workspace_premium</mat-icon>
+        <span>See Plans</span>
+      </button>
       @if (user && user.role === UserRole.ADMIN) {
         <a routerLink="/admin-panel" class="admin-btn">
           <mat-icon>admin_panel_settings</mat-icon>

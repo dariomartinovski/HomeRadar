@@ -6,7 +6,7 @@ import { User } from "../../interfaces/user.interface";
 import { Router, RouterLink } from "@angular/router";
 import { MatIcon } from "@angular/material/icon";
 import { LoadingOverlayComponent } from "../../shared/components/loading-overlay/loading-overlay.component";
-import {UserRole} from '../../enums/user-role.enums';
+import { UserRole } from '../../enums/user-role.enums';
 
 @Component({
   selector: 'profile',
@@ -49,6 +49,10 @@ export class ProfilePage implements OnInit {
     this.#router.navigate(['/login']).then(() => {
       this.loading = false;
     });
+  }
+
+  viewPlans() {
+    this.#router.navigate(['/subscription-plans']);
   }
 
   protected readonly UserRole = UserRole;

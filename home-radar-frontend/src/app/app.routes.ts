@@ -8,6 +8,7 @@ import {PropertyDetailsPage} from './pages/property-details/property-details.pag
 import {AdminPanelPage} from './pages/admin-panel/admin-panel.page';
 import {authGuard} from './core/guards/auth.guard';
 import {ForbiddenPage} from './pages/forbidden/forbidden.page';
+import {SubscriptionPlansPage} from './shared/components/subscription-plans/subscription-plans.page';
 
 export const routes: Routes = [
   {
@@ -21,6 +22,11 @@ export const routes: Routes = [
   {
     path: 'profile',
     component: ProfilePage,
+    canActivate: [authGuard]
+  },
+  {
+    path: 'subscription-plans',
+    component: SubscriptionPlansPage,
     canActivate: [authGuard]
   },
   {
