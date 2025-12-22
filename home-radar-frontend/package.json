@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "home-radar": "ng serve --host home-radar.mk --ssl true --ssl-cert ../certs/home-radar.mk.pem --ssl-key ../certs/home-radar.mk-key.pem"
   },
   "private": true,
   "dependencies": {
