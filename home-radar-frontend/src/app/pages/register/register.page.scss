@@ -1,4 +1,5 @@
 @use 'colors' as *;
+@use "sass:color";
 
 #auth-container {
   min-height: 100vh;
@@ -189,7 +190,7 @@ mat-form-field {
   color: $secondary-text-color;
 
   &:hover:not(:disabled) {
-    background-color: darken($purple-600, 8%);
+    background-color: color.adjust($purple-600, $lightness: -8%);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(136, 136, 168, 0.3);
   }
@@ -218,7 +219,7 @@ mat-form-field {
     filter: brightness(1);
 
     &:hover {
-      color: darken($purple-600, 8%);
+      color: color.adjust($purple-600, $lightness: -8%);
       text-decoration: underline;
     }
   }

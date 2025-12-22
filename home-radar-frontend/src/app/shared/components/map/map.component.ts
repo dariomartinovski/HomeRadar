@@ -20,7 +20,7 @@ import * as L from 'leaflet';
 import 'leaflet.markercluster';
 import { Coordinate } from '../../../interfaces/coordinate.interface';
 import { Perk } from '../../../interfaces/perk.interface';
-import { getPerkIcon } from '../../utils/perk-icon-url.util';
+import {getIcon} from '../../utils/icon-url.util';
 import { capitilize } from '../../utils/capitilize.util';
 import {DEFAULT_PREFERENCES_RADIUS} from '../../../data/default-user-preferences.const';
 import { UserPreferences } from '../../../interfaces/user-preferences.interface';
@@ -33,6 +33,7 @@ import { ActivatedRoute } from '@angular/router';
 import {UserService} from '../../../core/services/user.service';
 import {User} from '../../../interfaces/user.interface';
 import {PreferenceTypeEnum} from '../../../enums/preference-type.enum';
+import {ImageService} from '../../../core/services/image.service';
 
 @Component({
   selector: 'map-component',
@@ -77,6 +78,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
   subscriptionService = inject(SubscriptionService);
   #route = inject(ActivatedRoute);
   #userService = inject(UserService);
+  #imageService = inject(ImageService);
 
   ngOnInit() {
     this.user = this.#userService.getCurrentUser();
@@ -298,7 +300,8 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
     const markers: L.Marker[] = [];
 
     this.perks().forEach((perk) => {
-      const perkIcon = getPerkIcon(perk.perkType.name);
+      const perkIconUrl = this.#imageService.getImageUrl(perk.perkType.iconImageId);
+      const perkIcon = getIcon(perkIconUrl);
 
       const marker = L.marker([perk.latitude, perk.longitude], {
         icon: perkIcon,
@@ -308,7 +311,7 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
       marker.bindPopup(this.createPerkPopup(perk));
 
       marker.on('click', () => {
-        this.map.flyTo([perk.latitude, perk.longitude], 17, {
+        this.map.flyTo([perk.latitude, perk.longitude], 18, {
           animate: true,
           duration: 1.4,
         });

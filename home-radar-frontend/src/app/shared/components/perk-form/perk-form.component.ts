@@ -1,18 +1,13 @@
-// perk-form.component.ts
 import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatButtonModule } from '@angular/material/button';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { HttpClient } from '@angular/common/http';
 import { debounceTime, distinctUntilChanged, Subject, switchMap } from 'rxjs';
 import * as L from 'leaflet';
 import { PerkService } from '../../../core/services/perks.service';
 import { PerkTypeService } from '../../../core/services/perk-type.service';
 import { PerkType } from '../../../interfaces/perk-type.interface';
-import {CapitalizePipe} from '../../pipes/capitilzie.pipe';
+import { CapitalizePipe } from '../../pipes/capitilzie.pipe';
 
 @Component({
   selector: 'perk-form',
@@ -22,10 +17,6 @@ import {CapitalizePipe} from '../../pipes/capitilzie.pipe';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    MatInputModule,
-    MatSelectModule,
-    MatButtonModule,
-    MatAutocompleteModule,
     CapitalizePipe
   ]
 })
@@ -46,6 +37,7 @@ export class CreatePerkComponent implements OnInit, AfterViewInit {
 
   addressOptions: any[] = [];
   addressInput$ = new Subject<string>();
+  showAddressDropdown = false;
 
   private map!: L.Map;
   private marker!: L.Marker;
@@ -138,6 +130,7 @@ export class CreatePerkComponent implements OnInit, AfterViewInit {
       switchMap(query => this.searchAddress(query))
     ).subscribe(results => {
       this.addressOptions = results;
+      this.showAddressDropdown = results.length > 0;
     });
   }
 
@@ -145,6 +138,8 @@ export class CreatePerkComponent implements OnInit, AfterViewInit {
     const query = this.perkForm.get('address')?.value;
     if (query && query.length > 3) {
       this.addressInput$.next(query);
+    } else {
+      this.showAddressDropdown = false;
     }
   }
 
@@ -153,8 +148,10 @@ export class CreatePerkComponent implements OnInit, AfterViewInit {
     const lon = parseFloat(option.lon);
     const pos = L.latLng(lat, lon);
 
+    this.perkForm.patchValue({ address: option.display_name });
     this.updateMarker([lat, lon]);
     this.map.setView(pos, 16);
+    this.showAddressDropdown = false;
   }
 
   private searchAddress(query: string) {
@@ -257,6 +254,7 @@ export class CreatePerkComponent implements OnInit, AfterViewInit {
     }
     this.errorMessage = '';
     this.successMessage = '';
+    this.showAddressDropdown = false;
   }
 
   private markFormGroupTouched(formGroup: FormGroup): void {

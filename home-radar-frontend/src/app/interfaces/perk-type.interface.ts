@@ -3,4 +3,5 @@ export interface PerkType {
   name: string,
   description?: string;
   defaultPerkTypeWeight: number;
+  iconImageId: number;
 }

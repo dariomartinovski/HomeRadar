@@ -43,8 +43,4 @@ export class SidebarComponent {
   profileRoute = computed(() => {
     return this.user() != null ? '/profile' : '/login';
   });
-
-  settingsRoute = computed(() => {
-  return this.user() != null ? '/settings' : '/login';
-});
 }

@@ -4,7 +4,7 @@ import { DecimalPipe, NgClass } from '@angular/common';
 import { PropertyService } from '../../../core/services/property.service';
 import { HomeRadarScore } from '../../../interfaces/home-radar-score.interface';
 import { CapitalizePipe } from '../../pipes/capitilzie.pipe';
-import { PerkIconUrlPipe } from '../../pipes/perk-icon-url.pipe';
+import { ImageUrlPipe } from '../../pipes/image-url.pipe';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -14,7 +14,7 @@ import { ActivatedRoute } from '@angular/router';
   imports: [
     DecimalPipe,
     CapitalizePipe,
-    PerkIconUrlPipe,
+    ImageUrlPipe,
     NgClass
   ],
 })

@@ -20,51 +20,63 @@
       <form [formGroup]="perkForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
           <label for="title">Title <span class="required">*</span></label>
-          <mat-form-field appearance="outline" class="full-width">
-            <input matInput type="text" id="title" formControlName="title" placeholder="Enter perk title" />
-            @if (perkForm.get('title')?.invalid && perkForm.get('title')?.touched) {
-              <mat-error>Title is required</mat-error>
-            }
-          </mat-form-field>
+          <input
+            type="text"
+            id="title"
+            formControlName="title"
+            class="form-control"
+            placeholder="Enter perk title"
+          />
+          @if (perkForm.get('title')?.invalid && perkForm.get('title')?.touched) {
+            <div class="error-text">Title is required</div>
+          }
         </div>
 
         <div class="form-group">
           <label for="perkTypeId">Perk Type <span class="required">*</span></label>
-          <mat-form-field appearance="outline" class="full-width">
-            <mat-select id="perkTypeId" formControlName="perkTypeId" placeholder="Select a perk type">
-              @for (perkType of perkTypes; track perkType.id) {
-                <mat-option [value]="perkType.id">{{ perkType.name | capitalize }}</mat-option>
-              }
-            </mat-select>
-            @if (perkForm.get('perkTypeId')?.invalid && perkForm.get('perkTypeId')?.touched) {
-              <mat-error>Perk type is required</mat-error>
+          <select
+            id="perkTypeId"
+            formControlName="perkTypeId"
+            class="form-control"
+          >
+            <option [value]="null" disabled>Select a perk type</option>
+            @for (perkType of perkTypes; track perkType.id) {
+              <option [value]="perkType.id">{{ perkType.name | capitalize }}</option>
             }
-          </mat-form-field>
+          </select>
+          @if (perkForm.get('perkTypeId')?.invalid && perkForm.get('perkTypeId')?.touched) {
+            <div class="error-text">Perk type is required</div>
+          }
         </div>
 
         <div class="form-group">
           <label for="address">Address <span class="required">*</span></label>
-          <mat-form-field appearance="outline" class="full-width">
+          <div class="autocomplete-wrapper">
             <input
-              matInput
               type="text"
               id="address"
               formControlName="address"
+              class="form-control"
               placeholder="Search for address"
               (input)="onAddressInput()"
-              [matAutocomplete]="auto"
+              (blur)="showAddressDropdown = false"
             />
-            <mat-autocomplete #auto="matAutocomplete">
-              @for (option of addressOptions; track option) {
-                <mat-option [value]="option.display_name" (onSelectionChange)="onAddressSelect(option)">
-                  {{ option.display_name }}
-                </mat-option>
-              }
-            </mat-autocomplete>
-            @if (perkForm.get('address')?.invalid && perkForm.get('address')?.touched) {
-              <mat-error>Address is required</mat-error>
+            @if (showAddressDropdown && addressOptions.length > 0) {
+              <div class="autocomplete-dropdown">
+                @for (option of addressOptions; track option) {
+                  <div
+                    class="autocomplete-item"
+                    (mousedown)="onAddressSelect(option)"
+                  >
+                    {{ option.display_name }}
+                  </div>
+                }
+              </div>
             }
-          </mat-form-field>
+          </div>
+          @if (perkForm.get('address')?.invalid && perkForm.get('address')?.touched) {
+            <div class="error-text">Address is required</div>
+          }
         </div>
 
         <div class="form-group">
@@ -77,22 +89,28 @@
 
         <div class="form-group">
           <label for="openingHours">Opening Hours</label>
-          <mat-form-field appearance="outline" class="full-width">
-            <textarea
-              matInput
-              id="openingHours"
-              formControlName="openingHours"
-              rows="3"
-              placeholder="e.g. Mon-Fri: 9:00-17:00"
-            ></textarea>
-          </mat-form-field>
+          <textarea
+            id="openingHours"
+            formControlName="openingHours"
+            class="form-control"
+            rows="3"
+            placeholder="e.g. Mon-Fri: 9:00-17:00"
+          ></textarea>
         </div>
 
         <div class="button-group">
-          <button mat-raised-button color="primary" type="submit" [disabled]="loading || perkForm.invalid">
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="loading || perkForm.invalid"
+          >
             {{ loading ? 'Creating...' : 'Create Perk' }}
           </button>
-          <button mat-raised-button type="button" (click)="onReset()">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            (click)="onReset()"
+          >
             Reset
           </button>
         </div>

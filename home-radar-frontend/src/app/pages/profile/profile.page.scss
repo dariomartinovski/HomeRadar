@@ -9,6 +9,45 @@
   background-color: #f5f5f5;
   border-radius: 12px;
 
+  .top-bar-actions {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+  }
+
+  .admin-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.75em 1.5em;
+    background-color: $purple-600;
+    color: $secondary-text-color;
+    border: none;
+    border-radius: 0.5em;
+    font-size: $body-font-size;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    filter: none;
+
+    mat-icon {
+      font-size: 1.25rem;
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    &:hover {
+      background-color: darken($purple-600, 10%);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
   .back-home {
     display: flex;
     align-items: center;
@@ -32,6 +71,7 @@
 
     &:hover {
       filter: brightness(1.2);
+
       span {
         text-decoration: underline;
       }
@@ -61,7 +101,7 @@
     }
 
     &:hover {
-      background-color: #08284c;
+      background-color: darken($purple-600, 10%);
     }
   }
 }

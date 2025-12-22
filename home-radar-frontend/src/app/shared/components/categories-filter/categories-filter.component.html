@@ -11,7 +11,7 @@
             [checked]="isChecked(perkType.name)"
             (change)="toggleCategory(perkType.name, $event)"
             >
-        <img [src]="perkType.name | perkIconUrl" [alt]="perkType">
+        <img [src]="perkType.iconImageId | imageUrl" [alt]="perkType">
     </div>
     }
 </div>
