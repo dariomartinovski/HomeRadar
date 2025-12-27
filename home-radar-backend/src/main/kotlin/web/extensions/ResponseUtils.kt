@@ -1,9 +1,7 @@
 package com.home_radar.web.extensions
 
-import com.home_radar.domain.Perk
-import com.home_radar.domain.PerkType
-import com.home_radar.domain.Property
-import com.home_radar.domain.UserPreference
+import com.home_radar.domain.*
+import com.home_radar.domain.dto.SubscriptionDto
 import com.home_radar.web.response.*
 
 fun Property.toResponse() = PropertyResponse(
@@ -68,5 +66,16 @@ fun UserPreference.toResponse(): UserPreferenceResponse {
         perkPreferences = this.perkPreferences.map { (perkType, weight) ->
             PerkWeightResponse(perkType, weight)
         }
+    )
+}
+
+fun Subscription.toDto(): SubscriptionDto {
+    return SubscriptionDto(
+        id = id,
+        userId = userId,
+        planType = planType.name,
+        status = status.name,
+        startDate = startDate.toString(),
+        endDate = endDate?.toString()
     )
 }

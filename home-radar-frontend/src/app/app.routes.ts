@@ -1,14 +1,17 @@
-import { Routes } from '@angular/router';
-import { HomePage } from './pages/home/home.page';
-import { ProfilePage } from './pages/profile/profile.page';
-import { SettingsPage } from './pages/settings/settings.page';
-import { LoginPage } from './pages/login/login.page';
-import { RegisterPage } from './pages/register/register.page';
+import {Routes} from '@angular/router';
+import {HomePage} from './pages/home/home.page';
+import {ProfilePage} from './pages/profile/profile.page';
+import {SettingsPage} from './pages/settings/settings.page';
+import {LoginPage} from './pages/login/login.page';
+import {RegisterPage} from './pages/register/register.page';
 import {PropertyDetailsPage} from './pages/property-details/property-details.page';
 import {AdminPanelPage} from './pages/admin-panel/admin-panel.page';
 import {authGuard} from './core/guards/auth.guard';
 import {ForbiddenPage} from './pages/forbidden/forbidden.page';
 import {SubscriptionPlansPage} from './shared/components/subscription-plans/subscription-plans.page';
+import {SubscriptionSuccessComponent} from './shared/dialogs/subscription-success/subscription-success.component';
+import {standardSubscriptionGuard} from './core/guards/subscription.guard';
+import {SubscriptionRequiredPage} from './pages/subscription-required/subscription-required.page';
 
 export const routes: Routes = [
   {
@@ -30,14 +33,18 @@ export const routes: Routes = [
     canActivate: [authGuard]
   },
   {
+    path: 'subscription/success',
+    component: SubscriptionSuccessComponent
+  },
+  {
     path: 'settings',
     component: SettingsPage,
-    canActivate: [authGuard]
+    canActivate: [authGuard, standardSubscriptionGuard]
   },
   {
     path: 'admin-panel',
     component: AdminPanelPage,
-    canActivate: [authGuard]
+    canActivate: [authGuard, standardSubscriptionGuard]
   },
   {
     path: 'login',
@@ -50,6 +57,10 @@ export const routes: Routes = [
   {
     path: 'forbidden',
     component: ForbiddenPage
+  },
+  {
+    path: 'subscription-required',
+    component: SubscriptionRequiredPage
   },
   {
     path: '**',

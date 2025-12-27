@@ -38,6 +38,10 @@ class SecurityConfiguration(val authenticationProvider: AuthenticationProvider, 
                         "/api/images/**"
                         ).permitAll()
                     .requestMatchers(
+                        HttpMethod.POST,
+                        "/api/webhooks/stripe"
+                    ).permitAll()
+                    .requestMatchers(
                         HttpMethod.GET,
                         "/api/properties",
                         "/api/properties/**",

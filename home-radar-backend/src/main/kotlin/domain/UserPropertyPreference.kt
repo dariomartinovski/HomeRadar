@@ -1,7 +1,6 @@
 package com.home_radar.domain
 
 import com.home_radar.domain.dto.UserPropertyPreferenceSimpleDto
-import com.home_radar.domain.dto.UserSimpleDto
 import com.home_radar.domain.enum.PreferenceType
 import jakarta.persistence.*
 

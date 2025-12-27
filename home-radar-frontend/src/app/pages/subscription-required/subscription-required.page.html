@@ -1,0 +1,27 @@
+<div class="subscription-required-container">
+  <div class="subscription-required-content">
+    <div class="icon-wrapper">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+        <path d="M2 17l10 5 10-5"></path>
+        <path d="M2 12l10 5 10-5"></path>
+      </svg>
+    </div>
+
+    <h1 class="title">Subscription Required</h1>
+
+    <p class="message">
+      Access to this page requires a <strong>{{ requiredPlan }}</strong> subscription plan or higher.
+      Please upgrade your subscription to access this content.
+    </p>
+
+    <div class="button-group">
+      <button class="btn btn-primary" (click)="goToSubscriptionPlans()">
+        View Subscription Plans
+      </button>
+      <button class="btn btn-secondary" (click)="goToHome()">
+        Go to Home
+      </button>
+    </div>
+  </div>
+</div>

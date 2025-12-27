@@ -40,10 +40,11 @@ class AuthenticationService(
             phoneNumber = request.phoneNumber,
             role = UserRole.CLIENT
         )
-        repository.save(user)
+        val savedUser = repository.save(user)
         val jwtToken = jwtService.generateToken(user)
+
         applicationEventPublisher.publishEvent(
-            UserCreatedEvent(user)
+            UserCreatedEvent(savedUser)
         )
         return AuthenticationResponse(token = jwtToken)
     }

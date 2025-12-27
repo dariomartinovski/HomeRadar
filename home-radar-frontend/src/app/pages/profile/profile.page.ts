@@ -7,6 +7,7 @@ import { Router, RouterLink } from "@angular/router";
 import { MatIcon } from "@angular/material/icon";
 import { LoadingOverlayComponent } from "../../shared/components/loading-overlay/loading-overlay.component";
 import { UserRole } from '../../enums/user-role.enums';
+import {PlanType} from '../../enums/plan-type.enum';
 
 @Component({
   selector: 'profile',
@@ -44,6 +45,10 @@ export class ProfilePage implements OnInit {
     });
   }
 
+  onSubscriptionCanceled() {
+    this.loadUser();
+  }
+
   logout() {
     this.#userService.logout();
     this.#router.navigate(['/login']).then(() => {
@@ -56,4 +61,5 @@ export class ProfilePage implements OnInit {
   }
 
   protected readonly UserRole = UserRole;
+  protected readonly PlanType = PlanType;
 }

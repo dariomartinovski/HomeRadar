@@ -7,5 +7,6 @@ data class UserSimpleDto (
     val lastName: String,
     val phoneNumber: String,
     val role: String,
+    val subscription: SubscriptionDto,
     val propertyPreferences: List<UserPropertyPreferenceSimpleDto>
 )

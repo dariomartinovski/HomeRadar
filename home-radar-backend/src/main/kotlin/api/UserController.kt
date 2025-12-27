@@ -1,6 +1,7 @@
 package com.home_radar.api
 
 import com.home_radar.domain.enum.PreferenceType
+import com.home_radar.service.SubscriptionService
 import com.home_radar.service.UserService
 import com.home_radar.web.extensions.toSimpleResponse
 import com.home_radar.web.response.PropertySimpleResponse
@@ -13,14 +14,18 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("/api/users")
 class UserController(
-    private val userService: UserService
+    private val userService: UserService,
+    private val subscriptionService: SubscriptionService
 ) {
     @GetMapping("/self")
     fun getUserDetails(): ResponseEntity<Any> {
         return try {
             val user = userService.getUserFromAuthentication(SecurityContextHolder.getContext().authentication)
                 ?: throw UsernameNotFoundException("User not found")
-            ResponseEntity.ok(user.toSimpleDto())
+
+            val subscription = subscriptionService.getUserSubscription(user.id)
+
+            ResponseEntity.ok(user.toSimpleDto(subscription))
         } catch (e: Exception) {
             ResponseEntity.badRequest().body(mapOf("error" to e.message))
         }
@@ -36,8 +41,9 @@ class UserController(
                 ?: throw UsernameNotFoundException("User not found")
             val preferenceType = PreferenceType.valueOf(type.uppercase())
             val updatedUser = userService.setPreference(user, propertyId, preferenceType)
+            val subscription = subscriptionService.getUserSubscription(user.id)
 
-            ResponseEntity.ok(updatedUser.toSimpleDto())
+            ResponseEntity.ok(updatedUser.toSimpleDto(subscription))
         } catch (e: IllegalArgumentException) {
             ResponseEntity.badRequest().body(mapOf("error" to "Invalid preference type"))
         } catch (e: Exception) {

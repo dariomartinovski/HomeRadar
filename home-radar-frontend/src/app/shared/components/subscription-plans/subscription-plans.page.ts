@@ -4,6 +4,7 @@ import { MatIcon } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import {SubscriptionService} from '../../../core/services/subscription.service';
 import {LoadingOverlayComponent} from '../loading-overlay/loading-overlay.component';
+import {PRODUCT_STRIPE_ID} from '../../../data/product-prices.enum';
 
 interface SubscriptionPlan {
   id: string;
@@ -42,7 +43,7 @@ export class SubscriptionPlansPage {
       id: 'standard',
       name: 'Standard',
       price: 9.99,
-      priceId: 'price_standard_monthly', // Replace with actual Stripe Price ID
+      priceId: PRODUCT_STRIPE_ID.STANDARD, // Replace with actual Stripe Price ID
       popular: true,
       features: [
         'List up to 3 properties',
@@ -55,7 +56,7 @@ export class SubscriptionPlansPage {
       id: 'premium',
       name: 'Premium',
       price: 19.99,
-      priceId: 'price_premium_monthly', // Replace with actual Stripe Price ID
+      priceId: PRODUCT_STRIPE_ID.PREMIUM, // Replace with actual Stripe Price ID
       features: [
         'Unlimited listings',
         'Full settings access',

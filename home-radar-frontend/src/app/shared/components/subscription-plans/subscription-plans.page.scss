@@ -1,4 +1,5 @@
 @use 'colors' as *;
+@use "sass:color";
 
 .subscription-page {
   min-height: 100vh;
@@ -95,7 +96,7 @@
   top: -12px;
   left: 50%;
   transform: translateX(-50%);
-  background: linear-gradient(90deg, $purple-600, darken($purple-600, 10%));
+  background: linear-gradient(90deg, $purple-600, color.adjust($purple-600, $lightness: -10%));
   color: $secondary-text-color;
   padding: 0.4rem 1.5rem;
   border-radius: 20px;
@@ -131,7 +132,7 @@
       min-height: 1.5rem;
       font-size: 1.8rem;
       font-weight: 700;
-      background: linear-gradient(90deg, $purple-600, lighten($purple-600, 15%));
+      background: linear-gradient(90deg, $purple-600, color.adjust($purple-600, $lightness: 15%));
       background-clip: text;
       opacity: 0.81;
     }
@@ -176,7 +177,7 @@
 .subscribe-btn {
   width: 100%;
   padding: 1rem;
-  background: linear-gradient(90deg, $purple-600, darken($purple-600, 5%));
+  background: linear-gradient(90deg, $purple-600, color.adjust($purple-600, $lightness: -5%));
   color: $secondary-text-color;
   border: none;
   border-radius: 12px;
@@ -189,7 +190,7 @@
   margin-top: auto;
 
   &:hover:not(:disabled) {
-    background: linear-gradient(90deg, lighten($purple-600, 5%), $purple-600);
+    background: linear-gradient(90deg, color.adjust($purple-600, $lightness: 5%), $purple-600);
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(147, 51, 234, 0.4);
   }

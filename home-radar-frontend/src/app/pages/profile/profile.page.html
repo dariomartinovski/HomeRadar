@@ -25,9 +25,12 @@
   @if (user) {
     <profile-info
       [user]="user"
+      (onSubscriptionCanceled)="onSubscriptionCanceled()"
     ></profile-info>
 
-    <user-property-preferences></user-property-preferences>
+    @if (user.subscription && user.subscription.planType !== PlanType.FREE) {
+      <user-property-preferences></user-property-preferences>
+    }
   }
 
   <loading-overlay [show]="loading"></loading-overlay>

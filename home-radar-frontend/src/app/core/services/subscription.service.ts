@@ -2,35 +2,36 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-interface CheckoutSessionResponse {
+export interface CheckoutSessionResponse {
   url: string;
   sessionId: string;
 }
 
-interface SubscriptionStatus {
-  plan: 'freemium' | 'standard' | 'premium';
-  active: boolean;
-  expiresAt?: string;
+export interface SubscriptionResponse {
+  id: number;
+  userId: number;
+  planType: string;
+  status: string;
+  startDate: string;
+  endDate?: string;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class SubscriptionService {
-  #path: string = 'http://localhost:8080/api/subscriptions';
+  #path = 'http://localhost:8080/api/subscriptions';
   #http = inject(HttpClient);
 
   createCheckoutSession(priceId: string): Observable<CheckoutSessionResponse> {
-    return this.#http.post<CheckoutSessionResponse>(`${this.#path}/create-checkout-session`, {
-      priceId
-    });
+    return this.#http.post<CheckoutSessionResponse>(`${this.#path}/checkout`, { priceId });
   }
 
-  getSubscriptionStatus(): Observable<SubscriptionStatus> {
-    return this.#http.get<SubscriptionStatus>(`${this.#path}/status`);
+  getCurrentSubscription(): Observable<SubscriptionResponse> {
+    return this.#http.get<SubscriptionResponse>(`${this.#path}/current`);
   }
 
-  cancelSubscription(): Observable<void> {
-    return this.#http.post<void>(`${this.#path}/cancel`, {});
+  cancelSubscription(): Observable<SubscriptionResponse> {
+    return this.#http.delete<SubscriptionResponse>(`${this.#path}/cancel`);
   }
 }

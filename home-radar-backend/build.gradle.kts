@@ -28,6 +28,7 @@ dependencies {
     implementation("io.hypersistence:hypersistence-utils-hibernate-63:3.8.2")
 
     implementation("org.springframework.boot:spring-boot-starter-security")
+    implementation("com.stripe:stripe-java:24.1.0")
 
     implementation("io.jsonwebtoken:jjwt-api:0.11.5")
     runtimeOnly("io.jsonwebtoken:jjwt-impl:0.11.5")

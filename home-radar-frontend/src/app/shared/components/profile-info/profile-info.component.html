@@ -2,9 +2,24 @@
   <div class="profile-card">
     <div class="profile-header">
       <div class="profile-avatar">{{ user().firstName.at(0) }} {{ user().lastName.at(0) }}</div>
-      <div>
+      <div class="header-info">
         <h1 class="profile-title">{{ user().firstName }} {{ user().lastName }}</h1>
         <p class="profile-subtitle">{{ user().role }}</p>
+        <div class="subscription-row">
+          <div class="subscription-badge" [ngClass]="getPlanBadgeClass(user().subscription.planType)">
+            <mat-icon>{{ getPlanIcon(user().subscription.planType) }}</mat-icon>
+            <span>{{ user().subscription.planType | capitalize }}</span>
+          </div>
+          @if (canCancelSubscription()) {
+            <button
+              class="cancel-btn"
+              (click)="cancelSubscription()"
+              [disabled]="canceling">
+              <mat-icon>cancel</mat-icon>
+              <span>{{ canceling ? 'Canceling...' : 'Cancel Subscription' }}</span>
+            </button>
+          }
+        </div>
       </div>
     </div>
 
@@ -23,6 +38,7 @@
         <span class="info-label">Email Address</span>
         <div class="info-value">{{ user().email }}</div>
       </div>
+
       <div class="info-group">
         <span class="info-label">Phone Number</span>
         <div class="info-value">{{ user().phoneNumber }}</div>

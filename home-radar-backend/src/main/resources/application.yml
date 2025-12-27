@@ -47,3 +47,15 @@ spring:
       enabled: true
       max-file-size: 5MB
       max-request-size: 5MB
+
+stripe:
+  secret-key: {{STRIPE_SECRET_KEY}}
+  publishable-key: {{STRIPE_PUBLISHABLE_KEY}}
+  webhook:
+    secret: {{STRIPE_WEBHOOK_SECRET}}
+  price-id-standard: {{STRIPE_STANDARD_PLAN_PRICE_ID}}
+  price-id-premium: {{STRIPE_PREMIUM_PLAN_PRICE_ID}}
+
+app:
+  frontend:
+    url: https://home-radar.mk:4200

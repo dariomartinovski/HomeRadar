@@ -1,0 +1,4 @@
+export enum PRODUCT_STRIPE_ID {
+  STANDARD = "price_1ShHHtEkIw1O21RGzZP2hhJn",
+  PREMIUM = "price_1ShHIFEkIw1O21RG7pKSEVK9"
+}

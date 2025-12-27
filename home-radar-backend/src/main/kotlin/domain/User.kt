@@ -1,6 +1,7 @@
 package com.home_radar.domain
 
 import com.fasterxml.jackson.annotation.JsonIgnore
+import com.home_radar.domain.dto.SubscriptionDto
 import com.home_radar.domain.dto.UserDto
 import com.home_radar.domain.dto.UserSimpleDto
 import com.home_radar.domain.enum.UserRole
@@ -57,7 +58,7 @@ data class User(
         )
     }
 
-    fun toSimpleDto(): UserSimpleDto {
+    fun toSimpleDto(subscription: SubscriptionDto): UserSimpleDto {
         return UserSimpleDto(
             id = this.id,
             firstName = this.firstName,
@@ -65,6 +66,7 @@ data class User(
             email = this.email,
             phoneNumber = this.phoneNumber,
             role = this.role.name,
+            subscription = subscription,
             propertyPreferences = this.propertyPreferences.map { it.toSimpleDto() }
         )
     }
