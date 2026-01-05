@@ -17,6 +17,7 @@ data class PropertyResponse(
     val floor: Int?,
     val heating: HeatingType,
     val price: Double,
+    val pricePrediction: Double?,
     val parking: Boolean,
     val wifi: Boolean,
     val balcony: Boolean,

@@ -1,12 +1,15 @@
 package com.home_radar.service
 
 import com.home_radar.domain.ImageEntity
+import com.home_radar.domain.PricePrediction
 import com.home_radar.domain.Property
 import com.home_radar.domain.enum.PropertyCategory
 import com.home_radar.domain.events.PropertyCreatedEvent
 import com.home_radar.repository.ImageRepository
 import com.home_radar.repository.PropertyRepository
 import com.home_radar.repository.UserRepository
+import com.home_radar.service.integration.PricePredictionClient
+import com.home_radar.web.extensions.toPricePredictionModelRequest
 import com.home_radar.web.extensions.toResponse
 import com.home_radar.web.request.PropertyCreateRequest
 import com.home_radar.web.request.PropertyFilterRequest
@@ -23,6 +26,7 @@ class PropertyService(
     private val propertyRepository: PropertyRepository,
     private val userRepository: UserRepository,
     private val imageRepository: ImageRepository,
+    private val pricePredictionClient: PricePredictionClient,
     private val eventPublisher: ApplicationEventPublisher
 ) {
     fun findAll(): List<Property> = propertyRepository.findAll()
@@ -40,6 +44,18 @@ class PropertyService(
             )
         }
 
+        val prediction = pricePredictionClient.predict(
+            request.toPricePredictionModelRequest()
+        )
+
+        val pricePrediction = PricePrediction(
+            category = prediction.category,
+            predictedPrice = prediction.predictedPrice,
+            currency = prediction.currency,
+            neighborhood = prediction.neighborhood,
+            modelType = prediction.modelType
+        )
+
         val property = Property(
             title = request.title,
             category = request.category,
@@ -52,6 +68,7 @@ class PropertyService(
             floor = request.floor,
             heating = request.heating,
             price = request.price,
+            pricePrediction = pricePrediction,
             parking = request.parking,
             wifi = request.wifi,
             balcony = request.balcony,

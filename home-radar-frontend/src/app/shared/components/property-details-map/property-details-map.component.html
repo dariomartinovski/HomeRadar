@@ -1,0 +1,25 @@
+<div class="map-wrapper">
+  <div #mapContainer class="map-container"></div>
+
+  @if (showRouteDialog()) {
+    <div class="route-dialog">
+      <div class="route-dialog-content">
+        <button class="close-btn" (click)="clearRoute()">✕</button>
+        <h3>Route Information</h3>
+        <div class="route-info">
+          <div class="info-row">
+            <span class="label">Distance:</span>
+            <span class="value">{{ formatDistance(routeInfo()?.distance || 0) }}</span>
+          </div>
+          <div class="info-row">
+            <span class="label">ETA:</span>
+            <span class="value">{{ formatDuration(routeInfo()?.duration || 0) }}</span>
+          </div>
+        </div>
+        <div class="route-actions">
+          <button class="action-btn primary" (click)="clearRoute()">Clear Route</button>
+        </div>
+      </div>
+    </div>
+  }
+</div>

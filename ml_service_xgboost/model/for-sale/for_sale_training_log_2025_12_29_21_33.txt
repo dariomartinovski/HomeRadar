@@ -1,0 +1,55 @@
+================================================================================
+PROPERTY PRICE PREDICTION MODEL - TRAINING LOG
+================================================================================
+Training Date: 2025-12-29 21:33:08
+Property Category: FOR_SALE
+
+DATASET INFORMATION
+--------------------------------------------------------------------------------
+Total Properties: 213
+Training Samples: 170
+Test Samples: 43
+
+Price Statistics:
+  Mean: $12.04
+  Median: $11.92
+  Min: $10.55
+  Max: $13.73
+
+MODEL PERFORMANCE METRICS
+--------------------------------------------------------------------------------
+
+Training Set:
+  MAE:  $0.13
+  RMSE: $0.17
+  R²:   0.9073
+
+Test Set:
+  MAE:  $0.27
+  RMSE: $0.33
+  R²:   0.6011
+  MAPE: 2.26%
+
+FEATURE IMPORTANCE
+--------------------------------------------------------------------------------
+  has_multiple_bathrooms        : 0.2394
+  bathrooms                     : 0.1318
+  square_meters                 : 0.0600
+  is_ground_floor               : 0.0599
+  lng                           : 0.0483
+  number_of_rooms               : 0.0423
+  type_encoded                  : 0.0412
+  lat                           : 0.0406
+  bedrooms                      : 0.0397
+  has_multiple_bedrooms         : 0.0380
+  heating_encoded               : 0.0362
+  floor                         : 0.0306
+  parking                       : 0.0295
+  room_density                  : 0.0293
+  neighborhood_encoded          : 0.0251
+  year_built                    : 0.0236
+  property_age                  : 0.0217
+  balcony                       : 0.0207
+  elevator                      : 0.0174
+  is_high_floor                 : 0.0146
+  wifi                          : 0.0104

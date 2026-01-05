@@ -59,3 +59,12 @@ stripe:
 app:
   frontend:
     url: https://home-radar.mk:4200
+
+ml:
+  pricing:
+    for-rent:
+      url: http://127.0.0.1:8000/predict
+      model: XGBoost
+    for-sale:
+      url: http://127.0.0.1:8002/predict
+      model: CatBoost

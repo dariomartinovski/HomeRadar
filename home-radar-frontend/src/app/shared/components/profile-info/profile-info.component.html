@@ -4,7 +4,7 @@
       <div class="profile-avatar">{{ user().firstName.at(0) }} {{ user().lastName.at(0) }}</div>
       <div class="header-info">
         <h1 class="profile-title">{{ user().firstName }} {{ user().lastName }}</h1>
-        <p class="profile-subtitle">{{ user().role }}</p>
+        <p class="profile-subtitle">{{ user().role | capitalize }}</p>
         <div class="subscription-row">
           <div class="subscription-badge" [ngClass]="getPlanBadgeClass(user().subscription.planType)">
             <mat-icon>{{ getPlanIcon(user().subscription.planType) }}</mat-icon>

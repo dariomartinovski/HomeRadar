@@ -70,6 +70,12 @@
           <div class="price-label">
             {{ property.category === 'FOR_RENT' ? 'per month' : 'total price' }}
           </div>
+          @if (property.pricePrediction) {
+            <div class="estimated-price">
+              <span class="estimated-label">Estimated Market Value:</span>
+              <span class="estimated-value">{{ property.pricePrediction }}€</span>
+            </div>
+          }
         </div>
       </div>
 

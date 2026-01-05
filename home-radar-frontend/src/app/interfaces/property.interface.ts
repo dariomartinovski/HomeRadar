@@ -19,6 +19,7 @@ export interface Property {
 
   squareMeters: number;
   price: number;
+  pricePrediction?: number;
 
   heating: HeatingType;
   type: PropertyType;

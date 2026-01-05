@@ -43,6 +43,11 @@ data class Property(
     val numberOfRooms: Int,
 
     val price: Double,
+
+    @OneToOne(cascade = [CascadeType.ALL], orphanRemoval = true)
+    @JoinColumn(name = "price_prediction_id")
+    val pricePrediction: PricePrediction?,
+
     val yearBuilt: Int?,
     val bedrooms: Int?,
     val bathrooms: Int?,

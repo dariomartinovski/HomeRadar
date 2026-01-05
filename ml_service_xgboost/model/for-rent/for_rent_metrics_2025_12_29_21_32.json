@@ -1,0 +1,133 @@
+{
+  "timestamp": "2025-12-29T21:32:45.659071",
+  "property_category": "FOR_RENT",
+  "dataset_info": {
+    "total_properties": 1114,
+    "train_samples": 891,
+    "test_samples": 223,
+    "price_mean": 6.223967187451106,
+    "price_median": 6.111467339502679,
+    "price_min": 4.820281565605037,
+    "price_max": 8.517393171418904
+  },
+  "training_metrics": {
+    "mae": 0.14930355104074056,
+    "rmse": 0.19435179431594066,
+    "r2": 0.8713446917405331
+  },
+  "test_metrics": {
+    "mae": 0.2365339762571344,
+    "rmse": 0.34008625430366735,
+    "r2": 0.3851889976400711,
+    "mape": 3.877399899355734
+  },
+  "feature_importance": [
+    {
+      "feature": "bathrooms",
+      "importance": 0.1771605908870697
+    },
+    {
+      "feature": "square_meters",
+      "importance": 0.16167543828487396
+    },
+    {
+      "feature": "has_multiple_bathrooms",
+      "importance": 0.09954472631216049
+    },
+    {
+      "feature": "type_encoded",
+      "importance": 0.07150647789239883
+    },
+    {
+      "feature": "parking",
+      "importance": 0.0523933582007885
+    },
+    {
+      "feature": "property_age",
+      "importance": 0.04315899312496185
+    },
+    {
+      "feature": "is_high_floor",
+      "importance": 0.03550336882472038
+    },
+    {
+      "feature": "number_of_rooms",
+      "importance": 0.03501778468489647
+    },
+    {
+      "feature": "year_built",
+      "importance": 0.033819057047367096
+    },
+    {
+      "feature": "balcony",
+      "importance": 0.030227025970816612
+    },
+    {
+      "feature": "floor",
+      "importance": 0.02956308238208294
+    },
+    {
+      "feature": "room_density",
+      "importance": 0.029342683032155037
+    },
+    {
+      "feature": "bedrooms",
+      "importance": 0.026216093450784683
+    },
+    {
+      "feature": "wifi",
+      "importance": 0.02436082996428013
+    },
+    {
+      "feature": "neighborhood_encoded",
+      "importance": 0.022879375144839287
+    },
+    {
+      "feature": "has_multiple_bedrooms",
+      "importance": 0.02216576412320137
+    },
+    {
+      "feature": "lat",
+      "importance": 0.021589476615190506
+    },
+    {
+      "feature": "lng",
+      "importance": 0.021533586084842682
+    },
+    {
+      "feature": "elevator",
+      "importance": 0.021158885210752487
+    },
+    {
+      "feature": "heating_encoded",
+      "importance": 0.020980238914489746
+    },
+    {
+      "feature": "is_ground_floor",
+      "importance": 0.0202032383531332
+    }
+  ],
+  "features_used": [
+    "square_meters",
+    "floor",
+    "parking",
+    "wifi",
+    "balcony",
+    "elevator",
+    "heating_encoded",
+    "type_encoded",
+    "neighborhood_encoded",
+    "lat",
+    "lng",
+    "number_of_rooms",
+    "year_built",
+    "bedrooms",
+    "bathrooms",
+    "property_age",
+    "room_density",
+    "has_multiple_bathrooms",
+    "has_multiple_bedrooms",
+    "is_ground_floor",
+    "is_high_floor"
+  ]
+}

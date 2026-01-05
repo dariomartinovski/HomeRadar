@@ -14,8 +14,16 @@
       <h2 class="title">{{ property.title }}</h2>
 
       <div class="price-section">
-        <span class="price">{{ property.price }}€</span>
-        <span class="price-label">{{ property.category === 'FOR_RENT' ? '/month' : 'total' }}</span>
+        <div class="price-row">
+          <span class="price">{{ property.price }}€</span>
+          <span class="price-label">{{ property.category === 'FOR_RENT' ? '/month' : 'total' }}</span>
+        </div>
+        @if (property.pricePrediction) {
+          <div class="predicted-price">
+            <span class="predicted-label">Estimated Market Value: :</span>
+            <span class="predicted-value">{{ property.pricePrediction }}€</span>
+          </div>
+        }
       </div>
 
       <div class="location-type">

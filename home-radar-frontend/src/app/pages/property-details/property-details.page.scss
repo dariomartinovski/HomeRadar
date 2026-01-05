@@ -214,6 +214,29 @@
         text-transform: uppercase;
         letter-spacing: 0.5px;
       }
+
+      .estimated-price {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 12px;
+        padding: 10px 14px;
+        background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+        border-left: 3px solid #0ea5e9;
+        border-radius: 6px;
+        font-size: 14px;
+      }
+
+      .estimated-label {
+        color: #0369a1;
+        font-weight: 500;
+      }
+
+      .estimated-value {
+        color: #0c4a6e;
+        font-weight: 600;
+        font-size: 16px;
+      }
     }
   }
 

@@ -1,0 +1,69 @@
+================================================================================
+PROPERTY PRICE MODEL EVALUATION
+================================================================================
+Category: FOR_SALE
+Models: XGBoost, Ridge, CatBoost
+================================================================================
+📊 Fetching FOR_SALE properties from database...
+✅ Loaded 218 properties
+   Price range: €38000.00 - €920000.00
+   Mean price: €204139.22
+
+🔮 Getting predictions from all models...
+   Progress: 50/218 properties...
+   Progress: 100/218 properties...
+   Progress: 150/218 properties...
+   Progress: 200/218 properties...
+✅ Got predictions for 218 properties
+
+📈 Calculating metrics...
+
+XGBoost:
+  MAE:  €43,403.63
+  RMSE: €80,695.20
+  MAPE: 20.20%
+  R²:   0.7132
+
+Ridge:
+  MAE:  €61,214.89
+  RMSE: €114,413.75
+  MAPE: 28.10%
+  R²:   0.4235
+
+CatBoost:
+  MAE:  €33,318.19
+  RMSE: €79,727.19
+  MAPE: 14.89%
+  R²:   0.7201
+
+📊 Creating visualizations...
+  ✅ Saved: 1_scatter_predictions_vs_actual.png
+  ✅ Saved: 2_bar_comparison_sample.png
+  ✅ Saved: 3_error_distribution.png
+  ✅ Saved: 4_metrics_comparison.png
+  ✅ Saved: 5_error_by_price_range.png
+
+💾 Saving results...
+  ✅ Saved: predictions_all_properties.csv
+  ✅ Saved: metrics_summary.csv
+  ✅ Saved: evaluation_report.txt
+
+✅ All results saved to: ./model_evaluation_for_sale_20260105_1251
+
+================================================================================
+✅ EVALUATION COMPLETE!
+================================================================================
+
+🏆 Best Model (by MAE): CatBoost
+
+All outputs saved to: ./model_evaluation_for_sale_20260105_1251
+
+Generated files:
+  📊 1_scatter_predictions_vs_actual.png
+  📊 2_bar_comparison_sample.png
+  📊 3_error_distribution.png
+  📊 4_metrics_comparison.png
+  📊 5_error_by_price_range.png
+  📄 predictions_all_properties.csv
+  📄 metrics_summary.csv
+  📄 evaluation_report.txt

@@ -49,7 +49,14 @@
     </div>
 
     <div class="card-footer">
-      <div class="price">{{ property.price }}€</div>
+      <div class="price-container">
+        <div class="price">{{ property.price }}€</div>
+        @if (property.pricePrediction) {
+          <div class="estimated-price-compact">
+            Est. {{ property.pricePrediction }}€
+          </div>
+        }
+      </div>
       <button class="view-details-btn">View Details</button>
     </div>
   </div>

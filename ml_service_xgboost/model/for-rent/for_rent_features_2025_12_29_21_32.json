@@ -1,0 +1,25 @@
+{
+  "features": [
+    "square_meters",
+    "floor",
+    "parking",
+    "wifi",
+    "balcony",
+    "elevator",
+    "heating_encoded",
+    "type_encoded",
+    "neighborhood_encoded",
+    "lat",
+    "lng",
+    "number_of_rooms",
+    "year_built",
+    "bedrooms",
+    "bathrooms",
+    "property_age",
+    "room_density",
+    "has_multiple_bathrooms",
+    "has_multiple_bedrooms",
+    "is_ground_floor",
+    "is_high_floor"
+  ]
+}
