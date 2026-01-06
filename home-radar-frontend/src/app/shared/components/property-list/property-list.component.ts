@@ -17,6 +17,7 @@ type SortOption = 'price-asc' | 'price-desc' | 'size-asc' | 'size-desc' | 'rooms
 export class PropertyListComponent {
   @Input() set properties(value: Property[]) {
     this._properties = value;
+    this.currentPage = 1;
     this.sortProperties();
   }
 
@@ -26,7 +27,11 @@ export class PropertyListComponent {
 
   private _properties: Property[] = [];
   sortedProperties: Property[] = [];
+  displayedProperties: Property[] = [];
   selectedSort: SortOption = 'default';
+
+  readonly pageSize = 48;
+  currentPage = 1;
 
   sortOptions = [
     { value: 'default', label: 'Default' },
@@ -38,13 +43,27 @@ export class PropertyListComponent {
     { value: 'rooms-desc', label: 'Rooms: Most First' }
   ];
 
+  get hasMoreProperties(): boolean {
+    return this.displayedProperties.length < this.sortedProperties.length;
+  }
+
+  get remainingCount(): number {
+    return this.sortedProperties.length - this.displayedProperties.length;
+  }
+
   onPropertyClick(property: Property): void {
     this.propertySelected.emit(property);
     this.#router.navigate(["/property-details/" + property.id]);
   }
 
   onSortChange(): void {
+    this.currentPage = 1;
     this.sortProperties();
+  }
+
+  loadMore(): void {
+    this.currentPage++;
+    this.updateDisplayedProperties();
   }
 
   private sortProperties(): void {
@@ -72,5 +91,12 @@ export class PropertyListComponent {
       default:
         break;
     }
+
+    this.updateDisplayedProperties();
+  }
+
+  private updateDisplayedProperties(): void {
+    const endIndex = this.currentPage * this.pageSize;
+    this.displayedProperties = this.sortedProperties.slice(0, endIndex);
   }
 }

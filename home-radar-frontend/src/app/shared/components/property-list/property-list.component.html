@@ -25,12 +25,21 @@
     </div>
 
     <div class="properties-grid">
-      @for (property of sortedProperties; track property.id) {
+      @for (property of displayedProperties; track property.id) {
         <property-list-card
           [property]="property"
           (cardClick)="onPropertyClick($event)">
         </property-list-card>
       }
     </div>
+
+    @if (hasMoreProperties) {
+      <div class="load-more-section">
+        <button class="load-more-btn" (click)="loadMore()">
+          <span class="btn-text">Load More Properties</span>
+          <span class="remaining-count">({{ remainingCount }} remaining)</span>
+        </button>
+      </div>
+    }
   }
 </div>
